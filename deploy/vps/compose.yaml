@@ -1,0 +1,31 @@
+name: umi-realms-preview
+services:
+  realms:
+    build:
+      context: ../..
+      dockerfile: deploy/vps/Dockerfile.realms
+    restart: unless-stopped
+    init: true
+    ports: ["127.0.0.1:4173:4173"]
+    volumes: ["realms-test-data:/data"]
+    environment:
+      REALMS_MODE: preview
+      REALMS_DATA_DIR: /data
+      PORT: 4173
+    security_opt: ["no-new-privileges:true"]
+  https:
+    image: caddy:2.10.2
+    profiles: ["https"]
+    restart: unless-stopped
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      REALMS_DOMAIN: ${REALMS_DOMAIN:?Set REALMS_DOMAIN in the private environment file}
+    volumes:
+      - ./Caddyfile.preview:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on: [realms]
+volumes:
+  realms-test-data:
+  caddy-data:
+  caddy-config:

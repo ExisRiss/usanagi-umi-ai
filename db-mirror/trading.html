@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UMI TRADE — Pasar $AS</title>
+<meta name="description" content="45 saham IDX dengan simbol & nama asli: harga real-time, order beli/jual, portofolio, tukar koin, dan papan peringkat.">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="UMI TRADE">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UMI TRADE — Pasar $AS">
+<meta property="og:description" content="Bursa saham $AS Umi Games: 45 saham IDX, harga real-time, portofolio, dan papan peringkat trader.">
+<meta property="og:image" content="/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/og.png">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0a0e1a; --bg-2:#0e1524; --card:#121a2b; --card-2:#16203a;
+    --line:#1e2b45; --line-2:#28395c;
+    --ink:#eef3ff; --ink-2:#a8b6d1; --muted:#6b7c9c;
+    --up:#22d67f; --down:#ff4d6d; --accent:#5b7cfa; --gold:#ffcc57; --violet:#a78bfa;
+    --r:14px; --r-lg:20px;
+    --shadow:0 10px 34px rgba(3,7,18,.55);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    margin:0;background:
+      radial-gradient(1100px 520px at 12% -8%, #16224a 0%, transparent 60%),
+      radial-gradient(900px 420px at 100% 0%, #12303a 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;
+    padding-bottom:calc(70px + env(safe-area-inset-bottom));
+  }
+  a{color:#8fb0ff;text-decoration:none}
+  button,input,select{font:inherit;color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 14px}
+  .hidden{display:none!important}
+  .mono,.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .up{color:var(--up)} .down{color:var(--down)} .dim{color:var(--muted)}
+  .tiny{font-size:12px;color:var(--muted)}
+  h1{font-size:20px;margin:16px 0 10px}
+  h2{font-size:13px;margin:0 0 10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+
+  /* ── header + ticker ── */
+  header.app{position:sticky;top:0;z-index:40;background:rgba(10,14,26,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .brandrow{display:flex;align-items:center;gap:10px;padding:10px 14px;max-width:1180px;margin:0 auto}
+  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#5b7cfa,#22d67f);box-shadow:0 6px 18px rgba(91,124,250,.35);display:block}
+  .brandtxt b{display:block;font-size:13.5px;letter-spacing:.12em}
+  .brandtxt small{display:block;font-size:9px;letter-spacing:.2em;color:var(--muted)}
+  .brandrow .spacer{flex:1}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:11.5px;font-weight:650;border:1px solid var(--line);background:var(--card);color:var(--ink-2)}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+  .chip.live .dot{background:var(--up);box-shadow:0 0 0 3px rgba(34,214,127,.18)}
+  .chip.off .dot{background:var(--down)}
+  .ticker{overflow:hidden;border-top:1px solid var(--line);background:rgba(14,21,36,.7)}
+  .ticker-track{display:flex;gap:26px;padding:7px 0;width:max-content;animation:slide 42s linear infinite}
+  .ticker-track:hover{animation-play-state:paused}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tick{display:flex;gap:7px;align-items:baseline;font-size:12.5px;white-space:nowrap}
+  .tick b{font-size:12.5px;letter-spacing:.04em}
+  .tick .num{font-size:12.5px}
+
+  /* ── kartu umum ── */
+  .card{background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;box-shadow:var(--shadow)}
+  .card + .card{margin-top:12px}
+  .grid{display:grid;gap:12px}
+  @media(min-width:820px){ .grid.two{grid-template-columns:1.35fr .95fr} .grid.three{grid-template-columns:repeat(3,1fr)} }
+  .badge{display:inline-block;padding:2px 7px;border-radius:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;border:1px solid var(--line-2);color:var(--ink-2)}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .stat{background:var(--card-2);border:1px solid var(--line);border-radius:var(--r);padding:11px 13px}
+  .stat span{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+  .stat b{display:block;font-size:19px;margin-top:3px}
+
+  /* ── tombol ── */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:9px 15px;border-radius:12px;border:1px solid var(--line-2);background:var(--card-2);font-weight:650;cursor:pointer;transition:transform .12s,filter .12s}
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.15)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .btn-buy{background:linear-gradient(135deg,#20c476,#0f9c5c);border-color:transparent;color:#03220f}
+  .btn-sell{background:linear-gradient(135deg,#ff5c78,#d92044);border-color:transparent;color:#2b0410}
+  .btn-pri{background:linear-gradient(135deg,#6d8cff,#4459e6);border-color:transparent;color:#fff}
+  .btn-ghost{background:transparent}
+  .btn-sm{min-height:34px;padding:6px 11px;font-size:12.5px;border-radius:10px}
+  .btn-block{width:100%}
+  input,select{width:100%;min-height:44px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0d1526;color:var(--ink)}
+  input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(91,124,250,.22)}
+  input::placeholder{color:var(--muted)}
+  label{display:block;font-size:12px;font-weight:650;color:var(--ink-2);margin-bottom:12px}
+  label > span{display:block;margin-bottom:5px}
+  .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .row > .grow{flex:1;min-width:0}
+  .seg{display:flex;gap:6px;padding:4px;background:#0d1526;border:1px solid var(--line);border-radius:12px}
+  .seg button{flex:1;min-height:36px;border:0;border-radius:9px;background:transparent;font-weight:650;font-size:13px;cursor:pointer;color:var(--ink-2)}
+  .seg button.on{background:var(--card-2);color:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.3)}
+  .seg button.on.buy{background:rgba(34,214,127,.16);color:var(--up)}
+  .seg button.on.sell{background:rgba(255,77,109,.16);color:var(--down)}
+
+  /* ── pasar ── */
+  .search{margin:10px 0 12px}
+  .filters{display:flex;gap:6px;overflow:auto;padding-bottom:8px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{white-space:nowrap;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);font-size:12.5px;font-weight:650;cursor:pointer}
+  .filters button.on{background:#1b2742;border-color:var(--line-2);color:var(--ink)}
+  .mkt{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+  .mkt:last-child{border-bottom:0}
+  .mkt:active{background:#131d33}
+  .symbadge{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:12px;background:#1a2440;border:1px solid var(--line-2);flex:0 0 auto}
+  .mkt-info{flex:1;min-width:0}
+  .mkt-info b{display:block;font-size:14.5px}
+  .mkt-info span{display:block;font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mkt-price{text-align:right;flex:0 0 auto}
+  .mkt-price b{display:block;font-size:14.5px}
+  .mkt-price span{display:block;font-size:11.5px;font-weight:700}
+  .spark{width:58px;height:30px;flex:0 0 auto}
+
+  /* ── chart ── */
+  .chartbox{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#0b1220}
+  #chart{width:100%;height:270px;display:block;touch-action:pan-y}
+  .chartmeta{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--muted);padding:7px 10px;border-top:1px solid var(--line);background:#0d1526}
+  .tfs{display:flex;gap:5px}
+  .tfs button{padding:3px 9px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink-2);font-size:11.5px;font-weight:650;cursor:pointer}
+  .tfs button.on{background:#1b2742;color:var(--ink)}
+  .tickerhead{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+  .bigprice{font-size:31px;font-weight:800;letter-spacing:-.02em;line-height:1}
+
+  /* ── order book + feed ── */
+  .obrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:12px;padding:3px 0;position:relative}
+  .obrow .bar{position:absolute;top:0;bottom:0;border-radius:3px;opacity:.16}
+  .obrow .bar.bid{right:0;background:var(--up)}
+  .obrow .bar.ask{left:0;background:var(--down)}
+  .obrow span{position:relative;z-index:1;font-variant-numeric:tabular-nums}
+  .obrow .q{text-align:right;color:var(--ink-2)}
+  .obhead{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:10.5px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+  .feed{max-height:250px;overflow:auto}
+  .feedrow{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:8px;align-items:center;font-size:12.5px;padding:5px 0;border-bottom:1px solid rgba(30,43,69,.6)}
+  .feedrow:last-child{border-bottom:0}
+  .side-dot{width:8px;height:8px;border-radius:50%}
+  .side-dot.buy{background:var(--up)} .side-dot.sell{background:var(--down)}
+
+  /* ── tabel ── */
+  .tbl{width:100%;border-collapse:collapse;font-size:13px}
+  .tbl th,.tbl td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--line)}
+  .tbl th{font-size:10.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-weight:700}
+  .tbl td.r,.tbl th.r{text-align:right}
+  .tbl tr:last-child td{border-bottom:0}
+  .scroll{overflow:auto}
+  .barwrap{height:5px;border-radius:3px;background:#1a2440;overflow:hidden;margin-top:5px}
+  .barfill{height:100%;border-radius:3px}
+
+  /* ── tab bar ── */
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:center;padding:6px 10px calc(6px + env(safe-area-inset-bottom));background:rgba(10,14,26,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+  .tabbar-in{display:flex;gap:4px;width:100%;max-width:640px}
+  .tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.03em;border-radius:12px;cursor:pointer}
+  .tabbar button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9}
+  .tabbar button.on{color:var(--ink);background:rgba(91,124,250,.14)}
+
+  /* ── profil ── */
+  .avatar{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:23px;font-weight:800;background:linear-gradient(135deg,#5b7cfa,#22d67f);color:#04121f}
+  .codechip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:10px;border:1px dashed var(--line-2);background:#0d1526;font-size:12px;cursor:pointer}
+  .codechip:hover{border-color:var(--accent)}
+  .dep{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:7px 0;border-bottom:1px solid rgba(30,43,69,.6)}
+  .dep:last-child{border-bottom:0}
+  .notice{padding:10px 12px;border-radius:12px;border:1px solid var(--line-2);background:#0d1526;font-size:12.5px;margin-bottom:12px}
+  .notice.ok{border-color:rgba(34,214,127,.4);background:rgba(34,214,127,.09)}
+  .notice.warn{border-color:rgba(255,204,87,.4);background:rgba(255,204,87,.08)}
+  .notice.err{border-color:rgba(255,77,109,.45);background:rgba(255,77,109,.1)}
+
+  #toast{position:fixed;left:50%;bottom:calc(80px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:70;padding:11px 17px;border-radius:999px;background:#16203a;border:1px solid var(--line-2);box-shadow:var(--shadow);font-size:13px;max-width:92vw;text-align:center}
+  #toast.error{border-color:rgba(255,77,109,.55);background:#33121f}
+  #toast.ok{border-color:rgba(34,214,127,.5);background:#0d2b1e}
+  .modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:18px;background:rgba(4,7,14,.72)}
+  .modal .card{max-width:420px;width:100%}
+  footer{padding:20px 0 8px;text-align:center;font-size:11.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="app">
+  <div class="brandrow">
+    <img class="logo" src="/assets/icon.svg" alt="UMI TRADE" width="34" height="34">
+    <div class="brandtxt"><b>UMI TRADE</b><small>PASAR $AS · UMI GAMES</small></div>
+    <div class="spacer"></div>
+    <span class="chip" id="liveChip"><span class="dot"></span><span id="liveText">menyambung…</span></span>
+    <button class="btn btn-sm btn-ghost" id="profileBtn" type="button" title="Profil">👤</button>
+  </div>
+  <div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div>
+</header>
+
+<main class="wrap" id="main">
+
+  <!-- ═══════════ LOGIN ═══════════ -->
+  <section id="loginView">
+    <h1>Masuk ke UMI TRADE</h1>
+    <p class="tiny" style="margin:0 0 14px">Tempel <b>token akun</b> dari halaman Profil Jadibot Studio. Token mengikat saldo, portofolio, dan kode redeem ke akunmu.</p>
+    <div class="card" style="max-width:560px">
+      <div class="notice" id="loginHint">Belum punya token? Buka <a href="https://jadibot-alzriss.gwenna.my.id/#profile" target="_blank" rel="noopener">Profil → Token Akun</a>, klik <b>REGENERATE</b>, lalu salin di sini.</div>
+      <div class="seg" id="loginModeSeg" style="margin-bottom:12px">
+        <button data-mode="token" class="on">TOKEN WEBSITE</button>
+        <button data-mode="code">KODE DARI BOT</button>
+      </div>
+      <form id="loginForm" autocomplete="off">
+        <label id="tokenLabel"><span>Token akun UMI</span>
+          <input id="tokenInput" type="password" placeholder="tempel token (32–64 karakter)" spellcheck="false" autocomplete="off">
+        </label>
+        <label id="codeLabel" class="hidden"><span>Kode dari bot (6 angka)</span>
+          <input id="codeInput" inputmode="numeric" maxlength="6" placeholder="mis. 483920" autocomplete="off">
+        </label>
+        <div class="row">
+          <button class="btn btn-pri grow" id="loginBtn" type="submit">MASUK</button>
+          <button class="btn btn-ghost btn-sm" type="button" id="showTokenBtn">LIHAT</button>
+        </div>
+      </form>
+      <div class="notice" id="botHelp" style="margin-top:12px">
+        Belum punya akun? Kirim <b>.trading daftar</b> ke bot WhatsApp (bot utama / jadibot) — akun otomatis dibuat dari nomor WA kamu, lalu bot memberi kode masuk seperti <b>483920</b>.
+      </div>
+    </div>
+    <div class="card" style="max-width:560px">
+      <h2>Isi pasar</h2>
+      <div id="loginMarket" class="tiny"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PASAR ═══════════ -->
+  <section id="page-pasar" class="hidden">
+    <div class="notice warn hidden" id="sessionBanner" style="margin-top:12px"></div>
+    <div class="statgrid" id="marketStats"></div>
+    <div class="search"><input id="searchInput" placeholder="🔍 Cari saham atau kode…" autocomplete="off"></div>
+    <div class="filters" id="marketFilters">
+      <button data-filter="all" class="on">Semua</button>
+      <button data-filter="up">📈 Naik</button>
+      <button data-filter="down">📉 Turun</button>
+      <button data-filter="volume">🔥 Volume</button>
+      <button data-filter="hold">💼 Punyaku</button>
+    </div>
+    <div class="card"><div id="marketList"></div></div>
+    <footer>Harga bergerak tiap 3 detik · pasar bersifat simulasi untuk permainan</footer>
+  </section>
+
+  <!-- ═══════════ TRADING ═══════════ -->
+  <section id="page-trading" class="hidden">
+    <div class="row" style="margin:12px 0 10px">
+      <button class="btn btn-sm btn-ghost" id="symPrev" type="button">◀</button>
+      <div class="grow" id="symPickerWrap" style="max-width:260px">
+        <select id="symPicker"></select>
+      </div>
+      <button class="btn btn-sm btn-ghost" id="symNext" type="button">▶</button>
+    </div>
+
+    <div class="card">
+      <div class="tickerhead">
+        <div>
+          <div class="row" style="gap:8px"><b id="tSym" style="font-size:17px">UMI</b><span class="badge" id="tSector">Teknologi</span></div>
+          <div class="tiny" id="tName">Bank Central Asia</div>
+        </div>
+        <div class="grow"></div>
+        <div style="text-align:right">
+          <div class="bigprice num" id="tPrice">0.00</div>
+          <div class="num" id="tChange" style="font-weight:700">0.00%</div>
+        </div>
+      </div>
+      <div class="chartbox" style="margin-top:12px">
+        <canvas id="chart"></canvas>
+        <div class="chartmeta">
+          <div class="tfs" id="tfs">
+            <button data-tf="1m" class="on">1M</button>
+            <button data-tf="5m">5M</button>
+            <button data-tf="15m">15M</button>
+            <button data-tf="1h">1J</button>
+          </div>
+          <div id="chartHover" class="num">—</div>
+        </div>
+      </div>
+      <div class="statgrid" style="margin-top:12px">
+        <div class="stat"><span>TERENDAH</span><b class="num" id="tLow">—</b></div>
+        <div class="stat"><span>TERTINGGI</span><b class="num" id="tHigh">—</b></div>
+        <div class="stat"><span>VOLUME</span><b class="num" id="tVol">—</b></div>
+        <div class="stat"><span>POSISIMU</span><b class="num" id="tPos">—</b></div>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h2>Order buy / sell</h2>
+        <div class="seg" id="sideSeg">
+          <button data-side="buy" class="on buy">BELI</button>
+          <button data-side="sell">JUAL</button>
+        </div>
+        <div style="margin-top:12px">
+          <label><span>Jumlah lot</span>
+            <input id="qtyInput" type="number" min="0" step="any" inputmode="decimal" placeholder="0">
+          </label>
+          <div class="row" style="margin:-6px 0 12px">
+            <button class="btn btn-sm" data-pct="0.25" type="button">25%</button>
+            <button class="btn btn-sm" data-pct="0.5" type="button">50%</button>
+            <button class="btn btn-sm" data-pct="0.75" type="button">75%</button>
+            <button class="btn btn-sm" data-pct="1" type="button">MAKS</button>
+          </div>
+          <div class="stat" style="margin-bottom:12px">
+            <span>TOTAL ORDER</span>
+            <b class="num" id="orderTotal">$AS 0.00</b>
+            <div class="tiny" id="orderHint" style="margin-top:4px">—</div>
+          </div>
+          <button class="btn btn-buy btn-block" id="submitOrder" type="button">BELI SEKARANG</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Antrian order</h2>
+        <div class="obhead"><span>HARGA</span><span class="q">LOT</span><span class="q">SISI</span></div>
+        <div id="orderBook" style="margin:6px 0"></div>
+        <div class="tiny" id="spreadInfo">—</div>
+        <h2 style="margin-top:16px">Transaksi terakhir</h2>
+        <div class="feed" id="tradeFeed"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TRAFFIC ═══════════ -->
+  <section id="page-traffic" class="hidden">
+    <h1>Traffic buy &amp; sell</h1>
+    <p class="tiny" style="margin:0 0 12px">Tekanan beli vs jual 5 menit terakhir, diperbarui real-time. Hijau = pembeli dominan, merah = penjual dominan.</p>
+    <div class="statgrid" id="trafficStats"></div>
+    <div class="card" style="margin-top:12px">
+      <div class="scroll">
+        <table class="tbl">
+          <thead><tr><th>SAHAM</th><th class="r">HARGA</th><th class="r">NAIK/TURUN</th><th class="r">BELI</th><th class="r">JUAL</th><th style="min-width:120px">TEKANAN</th></tr></thead>
+          <tbody id="trafficBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Aliran transaksi (semua saham)</h2>
+      <div class="feed" id="trafficFeed" style="max-height:340px"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SALDO ═══════════ -->
+  <section id="page-saldo" class="hidden">
+    <h1>Saldo &amp; portofolio</h1>
+    <div class="statgrid">
+      <div class="stat"><span>TOTAL ASET</span><b class="num" id="sNet">$AS 0.00</b></div>
+      <div class="stat"><span>SALDO TUNAI</span><b class="num" id="sCash">$AS 0.00</b></div>
+      <div class="stat"><span>NILAI SAHAM</span><b class="num" id="sEquity">$AS 0.00</b></div>
+      <div class="stat"><span>UNTUNG/RUGI</span><b class="num" id="sPl">$AS 0.00</b></div>
+    </div>
+    <div class="grid two" style="margin-top:12px">
+      <div class="card">
+        <h2>Kepemilikan saham</h2>
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>SAHAM</th><th class="r">LOT</th><th class="r">HARGA RATA²</th><th class="r">NILAI</th><th class="r">P/L</th><th class="r"></th></tr></thead>
+            <tbody id="holdBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Riwayat transaksi</h2>
+        <div class="scroll" style="max-height:340px">
+          <table class="tbl">
+            <thead><tr><th>WAKTU</th><th>JENIS</th><th>DETAIL</th><th class="r">JUMLAH</th></tr></thead>
+            <tbody id="histBody"></tbody>
+          </table>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <button class="btn btn-sm btn-pri" id="goTopup" type="button">+ TOP UP $AS</button>
+          <button class="btn btn-sm btn-ghost" id="reloadBtn" type="button">↻ MUAT ULANG</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PERINGKAT ═══════════ -->
+  <section id="page-peringkat" class="hidden">
+    <h1>Papan peringkat</h1>
+    <p class="tiny" style="margin:0 0 12px">Diurutkan dari total aset (kas + nilai saham pada harga sekarang). Trader terkaya sampai termiskin.</p>
+    <div class="statgrid" id="boardStats"></div>
+    <div class="grid two" style="margin-top:12px">
+      <div class="card">
+        <h2>🏆 12 terkaya</h2>
+        <div class="scroll"><table class="tbl"><thead><tr><th>#</th><th>TRADER</th><th class="r">ASET</th><th class="r">KAS</th><th class="r">P/L</th></tr></thead><tbody id="boardRich"></tbody></table></div>
+      </div>
+      <div class="card">
+        <h2>🥲 12 termiskin</h2>
+        <div class="scroll"><table class="tbl"><thead><tr><th>#</th><th>TRADER</th><th class="r">ASET</th><th class="r">KAS</th><th class="r">P/L</th></tr></thead><tbody id="boardPoor"></tbody></table></div>
+      </div>
+    </div>
+    <footer>Peringkat dihitung ulang setiap kali halaman dimuat · ikut bot: <b>.kaya</b> / <b>.miskin</b></footer>
+  </section>
+
+  <!-- ═══════════ PROFIL ═══════════ -->
+  <section id="page-profil" class="hidden">
+    <h1>Profil</h1>
+    <div class="card">
+      <div class="row">
+        <div class="avatar" id="pAvatar">?</div>
+        <div class="grow">
+          <div style="font-size:17px;font-weight:700" id="pName">—</div>
+          <div class="tiny" id="pEmail">—</div>
+          <div class="row" style="gap:5px;margin-top:6px" id="pRoles"></div>
+        </div>
+        <div style="text-align:right">
+          <div class="tiny">TOTAL ASET</div>
+          <div class="num" style="font-size:18px;font-weight:700" id="pNet">$AS 0.00</div>
+        </div>
+      </div>
+      <div class="notice" id="pSource" style="margin-top:12px">Memeriksa akun…</div>
+      <div class="statgrid" style="margin-top:12px">
+        <div class="stat"><span>SALDO $AS</span><b class="num" id="pCash">0.00</b></div>
+        <div class="stat"><span>SALDO UMI (RP)</span><b class="num" id="pWallet">—</b></div>
+        <div class="stat"><span>UNTUNG/RUGI</span><b class="num" id="pPl">0.00</b></div>
+        <div class="stat"><span>GABUNG</span><b id="pJoined" style="font-size:15px">—</b></div>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h2>Top up $AS</h2>
+        <div class="notice warn" id="topupNotice">Tukar <b>koin RPG</b> kamu menjadi saldo $AS. Tanpa DANA, tanpa uang sungguhan. <b id="koinRateText">Kurs: 10 koin = $AS 1.</b></div>
+        <div class="stat" style="margin-bottom:10px"><span>KOIN RPG KAMU</span><b class="num" id="koinBalance">—</b></div>
+        <label><span id="koinRangeLabel">Jumlah koin (20 – 5.000)</span>
+          <input id="topupAmount" type="number" min="20" max="5000" step="10" inputmode="numeric" placeholder="100">
+        </label>
+        <div class="row" style="margin:-6px 0 12px">
+          <button class="btn btn-sm" data-topup="100" type="button">100 koin</button>
+          <button class="btn btn-sm" data-topup="500" type="button">500 koin</button>
+          <button class="btn btn-sm" data-topup="1000" type="button">1.000 koin</button>
+        </div>
+        <div class="stat" style="margin-bottom:12px"><span>KAMU DAPAT</span><b class="num" id="topupPreview">$AS 10.00</b></div>
+        <button class="btn btn-pri btn-block" id="topupBtn" type="button">TUKAR KOIN SEKARANG</button>
+        <div class="tiny" style="margin-top:8px">Koin didapat dari quest, dungeon, dan berdagang di RPG bot WhatsApp. Nomor WA kamu harus tertaut: kirim <b>.trading login &lt;token&gt;</b> ke bot.</div>
+        <h2 style="margin-top:16px">Riwayat top up</h2>
+        <div id="depList" class="tiny">Belum ada top up.</div>
+      </div>
+
+      <div class="card">
+        <h2>Redeem kode</h2>
+        <form id="redeemForm" autocomplete="off">
+          <label><span>Kode</span>
+            <input id="redeemInput" placeholder="mis. UMI2024" style="text-transform:uppercase">
+          </label>
+          <button class="btn btn-buy btn-block" type="submit">TUKAR KODE</button>
+        </form>
+        <h2 style="margin-top:16px">Kode tersedia</h2>
+        <div class="row" id="codeList"></div>
+        <h2 style="margin-top:16px">Akun</h2>
+        <div class="row">
+          <a class="btn btn-sm btn-ghost" href="https://jadibot-alzriss.gwenna.my.id/#profile" target="_blank" rel="noopener">Token akun ↗</a>
+          <a class="btn btn-sm btn-ghost" href="https://jadibot-alzriss.gwenna.my.id/#wallet" target="_blank" rel="noopener">Saldo UMI ↗</a>
+          <button class="btn btn-sm btn-sell" id="logoutBtn" type="button">KELUAR</button>
+        </div>
+        <div class="tiny" style="margin-top:10px">Token hanya disimpan di browser ini dan diverifikasi ke server saat masuk.</div>
+      </div>
+    </div>
+    <footer>UMI TRADE · <a href="/">lobi game</a> · <a href="https://jadibot-alzriss.gwenna.my.id" target="_blank" rel="noopener">jadibot studio</a></footer>
+  </section>
+
+  <section id="page-owner" class="hidden">
+    <h1>Owner · saldo $AS</h1>
+    <div class="notice warn">Halaman ini hanya muncul untuk akun pemilik. Setiap perubahan tercatat di riwayat akun trader.</div>
+
+    <div class="card">
+      <h2>Atur saldo</h2>
+      <label><span>Akun (nama / nomor WA / id)</span>
+        <input id="ownAccount" placeholder="AlzRiss" autocomplete="off">
+      </label>
+      <label><span>Jumlah $AS</span>
+        <input id="ownAmount" type="number" step="any" inputmode="decimal" placeholder="11000">
+      </label>
+      <div class="row" style="margin:-6px 0 12px">
+        <button class="btn btn-sm" data-own="100" type="button">+100</button>
+        <button class="btn btn-sm" data-own="1000" type="button">+1.000</button>
+        <button class="btn btn-sm" data-own="10000" type="button">+10.000</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-buy grow" id="ownSet" type="button">SET SALDO</button>
+        <button class="btn btn-pri grow" id="ownAdd" type="button">TAMBAH</button>
+      </div>
+      <div class="tiny" id="ownHint" style="margin-top:10px">Pilih akun dari daftar di bawah untuk mengisi kolom.</div>
+    </div>
+
+    <div class="card">
+      <h2>Daftar akun</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>AKUN</th><th class="r">SALDO</th><th class="r">TOTAL</th><th></th></tr></thead>
+          <tbody id="ownList"><tr><td colspan="4" class="tiny">Memuat…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn btn-sm" id="ownRefresh" type="button">MUAT ULANG</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="tabbar hidden" id="tabbar">
+  <div class="tabbar-in">
+    <button data-page="pasar" class="on"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V8"/></svg>Pasar</button>
+    <button data-page="trading"><svg viewBox="0 0 24 24"><path d="m4 17 5-6 4 3 7-8"/><path d="M15 6h5v5"/></svg>Trading</button>
+    <button data-page="traffic"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 3 12 2-6h5"/></svg>Traffic</button>
+    <button data-page="peringkat"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>Peringkat</button>
+    <button data-page="saldo"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14h2"/></svg>Saldo</button>
+    <button data-page="profil"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.3 3.1-5.4 7-5.4s7 2.1 7 5.4"/></svg>Profil</button>
+    <button data-page="owner" id="navOwner" class="hidden"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.2-2.9 7.3-7 9-4.1-1.7-7-4.8-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Owner</button>
+  </div>
+</nav>
+
+<div id="toast" class="hidden"></div>
+<div class="modal hidden" id="modal"><div class="card" id="modalCard"></div></div>
+
+<script>
+(() => {
+  'use strict'
+  const $ = (id) => document.getElementById(id)
+  const TOKEN_KEY = 'umi-trade-token'
+  const money = (n, dec = 2) => Number(n || 0).toLocaleString('id-ID', { minimumFractionDigits: dec, maximumFractionDigits: dec })
+  const rupiah = (n) => 'Rp' + Number(n || 0).toLocaleString('id-ID')
+  const sgn = (n) => (Number(n) >= 0 ? '+' : '')
+  const cls = (n) => (Number(n) >= 0 ? 'up' : 'down')
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+  const ago = (ts) => { const s = Math.max(0, Math.floor((Date.now() - ts) / 1000)); return s < 60 ? s + 's' : Math.floor(s / 60) + 'm' }
+  const clock = (ts) => new Date(ts).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+
+  let TOKEN = ''
+  let state = {
+    page: 'pasar', filter: 'all', search: '',
+    symbols: [], traffic: [], quotes: {}, holdings: [],
+    balance: 0, equity: 0, netWorth: 0, unrealized: 0, realized: 0,
+    history: [], deposits: [], user: null, walletIdr: null, rate: 10,
+    koinBalance: null, koinPerAs: 10, koinMin: 20, koinMax: 5000,
+    symbol: 'BBCA', side: 'buy', tf: '1m', candles: [], feed: [], depth: null,
+    codes: [], live: false, board: null, account: null, session: null, loginMode: 'token',
+  }
+
+  /* ─────────── util ─────────── */
+  function toast(message, kind = '') {
+    const t = $('toast')
+    t.textContent = String(message || 'Selesai.')
+    t.className = kind ? kind : ''
+    t.classList.remove('hidden')
+    clearTimeout(toast.timer)
+    toast.timer = setTimeout(() => t.classList.add('hidden'), 4200)
+  }
+  async function api(path, options = {}) {
+    // Token tidak lagi ditempel di URL (bisa bocor lewat log/proxy/Referer).
+    // Semua permintaan terautentikasi memakai header; EventSource tetap
+    // memakai query karena browser tidak bisa mengirim header di sana.
+    const tokenHeader = options.tokenHeader || 'X-UMI-Token'
+    const authHeaders = TOKEN ? { [tokenHeader]: TOKEN } : {}
+    if (options.tokenHeader) delete options.tokenHeader
+    const res = await fetch(path, { ...options, headers: { 'Content-Type': 'application/json', ...authHeaders, ...(options.headers || {}) } })
+    let data = {}
+    try { data = await res.json() } catch {}
+    if (!res.ok || data.error) { const err = new Error(data.error || 'HTTP ' + res.status); err.payload = data; throw err }
+    return data
+  }
+  const setLive = (ok, label) => { $('liveChip').className = 'chip ' + (ok ? 'live' : 'off'); $('liveText').textContent = label }
+
+  /* ─────────── ticker ─────────── */
+  function renderTicker(list) {
+    if (!list.length) return
+    const one = list.map((s) => `<span class="tick"><b>${esc(s.sym)}</b><span class="num">${money(s.price)}</span><span class="num ${cls(s.changePct)}">${sgn(s.changePct)}${money(s.changePct)}%</span></span>`).join('')
+    $('tickerTrack').innerHTML = one + one
+  }
+
+  /* ─────────── sparkline ─────────── */
+  function drawSpark(canvas, values, up) {
+    const dpr = window.devicePixelRatio || 1
+    const w = canvas.clientWidth || 58, h = canvas.clientHeight || 30
+    canvas.width = w * dpr; canvas.height = h * dpr
+    const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr)
+    if (!values || values.length < 2) return
+    const min = Math.min(...values), max = Math.max(...values), span = max - min || 1
+    ctx.clearRect(0, 0, w, h)
+    ctx.beginPath()
+    values.forEach((v, i) => {
+      const x = (i / (values.length - 1)) * (w - 2) + 1
+      const y = h - 2 - ((v - min) / span) * (h - 6)
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)
+    })
+    ctx.strokeStyle = up ? '#22d67f' : '#ff4d6d'
+    ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.stroke()
+    ctx.lineTo(w - 1, h); ctx.lineTo(1, h); ctx.closePath()
+    ctx.globalAlpha = .12; ctx.fillStyle = up ? '#22d67f' : '#ff4d6d'; ctx.fill(); ctx.globalAlpha = 1
+  }
+
+  /* ─────────── halaman PASAR ─────────── */
+  function renderMarketStats() {
+    const list = state.symbols
+    if (!list.length) return
+    const up = list.filter((s) => s.changePct >= 0).length
+    const top = [...list].sort((a, b) => b.changePct - a.changePct)[0]
+    const bot = [...list].sort((a, b) => a.changePct - b.changePct)[0]
+    const vol = list.reduce((sum, s) => sum + s.volume, 0)
+    $('marketStats').innerHTML = [
+      ['SAHAM NAIK', `${up}/${list.length}`, ''],
+      ['TOP GAINER', `${top.sym} ${sgn(top.changePct)}${money(top.changePct)}%`, 'up'],
+      ['TOP LOSER', `${bot.sym} ${money(bot.changePct)}%`, 'down'],
+      ['TOTAL VOLUME', money(vol, 0), ''],
+    ].map(([k, v, c]) => `<div class="stat"><span>${k}</span><b class="num ${c}">${v}</b></div>`).join('')
+  }
+  function filteredSymbols() {
+    const held = new Set(state.holdings.map((h) => h.sym))
+    let list = [...state.symbols]
+    if (state.filter === 'up') list = list.filter((s) => s.changePct >= 0)
+    if (state.filter === 'down') list = list.filter((s) => s.changePct < 0)
+    if (state.filter === 'volume') list.sort((a, b) => b.volume - a.volume)
+    if (state.filter === 'hold') list = list.filter((s) => held.has(s.sym))
+    const q = state.search.trim().toLowerCase()
+    if (q) list = list.filter((s) => s.sym.toLowerCase().includes(q) || s.name.toLowerCase().includes(q))
+    return list
+  }
+  function renderMarketList() {
+    const list = filteredSymbols()
+    if (!list.length) { $('marketList').innerHTML = '<div class="tiny" style="padding:14px 0">Tidak ada saham yang cocok.</div>'; return }
+    $('marketList').innerHTML = list.map((s) => {
+      const pos = state.holdings.find((h) => h.sym === s.sym)
+      return `<div class="mkt" data-sym="${esc(s.sym)}">
+        <div class="symbadge">${esc(s.sym)}</div>
+        <div class="mkt-info"><b>${esc(s.name)}${s.boostPct > 0 ? ` <span style="display:inline-block;margin-left:5px;padding:1px 6px;border-radius:999px;font-size:10px;font-weight:800;color:#ffcc57;background:rgba(255,204,87,.12);border:1px solid rgba(255,204,87,.45)">🔥 BOOST +${money(s.boostPct)}%</span>` : ''}</b><span>${esc(s.sector)} · vol ${money(s.volume, 0)}${pos ? ` · ${money(pos.qty)} lot` : ''}</span></div>
+        <canvas class="spark" data-spark="${esc(s.sym)}"></canvas>
+        <div class="mkt-price"><b class="num">${money(s.price)}</b><span class="${cls(s.changePct)}">${sgn(s.changePct)}${money(s.changePct)}%</span></div>
+      </div>`
+    }).join('')
+    list.forEach((s) => { const c = document.querySelector(`[data-spark="${s.sym}"]`); if (c) drawSpark(c, s.spark, s.changePct >= 0) })
+  }
+
+  /* ─────────── chart ─────────── */
+  function drawChart(hoverIndex) {
+    const canvas = $('chart')
+    const candles = state.candles
+    if (!canvas || !candles.length) return
+    const dpr = window.devicePixelRatio || 1
+    const w = canvas.clientWidth, h = canvas.clientHeight
+    canvas.width = w * dpr; canvas.height = h * dpr
+    const ctx = canvas.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+    ctx.clearRect(0, 0, w, h)
+
+    const padR = 54, padL = 8, padT = 10, padB = 20
+    const priceH = (h - padT - padB) * 0.74, volTop = padT + priceH + 12
+    const highs = candles.map((c) => c.h), lows = candles.map((c) => c.l)
+    let max = Math.max(...highs), min = Math.min(...lows)
+    const pad = (max - min) * 0.08 || 1
+    max += pad; min -= pad
+    const maxVol = Math.max(...candles.map((c) => c.v)) || 1
+    const cw = (w - padL - padR) / candles.length
+    const xOf = (i) => padL + i * cw + cw / 2
+    const yOf = (p) => padT + priceH - ((p - min) / (max - min)) * priceH
+
+    // grid + label harga
+    ctx.font = '10px ui-monospace,monospace'; ctx.textBaseline = 'middle'
+    for (let i = 0; i <= 4; i++) {
+      const y = padT + (priceH / 4) * i, price = max - ((max - min) / 4) * i
+      ctx.strokeStyle = 'rgba(30,43,69,.75)'; ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke()
+      ctx.fillStyle = '#6b7c9c'; ctx.textAlign = 'left'; ctx.fillText(money(price), w - padR + 6, y)
+    }
+    // volume
+    candles.forEach((c, i) => {
+      const vh = (c.v / maxVol) * ((h - padB) - volTop)
+      ctx.fillStyle = c.c >= c.o ? 'rgba(34,214,127,.28)' : 'rgba(255,77,109,.28)'
+      ctx.fillRect(padL + i * cw + cw * 0.2, (h - padB) - vh, cw * 0.6, vh)
+    })
+    // candle
+    candles.forEach((c, i) => {
+      const x = xOf(i), up = c.c >= c.o
+      const color = up ? '#22d67f' : '#ff4d6d'
+      ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1
+      ctx.beginPath(); ctx.moveTo(x, yOf(c.h)); ctx.lineTo(x, yOf(c.l)); ctx.stroke()
+      const y1 = yOf(Math.max(c.o, c.c)), y2 = yOf(Math.min(c.o, c.c))
+      const bw = Math.max(1.5, cw * 0.62)
+      ctx.fillRect(x - bw / 2, y1, bw, Math.max(1, y2 - y1))
+    })
+    // garis harga terakhir
+    const last = candles[candles.length - 1]
+    const ly = yOf(last.c)
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = last.c >= last.o ? 'rgba(34,214,127,.85)' : 'rgba(255,77,109,.85)'
+    ctx.beginPath(); ctx.moveTo(padL, ly); ctx.lineTo(w - padR, ly); ctx.stroke(); ctx.setLineDash([])
+    ctx.fillStyle = last.c >= last.o ? '#22d67f' : '#ff4d6d'
+    ctx.fillRect(w - padR + 2, ly - 8, padR - 4, 16)
+    ctx.fillStyle = '#08131a'; ctx.textAlign = 'left'; ctx.fillText(money(last.c), w - padR + 6, ly)
+
+    // crosshair
+    if (hoverIndex != null && candles[hoverIndex]) {
+      const c = candles[hoverIndex], x = xOf(hoverIndex)
+      ctx.strokeStyle = 'rgba(168,182,209,.5)'; ctx.setLineDash([3, 3])
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h - padB); ctx.stroke(); ctx.setLineDash([])
+      const t = new Date(c.t).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+      ctx.fillStyle = '#a8b6d1'; ctx.textAlign = 'center'
+      ctx.fillText(t, Math.min(Math.max(x, 26), w - padR - 26), h - 8)
+    }
+  }
+
+  /* ─────────── halaman TRADING ─────────── */
+  /* Daftar emiten bisa berubah (Task64b). Kalau simbol yang tersimpan tidak
+     ada lagi di bursa, pindah ke simbol pertama supaya halaman tidak kosong. */
+  function ensureKnownSymbol() {
+    if (!state.symbols.length) return
+    if (state.symbols.some((s) => s.sym === state.symbol)) return
+    state.symbol = state.symbols[0].sym
+  }
+  function currentQuote() { return state.quotes[state.symbol] || state.symbols.find((s) => s.sym === state.symbol) || null }
+  function currentHolding() { return state.holdings.find((h) => h.sym === state.symbol) || null }
+  function buyingPower() {
+    const q = currentQuote(); if (!q || !q.price) return 0
+    if (state.side === 'buy') return state.balance
+    const h = currentHolding(); return h ? h.qty * q.price : 0
+  }
+  function renderSymbolPicker() {
+    $('symPicker').innerHTML = state.symbols.map((s) => `<option value="${esc(s.sym)}" ${s.sym === state.symbol ? 'selected' : ''}>${esc(s.sym)} · ${esc(s.name)}</option>`).join('')
+  }
+  function renderTradingHeader() {
+    const q = currentQuote()
+    if (!q) return
+    $('tSym').textContent = q.sym
+    $('tName').textContent = q.name
+    $('tSector').textContent = q.sector
+    $('tPrice').textContent = money(q.price)
+    $('tPrice').className = 'bigprice num ' + cls(q.changePct)
+    $('tChange').textContent = `${sgn(q.change)}${money(q.change)} (${sgn(q.changePct)}${money(q.changePct)}%)`
+    $('tChange').className = 'num ' + cls(q.changePct)
+    $('tLow').textContent = money(q.low)
+    $('tHigh').textContent = money(q.high)
+    $('tVol').textContent = money(q.volume, 0)
+    const h = currentHolding()
+    $('tPos').textContent = h ? `${money(h.qty)} lot · ${sgn(h.pl)}${money(h.pl)}` : '—'
+    $('tPos').className = 'num ' + (h ? cls(h.pl) : '')
+    $('submitOrder').className = 'btn btn-block ' + (state.side === 'buy' ? 'btn-buy' : 'btn-sell')
+    $('submitOrder').textContent = state.side === 'buy' ? 'BELI SEKARANG' : 'JUAL SEKARANG'
+    renderOrderTotal()
+  }
+  function renderOrderTotal() {
+    const q = currentQuote()
+    const qty = Number($('qtyInput').value) || 0
+    const total = q ? qty * q.price : 0
+    $('orderTotal').textContent = '$AS ' + money(total)
+    const power = buyingPower()
+    const maxQty = q && q.price ? power / q.price : 0
+    if (!qty) {
+      $('orderHint').innerHTML = state.side === 'buy'
+        ? `Daya beli $AS ${money(power)} · maksimal ${money(maxQty)} lot`
+        : `Posisi ${money(currentHolding() ? currentHolding().qty : 0)} lot · maksimal jual ${money(maxQty)} lot`
+      $('orderHint').className = 'tiny'
+      $('submitOrder').disabled = false
+    } else if (state.side === 'buy' && total > power) {
+      $('orderHint').innerHTML = `⚠️ Saldo tidak cukup. Butuh $AS ${money(total)}, saldo kamu $AS ${money(power)}. Maksimal ${money(maxQty)} lot.`
+      $('orderHint').className = 'tiny down'
+      $('submitOrder').disabled = true
+    } else if (state.side === 'sell' && qty > maxQty + 1e-9) {
+      $('orderHint').innerHTML = `⚠️ Posisi tidak cukup. Kamu punya ${money(maxQty)} lot.`
+      $('orderHint').className = 'tiny down'
+      $('submitOrder').disabled = true
+    } else {
+      $('orderHint').innerHTML = `Sisa ${state.side === 'buy' ? 'saldo' : 'posisi'} setelah order: ${money(power - (state.side === 'buy' ? total : qty))} ${state.side === 'buy' ? '$AS' : 'lot'}`
+      $('orderHint').className = 'tiny'
+      $('submitOrder').disabled = false
+    }
+  }
+  function renderOrderBook() {
+    const d = state.depth
+    if (!d) { $('orderBook').innerHTML = ''; return }
+    const maxQty = Math.max(...d.bids.map((b) => b.qty), ...d.asks.map((a) => a.qty)) || 1
+    const asks = [...d.asks].reverse().map((a) => `<div class="obrow"><div class="bar ask" style="width:${(a.qty / maxQty) * 100}%"></div><span class="num down">${money(a.price)}</span><span class="q num">${money(a.qty, 0)}</span><span class="q down">JUAL</span></div>`).join('')
+    const bids = d.bids.map((b) => `<div class="obrow"><div class="bar bid" style="width:${(b.qty / maxQty) * 100}%"></div><span class="num up">${money(b.price)}</span><span class="q num">${money(b.qty, 0)}</span><span class="q up">BELI</span></div>`).join('')
+    $('orderBook').innerHTML = asks + `<div class="tiny" style="text-align:center;padding:4px 0">spread ${money(d.spread)}</div>` + bids
+  }
+  function renderFeed(target, trades, withSymbol) {
+    if (!trades.length) { $(target).innerHTML = '<div class="tiny" style="padding:8px 0">Belum ada transaksi.</div>'; return }
+    $(target).innerHTML = trades.slice(0, 30).map((t) => `<div class="feedrow">
+      <span class="side-dot ${t.side}"></span>
+      <span class="num">${money(t.price)}</span>
+      <span class="tiny">${withSymbol ? esc(t.symbol) + ' · ' : ''}${money(t.qty, 0)} lot</span>
+      <span class="tiny num">${ago(t.at)}</span>
+    </div>`).join('')
+  }
+
+  /* ─────────── banner pasar / boost emiten ─────────── */
+  function renderSession() {
+    const info = state.session
+    const box = $('sessionBanner')
+    if (!box) return
+    if (!info) { box.classList.add('hidden'); return }
+    const until = info.until ? new Date(info.until).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Makassar' }) : ''
+    if (info.symbol && info.active) {
+      box.className = 'notice ok'
+      box.innerHTML = `🔥 <b>BOOST ${esc(info.symbol)}</b> — harga naik terus sampai ${until} WITA (saat ini +${money(info.boostPct)}%). Setelah itu mendarat perlahan.`
+      return
+    }
+    if (info.symbol && !info.active) {
+      box.className = 'notice warn'
+      box.innerHTML = `🪂 <b>BOOST ${esc(info.symbol)} selesai</b> — harga mendarat perlahan (+${money(info.boostPct)}% tersisa).`
+      return
+    }
+    box.className = 'notice'
+    box.innerHTML = `🌙 <b>Pasar normal 24 jam</b> — tanpa sesi boost 02.00. Harga bergerak dari aktivitas pasar saja. Zona waktu: ${esc(info.timezone || 'WITA')}.`
+  }
+
+  /* ─────────── halaman PERINGKAT ─────────── */
+  async function loadLeaderboard() {
+    const d = await api('/api/trading/leaderboard')
+    state.board = d
+    const rich = d.richest || [], poor = d.pooriest || []
+    const total = d.total || 0
+    const top = rich[0], bottom = poor[0]
+    $('boardStats').innerHTML = [
+      ['TOTAL TRADER', String(total), ''],
+      ['TERKAYA', top ? `${esc(truncate(top.username))} · $AS ${money(top.netWorth)}` : '—', 'up'],
+      ['TERMISKIN', bottom ? `${esc(truncate(bottom.username))} · $AS ${money(bottom.netWorth)}` : '—', 'down'],
+      ['POSISIKU', state.account ? (boardSelf(rich, poor) || '—') : 'masuk dulu', ''],
+    ].map(([k, v, c]) => `<div class="stat"><span>${k}</span><b class="num ${c}" style="font-size:15px">${v}</b></div>`).join('')
+    const row = (r, medal) => `<tr>
+      <td class="num">${medal || r.rank}</td>
+      <td><b>${esc(truncate(r.username))}</b><div class="tiny">${r.source === 'bot' ? 'akun WhatsApp' : 'akun website'}${r.positions ? ` · ${r.positions} emiten` : ''}</div></td>
+      <td class="r num">${money(r.netWorth)}</td>
+      <td class="r num">${money(r.balance)}</td>
+      <td class="r num ${cls(r.pl)}">${sgn(r.pl)}${money(r.pl)}</td>
+    </tr>`
+    const medals = { 1: '🥇', 2: '🥈', 3: '🥉' }
+    $('boardRich').innerHTML = rich.length ? rich.map((r) => row(r, medals[r.rank])).join('') : '<tr><td colspan="5" class="tiny">Belum ada trader.</td></tr>'
+    $('boardPoor').innerHTML = poor.length ? poor.map((r) => row(r)).join('') : '<tr><td colspan="5" class="tiny">Belum ada trader.</td></tr>'
+  }
+  const truncate = (name) => {
+    const value = String(name || 'Trader')
+    return value.length > 16 ? `${value.slice(0, 6)}…${value.slice(-4)}` : value
+  }
+  function boardSelf(rich, poor) {
+    const all = [...rich, ...poor]
+    const me = all.find((r) => state.account && (r.username === state.account.username || (r.number && r.number === state.account.number)))
+    return me ? `#${me.rank} · $AS ${money(me.netWorth)}` : null
+  }
+
+  /* ─────────── halaman TRAFFIC ─────────── */
+  function renderTraffic() {
+    const rows = state.traffic
+    if (!rows.length) return
+    const totalBuy = rows.reduce((s, r) => s + r.buy, 0), totalSell = rows.reduce((s, r) => s + r.sell, 0)
+    const buyPctAll = (totalBuy / (totalBuy + totalSell || 1)) * 100
+    const hottest = [...rows].sort((a, b) => Math.abs(b.buyPct - 50) - Math.abs(a.buyPct - 50))[0]
+    $('trafficStats').innerHTML = [
+      ['TEKANAN BELI', money(buyPctAll) + '%', buyPctAll >= 50 ? 'up' : 'down'],
+      ['VOLUME BELI', money(totalBuy, 0), 'up'],
+      ['VOLUME JUAL', money(totalSell, 0), 'down'],
+      ['PALING AKTIF', hottest ? hottest.sym : '—', ''],
+    ].map(([k, v, c]) => `<div class="stat"><span>${k}</span><b class="num ${c}">${v}</b></div>`).join('')
+
+    $('trafficBody').innerHTML = rows.map((r) => {
+      const pct = r.buyPct
+      const color = pct >= 50 ? 'var(--up)' : 'var(--down)'
+      return `<tr>
+        <td><b>${esc(r.sym)}</b><div class="tiny">${esc(r.name || '')}</div></td>
+        <td class="r num">${money(r.price)}</td>
+        <td class="r num ${cls(r.changePct)}">${sgn(r.changePct)}${money(r.changePct)}%</td>
+        <td class="r num up">${money(r.buy, 0)}</td>
+        <td class="r num down">${money(r.sell, 0)}</td>
+        <td>
+          <div class="row" style="justify-content:space-between;gap:6px"><span class="tiny num">${money(pct)}% beli</span><span class="tiny">${pct >= 55 ? '🟢 kuat' : pct <= 45 ? '🔴 jual' : '⚪ seimbang'}</span></div>
+          <div class="barwrap"><div class="barfill" style="width:${pct}%;background:${color}"></div></div>
+        </td>
+      </tr>`
+    }).join('')
+
+    const all = state.symbols.length
+      ? [...state.feed, ...state.traffic.flatMap((r) => [])]
+      : []
+    if (all.length) renderFeed('trafficFeed', all, true)
+  }
+
+  /* ─────────── halaman SALDO ─────────── */
+  function renderSaldo() {
+    $('sNet').textContent = '$AS ' + money(state.netWorth)
+    $('sCash').textContent = '$AS ' + money(state.balance)
+    $('sEquity').textContent = '$AS ' + money(state.equity)
+    const pl = state.unrealized + state.realized
+    $('sPl').textContent = `${sgn(pl)}$${'AS'} ${money(Math.abs(pl))}`
+    $('sPl').className = 'num ' + cls(pl)
+
+    const rows = [...state.holdings].sort((a, b) => b.value - a.value)
+    $('holdBody').innerHTML = rows.length ? rows.map((h) => `<tr>
+        <td><b>${esc(h.sym)}</b><div class="tiny">${money(h.price)} / lot</div></td>
+        <td class="r num">${money(h.qty)}</td>
+        <td class="r num">${money(h.avgPrice)}</td>
+        <td class="r num">${money(h.value)}</td>
+        <td class="r num ${cls(h.pl)}">${sgn(h.pl)}${money(h.pl)}<div class="tiny ${cls(h.plPct)}">${sgn(h.plPct)}${money(h.plPct)}%</div></td>
+        <td class="r"><button class="btn btn-sm btn-sell" data-quicksell="${esc(h.sym)}" type="button">JUAL</button></td>
+      </tr>`).join('') : '<tr><td colspan="6" class="tiny">Belum punya saham. Buka tab Pasar untuk mulai beli.</td></tr>'
+
+    const label = { buy: 'BELI', sell: 'JUAL', daily: 'BONUS HARIAN', redeem: 'REDEEM', topup: 'TUKAR KOIN' }
+    const hist = [...state.history].reverse().slice(0, 80)
+    $('histBody').innerHTML = hist.length ? hist.map((h) => {
+      const time = h.time ? new Date(h.time).toLocaleString('id-ID', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : '—'
+      const detail = h.symbol ? `${h.symbol}${h.amount && h.price ? ` · ${money(h.amount)} @ ${money(h.price)}` : ''}` : (h.code || (h.koin ? `${Number(h.koin).toLocaleString('id-ID')} koin` : (h.idr ? rupiah(h.idr) : '—')))
+      const amount = h.total != null ? money(h.total) : money(h.amount)
+      const isOut = h.type === 'buy'
+      return `<tr><td class="tiny">${time}</td><td><span class="badge">${label[h.type] || esc(h.type)}</span></td><td class="tiny">${esc(detail)}</td><td class="r num ${isOut ? 'down' : 'up'}">${isOut ? '-' : '+'}${amount}</td></tr>`
+    }).join('') : '<tr><td colspan="4" class="tiny">Belum ada transaksi.</td></tr>'
+  }
+
+  /* ─────────── halaman PROFIL ─────────── */
+  function renderProfil() {
+    const u = state.user || {}
+    const acc = state.account || {}
+    const name = acc.username || u.username || 'Trader'
+    $('pAvatar').textContent = name.charAt(0).toUpperCase()
+    $('pName').textContent = name
+    $('pEmail').textContent = u.email || acc.number || '—'
+    const src = $('pSource')
+    if (src) src.innerHTML = acc.source === 'bot'
+      ? `Akun WhatsApp <b>${esc(acc.number || '-')}</b> · dibuat bot otomatis`
+      : `Akun website${u.username ? ` · ${esc(u.username)}` : ''} · <a href="#" id="linkToWa">tautkan ke nomor WhatsApp</a>`
+    $('pRoles').innerHTML = (u.roles || ['user']).map((r) => `<span class="badge">${esc(String(r).toUpperCase())}</span>`).join('') + (u.owner ? '<span class="badge" style="border-color:var(--gold);color:var(--gold)">ROOT</span>' : '')
+    $('pNet').textContent = '$AS ' + money(state.netWorth)
+    $('pCash').textContent = money(state.balance)
+    $('pWallet').textContent = state.koinBalance == null ? '—' : `${Number(state.koinBalance).toLocaleString('id-ID')} koin`
+    const pl = state.unrealized + state.realized
+    $('pPl').textContent = `${sgn(pl)}${money(Math.abs(pl))}`
+    $('pPl').className = 'num ' + cls(pl)
+    $('pJoined').textContent = u.joined ? new Date(u.joined).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '—'
+    $('depList').innerHTML = state.deposits.length
+      ? state.deposits.slice(-8).reverse().map((d) => `<div class="dep"><span class="tiny">${new Date(d.time).toLocaleString('id-ID', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })} · ${d.koin ? `${Number(d.koin).toLocaleString('id-ID')} koin` : rupiah(d.idr || 0)}</span><b class="num up">+$AS ${money(d.credit)}</b></div>`).join('')
+      : 'Belum ada top up.'
+    $('codeList').innerHTML = state.codes.length
+      ? state.codes.map((c) => `<span class="codechip" data-code="${esc(c.code)}"><b>${esc(c.code)}</b><span class="tiny">+${money(c.amount, 0)} · sisa ${c.left}</span></span>`).join('')
+      : '<span class="tiny">Memuat kode…</span>'
+    topupPreview()
+    renderKoinStatus()
+  }
+  function topupPreview() {
+    const koin = Number($('topupAmount').value) || 0
+    const per = Number(state.koinPerAs) > 0 ? Number(state.koinPerAs) : 10
+    $('topupPreview').textContent = '$AS ' + money(koin / per)
+  }
+  function renderKoinStatus() {
+    if ($('koinBalance')) $('koinBalance').textContent = state.koinBalance == null ? '—' : `${Number(state.koinBalance).toLocaleString('id-ID')} koin`
+    if ($('koinRateText')) $('koinRateText').textContent = `Kurs: ${Number(state.koinPerAs).toLocaleString('id-ID')} koin = $AS 1.`
+    if ($('koinRangeLabel')) $('koinRangeLabel').textContent = `Jumlah koin (${Number(state.koinMin).toLocaleString('id-ID')} – ${Number(state.koinMax).toLocaleString('id-ID')})`
+    if ($('topupAmount')) { $('topupAmount').min = state.koinMin; $('topupAmount').max = state.koinMax }
+    topupPreview()
+  }
+
+  /* ─────────── halaman OWNER ─────────── */
+  async function loadOwner() {
+    const tbody = $('ownList')
+    if (!tbody) return
+    const d = await api('/api/trading/owner/accounts', { tokenHeader: 'X-UMI-Owner-Token' })
+    state.ownerAccounts = d.accounts || []
+    tbody.innerHTML = state.ownerAccounts.length ? state.ownerAccounts.map((a) => {
+      const who = a.username || a.number || a.id
+      const sub = a.number ? `wa ${a.number}` : (a.source === 'web' ? 'website' : a.id)
+      return `<tr>
+        <td><b>${esc(who)}</b><div class="tiny">${esc(sub)}</div></td>
+        <td class="r num">${money(a.balance)}</td>
+        <td class="r num">${money(a.netWorth)}</td>
+        <td class="r"><button class="btn btn-sm" data-pick="${esc(who)}" type="button">PILIH</button></td>
+      </tr>`
+    }).join('') : '<tr><td colspan="4" class="tiny">Belum ada akun.</td></tr>'
+  }
+
+  async function ownerAdjust(mode) {
+    const account = ($('ownAccount').value || '').trim()
+    const amount = Number($('ownAmount').value)
+    const hint = $('ownHint')
+    if (!account) { toast('Isi nama akun dulu.', 'error'); return }
+    if (!Number.isFinite(amount)) { toast('Jumlah $AS tidak valid.', 'error'); return }
+    hint.textContent = 'Memproses…'
+    try {
+      const d = await api('/api/trading/owner/balance', { method: 'POST', tokenHeader: 'X-UMI-Owner-Token', body: JSON.stringify({ account, amount, mode }) })
+      hint.innerHTML = `✅ <b>${esc((d.account && d.account.username) || account)}</b> · $AS ${money(d.before)} → <b>$AS ${money(d.balance)}</b>`
+      toast('Saldo diperbarui: $AS ' + money(d.balance), 'ok')
+      loadOwner().catch(() => {})
+      if (state.account && d.account && state.account.id === d.account.id) loadAccount().catch(() => {})
+    } catch (error) {
+      hint.textContent = '❌ ' + error.message
+      toast(error.message, 'error')
+    }
+  }
+
+  /* ─────────── router ─────────── */
+  function go(page) {
+    state.page = page
+    document.querySelectorAll('#tabbar button').forEach((b) => b.classList.toggle('on', b.dataset.page === page))
+    ;['pasar', 'trading', 'traffic', 'peringkat', 'saldo', 'profil', 'owner'].forEach((p) => $('page-' + p).classList.toggle('hidden', p !== page))
+    if (page === 'pasar') { renderMarketStats(); renderMarketList() }
+    if (page === 'trading') loadSymbolData(true)
+    if (page === 'traffic' && !state.traffic.length) loadTraffic().catch(() => {})
+    if (page === 'peringkat') loadLeaderboard().catch(() => {})
+    if (page === 'profil') loadWallet()
+    if (page === 'owner') loadOwner().catch(() => {})
+    window.scrollTo({ top: 0 })
+  }
+
+  /* ─────────── data ─────────── */
+  async function loadMarket() {
+    const d = await api('/api/trading/market')
+    state.symbols = d.symbols || []
+    state.holdings = d.holdings || []
+    if (d.session) { state.session = d.session; renderSession() }
+    state.quotes = Object.fromEntries(state.symbols.map((s) => [s.sym, s]))
+    ensureKnownSymbol()
+    renderTicker(state.symbols); renderMarketStats(); renderMarketList()
+    renderSymbolPicker(); renderTradingHeader(); renderTraffic(); renderSaldo()
+  }
+  async function loadSymbolData(reset) {
+    const sym = state.symbol
+    const [candleData, feedData] = await Promise.all([
+      api(`/api/trading/candles?symbol=${encodeURIComponent(sym)}&tf=${state.tf}&limit=90`),
+      api(`/api/trading/feed?symbol=${encodeURIComponent(sym)}`),
+    ])
+    state.candles = candleData.candles || []
+    state.feed = (feedData.trades || []).map((t) => ({ ...t, symbol: sym }))
+    state.depth = feedData.depth || null
+    drawChart(); renderOrderBook(); renderFeed('tradeFeed', state.feed, false)
+    if (reset) renderTradingHeader()
+  }
+  async function loadAccount() {
+    if (!TOKEN) return
+    const d = await api('/api/trading/me')
+    if (d.account) state.account = d.account
+    if (d.session) { state.session = d.session; renderSession() }
+    state.balance = d.balance; state.equity = d.equity; state.netWorth = d.netWorth
+    state.unrealized = d.unrealized; state.realized = d.realized
+    state.holdings = d.positions || []
+    state.history = d.history || []; state.deposits = d.deposits || []
+    renderSaldo(); renderProfil(); renderTradingHeader()
+  }
+  async function loadTraffic() {
+    const d = await api('/api/trading/traffic')
+    state.traffic = d.rows || []
+    renderTraffic()
+  }
+  async function loadCodes() {
+    const d = await api('/api/trading/codes')
+    state.codes = d.codes || []
+    renderProfil()
+  }
+  async function loadWallet() {
+    if (!TOKEN) return
+    try {
+      const d = await api('/api/trading/topup', { method: 'POST', body: JSON.stringify({ token: TOKEN, action: 'status' }) })
+      if (d.koinBalance != null) state.koinBalance = Number(d.koinBalance) || 0
+      if (d.koinPerAs) state.koinPerAs = Number(d.koinPerAs) || state.koinPerAs
+      if (d.minimumKoin) state.koinMin = Number(d.minimumKoin) || state.koinMin
+      if (d.maximumKoin) state.koinMax = Number(d.maximumKoin) || state.koinMax
+      if (d.walletBalance != null) state.walletIdr = d.walletBalance
+      if (d.rate) state.rate = d.rate
+    } catch (e) {
+      const notice = $('topupNotice')
+      if (notice) notice.innerHTML = `<b>Tukar koin RPG</b> menjadi $AS (tanpa DANA). ${esc(e.message || '')}`
+    }
+    renderKoinStatus()
+    renderProfil()
+  }
+
+  /* ─────────── SSE real-time ─────────── */
+  let stream = null
+  let pollTimer = null
+  let lastPush = 0
+  function startPolling(reason) {
+    if (pollTimer) return
+    setLive(false, reason || 'mode polling')
+    pollTimer = setInterval(() => { loadMarket().catch(() => {}); if (state.page === 'traffic') loadTraffic().catch(() => {}) }, 6000)
+  }
+  function stopPolling() { if (pollTimer) { clearInterval(pollTimer); pollTimer = null } }
+  function connectStream() {
+    if (!TOKEN || stream) return
+    try {
+      stream = new EventSource('/api/trading/stream')
+      lastPush = Date.now()
+      /* kalau stream tidak mengirim apa pun dalam 8 detik, pindah ke polling */
+      setTimeout(() => { if (Date.now() - lastPush > 7000) { try { stream && stream.close() } catch {} stream = null; startPolling('mode polling') } }, 8000)
+      stream.onmessage = (event) => {
+        lastPush = Date.now()
+        stopPolling()
+        let msg; try { msg = JSON.parse(event.data) } catch { return }
+        if (msg.session) { state.session = msg.session; renderSession() }
+        if (msg.symbols) {
+          state.symbols = msg.symbols
+          state.quotes = Object.fromEntries(msg.symbols.map((s) => [s.sym, s]))
+          if (msg.traffic) state.traffic = msg.traffic
+          renderTicker(state.symbols)
+          if (state.page === 'pasar') { renderMarketStats(); renderMarketList() }
+          if (state.page === 'traffic') renderTraffic()
+          if (state.page === 'trading') { renderTradingHeader(); renderOrderTotal() }
+        }
+        setLive(true, 'LIVE · ' + clock(Date.now()))
+      }
+      stream.onerror = () => { setLive(false, 'tersambung ulang…'); stream.close(); stream = null; startPolling('mode polling'); setTimeout(connectStream, 12000) }
+      setLive(true, 'LIVE')
+    } catch { startPolling('mode polling') }
+  }
+
+  /* ─────────── aksi ─────────── */
+  async function apiPost(path, body) { return api(path, { method: 'POST', body: JSON.stringify(body) }) }
+
+  async function loginWithCode(code) {
+    const btn = $('loginBtn'); btn.disabled = true; btn.textContent = 'MEMERIKSA KODE…'
+    try {
+      const d = await apiPost('/api/trading/code-login', { code })
+      await applySession(d.token, d)
+      toast('Masuk sebagai ' + (d.account?.username || 'trader') + ' (akun WhatsApp)', 'ok')
+    } catch (e) {
+      $('loginHint').className = 'notice err'
+      $('loginHint').innerHTML = '<b>Kode gagal:</b> ' + esc(e.message)
+      toast(e.message, 'error')
+    } finally { btn.disabled = false; btn.textContent = 'MASUK' }
+  }
+
+  /** Pasang sesi yang sudah tervalidasi (dari token website atau kode bot). */
+  async function applySession(token, d) {
+    TOKEN = token
+    try { localStorage.setItem(TOKEN_KEY, token) } catch {}
+    state.user = d.user || {}
+    state.account = d.account || null
+    state.balance = d.balance; state.equity = d.equity; state.netWorth = d.netWorth
+    state.holdings = d.positions || []
+    state.history = d.history || []; state.deposits = d.deposits || []
+    state.symbols = (d.market || []).map((q) => q); state.session = d.session || null
+    state.quotes = Object.fromEntries(state.symbols.map((x) => [x.sym, x]))
+    ensureKnownSymbol()
+    renderTicker(state.symbols); renderSymbolPicker(); renderTradingHeader(); renderSession()
+    await Promise.all([loadAccount(), loadCodes(), loadTraffic(), loadMarket()])
+    $('loginView').classList.add('hidden'); $('tabbar').classList.remove('hidden')
+    if ($('navOwner')) $('navOwner').classList.toggle('hidden', !((d.user || {}).owner))
+    go('pasar'); connectStream()
+    if (d.dailyBonus) toast('Bonus harian +$AS ' + money(d.dailyBonus) + ' masuk!', 'ok')
+  }
+
+  async function login(token) {
+    const btn = $('loginBtn'); btn.disabled = true; btn.textContent = 'MEMERIKSA…'
+    try {
+      const d = await apiPost('/api/trading/login', { token })
+      TOKEN = token
+      await applySession(token, d)
+      toast('Selamat datang, ' + (d.user?.username || 'trader') + '!', 'ok')
+    } catch (e) {
+      $('loginHint').className = 'notice err'
+      $('loginHint').innerHTML = '<b>Gagal masuk:</b> ' + esc(e.message)
+      toast(e.message, 'error')
+    } finally { btn.disabled = false; btn.textContent = 'MASUK' }
+  }
+
+  async function submitOrder() {
+    const qty = Number($('qtyInput').value) || 0
+    if (!qty) return toast('Isi jumlah lot dulu.', 'error')
+    const btn = $('submitOrder'); btn.disabled = true
+    const label = state.side === 'buy' ? 'MEMBELI…' : 'MENJUAL…'
+    const old = btn.textContent; btn.textContent = label
+    try {
+      const d = await api('/api/trading/trade', { method: 'POST', body: JSON.stringify({ token: TOKEN, symbol: state.symbol, side: state.side, amount: qty }) })
+      state.balance = d.balance; state.equity = d.equity; state.netWorth = d.netWorth
+      state.unrealized = d.unrealized; state.holdings = d.positions || []; state.history = d.history || []
+      $('qtyInput').value = ''
+      renderTradingHeader(); renderSaldo()
+      toast(`${state.side === 'buy' ? 'Beli' : 'Jual'} ${money(qty)} ${state.symbol} @ ${money(d.price)} · total $AS ${money(d.total)}`, 'ok')
+      await Promise.all([loadMarket(), loadSymbolData(false)])
+    } catch (e) {
+      toast(e.message, 'error')
+      if (e.payload?.code === 'INSUFFICIENT' && e.payload.maxAmount) $('qtyInput').value = Math.floor(e.payload.maxAmount * 100) / 100
+    } finally { btn.disabled = false; btn.textContent = old }
+  }
+
+  async function quickSell(sym) {
+    const h = state.holdings.find((x) => x.sym === sym)
+    if (!h) return
+    state.symbol = sym; state.side = 'sell'; $('qtyInput').value = h.qty
+    document.querySelectorAll('#sideSeg button').forEach((b) => { b.classList.toggle('on', b.dataset.side === 'sell'); b.classList.toggle('sell', b.dataset.side === 'sell') })
+    go('trading'); renderSymbolPicker(); renderTradingHeader(); renderOrderTotal()
+    toast('Siap jual ' + money(h.qty) + ' lot ' + sym + ' — tekan JUAL SEKARANG.')
+  }
+
+  async function doTopup() {
+    const koin = Math.floor(Number($('topupAmount').value) || 0)
+    const min = Number(state.koinMin) || 20
+    const max = Number(state.koinMax) || 5000
+    if (koin < min) return toast(`Minimal ${min.toLocaleString('id-ID')} koin.`, 'error')
+    if (koin > max) return toast(`Maksimal ${max.toLocaleString('id-ID')} koin per transaksi.`, 'error')
+    if (state.koinBalance != null && koin > state.koinBalance) return toast(`Koin RPG kamu hanya ${Number(state.koinBalance).toLocaleString('id-ID')}.`, 'error')
+    const btn = $('topupBtn'); btn.disabled = true; const old = btn.textContent; btn.textContent = 'MEMPROSES…'
+    try {
+      const reference = 'game-koin-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8)
+      const d = await api('/api/trading/topup', { method: 'POST', body: JSON.stringify({ token: TOKEN, amountKoin: koin, reference }) })
+      state.balance = d.balance
+      if (d.koinBalance != null) state.koinBalance = Number(d.koinBalance) || 0
+      $('topupAmount').value = ''
+      await loadAccount()
+      renderKoinStatus()
+      toast(`Tukar koin berhasil: ${Number(koin).toLocaleString('id-ID')} koin → $AS ${money(d.credited)}`, 'ok')
+    } catch (e) { toast(e.message, 'error') } finally { btn.disabled = false; btn.textContent = old }
+  }
+
+  /* ─────────── binding ─────────── */
+  $('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (state.loginMode === 'code') {
+      const code = $('codeInput').value.replace(/\D/g, '')
+      if (code.length < 4) return toast('Kode dari bot minimal 4 angka.', 'error')
+      return loginWithCode(code)
+    }
+    const token = $('tokenInput').value.trim()
+    if (token.length < 16) return toast('Token terlalu pendek.', 'error')
+    login(token)
+  })
+  $('loginModeSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-mode]'); if (!b) return
+    state.loginMode = b.dataset.mode
+    document.querySelectorAll('#loginModeSeg button').forEach((x) => x.classList.toggle('on', x === b))
+    $('tokenLabel').classList.toggle('hidden', state.loginMode !== 'token')
+    $('codeLabel').classList.toggle('hidden', state.loginMode !== 'code')
+    $('showTokenBtn').classList.toggle('hidden', state.loginMode !== 'token')
+  })
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'linkToWa') {
+      e.preventDefault()
+      const code = prompt('Masukkan kode TAUT dari bot (kirim: .trading taut)')
+      if (!code) return
+      apiPost('/api/trading/link', { token: TOKEN, code }).then(async (d) => {
+        state.account = d.account; state.balance = d.balance; state.netWorth = d.netWorth
+        renderProfil(); toast('Akun ditautkan ke nomor WhatsApp. Saldo digabung.', 'ok')
+      }).catch((err) => toast(err.message, 'error'))
+    }
+  })
+  $('showTokenBtn').addEventListener('click', () => {
+    const i = $('tokenInput'); i.type = i.type === 'text' ? 'password' : 'text'
+    $('showTokenBtn').textContent = i.type === 'text' ? 'SEMBUNYIKAN' : 'LIHAT'
+  })
+  $('tabbar').addEventListener('click', (e) => { const b = e.target.closest('button[data-page]'); if (b) go(b.dataset.page) })
+
+  if ($('ownSet')) $('ownSet').addEventListener('click', () => ownerAdjust('set'))
+  if ($('ownAdd')) $('ownAdd').addEventListener('click', () => ownerAdjust('add'))
+  if ($('ownRefresh')) $('ownRefresh').addEventListener('click', () => loadOwner().catch(() => {}))
+  if ($('page-owner')) {
+    $('page-owner').addEventListener('click', (e) => {
+      const pick = e.target.closest('[data-pick]')
+      if (pick) { $('ownAccount').value = pick.dataset.pick; $('ownAmount').focus(); return }
+      const q = e.target.closest('[data-own]')
+      if (q) {
+        const cur = Number($('ownAmount').value) || 0
+        $('ownAmount').value = String(cur + Number(q.dataset.own))
+      }
+    })
+  }
+  $('profileBtn').addEventListener('click', () => go('profil'))
+  $('marketFilters').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-filter]'); if (!b) return
+    state.filter = b.dataset.filter
+    document.querySelectorAll('#marketFilters button').forEach((x) => x.classList.toggle('on', x === b))
+    renderMarketList()
+  })
+  $('searchInput').addEventListener('input', (e) => { state.search = e.target.value; renderMarketList() })
+  $('marketList').addEventListener('click', (e) => {
+    const row = e.target.closest('[data-sym]'); if (!row) return
+    state.symbol = row.dataset.sym; renderSymbolPicker(); go('trading')
+  })
+  $('symPicker').addEventListener('change', (e) => { state.symbol = e.target.value; loadSymbolData(true) })
+  $('symPrev').addEventListener('click', () => stepSymbol(-1))
+  $('symNext').addEventListener('click', () => stepSymbol(1))
+  function stepSymbol(dir) {
+    const list = state.symbols.map((s) => s.sym)
+    const i = list.indexOf(state.symbol)
+    state.symbol = list[(i + dir + list.length) % list.length]
+    renderSymbolPicker(); loadSymbolData(true)
+  }
+  $('tfs').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-tf]'); if (!b) return
+    state.tf = b.dataset.tf
+    document.querySelectorAll('#tfs button').forEach((x) => x.classList.toggle('on', x === b))
+    api(`/api/trading/candles?symbol=${encodeURIComponent(state.symbol)}&tf=${state.tf}&limit=90`)
+      .then((d) => { state.candles = d.candles || []; drawChart() }).catch(() => {})
+  })
+  $('sideSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-side]'); if (!b) return
+    state.side = b.dataset.side
+    document.querySelectorAll('#sideSeg button').forEach((x) => { x.classList.toggle('on', x === b); x.classList.toggle('buy', x.dataset.side === 'buy'); x.classList.toggle('sell', x.dataset.side === 'sell') })
+    renderTradingHeader(); renderOrderTotal()
+  })
+  $('qtyInput').addEventListener('input', renderOrderTotal)
+  document.querySelectorAll('[data-pct]').forEach((b) => b.addEventListener('click', () => {
+    const q = currentQuote(); if (!q) return
+    const pct = Number(b.dataset.pct)
+    const maxQty = buyingPower() / q.price
+    $('qtyInput').value = Math.max(0, Math.floor(maxQty * pct * 100) / 100)
+    renderOrderTotal()
+  }))
+  $('submitOrder').addEventListener('click', submitOrder)
+  $('holdBody').addEventListener('click', (e) => { const b = e.target.closest('[data-quicksell]'); if (b) quickSell(b.dataset.quicksell) })
+  $('reloadBtn').addEventListener('click', () => Promise.all([loadAccount(), loadMarket()]).then(() => toast('Data dimuat ulang.', 'ok')).catch((e) => toast(e.message, 'error')))
+  $('goTopup').addEventListener('click', () => go('profil'))
+  $('topupAmount').addEventListener('input', topupPreview)
+  $('topupBtn').addEventListener('click', doTopup)
+  document.querySelectorAll('[data-topup]').forEach((b) => b.addEventListener('click', () => { $('topupAmount').value = b.dataset.topup; topupPreview() }))
+  $('codeList').addEventListener('click', (e) => { const c = e.target.closest('[data-code]'); if (c) { $('redeemInput').value = c.dataset.code; toast('Kode ' + c.dataset.code + ' siap ditukar.') } })
+  $('redeemForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const code = $('redeemInput').value.trim().toUpperCase()
+    if (!code) return
+    try {
+      const d = await api('/api/trading/redeem', { method: 'POST', body: JSON.stringify({ token: TOKEN, code }) })
+      $('redeemInput').value = ''
+      toast(`Kode ${code} ditukar +$AS ${money(d.amount)}`, 'ok')
+      await Promise.all([loadAccount(), loadCodes()])
+    } catch (err) { toast(err.message, 'error') }
+  })
+  $('logoutBtn').addEventListener('click', () => {
+    TOKEN = ''; try { localStorage.removeItem(TOKEN_KEY) } catch {}
+    if (stream) { stream.close(); stream = null }
+    state.user = null; $('tokenInput').value = ''
+    if ($('navOwner')) $('navOwner').classList.add('hidden')
+    $('tabbar').classList.add('hidden'); $('loginView').classList.remove('hidden')
+    setLive(false, 'keluar'); toast('Sudah keluar.')
+  })
+
+  // chart hover
+  const chartEl = $('chart')
+  const hoverMove = (clientX) => {
+    const rect = chartEl.getBoundingClientRect()
+    const padR = 54, padL = 8
+    const cw = (rect.width - padL - padR) / (state.candles.length || 1)
+    const i = Math.round((clientX - rect.left - padL - cw / 2) / cw)
+    if (i < 0 || i >= state.candles.length) return drawChart()
+    drawChart(i)
+    const c = state.candles[i]
+    $('chartHover').textContent = `${new Date(c.t).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} · O ${money(c.o)} H ${money(c.h)} L ${money(c.l)} C ${money(c.c)} · V ${money(c.v, 0)}`
+  }
+  chartEl.addEventListener('mousemove', (e) => hoverMove(e.clientX))
+  chartEl.addEventListener('touchmove', (e) => { if (e.touches[0]) hoverMove(e.touches[0].clientX) }, { passive: true })
+  chartEl.addEventListener('mouseleave', () => { drawChart(); $('chartHover').textContent = '—' })
+  window.addEventListener('resize', () => { drawChart(); renderMarketList() })
+
+  /* ─────────── boot ─────────── */
+  ;(async () => {
+    try { await loadTraffic() } catch {}
+    try {
+      const d = await api('/api/trading/market')
+      state.symbols = d.symbols || []
+      if (d.session) { state.session = d.session; renderSession() }
+      $('loginMarket').innerHTML = state.symbols.slice(0, 5).map((s) => `<div class="dep"><span>${esc(s.sym)} · ${esc(s.name)}</span><b class="num ${cls(s.changePct)}">${money(s.price)} (${sgn(s.changePct)}${money(s.changePct)}%)</b></div>`).join('')
+      renderTicker(state.symbols)
+      renderMarketList()
+      renderTradingHeader()
+    } catch {}
+    // Pasar & papan peringkat bersifat publik: tampilkan walau belum masuk,
+    // supaya pengunjung langsung melihat harga hidup dan siapa yang terkaya.
+    try { await loadLeaderboard() } catch {}
+    const urlCode = new URLSearchParams(location.search).get('code')
+    if (urlCode) {
+      $('codeInput').value = urlCode
+      state.loginMode = 'code'
+      document.querySelectorAll('#loginModeSeg button').forEach((x) => x.classList.toggle('on', x.dataset.mode === 'code'))
+      $('tokenLabel').classList.add('hidden'); $('codeLabel').classList.remove('hidden'); $('showTokenBtn').classList.add('hidden')
+      loginWithCode(urlCode)
+      return
+    }
+    const saved = (() => { try { return localStorage.getItem(TOKEN_KEY) || '' } catch { return '' } })()
+    if (saved) { $('tokenInput').value = saved; login(saved) } else setLive(false, 'belum masuk')
+  })()
+  setInterval(() => { if (TOKEN && state.page === 'saldo') loadAccount().catch(() => {}) }, 15000)
+})()
+</script>
+</body>
+</html>

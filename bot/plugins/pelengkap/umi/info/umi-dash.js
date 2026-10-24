@@ -1,0 +1,20 @@
+import { runImportedFeature } from '../../../../lib/imported-compat.js'
+const metadata = {"name": "dashboard", "category": "info", "aliasMap": {"umi-info-dashboard": "dashboard", "umi-dashboard": "dashboard"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
+const handler = (m, extra) => runImportedFeature("umi", "plugins/info/dash.js", metadata, m, extra)
+handler.help = ["umi-info-dashboard"]
+handler.command = ["umi-info-dashboard", "umi-dashboard"]
+handler.tags = ["info"]
+handler.description = "Imported from Umi MD V4.6"
+handler.importSource = "umi"
+handler.importConfig = {"name": "dashboard", "alias": [], "category": "info", "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "isOwner": false, "isPremium": false, "isGroup": false, "isPrivate": false, "cooldown": 3, "energi": 1, "isEnabled": true}
+handler.owner = false
+handler.rowner = false
+handler.premium = false
+handler.group = false
+handler.private = false
+handler.admin = false
+handler.botAdmin = false
+handler.level = 0
+handler.limit = 1
+handler.importAliasMap = {"umi-info-dashboard": "dashboard", "umi-dashboard": "dashboard"}
+export default handler

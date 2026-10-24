@@ -1,0 +1,1050 @@
+[
+  {
+    "file": "plugins/umi-extra/utility-remind.js",
+    "source": "utility/reminder.js",
+    "commands": [
+      "remind",
+      "reminder",
+      "ingatkan"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-ytsummarize.js",
+    "source": "tools/ytsummarize.js",
+    "commands": [
+      "ytsummarize",
+      "ytsummary",
+      "summarizeyt",
+      "ringkasyt"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-vocalcut.js",
+    "source": "tools/vocalcut.js",
+    "commands": [
+      "vocalcut",
+      "vocal",
+      "separatortrack",
+      "vocal-remover",
+      "remvocals"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-usernamegen.js",
+    "source": "tools/usernamegen.js",
+    "commands": [
+      "usernamegen",
+      "genuser",
+      "username",
+      "genusername"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-tweetss.js",
+    "source": "tools/tweetss.js",
+    "commands": [
+      "tweetss",
+      "orshot",
+      "tweetimage",
+      "tweetimg"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-tebalteks.js",
+    "source": "tools/tebalteks.js",
+    "commands": [
+      "tebalteks",
+      "boldtext"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-styleteks.js",
+    "source": "tools/styleteks.js",
+    "commands": [
+      "styleteks",
+      "fancytext",
+      "font",
+      "gaya",
+      "tulisan",
+      "fontstyle"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-struk.js",
+    "source": "tools/struk.js",
+    "commands": [
+      "struk",
+      "printstruk",
+      "buatstruk",
+      "pdfstruk"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-sstablet.js",
+    "source": "tools/sstablet.js",
+    "commands": [
+      "sstablet",
+      "sstablet",
+      "sstab",
+      "sweb"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-ssdesktop.js",
+    "source": "tools/ssdesktop.js",
+    "commands": [
+      "ssdesktop",
+      "ssdesktop",
+      "sspc",
+      "sspcweb",
+      "ssd"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-speedbot.js",
+    "source": "tools/speedbot.js",
+    "commands": [
+      "speedbot",
+      "speed-bot",
+      "serverinfo"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-shareteks.js",
+    "source": "tools/sharetext.js",
+    "commands": [
+      "shareteks",
+      "bagiteks"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-searchgist.js",
+    "source": "tools/searchgist.js",
+    "commands": [
+      "searchgist"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-scanrepo.js",
+    "source": "tools/scanrepo.js",
+    "commands": [
+      "scanrepo",
+      "scanrepodev"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-readqr.js",
+    "source": "tools/readqr.js",
+    "commands": [
+      "readqr"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-qrcodefile.js",
+    "source": "tools/qrcodefile.js",
+    "commands": [
+      "qrcodefile",
+      "qrfile",
+      "fileqr",
+      "filetoqr",
+      "qruguu"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-preset.js",
+    "source": "tools/preset.js",
+    "commands": [
+      "preset",
+      "prst"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-phisingataubukan.js",
+    "source": "tools/phisingataubukan.js",
+    "commands": [
+      "phisingataubukan",
+      "cekphising",
+      "checkphishing",
+      "webphishing"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-npmshield.js",
+    "source": "tools/npmshield.js",
+    "commands": [
+      "npmshield"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-npmdl.js",
+    "source": "tools/npmdl.js",
+    "commands": [
+      "npmdl",
+      "npmdownload"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-morse.js",
+    "source": "tools/morse.js",
+    "commands": [
+      "morse",
+      "demorse"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-mcstalk.js",
+    "source": "tools/mcstalk.js",
+    "commands": [
+      "mcstalk",
+      "minecraftstalk",
+      "stalkmc",
+      "mcprofile"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-jadwaltv.js",
+    "source": "tools/jadwaltv.js",
+    "commands": [
+      "jadwaltv"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-hitungwrmlbb.js",
+    "source": "tools/hitungwrmlbb.js",
+    "commands": [
+      "hitungwrmlbb",
+      "wrml",
+      "wrmlbb",
+      "winrate"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-gsmarena2.js",
+    "source": "tools/gsmarena2.js",
+    "commands": [
+      "gsmarena2",
+      "gsmspek2",
+      "hpspek2"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-grammarly.js",
+    "source": "tools/grammary.js",
+    "commands": [
+      "grammarly",
+      "aidetector",
+      "checkai",
+      "grammarlyai"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-jarak.js",
+    "source": "tools/gmaps.js",
+    "commands": [
+      "jarak"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-ghuser.js",
+    "source": "tools/gh.js",
+    "commands": [
+      "ghuser",
+      "ghsearch",
+      "ghgist"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-fliptext.js",
+    "source": "tools/fliptext.js",
+    "commands": [
+      "fliptext",
+      "baliktext"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-ekspedisilist.js",
+    "source": "tools/ekspedisilist.js",
+    "commands": [
+      "ekspedisilist"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-ebinary.js",
+    "source": "tools/ebinary.js",
+    "commands": [
+      "ebinary",
+      "encodebinary",
+      "text2binary"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-debiner.js",
+    "source": "tools/debiner.js",
+    "commands": [
+      "debiner",
+      "bintotext",
+      "bin2teks",
+      "decodebiner"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-dbinary.js",
+    "source": "tools/dbinary.js",
+    "commands": [
+      "dbinary",
+      "decodebinary",
+      "binary2text"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-compresspdf.js",
+    "source": "tools/compresspdf.js",
+    "commands": [
+      "compresspdf",
+      "komprespdf",
+      "pdfcompress"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-promptcode.js",
+    "source": "tools/codepromt.js",
+    "commands": [
+      "promptcode",
+      "detectbug",
+      "convertcode",
+      "explaincode",
+      "imagesolve"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-checkhost.js",
+    "source": "tools/cekhost.js",
+    "commands": [
+      "checkhost",
+      "cekhost",
+      "check"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-bitly.js",
+    "source": "tools/bitly.js",
+    "commands": [
+      "bitly",
+      "shortlink",
+      "shorturl"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tools-biner.js",
+    "source": "tools/binary.js",
+    "commands": [
+      "biner",
+      "texttobin",
+      "teks2bin",
+      "encodebiner"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-wattpadsearch.js",
+    "source": "search/wattpadsearch.js",
+    "commands": [
+      "wattpadsearch",
+      "wattpad"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-uptodown.js",
+    "source": "search/uptodown.js",
+    "commands": [
+      "uptodown"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-tokopedia.js",
+    "source": "search/tokopedia.js",
+    "commands": [
+      "tokopedia",
+      "tokped",
+      "toped",
+      "tokpedsearch"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-searchcode.js",
+    "source": "search/searchcode.js",
+    "commands": [
+      "searchcode"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-kodepos.js",
+    "source": "search/kodepos.js",
+    "commands": [
+      "kodepos"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-brainly.js",
+    "source": "search/brainly.js",
+    "commands": [
+      "brainly",
+      "brain",
+      "jawab"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-applemaps.js",
+    "source": "search/applemaps.js",
+    "commands": [
+      "applemaps",
+      "maps",
+      "applemap",
+      "carilokasi"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-apkzoic.js",
+    "source": "search/apkzoic.js",
+    "commands": [
+      "apkzoic",
+      "apkz"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-apkpure.js",
+    "source": "search/apkpure.js",
+    "commands": [
+      "apkpure",
+      "apkp"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/search-apkcombo.js",
+    "source": "search/apkcombo.js",
+    "commands": [
+      "apkcombo",
+      "apk",
+      "apksearch"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/general-playstore.js",
+    "source": "general/playstore.js",
+    "commands": [
+      "playstore",
+      "ps"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/general-mcstatus.js",
+    "source": "general/mcstatus.js",
+    "commands": [
+      "mcstatus",
+      "mcstat"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/general-mcaddons.js",
+    "source": "general/mcaddons.js",
+    "commands": [
+      "mcaddons",
+      "mcmap"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/general-infoloker.js",
+    "source": "general/infoloker.js",
+    "commands": [
+      "infoloker"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/general-alkitab.js",
+    "source": "general/alkitab.js",
+    "commands": [
+      "alkitab"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/info-livescore.js",
+    "source": "info/livescore.js",
+    "commands": [
+      "livescore",
+      "skorbola",
+      "livebola",
+      "skor"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/info-callingcode.js",
+    "source": "info/callingcode.js",
+    "commands": [
+      "callingcode"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/info-bmkggempa.js",
+    "source": "info/bmkggempa.js",
+    "commands": [
+      "bmkggempa"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/internet-fdroid.js",
+    "source": "internet/fdroid.js",
+    "commands": [
+      "fdroid",
+      "fdroidsearch",
+      "fdroiddl",
+      "fdroidapp"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/internet-dongeng.js",
+    "source": "internet/dongeng.js",
+    "commands": [
+      "dongeng",
+      "cerita",
+      "dongengku"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/image-uhdpaper.js",
+    "source": "image/uhdpaper.js",
+    "commands": [
+      "uhdpaper"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-zikir.js",
+    "source": "islamic/zikir.js",
+    "commands": [
+      "zikir",
+      "dzikir",
+      "wirid",
+      "zikirpagi",
+      "zikirpetang"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-taubat.js",
+    "source": "islamic/taubat.js",
+    "commands": [
+      "taubat",
+      "taubatnasuha",
+      "taubat-nasuha",
+      "doataubat"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-tahlil.js",
+    "source": "islamic/tahlil.js",
+    "commands": [
+      "tahlil",
+      "tahlilan",
+      "doatahlil",
+      "tahlil"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-sholawat.js",
+    "source": "islamic/sholawat.js",
+    "commands": [
+      "sholawat",
+      "shalawat",
+      "selawat",
+      "sholawatnabi"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-rajab.js",
+    "source": "islamic/rajab.js",
+    "commands": [
+      "rajab",
+      "bulanrajab",
+      "rajab"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-nisfusyaban.js",
+    "source": "islamic/nisfusyaban.js",
+    "commands": [
+      "nisfusyaban",
+      "nisfu",
+      "malamnisfu",
+      "syaban"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-murothal.js",
+    "source": "islamic/murotal.js",
+    "commands": [
+      "murothal"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-mandiwajib.js",
+    "source": "islamic/mandiwajib.js",
+    "commands": [
+      "mandiwajib",
+      "caramandiwajib",
+      "mandiwajib",
+      "mandi-wajib"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-istikharah.js",
+    "source": "islamic/istikharah.js",
+    "commands": [
+      "istikharah",
+      "sholatistikharah",
+      "istikhoroh",
+      "istikharoh"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-istighfar.js",
+    "source": "islamic/istighfar.js",
+    "commands": [
+      "istighfar",
+      "sayyidulistighfar",
+      "istighfar",
+      "sayyidul"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-hijriyah.js",
+    "source": "islamic/hijrah.js",
+    "commands": [
+      "hijriyah",
+      "hijri",
+      "tahunislam"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-puasa.js",
+    "source": "islamic/puasa.js",
+    "commands": [
+      "puasa",
+      "puasasunnah",
+      "puasasenin",
+      "puasakamis",
+      "puasadawud"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-ayat.js",
+    "source": "islamic/ayat.js",
+    "commands": [
+      "ayat",
+      "ayatpilihan",
+      "suratpilihan"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/islamic-ayatkursi.js",
+    "source": "islamic/ayat-kursi.js",
+    "commands": [
+      "ayatkursi"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/religi-bacaansholat.js",
+    "source": "religi/bacaansholat.js",
+    "commands": [
+      "bacaansholat",
+      "bacaan",
+      "bacaan salat"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/random-randomname.js",
+    "source": "random/randomname.js",
+    "commands": [
+      "randomname"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/random-pantun2.js",
+    "source": "random/pantun2.js",
+    "commands": [
+      "pantun2"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/random-q-islam.js",
+    "source": "random/islam.js",
+    "commands": [
+      "q-islam"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/random-bacot.js",
+    "source": "random/bacot.js",
+    "commands": [
+      "bacot"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-tebakumur.js",
+    "source": "fun/tebakumur.js",
+    "commands": [
+      "tebakumur"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-suratcinta.js",
+    "source": "fun/suratcinta.js",
+    "commands": [
+      "suratcinta"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-seberapagila.js",
+    "source": "fun/seberapagila.js",
+    "commands": [
+      "seberapagila"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-randomtag.js",
+    "source": "fun/randomtag.js",
+    "commands": [
+      "randomtag",
+      "rtag"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-ramal.js",
+    "source": "fun/ramalan.js",
+    "commands": [
+      "ramal"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-moveon.js",
+    "source": "fun/moveon.js",
+    "commands": [
+      "moveon"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-lupakan.js",
+    "source": "fun/lupakan.js",
+    "commands": [
+      "lupakan"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-lifefact.js",
+    "source": "fun/lifefact.js",
+    "commands": [
+      "lifefact",
+      "funfacthidup",
+      "livefunfact"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-kulitkerang.js",
+    "source": "fun/kerangajaib.js",
+    "commands": [
+      "kulitkerang",
+      "ajaib"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-kapankah.js",
+    "source": "fun/kapankah.js",
+    "commands": [
+      "kapankah"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-halah.js",
+    "source": "fun/halah.js",
+    "commands": [
+      "halah",
+      "hilih"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-gachafemboy.js",
+    "source": "fun/gachfemboy.js",
+    "commands": [
+      "gachafemboy"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-gachatomboy.js",
+    "source": "fun/gachatomboy.js",
+    "commands": [
+      "gachatomboy"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-gachanasip.js",
+    "source": "fun/gachanasip.js",
+    "commands": [
+      "gachanasip"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-gachabini.js",
+    "source": "fun/gachabini.js",
+    "commands": [
+      "gachabini"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-cekperforma.js",
+    "source": "fun/cekperfoma.js",
+    "commands": [
+      "cekperforma",
+      "performa",
+      "cekperf"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-cekotot.js",
+    "source": "fun/cekotot.js",
+    "commands": [
+      "cekotot",
+      "ototcheck",
+      "cekmuscle"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/fun-benarkah.js",
+    "source": "fun/benarkah.js",
+    "commands": [
+      "benarkah"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-textlogo.js",
+    "source": "maker/textlogo.js",
+    "commands": [
+      "textlogo"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-sertifikatlemot.js",
+    "source": "maker/sertifikatlemot.js",
+    "commands": [
+      "sertifikatlemot"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-sertifikatcinta.js",
+    "source": "maker/sertifikatcinta.js",
+    "commands": [
+      "sertifikatcinta"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-quotephoto.js",
+    "source": "maker/quotephoto.js",
+    "commands": [
+      "quotephoto",
+      "qphoto",
+      "quotepic",
+      "katatutur",
+      "picturequote"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-logo-metal.js",
+    "source": "maker/logometal.js",
+    "commands": [
+      "logo-metal",
+      "logometal",
+      "metallogo",
+      "steellogo",
+      "metaltext"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-logo-gold.js",
+    "source": "maker/logogold.js",
+    "commands": [
+      "logo-gold",
+      "logogold",
+      "goldlogo",
+      "goldtext",
+      "emastulisan"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-logo-glow.js",
+    "source": "maker/logoglow.js",
+    "commands": [
+      "logo-glow",
+      "logoglow",
+      "neonlogo",
+      "glowlogo"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-logo-3d.js",
+    "source": "maker/logo3d.js",
+    "commands": [
+      "logo-3d",
+      "logo3d",
+      "3dlogo",
+      "3dtext"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-hotline.js",
+    "source": "maker/hotline.js",
+    "commands": [
+      "hotline"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-hangingpolaroid.js",
+    "source": "maker/hangingpolaroid.js",
+    "commands": [
+      "hangingpolaroid",
+      "polaroid2",
+      "pola",
+      "bingkai",
+      "frame"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/maker-cinematic.js",
+    "source": "maker/cinematic.js",
+    "commands": [
+      "cinematic",
+      "moody",
+      "darktone",
+      "nighttone",
+      "filterdark",
+      "flashmood"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/canvas-tiktokchat.js",
+    "source": "canvas/tiktokchat.js",
+    "commands": [
+      "tiktokchat",
+      "tiktok-chat",
+      "ttchat"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/canvas-kalender.js",
+    "source": "canvas/kalender.js",
+    "commands": [
+      "kalender",
+      "calendar",
+      "tanggalan"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/canvas-dbmeme.js",
+    "source": "canvas/dbmeme.js",
+    "commands": [
+      "dbmeme",
+      "distractedboy",
+      "dbm",
+      "memedb"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/convert-tocodeqr.js",
+    "source": "convert/tocodeqr.js",
+    "commands": [
+      "tocodeqr",
+      "qrurl",
+      "linktoqr"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/download-ttslide.js",
+    "source": "download/ttslide.js",
+    "commands": [
+      "ttslide",
+      "tiktokslide"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/music-ringtone.js",
+    "source": "music/ringtone.js",
+    "commands": [
+      "ringtone"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/music-playncs.js",
+    "source": "music/playncs.js",
+    "commands": [
+      "playncs",
+      "ncssearch",
+      "ncsplay"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/sticker-pack.js",
+    "source": "sticker/pack.js",
+    "commands": [
+      "pack"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/tts-holotts.js",
+    "source": "tts/holotts.js",
+    "commands": [
+      "holotts",
+      "hololive",
+      "hololivetts",
+      "vnholo"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/anime-tokusatsu.js",
+    "source": "anime/tokusatsu.js",
+    "commands": [
+      "tokusatsu",
+      "toku"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/anime-anischedule.js",
+    "source": "anime/anischedule.js",
+    "commands": [
+      "anischedule",
+      "animejadwal",
+      "jadwalanime",
+      "animeday"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/anime-animetrailer.js",
+    "source": "anime/animetrailer.js",
+    "commands": [
+      "animetrailer",
+      "traileranime",
+      "animepv",
+      "animepromo"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/anime-animedate.js",
+    "source": "anime/animedate.js",
+    "commands": [
+      "animedate",
+      "animerilis",
+      "animekalender",
+      "animerelease"
+    ]
+  },
+  {
+    "file": "plugins/umi-extra/anime-anilist.js",
+    "source": "anime/anilist.js",
+    "commands": [
+      "anilist"
+    ]
+  }
+]

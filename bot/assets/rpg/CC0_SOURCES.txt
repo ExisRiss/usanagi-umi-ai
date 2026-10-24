@@ -1,0 +1,23 @@
+USANAGI UMI AI RPG UI ASSET REFERENCES
+
+Kenney UI Pack (RPG Expansion)
+https://kenney.nl/assets/ui-pack-rpg-expansion
+License: Creative Commons CC0
+
+Kenney Fantasy UI Borders
+https://kenney.nl/assets/fantasy-ui-borders
+License: Creative Commons CC0
+
+OpenGameArt RPG UI Elements CC0
+https://opengameart.org/content/rpg-ui-elements-cc0
+License: CC0 collection
+
+OpenGameArt RPG UI Icons
+https://opengameart.org/content/rpg-ui-icons
+License: CC0
+
+OpenGameArt RPG UI
+https://opengameart.org/content/rpg-ui-1
+License: CC0
+
+Runtime note: the Usanagi RPG renderer remains self-contained and does not download third-party assets at runtime. These references are documented sources for optional future visual asset integration.

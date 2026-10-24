@@ -1,0 +1,32 @@
+tunnel: 88438bb0-2a14-4e71-a85c-94ebe2dc494f
+credentials-file: /home/container/tunnel-creds.json
+ingress:
+  - hostname: game.gwenna.my.id
+    service: http://localhost:3900
+  - hostname: sewa-bot-by-okta-alzriss.gwenna.my.id
+    service: http://localhost:3200
+  - hostname: alzriss-deploy-okta.gwenna.my.id
+    service: http://localhost:3300
+  - hostname: gwenna.my.id
+    service: http://localhost:3000
+  - hostname: alzriss-okta.gwenna.my.id
+    service: http://localhost:3000
+  - hostname: contoh-okta.gwenna.my.id
+    service: http://localhost:3300
+  - hostname: deploy-push-project-by-alzriss.gwenna.my.id
+    service: http://localhost:3500
+  - hostname: alzriss-project-all.gwenna.my.id
+    service: http://localhost:3600
+  - hostname: back-up-by-alzriss.gwenna.my.id
+    service: http://localhost:3700
+  - hostname: jadibot-by-alzriss-okta.gwenna.my.id
+    service: https://website-jadibot-by-alzriss.vercel.app
+    originRequest:
+      httpHostHeader: website-jadibot-by-alzriss.vercel.app
+  - hostname: panel-bot-utama.gwenna.my.id
+    service: http://localhost:3800
+  - hostname: reset-panel.gwenna.my.id
+    service: https://reset.pteroq.biz.id
+  - hostname: "*.gwenna.my.id"
+    service: http://localhost:3000
+  - service: http_status:404

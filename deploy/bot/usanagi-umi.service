@@ -1,0 +1,43 @@
+[Unit]
+Description=Usanagi Umi WhatsApp Bot
+Documentation=https://github.com/ExisRiss/usanagi-umi-public-source
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=usanagi
+Group=usanagi
+WorkingDirectory=/opt/usanagi-umi/bot
+ExecStart=/usr/bin/node main.js
+
+# Bot harus hidup terus. Jangan restart beruntun saat crash-loop.
+Restart=always
+RestartSec=15
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+Environment=NODE_ENV=production
+Environment=TZ=Asia/Makassar
+# Environment=PAIRING_NUMBER=628xxxxxxxxxx
+# Environment=FFMPEG_PATH=/usr/bin/ffmpeg
+
+# Batasi sumber daya supaya bot tidak menelan seluruh VPS.
+MemoryMax=1024M
+MemoryHigh=850M
+TasksMax=256
+LimitNOFILE=65535
+
+# Pengerasan dasar.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/opt/usanagi-umi/bot /var/log/usanagi-umi
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=usanagi-umi
+
+[Install]
+WantedBy=multi-user.target

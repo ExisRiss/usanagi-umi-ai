@@ -1,0 +1,31 @@
+[Unit]
+Description=Umi bot and game companion (shared production RPG)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+[Service]
+Type=simple
+User=umi
+Group=umi
+WorkingDirectory=/srv/umi/bot
+EnvironmentFile=/home/umi/.secrets/runtime.env
+Environment=NODE_ENV=production
+Environment=TZ=Asia/Makassar
+ExecStartPre=/usr/bin/test -s /srv/umi/bot/config.js
+ExecStartPre=/usr/bin/test -s /srv/umi/bot/data/database/usanagi.sqlite
+ExecStart=/usr/bin/node scripts/companion.js
+Restart=always
+RestartSec=15
+KillMode=control-group
+TimeoutStopSec=60
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/srv/umi /home/umi/.secrets
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

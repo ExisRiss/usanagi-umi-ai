@@ -1,0 +1,6 @@
+{$REALMS_DOMAIN} {
+    encode zstd gzip
+    reverse_proxy realms:4173 {
+        flush_interval -1
+    }
+}

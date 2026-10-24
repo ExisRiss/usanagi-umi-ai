@@ -1,0 +1,19 @@
+{
+  "name": "usanagi-umi-jadibot-web",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.1",
+    "formidable": "3.5.4",
+    "qrcode": "1.5.4",
+    "tar": "^7.5.22"
+  },
+  "scripts": {
+    "backup:snapshot": "node scripts/create-website-backup-snapshot.mjs",
+    "sync:public": "node scripts/sync-public.mjs"
+  }
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alzriss · Portofolio Developer</title>
+<meta name="description" content="Portofolio Alzriss — developer bot WhatsApp & web. Pencipta Umi Usanagi AI dan Umi Jadibot Studio.">
+<link rel="icon" href="assets/logo.jpg">
+<style>
+  :root{
+    color-scheme:dark;
+    --ink:#e8efff; --muted:#9aaaca; --paper:#07111f;
+    --cyan:#62d8ff; --blue:#526dff; --violet:#8057ed; --lime:#52e0b3; --pink:#c5a0ff;
+    --card:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
+    --line:1px solid rgba(255,255,255,.22);
+    --shadow:0 8px 32px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* WALLPAPER — ganti berkas assets/wallpaper.jpg untuk mengganti latar */
+  .bg{position:fixed;inset:0;z-index:-2;background:
+    linear-gradient(180deg,rgba(5,10,26,.66),rgba(5,10,26,.78) 55%,rgba(4,8,20,.88)),
+    url('assets/wallpaper.jpg') center/cover no-repeat fixed #07111f}
+  .hero-card,.stat,.project,.gallery figure,.card,.skill{
+    backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:10;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);background:rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.18);box-shadow:0 8px 32px rgba(0,0,0,.18)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:12px;color:#f2f6ff}
+  .brand img{width:44px;height:44px;border-radius:13px;border:1px solid rgba(142,169,225,.35);object-fit:cover}
+  .brand b{font-size:17px;letter-spacing:.03em;display:block;line-height:1.1}
+  .brand small{color:var(--muted);letter-spacing:.22em;font-size:10px}
+  .nav nav{display:flex;gap:8px;flex-wrap:wrap}
+  .nav nav a{color:#c7d4ef;padding:8px 13px;border-radius:12px;border:1px solid transparent;font-size:14px}
+  .nav nav a:hover{background:rgba(82,109,255,.16);border-color:rgba(115,143,255,.28);color:#fff;text-decoration:none}
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;padding:72px 0 46px}
+  .eyebrow{display:inline-block;padding:7px 13px;border-radius:999px;background:rgba(82,109,255,.16);border:1px solid rgba(115,143,255,.35);font-size:11px;letter-spacing:.24em;color:#cfe0ff}
+  h1{font-size:clamp(38px,6.2vw,64px);line-height:1.04;margin:20px 0 14px;letter-spacing:-.03em}
+  h1 .grad{background:linear-gradient(92deg,var(--cyan),var(--blue) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:#b2c1df;font-size:17px;max-width:56ch;margin:0 0 24px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:11px 20px;border-radius:12px;font-weight:700;border:1px solid rgba(142,169,225,.25);color:#fff;transition:transform .16s,filter .16s}
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.1);text-decoration:none}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--violet));border-color:transparent}
+  .btn-glass{background:rgba(132,157,215,.10);color:#dce7ff}
+  .hero-card{background:var(--card);border:var(--line);border-radius:22px;box-shadow:var(--shadow);padding:14px;transform:rotate(1.2deg)}
+  .hero-card img{width:100%;border-radius:16px;display:block;aspect-ratio:4/3;object-fit:cover}
+  .hero-card figcaption{display:flex;justify-content:space-between;gap:10px;padding:12px 6px 4px;color:var(--muted);font-size:13px}
+  .pill{padding:4px 10px;border-radius:999px;border:1px solid rgba(82,224,179,.4);color:#a7f3d8;font-size:11px;letter-spacing:.08em}
+  section{padding:38px 0}
+  h2{font-size:clamp(26px,3.6vw,34px);margin:0 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--muted);margin:0 0 24px;max-width:66ch}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:var(--card);border:var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+  .stat b{font-size:27px;display:block;line-height:1.1}
+  .stat span{color:var(--muted);font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .project{background:var(--card);border:var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .project img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:var(--line)}
+  .project .body{padding:20px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .project h3{margin:0;font-size:19px}
+  .project p{margin:0;color:#b2c1df;font-size:14.5px;flex:1}
+  .tags{display:flex;gap:7px;flex-wrap:wrap}
+  .tag{font-size:11px;padding:4px 10px;border-radius:999px;background:rgba(98,216,255,.10);border:1px solid rgba(98,216,255,.25);color:#bfe9ff;letter-spacing:.04em}
+  .links{display:flex;gap:14px;align-items:center;font-weight:600;font-size:14px}
+  .links .off{color:var(--muted);font-weight:500}
+  .skills{display:flex;gap:9px;flex-wrap:wrap}
+  .skill{padding:9px 15px;border-radius:999px;background:rgba(132,157,215,.09);border:1px solid rgba(142,169,225,.22);font-size:14px}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gallery figure{margin:0;background:var(--card);border:var(--line);border-radius:16px;overflow:hidden}
+  .gallery img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+  .gallery figcaption{padding:10px 14px;color:var(--muted);font-size:13px}
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start}
+  .card{background:var(--card);border:var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+  .card h3{margin-top:0}
+  .card p{color:#b2c1df}
+  .card ul{color:#b2c1df;padding-left:20px}
+  footer{border-top:1px solid rgba(142,169,225,.16);padding:30px 0 44px;color:var(--muted);font-size:14px;margin-top:26px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:48px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid,.about{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){ .gallery{grid-template-columns:1fr} .nav nav{display:none} }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#atas"><img src="assets/logo.jpg" alt="Logo Umi"><span><b>ALZRISS</b><small>DEVELOPER</small></span></a>
+    <nav>
+      <a href="#proyek">Proyek</a><a href="#keahlian">Keahlian</a><a href="#galeri">Galeri</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="atas">
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">BOT WHATSAPP · WEB · OTOMASI</span>
+      <h1>Halo, saya <span class="grad">Alzriss</span> — pembangun bot &amp; website yang berjalan 24/7.</h1>
+      <p>Saya pengembang di balik <b>Umi Usanagi AI</b>: bot WhatsApp multi-perangkat dengan 2.000+ plugin, studio jadibot berbasis web, sistem auto order panel, dan infrastruktur cadangan multi-server.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#proyek">Lihat Proyek ↓</a>
+        <a class="btn btn-glass" href="https://jadibot-alzriss.gwenna.my.id" target="_blank" rel="noopener">Buka Website Jadibot ↗</a>
+      </div>
+    </div>
+    <figure class="hero-card">
+      <img src="assets/cover.jpg" alt="Umi Usanagi AI">
+      <figcaption><span>Umi Usanagi AI · karakter &amp; brand utama</span><span class="pill">AKTIF</span></figcaption>
+    </figure>
+  </div>
+
+  <section aria-label="Statistik">
+    <div class="stats">
+      <div class="stat"><b>2.037</b><span>plugin bot termuat &amp; aktif</span></div>
+      <div class="stat"><b>24/7</b><span>bot utama &amp; layanan daring</span></div>
+      <div class="stat"><b>4 lapis</b><span>cadangan data: per jam, multi-server</span></div>
+      <div class="stat"><b>3 server</b><span>infrastruktur yang dikelola</span></div>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <h2>Proyek Pilihan</h2>
+    <p class="sub">Semua proyek di bawah ini nyata dan sedang berjalan — silakan klik untuk mencobanya langsung.</p>
+    <div class="grid">
+
+      <article class="project">
+        <img src="assets/proj-jadibot.jpg" alt="Umi Jadibot Studio">
+        <div class="body">
+          <h3>🌊 Umi Jadibot Studio</h3>
+          <p>Website untuk menjadikan nomor WhatsApp siapa pun sebagai bot: pairing tanpa ribet, pengaturan identitas &amp; media bot, toko auto order, dompet saldo, sampai halaman upload file pribadi.</p>
+          <div class="tags"><span class="tag">Vercel</span><span class="tag">Baileys</span><span class="tag">Supabase</span><span class="tag">Pterodactyl</span></div>
+          <div class="links"><a href="https://jadibot-alzriss.gwenna.my.id" target="_blank" rel="noopener">Kunjungi Website ↗</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="assets/proj-wallet.jpg" alt="Toko Auto Order">
+        <div class="body">
+          <h3>🛒 Auto Order Panel &amp; Produk Digital</h3>
+          <p>Sistem penjualan otomatis di dalam website jadibot: top up saldo via QRIS manual dengan verifikasi, lalu beli panel Pterodactyl (server dibuat otomatis), premium bot, dan produk digital — gagal buat = refund otomatis.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">REST API</span><span class="tag">E-Wallet</span></div>
+          <div class="links"><a href="https://jadibot-alzriss.gwenna.my.id/#wallet" target="_blank" rel="noopener">Buka Halaman Saldo ↗</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="assets/proj-deployer.jpg" alt="Alzriss &amp; Okta Deployer" onerror="this.src='assets/cover.jpg'">
+        <div class="body">
+          <h3>🚀 Alzriss &amp; Okta Deployer</h3>
+          <p>Platform deploy website ala Vercel di domain sendiri: unggah proyek, dapat subdomain *.gwenna.my.id, dan langsung daring lewat Cloudflare Tunnel.</p>
+          <div class="tags"><span class="tag">Cloudflare Tunnel</span><span class="tag">Hosting</span><span class="tag">Subdomain</span></div>
+          <div class="links"><a href="https://gwenna.my.id" target="_blank" rel="noopener">gwenna.my.id ↗</a><span class="off">· aplikasi sedang disiapkan ulang</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <img src="assets/proj-upload.jpg" alt="Upload File ZIP">
+        <div class="body">
+          <h3>🗄️ Cermin Database &amp; File Hosting</h3>
+          <p>Layanan cadangan di panel kedua: setiap jam database website, arsip bot, dan sesi jadibot disalin terenkripsi-hash ke server cermin. Ditambah halaman upload ZIP privat khusus pemilik dengan link unduh sementara.</p>
+          <div class="tags"><span class="tag">Backup Otomatis</span><span class="tag">Storage</span><span class="tag">Disaster Recovery</span></div>
+          <div class="links"><a href="https://jadibot-alzriss.gwenna.my.id/#files" target="_blank" rel="noopener">Halaman Upload ↗</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <h2>Keahlian</h2>
+    <p class="sub">Teknologi yang saya pakai sehari-hari untuk membangun dan merawat layanan di atas.</p>
+    <div class="skills">
+      <span class="skill">Node.js</span><span class="skill">Bot WhatsApp (Baileys)</span><span class="skill">JavaScript / HTML / CSS</span>
+      <span class="skill">REST API</span><span class="skill">Pterodactyl Panel</span><span class="skill">Cloudflare (DNS &amp; Tunnel)</span>
+      <span class="skill">Vercel</span><span class="skill">Supabase</span><span class="skill">FFmpeg &amp; Pengolahan Media</span>
+      <span class="skill">Otomasi Backup</span><span class="skill">UI Glass / Dark Design</span><span class="skill">Keamanan &amp; Audit</span>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Proyek</h2>
+    <p class="sub">Cuplikan tampilan dari layanan yang sedang berjalan.</p>
+    <div class="gallery">
+      <figure><img src="assets/proj-jadibot.jpg" alt="Landing Jadibot"><figcaption>Landing Umi Jadibot Studio</figcaption></figure>
+      <figure><img src="assets/proj-wallet.jpg" alt="Saldo dan toko"><figcaption>Saldo &amp; TOKO AUTO ORDER</figcaption></figure>
+      <figure><img src="assets/proj-mobile.jpg" alt="Tampilan mobile"><figcaption>Upload ZIP di tampilan mobile</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <h2>Tentang Saya</h2>
+    <div class="about">
+      <div class="card">
+        <h3>👋 Kenalan singkat</h3>
+        <p>Saya <b>Alzriss</b>, developer independen dari Indonesia yang fokus pada bot WhatsApp dan website pendukungnya. Berawal dari mengutak-atik bot untuk komunitas, sekarang saya mengelola ekosistem lengkap: bot utama, puluhan sesi jadibot pengguna, panel auto order, dan sistem cadangan berlapis.</p>
+        <p>Prinsip kerja saya: fitur harus benar-benar jalan dan teruji — bukan sekadar tampil bagus.</p>
+      </div>
+      <div class="card">
+        <h3>📌 Sedang saya bangun</h3>
+        <ul>
+          <li>Menghidupkan kembali platform deployer di gwenna.my.id</li>
+          <li>Menambah katalog &amp; otomasi toko auto order</li>
+          <li>Memperbanyak mini-game &amp; fitur komunitas di bot</li>
+        </ul>
+        <h3>🎯 Fokus</h3>
+        <ul>
+          <li>Keandalan: backup per jam &amp; pemulihan cepat</li>
+          <li>Keamanan: audit, enkripsi kredensial, hak akses berlapis</li>
+          <li>Pengalaman pengguna: tema kaca gelap yang konsisten</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <h2>Kontak &amp; Tautan</h2>
+    <p class="sub">Mau coba botnya, kerja sama, atau sekadar menyapa — silakan lewat tautan resmi berikut.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://wa.me/6280000000001" target="_blank" rel="noopener">Chat Bot Utama (WhatsApp) ↗</a>
+      <a class="btn btn-glass" href="https://jadibot-alzriss.gwenna.my.id" target="_blank" rel="noopener">Website Jadibot ↗</a>
+      <a class="btn btn-glass" href="https://gwenna.my.id" target="_blank" rel="noopener">gwenna.my.id ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Alzriss · Dibangun dengan Node.js &amp; ☕</span>
+    <span>Bagian dari ekosistem <b style="color:#e8efff">Umi Usanagi AI</b></span>
+  </div>
+</footer>
+
+</body>
+</html>

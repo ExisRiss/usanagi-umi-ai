@@ -1,0 +1,17 @@
+# ⚠️ ARSIP — jangan dipakai. Tunnel & server di berkas ini (83595f4b / beyy.ikynebula)
+# sudah mati. Konfigurasi aktif: tunnel-games.yml (dijalankan dari container bot).
+
+# Tunnel AKTIF untuk server mirror (panel2, server df6a073f; sebelumnya beyy 83595f4b).
+# Mode lokal-managed: cloudflared dijalankan dengan berkas ini + tunnel-creds.json.
+# Berkas kredensial TIDAK ada di repo (lihat .gitignore).
+#
+# Tunnel lama alzriss-okta (88438bb0-…) sengaja tidak dipakai lagi:
+# remote config-nya tidak bisa dibaca/ditulis lewat API dan mode token murni
+# terbukti mengosongkan ingress-nya (semua hostname 503). Arsipnya ada di
+# tunnel-config.alzriss-okta.yml.
+tunnel: 6f82f294-ff18-4966-9b8e-38edd97f8359
+credentials-file: /home/container/tunnel-creds.json
+ingress:
+  - hostname: game.gwenna.my.id
+    service: http://localhost:3900
+  - service: http_status:404

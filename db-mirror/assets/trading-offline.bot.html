@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="id" data-build="offline-bundle">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UMI TRADE OFFLINE — Pasar $AS</title>
+<meta name="theme-color" content="#0a0e1a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%230a0e1a'/%3E%3Cg fill='%2322d67f'%3E%3Crect x='104' y='250' width='52' height='110' rx='10'/%3E%3Crect x='186' y='210' width='52' height='150' rx='10'/%3E%3Crect x='268' y='160' width='52' height='200' rx='10'/%3E%3Crect x='350' y='110' width='52' height='250' rx='10'/%3E%3C/g%3E%3Ccircle cx='392' cy='132' r='60' fill='%23ffcc57'/%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0e1a;--card:#121a2b;--card2:#16203a;--line:#1e2b45;--line2:#28395c;--ink:#eef3ff;--ink2:#a8b6d1;--muted:#6b7c9c;--up:#22d67f;--down:#ff4d6d;--acc:#5b7cfa;--gold:#ffcc57}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:radial-gradient(900px 420px at 10% -10%,#16224a 0,transparent 60%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  a{color:#8fb0ff}.num,.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .up{color:var(--up)}.down{color:var(--down)}.dim{color:var(--muted)}.tiny{font-size:12px;color:var(--muted)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 12px}
+  header{position:sticky;top:0;z-index:20;background:rgba(10,14,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .hrow{display:flex;align-items:center;gap:10px;padding:9px 12px;max-width:760px;margin:0 auto}
+  .hrow img{width:34px;height:34px;border-radius:10px}
+  .hrow b{display:block;font-size:13.5px;letter-spacing:.1em}.hrow small{display:block;font-size:9.5px;letter-spacing:.16em;color:var(--muted)}
+  .badge{margin-left:auto;font-size:10.5px;padding:4px 9px;border:1px solid var(--line2);border-radius:999px;color:var(--ink2)}
+  .tick{overflow:hidden;border-top:1px solid var(--line)}
+  .tick-in{display:flex;gap:22px;padding:6px 0;width:max-content;animation:s 40s linear infinite}
+  @keyframes s{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk{display:flex;gap:6px;font-size:12px;white-space:nowrap}
+  .card{background:linear-gradient(180deg,var(--card),#0e1524);border:1px solid var(--line);border-radius:18px;padding:13px;margin-top:12px}
+  h1{font-size:19px;margin:14px 0 8px}h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:0 0 9px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}
+  .st{background:var(--card2);border:1px solid var(--line);border-radius:13px;padding:10px 12px}
+  .st span{display:block;font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+  .st b{display:block;font-size:18px;margin-top:3px}
+  .mkt{display:flex;align-items:center;gap:11px;padding:10px 3px;border-bottom:1px solid var(--line);cursor:pointer}
+  .mkt:last-child{border-bottom:0}
+  .sb{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:11.5px;background:#1a2440;border:1px solid var(--line2)}
+  .mi{flex:1;min-width:0}.mi b{display:block;font-size:14px}.mi span{display:block;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mp{text-align:right}.mp b{font-size:14px}.mp span{font-size:11.5px;font-weight:700}
+  button,input{font:inherit;color:inherit}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:9px 14px;border-radius:12px;border:1px solid var(--line2);background:var(--card2);font-weight:650;cursor:pointer}
+  .btn-buy{background:linear-gradient(135deg,#20c476,#0f9c5c);border:0;color:#03220f}
+  .btn-sell{background:linear-gradient(135deg,#ff5c78,#d92044);border:0;color:#2b0410}
+  .btn-pri{background:linear-gradient(135deg,#6d8cff,#4459e6);border:0;color:#fff}
+  .btn-sm{min-height:34px;padding:6px 11px;font-size:12.5px;border-radius:10px}
+  .btn-block{width:100%}
+  input{width:100%;min-height:42px;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:#0d1526}
+  label{display:block;font-size:12px;font-weight:650;color:var(--ink2);margin-bottom:10px}
+  label>span{display:block;margin-bottom:5px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}.row>.grow{flex:1;min-width:0}
+  .seg{display:flex;gap:6px;padding:4px;background:#0d1526;border:1px solid var(--line);border-radius:12px}
+  .seg button{flex:1;min-height:36px;border:0;border-radius:9px;background:transparent;font-weight:650;color:var(--ink2);cursor:pointer}
+  .seg button.on{background:var(--card2);color:var(--ink)}
+  .seg button.on.b{background:rgba(34,214,127,.16);color:var(--up)}.seg button.on.s{background:rgba(255,77,109,.16);color:var(--down)}
+  canvas{width:100%;height:230px;display:block;border:1px solid var(--line);border-radius:13px;background:#0b1220}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 5px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  td.r,th.r{text-align:right}
+  .scroll{overflow:auto;max-height:320px}
+  .nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;gap:4px;padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:rgba(10,14,26,.95);border-top:1px solid var(--line)}
+  .nav button{flex:1;max-width:150px;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;border-radius:12px;padding:6px 2px;cursor:pointer}
+  .nav button.on{color:var(--ink);background:rgba(91,124,250,.14)}
+  .nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9}
+  .notice{padding:10px 12px;border-radius:12px;border:1px solid var(--line2);background:#0d1526;font-size:12.5px;margin-bottom:10px}
+  .notice.ok{border-color:rgba(34,214,127,.4);background:rgba(34,214,127,.09)}
+  .ic{width:14px;height:14px;vertical-align:-2px;margin-right:5px}
+  footer img{width:15px;height:15px;vertical-align:-3px;margin:0 3px}
+  .notice.warn{border-color:rgba(255,204,87,.4);background:rgba(255,204,87,.08)}
+  .hid{display:none!important}
+  #toast{position:fixed;left:50%;bottom:calc(74px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:50;padding:10px 16px;border-radius:999px;background:#16203a;border:1px solid var(--line2);font-size:13px;max-width:92vw;text-align:center}
+  #toast.err{border-color:rgba(255,77,109,.5);background:#33121f}#toast.ok{border-color:rgba(34,214,127,.5);background:#0d2b1e}
+  footer{padding:18px 0 6px;text-align:center;font-size:11.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVNSSBUcmFkZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWI3Y2ZhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjJkNjdmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjb2luIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZTlhOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmYjAyMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTIiIGZpbGw9IiMwYTBlMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSI0OTIiIGhlaWdodD0iNDkyIiByeD0iMTA0IiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIuMTAiLz4KICA8ZyBzdHJva2U9IiMyODM5NWMiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iLjU1Ij4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMTI4IiB4Mj0iNTEyIiB5Mj0iMTI4Ii8+PGxpbmUgeDE9IjAiIHkxPSIyNTYiIHgyPSI1MTIiIHkyPSIyNTYiLz48bGluZSB4MT0iMCIgeTE9IjM4NCIgeDI9IjUxMiIgeTI9IjM4NCIvPgogIDwvZz4KICA8ZyBmaWxsPSIjMjJkNjdmIiBzdHJva2U9IiMyMmQ2N2YiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxsaW5lIHgxPSIxMjYiIHkxPSIzMzYiIHgyPSIxMjYiIHkyPSIyNTIiLz48cmVjdCB4PSIxMDgiIHk9IjMwMCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQwIiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgICA8bGluZSB4MT0iMTk4IiB5MT0iMzAwIiB4Mj0iMTk4IiB5Mj0iMjEyIi8+PHJlY3QgeD0iMTgwIiB5PSIyNDgiIHdpZHRoPSIzNiIgaGVpZ2h0PSI0NiIgcng9IjQiIHN0cm9rZT0ibm9uZSIvPgogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjI1MiIgeDI9IjI3MCIgeTI9IjE2NCIvPjxyZWN0IHg9IjI1MiIgeT0iMTk2IiB3aWR0aD0iMzYiIGhlaWdodD0iNDgiIHJ4PSI0IiBzdHJva2U9Im5vbmUiLz4KICAgIDxsaW5lIHgxPSIzNDIiIHkxPSIxOTYiIHgyPSIzNDIiIHkyPSIxMTgiLz48cmVjdCB4PSIzMjQiIHk9IjE0NiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQ0IiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgICA8bGluZSB4MT0iNDE0IiB5MT0iMTUwIiB4Mj0iNDE0IiB5Mj0iODAiLz48cmVjdCB4PSIzOTYiIHk9IjEwNCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQyIiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjM5MiIgY3k9IjEzMiIgcj0iNjAiIGZpbGw9InVybCgjY29pbikiIHN0cm9rZT0iIzdhNTIwNSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHRleHQgeD0iMzkyIiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3NiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzVjNDAwNiI+JDwvdGV4dD4KPC9zdmc+" alt="UMI TRADE">
+    <span><b>UMI TRADE</b><small>MODE OFFLINE · LOCALSTORAGE</small></span>
+    <span class="badge">📴 100% offline</span>
+  </div>
+  <div class="tick"><div class="tick-in" id="ticker"></div></div>
+</header>
+
+<main class="wrap">
+  <section id="p-pasar">
+    <h1>Pasar $AS</h1>
+    <div class="notice" id="welcome">Selamat datang di <b>UMI TRADE OFFLINE</b>. Harga digerakkan sendiri di HP kamu (tick 3 detik), saldo & portofolio disimpan di <b>localStorage</b>. Pasar bergerak 24 jam tanpa sesi boost — tetap jalan walau tanpa internet.</div>
+    <div class="stats" id="statsMarket"></div>
+    <div class="card" id="list"></div>
+    <footer>
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVNSSBUcmFkZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWI3Y2ZhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjJkNjdmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjb2luIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZTlhOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmYjAyMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTIiIGZpbGw9IiMwYTBlMWEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSI0OTIiIGhlaWdodD0iNDkyIiByeD0iMTA0IiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIuMTAiLz4KICA8ZyBzdHJva2U9IiMyODM5NWMiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iLjU1Ij4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMTI4IiB4Mj0iNTEyIiB5Mj0iMTI4Ii8+PGxpbmUgeDE9IjAiIHkxPSIyNTYiIHgyPSI1MTIiIHkyPSIyNTYiLz48bGluZSB4MT0iMCIgeTE9IjM4NCIgeDI9IjUxMiIgeTI9IjM4NCIvPgogIDwvZz4KICA8ZyBmaWxsPSIjMjJkNjdmIiBzdHJva2U9IiMyMmQ2N2YiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxsaW5lIHgxPSIxMjYiIHkxPSIzMzYiIHgyPSIxMjYiIHkyPSIyNTIiLz48cmVjdCB4PSIxMDgiIHk9IjMwMCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQwIiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgICA8bGluZSB4MT0iMTk4IiB5MT0iMzAwIiB4Mj0iMTk4IiB5Mj0iMjEyIi8+PHJlY3QgeD0iMTgwIiB5PSIyNDgiIHdpZHRoPSIzNiIgaGVpZ2h0PSI0NiIgcng9IjQiIHN0cm9rZT0ibm9uZSIvPgogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjI1MiIgeDI9IjI3MCIgeTI9IjE2NCIvPjxyZWN0IHg9IjI1MiIgeT0iMTk2IiB3aWR0aD0iMzYiIGhlaWdodD0iNDgiIHJ4PSI0IiBzdHJva2U9Im5vbmUiLz4KICAgIDxsaW5lIHgxPSIzNDIiIHkxPSIxOTYiIHgyPSIzNDIiIHkyPSIxMTgiLz48cmVjdCB4PSIzMjQiIHk9IjE0NiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQ0IiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgICA8bGluZSB4MT0iNDE0IiB5MT0iMTUwIiB4Mj0iNDE0IiB5Mj0iODAiLz48cmVjdCB4PSIzOTYiIHk9IjEwNCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjQyIiByeD0iNCIgc3Ryb2tlPSJub25lIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjM5MiIgY3k9IjEzMiIgcj0iNjAiIGZpbGw9InVybCgjY29pbikiIHN0cm9rZT0iIzdhNTIwNSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHRleHQgeD0iMzkyIiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3NiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzVjNDAwNiI+JDwvdGV4dD4KPC9zdmc+" alt=""> <b>UMI TRADE OFFLINE v1.0</b> · mesin pasar tick 3 detik, data di localStorage<br>
+      Bot: <b>.trading</b> (versi online) · <b>.tradingoffline</b> (file ini) · <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiMyNWQzNjYiLz48cGF0aCBkPSJNMjAgNDZsMy05YTE2IDE2IDAgMSAxIDYgNnoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMjcgMjZjMSA1IDUgOSAxMCAxMGwzLTMgNSAyLTIgNWMtNiAxLTE1LTUtMTgtMTJ6IiBmaWxsPSIjMjVkMzY2Ii8+PC9zdmc+" alt=""> chat owner untuk kode redeem
+      <div class="tiny" style="margin-top:6px">Aset &amp; ikon asli UMI GAMES · dibuat oleh <a href="https://wa.me/6280000000000" rel="noopener">AlzRiss</a></div>
+    </footer>
+  </section>
+
+  <section id="p-trade" class="hid">
+    <h1 id="tTitle">UMI</h1>
+    <div class="card">
+      <div class="row" style="align-items:flex-end;gap:10px">
+        <div><div class="tiny" id="tName">Bank Central Asia</div><div class="num" id="tPrice" style="font-size:28px;font-weight:800">0.00</div><div class="num" id="tChange" style="font-weight:700">0.00%</div></div>
+        <div class="grow"></div>
+        <div class="tiny num" id="tRange">—</div>
+      </div>
+      <canvas id="chart" style="margin-top:10px"></canvas>
+      <div class="stats" style="margin-top:10px">
+        <div class="st"><span>VOLUME MENIT</span><b class="num" id="tVol">—</b></div>
+        <div class="st"><span>VOLUME 5 MNT</span><b class="num" id="tVol5">—</b></div>
+        <div class="st"><span>POSISI</span><b class="num" id="tPos">—</b></div>
+        <div class="st"><span>RATA-RATA</span><b class="num" id="tAvg">—</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Info saham · <span id="tInfoSym">—</span></h2>
+      <div class="stats">
+        <div class="st"><span>HARGA</span><b class="num" id="tIPrice">—</b></div>
+        <div class="st"><span>PERUBAHAN 24J</span><b class="num" id="tIPct">—</b></div>
+        <div class="st"><span>TERTINGGI 24J</span><b class="num" id="tIHigh">—</b></div>
+        <div class="st"><span>TERENDAH 24J</span><b class="num" id="tILow">—</b></div>
+        <div class="st"><span>VOLUME 24J</span><b class="num" id="tIVol">—</b></div>
+        <div class="st"><span>KAPITALISASI</span><b class="num" id="tICap">—</b></div>
+        <div class="st"><span>PER (ESTIMASI)</span><b class="num" id="tIPer">—</b></div>
+        <div class="st"><span>SEKTOR</span><b class="num" id="tISektor">—</b></div>
+        <div class="st"><span>SENTIMEN</span><b class="num" id="tISent">—</b></div>
+      </div>
+      <div class="tiny" style="margin-top:8px">Angka dari mesin pasar 24 jam di HP kamu — bukan data bursa asli.</div>
+    </div>
+    <div class="card">
+      <h2>Order</h2>
+      <div class="seg" id="side">
+        <button data-s="buy" class="on b">BELI</button><button data-s="sell">JUAL</button>
+      </div>
+      <div style="margin-top:10px">
+        <label><span>Jumlah lot</span><input id="qty" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label>
+        <div class="row" style="margin-bottom:10px">
+          <button class="btn btn-sm" data-p="0.25">25%</button><button class="btn btn-sm" data-p="0.5">50%</button>
+          <button class="btn btn-sm" data-p="0.75">75%</button><button class="btn btn-sm" data-p="1">MAKS</button>
+        </div>
+        <div class="st" style="margin-bottom:10px"><span>TOTAL</span><b class="num" id="total">$AS 0.00</b><div class="tiny" id="hint">—</div></div>
+        <button class="btn btn-buy btn-block" id="submit">BELI SEKARANG</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-saldo" class="hid">
+    <h1>Saldo &amp; portofolio</h1>
+    <div class="stats">
+      <div class="st"><span>TOTAL ASET</span><b class="num" id="net">$AS 0.00</b></div>
+      <div class="st"><span><img class="ic" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJjIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZlOWE4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZiMDIwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9InVybCgjYykiIHN0cm9rZT0iIzdhNTIwNSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHRleHQgeD0iMzIiIHk9IjQ0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1YzQwMDYiPiQ8L3RleHQ+PC9zdmc+" alt="">KAS</span><b class="num" id="cash">$AS 0.00</b></div>
+      <div class="st"><span>NILAI SAHAM</span><b class="num" id="equity">$AS 0.00</b></div>
+      <div class="st"><span>UNTUNG/RUGI</span><b class="num" id="pl">$AS 0.00</b></div>
+    </div>
+    <div class="card"><h2>Kepemilikan</h2><div class="scroll"><table><thead><tr><th>SAHAM</th><th class="r">LOT</th><th class="r">NILAI</th><th class="r">P/L</th></tr></thead><tbody id="hold"></tbody></table></div></div>
+    <div class="card"><h2>Kode redeem (offline)</h2>
+      <div class="row"><div class="grow"><input id="code" placeholder="UMI2024 / TRADING / WELCOME / BONUS" style="text-transform:uppercase"></div><button class="btn btn-buy" id="redeem">TUKAR</button></div>
+      <div class="tiny" style="margin-top:8px">Setiap kode hanya bisa dipakai sekali di perangkat ini. Saldo awal $AS 100 + bonus harian $AS 10.</div>
+    </div>
+    <div class="card"><h2>Riwayat</h2><div class="scroll"><table><thead><tr><th>WAKTU</th><th>AKSI</th><th class="r">NILAI</th></tr></thead><tbody id="hist"></tbody></table></div>
+      <div class="row" style="margin-top:10px"><button class="btn btn-sm btn-pri" id="export">SIMPAN .JSON</button><button class="btn btn-sm" id="importBtn">MUAT .JSON</button><input id="importFile" type="file" accept=".json" class="hid"><button class="btn btn-sm btn-sell" id="reset">RESET</button></div>
+    </div>
+  </section>
+</main>
+
+<nav class="nav">
+  <button data-p="pasar" class="on"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V8"/></svg>Pasar</button>
+  <button data-p="trade"><svg viewBox="0 0 24 24"><path d="m4 17 5-6 4 3 7-8"/><path d="M15 6h5v5"/></svg>Trading</button>
+  <button data-p="saldo"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14h2"/></svg>Saldo</button>
+</nav>
+
+<div id="toast" class="hid"></div>
+<script>
+(() => {
+  'use strict'
+  /* ── mesin pasar offline: derau halus deterministik 24 jam (tanpa boost) ── */
+  const TICK = 3000, TZ = 8 * 3600 * 1000
+  const SAHAM = [
+    { sym: 'BBCA', name: 'Bank Central Asia', base: 4.50, sektor: 'Perbankan', shares: 0.42, vol: 7600000, per: 21.6 },
+    { sym: 'BBRI', name: 'Bank Rakyat Indonesia', base: 2.25, sektor: 'Perbankan', shares: 1.05, vol: 12400000, per: 12.8 },
+    { sym: 'BMRI', name: 'Bank Mandiri', base: 3.00, sektor: 'Perbankan', shares: 0.74, vol: 9800000, per: 14.2 },
+    { sym: 'BBNI', name: 'Bank Negara Indonesia', base: 2.70, sektor: 'Perbankan', shares: 0.86, vol: 7400000, per: 9.7 },
+    { sym: 'BRIS', name: 'Bank Syariah Indonesia', base: 1.30, sektor: 'Perbankan', shares: 1.35, vol: 5200000, per: 18.9 },
+    { sym: 'ARTO', name: 'Bank Jago', base: 1.20, sektor: 'Perbankan', shares: 1.85, vol: 6400000, per: 42.5 },
+    { sym: 'TLKM', name: 'Telkom Indonesia', base: 1.45, sektor: 'Telekomunikasi', shares: 2.40, vol: 15100000, per: 13.4 },
+    { sym: 'EXCL', name: 'XLSmart Telecom', base: 1.15, sektor: 'Telekomunikasi', shares: 1.62, vol: 8100000, per: 16.1 },
+    { sym: 'ISAT', name: 'Indosat Ooredoo Hutchison', base: 4.75, sektor: 'Telekomunikasi', shares: 0.55, vol: 4600000, per: 11.8 },
+    { sym: 'TOWR', name: 'Sarana Menara Nusantara', base: 0.40, sektor: 'Telekomunikasi', shares: 3.10, vol: 9200000, per: 8.6 },
+    { sym: 'MTEL', name: 'Dayamitra Telekomunikasi', base: 0.31, sektor: 'Telekomunikasi', shares: 2.05, vol: 11200000, per: 17.3 },
+    { sym: 'ADRO', name: 'Alamtri Resources Indonesia', base: 1.25, sektor: 'Energi', shares: 2.15, vol: 13800000, per: 7.2 },
+    { sym: 'PTBA', name: 'Bukit Asam', base: 1.40, sektor: 'Energi', shares: 1.48, vol: 7600000, per: 9.4 },
+    { sym: 'ITMG', name: 'Indo Tambangraya Megah', base: 13.00, sektor: 'Energi', shares: 0.24, vol: 1900000, per: 6.1 },
+    { sym: 'MEDC', name: 'Medco Energi Internasional', base: 0.65, sektor: 'Energi', shares: 1.95, vol: 9400000, per: 10.5 },
+    { sym: 'PGAS', name: 'Perusahaan Gas Negara', base: 0.80, sektor: 'Energi', shares: 1.72, vol: 8700000, per: 8.2 },
+    { sym: 'AKRA', name: 'AKR Corporindo', base: 0.70, sektor: 'Energi', shares: 1.58, vol: 6900000, per: 11.4 },
+    { sym: 'ESSA', name: 'ESSA Industries Indonesia', base: 0.45, sektor: 'Energi', shares: 2.60, vol: 8100000, per: 14.7 },
+    { sym: 'ICBP', name: 'Indofood CBP Sukses Makmur', base: 5.50, sektor: 'Barang Konsumen', shares: 0.68, vol: 4200000, per: 15.9 },
+    { sym: 'INDF', name: 'Indofood Sukses Makmur', base: 3.50, sektor: 'Barang Konsumen', shares: 0.94, vol: 6100000, per: 9.1 },
+    { sym: 'UNVR', name: 'Unilever Indonesia', base: 0.90, sektor: 'Barang Konsumen', shares: 2.30, vol: 7300000, per: 24.3 },
+    { sym: 'HMSP', name: 'HM Sampoerna', base: 0.35, sektor: 'Barang Konsumen', shares: 3.40, vol: 9800000, per: 12.6 },
+    { sym: 'GGRM', name: 'Gudang Garam', base: 7.50, sektor: 'Barang Konsumen', shares: 0.32, vol: 1500000, per: 18.4 },
+    { sym: 'AMRT', name: 'Sumber Alfaria Trijaya', base: 1.45, sektor: 'Barang Konsumen', shares: 1.20, vol: 5600000, per: 31.7 },
+    { sym: 'CPIN', name: 'Charoen Pokphand Indonesia', base: 2.40, sektor: 'Barang Konsumen', shares: 0.81, vol: 4900000, per: 19.2 },
+    { sym: 'ANTM', name: 'Aneka Tambang', base: 0.80, sektor: 'Tambang', shares: 1.75, vol: 10400000, per: 13.8 },
+    { sym: 'MDKA', name: 'Merdeka Copper Gold', base: 1.20, sektor: 'Tambang', shares: 1.42, vol: 7200000, per: 36.5 },
+    { sym: 'TINS', name: 'Timah', base: 0.45, sektor: 'Tambang', shares: 2.20, vol: 6300000, per: 28.1 },
+    { sym: 'INCO', name: 'Vale Indonesia', base: 1.90, sektor: 'Tambang', shares: 0.72, vol: 3800000, per: 17.6 },
+    { sym: 'SMGR', name: 'Semen Indonesia', base: 2.00, sektor: 'Infrastruktur', shares: 0.88, vol: 5400000, per: 22.4 },
+    { sym: 'INTP', name: 'Indocement Tunggal Prakarsa', base: 3.50, sektor: 'Infrastruktur', shares: 0.51, vol: 2600000, per: 16.8 },
+    { sym: 'WIKA', name: 'Wijaya Karya', base: 0.15, sektor: 'Infrastruktur', shares: 3.55, vol: 12400000, per: 7.9 },
+    { sym: 'PTPP', name: 'PP (Persero)', base: 0.20, sektor: 'Infrastruktur', shares: 3.20, vol: 10800000, per: 8.4 },
+    { sym: 'ASII', name: 'Astra International', base: 2.45, sektor: 'Otomotif', shares: 0.92, vol: 8600000, per: 10.2 },
+    { sym: 'GOTO', name: 'GoTo Gojek Tokopedia', base: 0.05, sektor: 'Teknologi', shares: 4.20, vol: 32100000, per: 3.1 },
+    { sym: 'EMTK', name: 'Elang Mahkota Teknologi', base: 0.25, sektor: 'Teknologi', shares: 2.35, vol: 7400000, per: 11.5 },
+    { sym: 'BUKA', name: 'Bukalapak', base: 0.07, sektor: 'Teknologi', shares: 3.85, vol: 15800000, per: 4.8 },
+    { sym: 'KLBF', name: 'Kalbe Farma', base: 0.75, sektor: 'Kesehatan', shares: 1.65, vol: 9600000, per: 14.6 },
+    { sym: 'SIDO', name: 'Industri Jamu & Farmasi Sido Muncul', base: 0.30, sektor: 'Kesehatan', shares: 2.75, vol: 8200000, per: 17.9 },
+    { sym: 'BSDE', name: 'Bumi Serpong Damai', base: 0.45, sektor: 'Properti', shares: 2.15, vol: 6700000, per: 9.3 },
+    { sym: 'CTRA', name: 'Ciputra Development', base: 0.50, sektor: 'Properti', shares: 1.95, vol: 7100000, per: 11.1 },
+    { sym: 'ACES', name: 'Aspirasi Hidup Indonesia', base: 0.40, sektor: 'Ritel', shares: 2.05, vol: 8400000, per: 13.7 },
+    { sym: 'MAPI', name: 'Mitra Adiperkasa', base: 0.80, sektor: 'Ritel', shares: 1.48, vol: 5900000, per: 14.9 },
+    { sym: 'SCMA', name: 'Surya Citra Media', base: 0.10, sektor: 'Ritel', shares: 3.30, vol: 14200000, per: 6.4 },
+    { sym: 'TPIA', name: 'Chandra Asri Pacific', base: 3.50, sektor: 'Petrokimia', shares: 0.62, vol: 3400000, per: 27.2 },
+  ]  ]
+  const BY = Object.fromEntries(SAHAM.map((s) => [s.sym, s]))
+  const frac = (n) => { const v = Math.sin(n * 12.9898) * 43758.5453; return v - Math.floor(v) }
+  const noise = (seed, x) => { const i = Math.floor(x), f = x - i, a = frac(i * 1.7 + seed), b = frac((i + 1) * 1.7 + seed), u = f * f * (3 - 2 * f); return a + (b - a) * u }
+  const fnv = (t) => { let h = 2166136261; for (let i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 16777619) } return (h >>> 0) % 100000 }
+  const r2 = (n) => Math.round(n * 100) / 100
+  const tickNow = () => Math.floor(Date.now() / TICK)
+  function priceAt(sym, tick) {
+    const it = BY[sym]; if (!it) return 1
+    const s = fnv(sym)
+    const trend = (noise(s, tick / 4800) - 0.5) * 0.30
+    const swing = (noise(s + 13, tick / 240) - 0.5) * 0.13
+    const micro = (noise(s + 41, tick / 8) - 0.5) * 0.015
+    return Math.max(0.05, it.base * (1 + trend + swing + micro))
+  }
+  const quote = (sym, tick = tickNow()) => {
+    const price = priceAt(sym, tick), prev = priceAt(sym, tick - 28800)
+    let hi = price, lo = price, spark = []
+    for (let i = 119; i >= 0; i--) { const v = priceAt(sym, tick - i); if (v > hi) hi = v; if (v < lo) lo = v; if (i % 3 === 0) spark.push(r2(v)) }
+    const change = price - prev
+    return { sym, name: BY[sym].name, price: r2(price), prev: r2(prev), change: r2(change), pct: r2((change / prev) * 100), high: r2(hi), low: r2(lo), spark, volume: 400 + Math.floor(noise(fnv(sym), tick / 30) * 9000) }
+  }
+  // Tanpa sesi/boost: harga murni mengikuti derau pasar 24 jam.
+  const session = () => ({ active: false, boostPct: 0, label: 'Pasar normal', timezone: 'WITA (UTC+8)' })
+
+  /* ── info emiten: angka besar ringkas + sentimen ── */
+  const big = (n) => {
+    const a = Math.abs(n)
+    if (a >= 1e12) return `${(n / 1e12).toLocaleString('id-ID', { maximumFractionDigits: 2 })} T`
+    if (a >= 1e9) return `${(n / 1e9).toLocaleString('id-ID', { maximumFractionDigits: 2 })} M`
+    if (a >= 1e6) return `${(n / 1e6).toLocaleString('id-ID', { maximumFractionDigits: 1 })} jt`
+    if (a >= 1e3) return `${(n / 1e3).toLocaleString('id-ID', { maximumFractionDigits: 1 })} rb`
+    return Math.round(n).toLocaleString('id-ID')
+  }
+  const sentimen = (pct) => pct >= 6 ? ['NAIK KUAT', 'up'] : pct >= 1.5 ? ['NAIK', 'up'] : pct <= -6 ? ['TURUN KUAT', 'down'] : pct <= -1.5 ? ['TURUN', 'down'] : ['SIDEWAYS', '']
+  const volMenit = (sym, tick) => BY[sym].vol / 1440 * (0.45 + noise(fnv(sym) + 307, tick / 1200) * 1.5)
+  const volWindow = (sym, tick, mins) => {
+    let v = 0
+    for (let i = 0; i < mins; i++) v += volMenit(sym, tick - i * 20)
+    return v
+  }
+  /* tertinggi/terendah 24 jam: sampel tiap 5 menit (288 titik) */
+  const dayRange = (sym, tick) => {
+    let hi = 0, lo = 1e9
+    for (let i = 288; i >= 0; i--) { const p = priceAt(sym, tick - i * 100); if (p > hi) hi = p; if (p < lo) lo = p }
+    return { high: r2(hi), low: r2(lo) }
+  }
+
+  /* ── simpanan localStorage ── */
+  const KEY = 'umi-trade-offline-v1'
+  const MAX_TOPUP = 0
+  const empty = () => ({ balance: 100, portfolio: {}, history: [{ t: Date.now(), type: 'bonus', amount: 100, note: 'Saldo awal' }], redeemed: [], lastDaily: '', savd: Date.now() })
+  let db = load()
+  function load() {
+    try { const raw = JSON.parse(localStorage.getItem(KEY) || ''); return raw && typeof raw === 'object' ? { ...empty(), ...raw } : empty() } catch { return empty() }
+  }
+  function save() { db.savd = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(db)) } catch { } }
+  function daily() {
+    const today = new Date().toISOString().slice(0, 10)
+    if (db.lastDaily !== today) { db.lastDaily = today; db.balance = r2(db.balance + 10); db.history.push({ t: Date.now(), type: 'bonus', amount: 10, note: 'Bonus harian' }); save(); return 10 }
+    return 0
+  }
+  const REDEEM = { UMI2024: 50, TRADING: 25, WELCOME: 15, BONUS: 10 }
+  function view() {
+    const tick = tickNow()
+    const rows = Object.entries(db.portfolio).map(([sym, pos]) => {
+      const price = priceAt(sym, tick), value = price * pos.qty, cost = pos.avgPrice * pos.qty
+      return { sym, qty: r2(pos.qty), avg: r2(pos.avgPrice), price: r2(price), value: r2(value), pl: r2(value - cost), plPct: r2(cost ? ((value - cost) / cost) * 100 : 0) }
+    })
+    const equity = rows.reduce((s, r) => s + r.value, 0), cost = rows.reduce((s, r) => s + r.avgPrice * r.qty, 0)
+    return { rows, equity: r2(equity), unrealized: r2(equity - cost), netWorth: r2(db.balance + equity), realized: r2(rows.reduce((s, r) => s + 0, 0)) }
+  }
+
+  /* ── util UI ── */
+  const $ = (id) => document.getElementById(id)
+  const money = (n, d = 2) => Number(n || 0).toLocaleString('id-ID', { minimumFractionDigits: d, maximumFractionDigits: d })
+  const sgn = (n) => (Number(n) >= 0 ? '+' : '')
+  const cls = (n) => (Number(n) >= 0 ? 'up' : 'down')
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+  function toast(msg, kind = '') { const el = $('toast'); el.textContent = msg; el.className = kind; clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.add('hid'), 3800) }
+  let state = { sym: 'BBCA', side: 'buy', page: 'pasar' }
+
+  function ticker() {
+    const one = SAHAM.map((s) => { const q = quote(s.sym); return `<span class="tk"><b>${s.sym}</b><span class="num">${money(q.price)}</span><span class="num ${cls(q.pct)}">${sgn(q.pct)}${money(q.pct)}%</span></span>` }).join('')
+    $('ticker').innerHTML = one + one
+  }
+  function statsMarket() {
+    const qs = SAHAM.map((s) => quote(s.sym))
+    const up = qs.filter((q) => q.pct >= 0).length
+    const top = [...qs].sort((a, b) => b.pct - a.pct)[0], bot = [...qs].sort((a, b) => a.pct - b.pct)[0]
+    const ses = session()
+    $('statsMarket').innerHTML = [
+      ['<img class="ic" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGcgZmlsbD0iI2ZmY2M1NyIgc3Ryb2tlPSIjN2E1MjA1IiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE4IDhoMjh2MTRhMTQgMTQgMCAwIDEtMjggMHoiLz48cGF0aCBkPSJNMTggMTJIOWE5IDkgMCAwIDAgOSAxMnoiLz48cGF0aCBkPSJNNDYgMTJoOWE5IDkgMCAwIDEtOSAxMnoiLz48cGF0aCBkPSJNMjggMzZoOHY4aC04eiIvPjxwYXRoIGQ9Ik0xOCA1MmgyOGE0IDQgMCAwIDEtNCA2SDIyYTQgNCAwIDAgMS00LTZ6Ii8+PHBhdGggZD0iTTIwIDQ0aDI0djhIMjB6IiBmaWxsPSIjZTBhOTJjIi8+PC9nPjwvc3ZnPg==" alt="">PASAR', 'NORMAL 24 JAM', ''],
+      ['SAHAM NAIK', `${up}/${qs.length}`, ''],
+      ['TOP GAINER', `${top.sym} ${sgn(top.pct)}${money(top.pct)}%`, 'up'],
+      ['TOP LOSER', `${bot.sym} ${money(bot.pct)}%`, 'down'],
+    ].map(([k, v, c]) => `<div class="st"><span>${k}</span><b class="num ${c}">${v}</b></div>`).join('')
+    $('welcome').className = ses.active ? 'notice ok' : 'notice'
+    $('welcome').innerHTML = `<b>${esc(ses.label)}</b> · tanpa sesi boost, harga bergerak 24 jam · zona ${ses.timezone}. Harga dihitung di HP kamu, data tersimpan di <b>localStorage</b> — tidak butuh internet.`
+  }
+  function sparkSvg(vals, up) {
+    const min = Math.min(...vals), max = Math.max(...vals), span = (max - min) || 1
+    const pts = vals.map((v, i) => `${((i / (vals.length - 1)) * 56 + 1).toFixed(1)},${(28 - 3 - ((v - min) / span) * 22).toFixed(1)}`).join(' ')
+    return `<svg width="58" height="30" viewBox="0 0 58 30"><polyline points="${pts}" fill="none" stroke="${up ? '#22d67f' : '#ff4d6d'}" stroke-width="1.6"/></svg>`
+  }
+  function list() {
+    $('list').innerHTML = SAHAM.map((s) => {
+      const q = quote(s.sym), pos = db.portfolio[s.sym]
+      return `<div class="mkt" data-s="${s.sym}"><div class="sb">${s.sym}</div>
+        <div class="mi"><b>${esc(s.name)}</b><span>vol ${money(q.volume, 0)}${pos ? ` · ${money(pos.qty)} lot` : ''}</span></div>
+        ${sparkSvg(q.spark, q.pct >= 0)}
+        <div class="mp"><b class="num">${money(q.price)}</b><span class="${cls(q.pct)}">${sgn(q.pct)}${money(q.pct)}%</span></div></div>`
+    }).join('')
+  }
+  function chart() {
+    const cv = $('chart'), dpr = devicePixelRatio || 1
+    const w = cv.clientWidth || 640, h = 230
+    cv.width = w * dpr; cv.height = h * dpr
+    const c = cv.getContext && cv.getContext('2d'); if (!c) return
+    c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, w, h)
+    const tick = tickNow(), per = 20, n = 90, candles = []
+    for (let k = n - 1; k >= 0; k--) {
+      const end = tick - k * per
+      let o = priceAt(state.sym, end - per + 1), hi = o, lo = o, cl = o
+      for (let i = 0; i < per; i++) { const p = priceAt(state.sym, end - per + 1 + i); if (p > hi) hi = p; if (p < lo) lo = p; cl = p }
+      candles.push({ o, h: hi, l: lo, c: cl })
+    }
+    const padR = 46, padL = 6, padT = 8, padB = 14
+    const ph = h - padT - padB - 24
+    const max = Math.max(...candles.map((x) => x.h)), min = Math.min(...candles.map((x) => x.l)), span = (max - min) || 1
+    const cw = (w - padL - padR) / n
+    const y = (p) => padT + ph - ((p - min) / span) * ph
+    c.font = '9px ui-monospace,monospace'; c.textBaseline = 'middle'
+    for (let i = 0; i <= 3; i++) {
+      const yy = padT + (ph / 3) * i, price = max - (span / 3) * i
+      c.strokeStyle = 'rgba(30,43,69,.8)'; c.beginPath(); c.moveTo(padL, yy); c.lineTo(w - padR, yy); c.stroke()
+      c.fillStyle = '#6b7c9c'; c.fillText(money(price), w - padR + 4, yy)
+    }
+    candles.forEach((x, i) => {
+      const cx = padL + i * cw + cw / 2, up = x.c >= x.o, col = up ? '#22d67f' : '#ff4d6d'
+      c.strokeStyle = col; c.fillStyle = col
+      c.beginPath(); c.moveTo(cx, y(x.h)); c.lineTo(cx, y(x.l)); c.stroke()
+      const y1 = y(Math.max(x.o, x.c)), y2 = y(Math.min(x.o, x.c))
+      c.fillRect(cx - Math.max(1, cw * 0.3), y1, Math.max(1.6, cw * 0.6), Math.max(1, y2 - y1))
+    })
+    const last = candles[candles.length - 1], ly = y(last.c)
+    c.setLineDash([4, 4]); c.strokeStyle = last.c >= last.o ? 'rgba(34,214,127,.9)' : 'rgba(255,77,109,.9)'
+    c.beginPath(); c.moveTo(padL, ly); c.lineTo(w - padR, ly); c.stroke(); c.setLineDash([])
+    c.fillStyle = last.c >= last.o ? '#22d67f' : '#ff4d6d'; c.fillRect(w - padR + 2, ly - 7, padR - 4, 14)
+    c.fillStyle = '#08131a'; c.fillText(money(last.c), w - padR + 5, ly)
+  }
+  function trade() {
+    const q = quote(state.sym), pos = db.portfolio[state.sym]
+    $('tTitle').textContent = q.sym
+    $('tName').textContent = q.name
+    $('tPrice').textContent = money(q.price)
+    $('tPrice').className = 'num ' + cls(q.pct)
+    $('tChange').textContent = `${sgn(q.change)}${money(q.change)} (${sgn(q.pct)}${money(q.pct)}%)`
+    $('tChange').className = 'num ' + cls(q.pct)
+    $('tRange').textContent = `H ${money(q.high)} · L ${money(q.low)}`
+    const tick = tickNow()
+    $('tVol').textContent = money(volMenit(q.sym, tick), 0)
+    $('tVol5').textContent = money(volWindow(q.sym, tick, 5), 0)
+    $('tPos').textContent = pos ? `${money(pos.qty)} lot` : '—'
+    $('tAvg').textContent = pos ? money(pos.avgPrice) : '—'
+    /* info saham */
+    const it = BY[q.sym], [sent, scl] = sentimen(q.pct)
+    $('tInfoSym').textContent = q.sym
+    $('tIPrice').textContent = `$AS ${money(q.price)}`
+    $('tIPct').textContent = `${sgn(q.pct)}${money(q.pct)}%`
+    $('tIPct').className = 'num ' + cls(q.pct)
+    const range = dayRange(q.sym, tick)
+    $('tIHigh').textContent = money(range.high)
+    $('tILow').textContent = money(range.low)
+    $('tIVol').textContent = `${big(it.vol * (0.75 + noise(fnv(q.sym) + 211, tick / 2880) * 0.5))} lot`
+    $('tICap').textContent = `$AS ${big(it.shares * 1e9 * q.price)}`
+    $('tIPer').textContent = `${money(it.per + noise(fnv(q.sym) + 19, tick / 600) * 2)}×`
+    $('tISektor').textContent = it.sektor
+    $('tISent').textContent = sent
+    $('tISent').className = 'num ' + scl
+    $('submit').className = 'btn btn-block ' + (state.side === 'buy' ? 'btn-buy' : 'btn-sell')
+    $('submit').textContent = state.side === 'buy' ? 'BELI SEKARANG' : 'JUAL SEKARANG'
+    total()
+    chart()
+  }
+  function total() {
+    const q = quote(state.sym), qty = Number($('qty').value) || 0, val = qty * q.price
+    const power = state.side === 'buy' ? db.balance : ((db.portfolio[state.sym] || {}).qty || 0) * q.price
+    const maxQty = q.price ? power / q.price : 0
+    $('total').textContent = '$AS ' + money(val)
+    const h = $('hint')
+    if (!qty) { h.textContent = `Daya ${state.side === 'buy' ? 'beli' : 'jual'} $AS ${money(power)} · maksimal ${money(maxQty)} lot`; h.className = 'tiny'; $('submit').disabled = false; return }
+    if (state.side === 'buy' && val > db.balance) { h.textContent = `⚠️ Saldo tidak cukup. Maksimal ${money(maxQty)} lot.`; h.className = 'tiny down'; $('submit').disabled = true; return }
+    if (state.side === 'sell' && qty > maxQty + 1e-9) { h.textContent = `⚠️ Posisi tidak cukup (${money(maxQty)} lot).`; h.className = 'tiny down'; $('submit').disabled = true; return }
+    h.textContent = `Sisa ${state.side === 'buy' ? 'saldo' : 'posisi'}: ${money(power - (state.side === 'buy' ? val : qty))}`; h.className = 'tiny'; $('submit').disabled = false
+  }
+  function saldo() {
+    const v = view()
+    const pl = v.unrealized
+    $('net').textContent = '$AS ' + money(v.netWorth)
+    $('cash').textContent = '$AS ' + money(db.balance)
+    $('equity').textContent = '$AS ' + money(v.equity)
+    $('pl').textContent = `${sgn(pl)}$${'AS'} ${money(Math.abs(pl))}`
+    $('pl').className = 'num ' + cls(pl)
+    $('hold').innerHTML = v.rows.length ? v.rows.map((r) => `<tr><td><b>${r.sym}</b><div class="tiny">${money(r.price)}/lot</div></td><td class="r num">${money(r.qty)}</td><td class="r num">${money(r.value)}</td><td class="r num ${cls(r.pl)}">${sgn(r.pl)}${money(r.pl)}</td></tr>`).join('') : '<tr><td colspan="4" class="tiny">Belum punya saham.</td></tr>'
+    const label = { buy: 'BELI', sell: 'JUAL', bonus: 'BONUS', redeem: 'REDEEM' }
+    $('hist').innerHTML = [...db.history].reverse().slice(0, 80).map((h) => `<tr><td class="tiny">${new Date(h.t).toLocaleString('id-ID', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}</td><td>${label[h.type] || h.type}${h.sym ? ' ' + h.sym : ''}</td><td class="r num ${h.type === 'buy' ? 'down' : 'up'}">${h.type === 'buy' ? '-' : '+'}${money(h.amount)}</td></tr>`).join('') || '<tr><td colspan="3" class="tiny">Belum ada riwayat.</td></tr>'
+  }
+  function show(page) {
+    state.page = page
+    ;['pasar', 'trade', 'saldo'].forEach((p) => $('p-' + p).classList.toggle('hid', p !== page))
+    document.querySelectorAll('.nav button').forEach((b) => b.classList.toggle('on', b.dataset.p === page))
+    window.scrollTo(0, 0)
+  }
+
+  /* ── aksi ── */
+  function order() {
+    const qty = Number($('qty').value) || 0
+    if (!qty) return toast('Isi jumlah lot dulu.', 'err')
+    const q = quote(state.sym), price = q.price, total = r2(qty * price)
+    if (state.side === 'buy') {
+      if (db.balance < total) return toast(`Saldo tidak cukup. Butuh $AS ${money(total)}, punya ${money(db.balance)}.`, 'err')
+      db.balance = r2(db.balance - total)
+      const pos = db.portfolio[state.sym] || { qty: 0, avgPrice: 0 }
+      const nq = pos.qty + qty
+      pos.avgPrice = ((pos.avgPrice * pos.qty) + total) / nq
+      pos.qty = nq
+      db.portfolio[state.sym] = pos
+      db.history.push({ t: Date.now(), type: 'buy', sym: state.sym, amount: total, qty })
+    } else {
+      const pos = db.portfolio[state.sym]
+      if (!pos || pos.qty < qty) return toast('Posisi tidak cukup.', 'err')
+      db.balance = r2(db.balance + total)
+      pos.qty = r2(pos.qty - qty)
+      if (pos.qty <= 0) delete db.portfolio[state.sym]
+      db.history.push({ t: Date.now(), type: 'sell', sym: state.sym, amount: total, qty })
+    }
+    $('qty').value = ''
+    save(); refresh()
+    toast(`${state.side === 'buy' ? 'Beli' : 'Jual'} ${money(qty)} ${state.sym} @ ${money(price)}`, 'ok')
+  }
+  function refresh() {
+    ticker(); statsMarket(); list(); saldo()
+    try { trade() } catch (err) { console.warn('render trading gagal:', err && err.message) }
+  }
+  document.querySelector('.nav').addEventListener('click', (e) => { const b = e.target.closest('button[data-p]'); if (b) show(b.dataset.p) })
+  $('list').addEventListener('click', (e) => { const m = e.target.closest('[data-s]'); if (!m) return; state.sym = m.dataset.s; show('trade'); refresh() })
+  document.querySelectorAll('#side button').forEach((b) => b.addEventListener('click', () => {
+    state.side = b.dataset.s
+    document.querySelectorAll('#side button').forEach((x) => { x.classList.toggle('on', x === b); x.classList.toggle('b', x.dataset.s === 'buy'); x.classList.toggle('s', x.dataset.s === 'sell') })
+    trade()
+  }))
+  $('qty').addEventListener('input', total)
+  document.querySelectorAll('[data-p]').forEach((b) => { if (b.classList.contains('btn')) b.addEventListener('click', () => { const q = quote(state.sym), power = state.side === 'buy' ? db.balance : ((db.portfolio[state.sym] || {}).qty || 0) * q.price; $('qty').value = Math.max(0, Math.floor((power / q.price) * Number(b.dataset.p) * 100) / 100); total() }) })
+  $('submit').addEventListener('click', order)
+  $('redeem').addEventListener('click', () => {
+    const code = ($('code').value || '').trim().toUpperCase()
+    if (!REDEEM[code]) return toast('Kode tidak valid.', 'err')
+    if (db.redeemed.includes(code)) return toast('Kode sudah pernah dipakai.', 'err')
+    db.redeemed.push(code); db.balance = r2(db.balance + REDEEM[code])
+    db.history.push({ t: Date.now(), type: 'redeem', amount: REDEEM[code], note: code })
+    $('code').value = ''; save(); refresh(); toast(`Kode ${code} ditukar +$AS ${money(REDEEM[code])}`, 'ok')
+  })
+  $('export').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' })
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `umi-trade-offline-${Date.now()}.json`; a.click()
+    toast('Data tersimpan sebagai file JSON.', 'ok')
+  })
+  $('importBtn').addEventListener('click', () => $('importFile').click())
+  $('importFile').addEventListener('change', async (e) => {
+    const file = e.target.files[0]; if (!file) return
+    try { const data = JSON.parse(await file.text()); db = { ...empty(), ...data }; save(); refresh(); toast('Data dimuat dari file.', 'ok') } catch { toast('File tidak bisa dibaca.', 'err') }
+  })
+  $('reset').addEventListener('click', () => { if (confirm('Reset semua data trading offline di perangkat ini?')) { db = empty(); save(); refresh(); toast('Data direset.', 'ok') } })
+
+  const bonus = daily()
+  refresh()
+  if (bonus) toast(`Bonus harian +$AS ${money(bonus)} masuk!`, 'ok')
+  setInterval(refresh, 3000)
+  window.addEventListener('resize', chart)
+})()
+</script>
+<!-- bundel mandiri dibuat tools/make-offline.mjs · 2026-10-16 18:00 WITA-ish · aset inline: icon.svg, whatsapp.svg, coin.svg, trophy.svg -->
+</body>
+</html>

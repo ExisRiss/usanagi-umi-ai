@@ -1,0 +1,28 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import suggestion from '../plugins/_system/_didyoumen.js'
+import { withMessageResponses, bindResponseMessage, hasMessageResponse, maySuggestCommand } from '../lib/command-response.js'
+const portfolio=Object.assign(async()=>{}, {command:/^(portofolio|trading)$/i,help:['portofolio [token]', 'trading <token>']})
+function fixture(text='/portofoli') {
+ const out=[]
+ const conn={label:'socket',sendMessage:async function(j,p){assert.equal(this.label,'socket');out.push({j,p});return 'ok'},relayMessage:async(j,p)=>{out.push({j,p});return 'rich'},reply:async(j,text)=>{out.push({j,p:{text}})}}
+ const m={text,chat:'chat@g.us',sender:'a@s.whatsapp.net',reply:async text=>out.push({j:'chat@g.us',p:{text}})}
+ return {conn,m,out}
+}
+const run=(x,fn)=>withMessageResponses(x.conn,async()=>{bindResponseMessage(x.m);global.plugins={portfolio};return fn()})
+const suggest=x=>suggestion.unknownCommand.call(x.conn,x.m,{usedPrefix:'/'})
+test('similarity has no eager before hook',()=>assert.equal(suggestion.before,undefined))
+for(const flag of ['__autoAIHandled','__autoAIAnswer','__autoAITargetPlugin','__commandRecognized','isCommand','error'])test('handled flag suppresses suggestion: '+flag,async()=>{const x=fixture();x.m[flag]=true;await run(x,()=>suggest(x));assert.equal(x.out.length,0)})
+for(const text of ['/portofolio','/PORTOFOLIO','/portofolio argumen panjang','/trading login sample','Portofoli',''])test('no false suggestion: '+text,async()=>{const x=fixture(text);await run(x,()=>suggest(x));assert.equal(x.out.length,0)})
+test('genuine unknown typo gets one suggestion',async()=>{const x=fixture();await run(x,()=>suggest(x));assert.equal(x.out.length,1);assert.match(x.out[0].p.text,/\/portofolio/)})
+test('multi-character active prefix and only command token are used',async()=>{const x=fixture('!!portofoli detail');await run(x,()=>suggestion.unknownCommand.call(x.conn,x.m,{usedPrefix:'!!'}));assert.equal(x.out.length,1);assert.match(x.out[0].p.text,/!!portofolio/);assert(!x.out[0].p.text.includes('detail'))})
+for(const method of ['sendMessage','relayMessage','reply','m.reply'])test('successful '+method+' blocks later similarity',async()=>{const x=fixture();await run(x,async()=>{if(method==='m.reply')await x.m.reply('jawaban');else await x.conn[method](x.m.chat,method==='relayMessage'?{botForwardedMessage:{message:{richResponseMessage:{}}}}:method==='reply'?'jawaban':{text:'jawaban'});assert(hasMessageResponse(x.m));await suggest(x)});assert.equal(x.out.length,1)})
+test('reactions are not counted as an answer',async()=>{const x=fixture();await run(x,async()=>{await x.conn.sendMessage(x.m.chat,{react:{text:'⏳',key:{}}});assert(!hasMessageResponse(x.m));await suggest(x)});assert.equal(x.out.length,2)})
+test('output to another chat does not suppress original chat',async()=>{const x=fixture();await run(x,async()=>{await x.conn.sendMessage('other@g.us',{text:'log'});await suggest(x)});assert.equal(x.out.length,2)})
+test('failed send does not mark response delivered',async()=>{const x=fixture();x.conn.relayMessage=async()=>{throw Error('failed')};await run(x,async()=>{await assert.rejects(()=>x.conn.relayMessage(x.m.chat,{richResponseMessage:{}}));assert(!hasMessageResponse(x.m));await suggest(x)});assert.equal(x.out.length,1)})
+test('pending response prevents racing a similarity message',async()=>{const x=fixture();let release;x.conn.relayMessage=()=>new Promise(r=>{release=r});await run(x,async()=>{const sending=x.conn.relayMessage(x.m.chat,{richResponseMessage:{}});assert(hasMessageResponse(x.m));await suggest(x);assert.equal(x.out.length,0);release();await sending})})
+test('concurrent same-socket same-chat requests keep separate response flags',async()=>{const x=fixture();let release;const ready=new Promise(r=>release=r);const other={...x,m:{...x.m}};await Promise.all([withMessageResponses(x.conn,async()=>{bindResponseMessage(x.m);await x.conn.sendMessage(x.m.chat,{text:'answer'});release();await new Promise(r=>setTimeout(r,5));assert(!maySuggestCommand(x.m))}),withMessageResponses(x.conn,async()=>{bindResponseMessage(other.m);await ready;assert(!hasMessageResponse(other.m));assert(maySuggestCommand(other.m))})])})
+test('socket wrappers are installed once and preserve return value',async()=>{const x=fixture();await run(x,()=>x.conn.sendMessage(x.m.chat,{text:'a'}));const first=x.conn.sendMessage;await run(x,async()=>{assert.equal(x.conn.sendMessage,first);assert.equal(await x.conn.sendMessage(x.m.chat,{text:'b'}),'ok')});assert.equal(await x.conn.sendMessage('outside@g.us',{text:'c'}),'ok')})
+test('disabled and uninstalled custom plugins are not recommended',async()=>{const x=fixture('/portfoli');await run(x,async()=>{global.plugins={'custom/p.js':portfolio};await suggest(x)});assert.equal(x.out.length,0)})
+test('another socket cannot mark this request answered, even in same chat',async()=>{const x=fixture(),y=fixture();await withMessageResponses(y.conn,()=>{});await run(x,async()=>{await y.conn.sendMessage(x.m.chat,{text:'other bot'});assert(!hasMessageResponse(x.m));await suggest(x)});assert.equal(y.out.length,1);assert.equal(x.out.length,1)})
+test('parallel main and Jadibot response tracking stays isolated',async()=>{const x=fixture(),y=fixture();await Promise.all([withMessageResponses(x.conn,async()=>{bindResponseMessage(x.m);await x.conn.relayMessage(x.m.chat,{richResponseMessage:{}});await new Promise(r=>setTimeout(r,5));assert(hasMessageResponse(x.m))}),withMessageResponses(y.conn,async()=>{bindResponseMessage(y.m);await new Promise(r=>setTimeout(r,2));assert(!hasMessageResponse(y.m));assert(maySuggestCommand(y.m))})])})

@@ -1,0 +1,20 @@
+import { runImportedFeature } from '../../../../lib/imported-compat.js'
+const metadata = {"name": "playstore", "category": "general", "aliasMap": {"umi-general-playstore": "playstore", "umi-playstore": "playstore", "umi-ps": "ps", "playstore": "playstore", "ps": "ps"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
+const handler = (m, extra) => runImportedFeature("umi", "plugins/general/playstore.js", metadata, m, extra)
+handler.help = ["umi-general-playstore"]
+handler.command = ["umi-general-playstore", "umi-playstore", "umi-ps", "playstore", "ps"]
+handler.tags = ["general"]
+handler.description = "Imported from Umi MD V4.6"
+handler.importSource = "umi"
+handler.importConfig = {"name": "playstore", "alias": ["ps"], "category": "general", "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "isOwner": false, "isPremium": false, "isGroup": false, "isPrivate": false, "cooldown": 3, "energi": 0, "isEnabled": true}
+handler.owner = false
+handler.rowner = false
+handler.premium = false
+handler.group = false
+handler.private = false
+handler.admin = false
+handler.botAdmin = false
+handler.level = 0
+handler.limit = 0
+handler.importAliasMap = {"umi-general-playstore": "playstore", "umi-playstore": "playstore", "umi-ps": "ps", "playstore": "playstore", "ps": "ps"}
+export default handler

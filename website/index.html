@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050d1f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Usanagi Umi Jadibot Studio — hubungkan dan kelola bot WhatsApp secara aman.">
+  <title>Usanagi Umi · Jadibot Studio</title>
+  <link rel="icon" href="/assets/umi-logo.jpg">
+  <link rel="preload" href="/assets/fonts/space-mono-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/assets/app.css?v=20261020-navfix1">
+
+  <link rel="stylesheet" href="/assets/layout-compat.css?v=20261018-session60">
+  <link rel="stylesheet" href="/assets/shell.css?v=20261020-revert1">
+</head>
+<body>
+  <div id="scene" class="scene" aria-hidden="true"><div class="scene-shade"></div><i class="orb orb-a"></i><i class="orb orb-b"></i><i class="orb orb-c"></i></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><img src="/assets/umi-logo.jpg" alt="Usanagi Umi"><span><strong>USANAGI UMI</strong><small>JADIBOT STUDIO</small></span></a>
+    <button id="menuToggle" class="icon-btn nav-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+    <nav id="mainNav" aria-label="Navigasi utama"><button id="navClose" class="mini nav-close" type="button" aria-label="Tutup navigasi">✕<span>TUTUP</span></button>
+      <a class="nav-link" href="#tutorial"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5zM4 5.5V21.5M8 7h8M8 11h8"/></svg><span>Tutorial</span></a><a class="nav-link" href="#feedback" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a8 8 0 0 0-8 8c0 2.2.9 4.2 2.4 5.7L5 21l4.3-1.4A8 8 0 1 0 12 3zM12 7v5M12 16h.01"/></svg><span>Feedback</span></a><a class="nav-link" href="#dashboard" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Dashboard</span></a><a class="nav-link" href="#wallet" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 9.5c.3-1.2 1.4-2 3-2 1.7 0 3 .9 3 2.3 0 3-5.8 1.2-5.8 4.2 0 1.3 1.2 2.2 3 2.2 1.6 0 2.9-.8 3.2-2M12 5.5v13"/></svg><span>Saldo</span></a><a class="nav-link" href="#panel" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4M7 9l3 2.5L7 14M13 14h4"/></svg><span>Panel</span></a><a class="nav-link" href="#topup" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"/><path d="M5 21h14"/></svg><span>Top Up</span></a><a class="nav-link" href="#shop" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 11h-13zM8 7a4 4 0 0 1 8 0"/></svg><span>Shop</span></a><a class="nav-link" href="#acctopup" data-private data-owner><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-5M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg><span>ACC Top Up</span></a><a class="nav-link" href="#files" data-private data-owner><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0 4 4m-4-4L8 8"/><path d="M4 16.5V19a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 20 19v-2.5"/></svg><span>Upload ZIP</span></a><a class="nav-link" href="#connect" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"/></svg><span>Pairing</span></a><a class="nav-link" href="#profile" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profil</span></a><a class="nav-link" href="#settings" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.1 2.1-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2h-3v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2.1-2.1.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H5.3v-3h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.1-2.1.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.2h3v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.1 2.1-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v3h-.2a1.7 1.7 0 0 0-1.4 1z"/></svg><span>Settings</span></a><a class="nav-link" href="#chat" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a4 4 0 0 1-4 4H9l-5 3V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4zM8 11h.01M12 11h.01M16 11h.01"/></svg><span>Chat</span></a><a class="nav-link" href="#plugins" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v4a2 2 0 1 0 4 0V3h4v4a2 2 0 1 0 4 0v6h-4a2 2 0 1 0 0 4h4v4h-6a2 2 0 1 0-4 0v-4H7a4 4 0 0 1-4-4V9h4a2 2 0 1 0 0-4z"/></svg><span>Plugin</span></a><a class="nav-link" href="#console" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="m7 9 3 3-3 3M13 15h4"/></svg><span>Console</span></a><a class="nav-link" href="#main-settings" data-private data-mainbot><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.1 2.1-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2h-3v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2.1-2.1.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H5.3v-3h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.1-2.1.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.2h3v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.1 2.1-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v3h-.2a1.7 1.7 0 0 0-1.4 1z"/></svg><span>Setting Bot Utama</span></a><a class="nav-link" href="#main-pairing" data-private data-mainbot><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"/></svg><span>Pairing Bot Utama</span></a><a class="nav-link" href="#main-console" data-private data-mainbot><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="m7 9 3 3-3 3M13 15h4"/></svg><span>Console Bot Utama</span></a><a class="nav-link" href="#owner" data-private data-owner><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6zM8.5 10.5 10.5 13l5-5"/></svg><span>Owner</span></a>
+      <a class="nav-link" href="https://game.gwenna.my.id/realms" target="_blank" rel="noopener noreferrer"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V8l4 3V5l5-3 5 3v6l4-3v13H3ZM9 21v-6h6v6"/></svg><span>MMORPG</span></a>
+    <a class="nav-link" href="#agent" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2M19 4v4h-4"/></svg><span>AI Agent</span></a><a class="nav-link" href="#agent-owner" data-private data-owner><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="m7 9 3 3-3 3M13 15h4"/></svg><span>AI Owner</span></a>      <button id="logoutButton" class="nav-danger nav-link" type="button" data-private><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5M14 8l4 4-4 4M8 12h10"/></svg><span>Keluar</span></button></nav>
+  </header>
+  <div id="navScrim" class="nav-scrim" hidden></div>
+
+  <main id="root">
+    <section id="landingView" class="public-view">
+      <div class="hero-copy">
+        <span class="eyebrow">MULTI-DEVICE · REAL-TIME · PRIVATE SESSION</span>
+        <h1>JADIKAN NOMORMU <em>BOT UMI</em> SENDIRI.</h1>
+        <p>Hubungkan nomor WhatsApp, atur fiturnya, dan pantau semuanya dari satu studio. Proses cepat, performa stabil, dan fitur lengkap.</p>
+        <div class="hero-stats umi-layout-1">
+          <div class="umi-layout-2"><b id="heroOnline" class="umi-layout-3">0</b><br><span class="umi-layout-4">bot online</span></div>
+          <div class="umi-layout-2"><b id="heroUsers" class="umi-layout-5">0</b><br><span class="umi-layout-4">pengguna</span></div>
+        </div>
+        <div class="hero-actions"><button id="startButton" class="btn btn-primary" type="button">BUAT JADIBOT ↗</button><a class="btn btn-glass" href="https://whatsapp.com/channel/0029VbDBOXH11ulIKHVbmO0m" target="_blank" rel="noreferrer">SALURAN RESMI</a><a class="btn btn-glass" href="https://game.gwenna.my.id/" target="_blank">🎮 GAME WEB</a><a class="btn btn-glass" href="https://game.gwenna.my.id/realms" target="_blank" rel="noopener noreferrer">ECLIPSE REALMS ↗</a></div>
+        <div class="feature-strip"><article><b>01</b><span>Nomor custom</span></article><article><b>02</b><span>Pairing 8 digit</span></article><article><b>03</b><span>Config per sesi</span></article><article><b>04</b><span>Trading $AS</span></article></div>
+      </div>
+      <div class="hero-card"><div class="portrait"><img src="/assets/umi-logo.jpg" alt="Maskot Umi"></div><span class="sticker sticker-one">READY!</span><span class="sticker sticker-two">ALL FEATURES</span></div>
+    </section>
+
+    <section id="authView" class="public-view hidden">
+      <div class="auth-intro"><span class="eyebrow">SECURE PLATFORM</span><h2>MASUK KE<br>UMI STUDIO.</h2><p>Autentikasi akun diamankan melalui Supabase. Data sesi WhatsApp tetap diproses oleh server bot.</p></div>
+      <div class="glass-card auth-card">
+        <div class="auth-tabs"><button type="button" data-auth-tab="login" class="active">LOGIN</button><button type="button" data-auth-tab="register">DAFTAR</button></div>
+        <form id="loginForm">
+          <button id="googleLoginBtn" class="btn btn-google umi-layout-6" type="button"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34A853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#EA4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Masuk dengan Google</button>
+          <div class="umi-layout-7">— atau login manual —</div>
+          <label>Username atau email<input name="identifier" autocomplete="username" required placeholder="AlzRiss atau nama@gmail.com"></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" minlength="6" required placeholder="Minimal 6 karakter"></label>
+          <button class="btn btn-primary" type="submit">MASUK ↗</button>
+          <a class="btn btn-glass tutorial-login-btn" href="#tutorial">LIHAT TUTORIAL ↗</a>
+        </form>
+        <form id="registerForm" class="hidden">
+          <button id="googleRegisterBtn" class="btn btn-google umi-layout-6" type="button"><svg width="20" height="20" viewBox="0 0 48 48"><path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34A853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#EA4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Daftar dengan Google</button>
+          <div class="umi-layout-7">— atau daftar manual —</div>
+          <label>Username<input name="username" autocomplete="username" minlength="3" maxlength="40" pattern="[A-Za-z0-9_.-]{3,40}" required placeholder="Username baru"></label>
+          <label>Gmail<input name="email" type="email" autocomplete="email" pattern="[A-Za-z0-9]+(?:\.?[A-Za-z0-9]+)*@gmail\.com" required placeholder="nama@gmail.com"></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="Minimal 8 karakter"></label>
+          <button class="btn btn-yellow" type="submit">BUAT AKUN ↗</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="tutorialView" class="public-view tutorial-view hidden">
+      <div class="tutorial-shell">
+        <header class="tutorial-head"><div><span class="eyebrow">PANDUAN MULAI</span><h2>3 TUTORIAL JADIBOT</h2><p>Ikuti urutan ini untuk masuk, menghubungkan nomor WhatsApp, lalu mengatur bot milikmu.</p></div><a class="btn btn-yellow" href="#login">MASUK KE STUDIO ↗</a></header>
+        <div class="tutorial-grid">
+          <article class="tutorial-card cyan"><span class="tutorial-number">01</span><h3>TUTORIAL LOGIN</h3><p>Masuk atau buat akun agar dashboard Jadibot dapat digunakan.</p><ol><li>Tekan <b>MASUK KE STUDIO</b> atau pilih menu Login.</li><li>Masukkan username atau email dan password akunmu.</li><li>Belum punya akun? Pilih tab <b>DAFTAR</b>, isi data, lalu buat akun.</li><li>Setelah berhasil, kamu akan masuk ke Dashboard.</li></ol><a class="mini tutorial-link" href="#login">BUKA HALAMAN LOGIN</a></article>
+          <article class="tutorial-card yellow-panel"><span class="tutorial-number">02</span><h3>PAIRING NOMOR BOT</h3><p>Hubungkan nomor WhatsApp yang ingin dijadikan bot melalui kode pairing.</p><ol><li>Dari Dashboard, tekan <b>+ NOMOR BARU</b> atau buka menu Pairing.</li><li>Masukkan nomor dengan format internasional, tanpa tanda <b>+</b>. Contoh: <b>628xxxxxxxxxx</b>.</li><li>Tekan <b>MINTA PAIRING CODE</b>, lalu gunakan tombol <b>SALIN CODE</b> bila diperlukan.</li><li>Di WhatsApp: <b>Perangkat tertaut</b> → <b>Tautkan perangkat</b> → <b>Tautkan dengan nomor telepon</b>.</li><li>Masukkan kode dan tunggu log menampilkan status <b>connected</b>.</li></ol><p class="tutorial-note">Jangan bagikan kode pairing kepada siapa pun. Kode bersifat sementara.</p></article>
+          <article class="tutorial-card pink"><span class="tutorial-number">03</span><h3>SETTING BOT</h3><p>Atur bot per session agar setiap nomor memiliki konfigurasi sendiri.</p><ol><li>Buka menu <b>Settings</b> setelah session sudah dibuat.</li><li>Pilih session/nomor bot yang ingin diatur pada panel kiri.</li><li>Sesuaikan nama bot, owner, prefix, mode, limit, dan fitur runtime.</li><li>Atur media, backup, serta plugin sesuai kebutuhan session tersebut.</li><li>Tekan <b>SIMPAN &amp; TERAPKAN</b> untuk menerapkan perubahan.</li></ol><p class="tutorial-note">Perubahan Settings hanya berlaku untuk session yang dipilih, bukan bot lain.</p></article>
+        </div>
+        <footer class="tutorial-footer"><a class="btn btn-primary" href="#login">SAYA SIAP LOGIN</a><a class="btn btn-glass" href="#home">KEMBALI KE BERANDA</a></footer>
+      </div>
+    </section>
+
+    <section id="appView" class="app-view hidden">
+      <header class="workspace-head"><div><span class="eyebrow">CONTROL ROOM</span><h2 id="pageTitle">DASHBOARD</h2><div id="identity" class="identity"></div></div><button id="newSessionButton" class="btn btn-yellow" type="button">+ NOMOR BARU</button></header>
+      <div class="workspace">
+        <section id="dashboardPage" class="page">
+          <div class="cover"><img src="/assets/dashboard-cover.jpg" alt="By AlzRiss - Usanagi Umi AI" loading="lazy" decoding="async"></div>
+          <div class="stats"><article class="stat cyan"><span>TOTAL SESSION</span><b id="statTotal">0</b></article><article class="stat lime"><span>ONLINE</span><b id="statOnline">0</b></article><article class="stat pink"><span>OFFLINE</span><b id="statOffline">0</b></article></div>
+          <div class="section-head"><h3>BOT MILIKMU</h3><button id="refreshSessions" class="mini" type="button">↻ REFRESH</button></div><div id="sessionList" class="card-grid"></div>
+        </section>
+
+        <section id="walletPage" class="page hidden"><div class="stats"><article class="stat cyan"><span>SALDO TERSEDIA</span><b id="walletBalance">—</b></article><article class="stat lime"><span>METODE TOP UP</span><b id="walletChannel">DANA</b></article><article class="stat pink"><span>STATUS</span><b id="walletState">MEMUAT</b></article></div><article class="panel block"><div class="section-head"><h3>RIWAYAT SALDO</h3><span class="chip partner">LEDGER</span></div><div id="walletLedger" class="list"><p>Memuat riwayat…</p></div></article><article class="panel block"><div class="section-head"><h3>JALAN PINTAS</h3><span class="chip user">WALLET</span></div><div class="actions"><a class="btn btn-primary" href="#topup">TOP UP SALDO</a><a class="btn btn-yellow" href="#shop">BUKA SHOP</a><a class="btn" href="#panel">PANEL SAYA</a></div></article></section>
+<section id="topupPage" class="page hidden"><article class="panel block"><div class="section-head"><h3>TOP UP SALDO</h3><button id="refreshWallet" class="mini" type="button">↻ REFRESH</button></div><p>Saldo hanya masuk setelah pembayaran DANA terverifikasi otomatis. Nominal top up tidak dapat ditarik tunai dan digunakan untuk membeli paket panel.</p><form id="walletTopupForm"><label>Nominal Top Up (Rp)<input id="walletTopupAmount" name="amount" type="number" inputmode="numeric" min="10000" max="5000000" step="1000" required value="10000"></label><div class="actions"><button class="btn btn-primary" type="submit">BUAT INVOICE DANA</button></div></form><div id="walletTopupNotice" class="notice">Memuat konfigurasi Wallet…</div><div id="walletActiveInvoice" class="notice hidden"></div></article><article class="panel block"><div class="section-head"><h3>RIWAYAT TOP UP</h3><span class="chip user">DANA / TRIPAY</span></div><div id="walletTopups" class="list"><p>Belum ada invoice.</p></div></article></section>
+<section id="shopPage" class="page hidden"><article class="panel block"><div class="section-head"><h3>TOKO AUTO ORDER</h3><button id="refreshShop" class="mini" type="button">↻ MUAT ULANG</button></div><p>Bayar memakai saldo Wallet. Server panel dibuat otomatis, premium langsung aktif, dan produk digital terkirim seketika. Kegagalan pembuatan otomatis mengembalikan saldo.</p><h4>PAKET PANEL</h4><div id="walletShopPackages" class="list"><p>Memuat paket…</p></div><h4>PRODUK &amp; PREMIUM</h4><div id="walletShopProducts" class="list"><p>Memuat produk…</p></div><h4>ORDER SAYA</h4><div id="walletOrders" class="list"><p>Belum ada order.</p></div></article></section>
+<section id="acctopupPage" class="page hidden"><article class="panel block"><div class="section-head"><h3>PERMINTAAN TOP UP DANA MANUAL</h3><button id="refreshManualTopups" class="mini" type="button">↻ REFRESH</button></div><p>Setujui hanya setelah pembayaran benar-benar masuk ke akun DANA. Persetujuan menambah saldo pengguna satu kali; penolakan tidak mengubah saldo.</p><div id="manualTopupRequests" class="list"><p>Memuat permintaan top up…</p></div></article></section>
+<section id="panelPage" class="page hidden">
+  <article class="panel block">
+    <div class="section-head"><h3>SERVER PANEL SAYA</h3><button id="refreshPanelServers" class="mini" type="button">↻ MUAT ULANG</button></div>
+    <p>Server yang kamu beli lewat Saldo bisa dikelola penuh dari sini: nyala/matikan, konsol langsung, file manager, dan pengaturan startup — tanpa perlu membuka panel terpisah.</p>
+    <div id="panelServerList" class="list"><p>Memuat server…</p></div>
+  </article>
+  <article id="panelDetail" class="panel block hidden">
+    <div class="section-head"><h3 id="panelServerName">SERVER</h3><span id="panelState" class="chip user">MEMUAT</span></div>
+    <p id="panelUsage" class="panel-usage">Penggunaan: —</p>
+    <div class="actions panel-power">
+      <button class="btn btn-primary" type="button" data-power="start">▶ START</button>
+      <button class="btn btn-yellow" type="button" data-power="restart">↻ RESTART</button>
+      <button class="btn" type="button" data-power="stop">■ STOP</button>
+      <button class="btn btn-danger" type="button" data-power="kill">✕ KILL</button>
+      <a id="panelOpenOriginal" class="btn" href="#" target="_blank" rel="noopener noreferrer">BUKA PANEL ASLI ↗</a>
+    </div>
+    <div class="panel-tabs" role="tablist">
+      <button type="button" data-ptab="console" class="active">Konsol</button>
+      <button type="button" data-ptab="files">Files</button>
+      <button type="button" data-ptab="startup">Startup</button>
+    </div>
+    <div id="panelTabConsole">
+      <pre id="panelConsoleLog" class="panel-console">Menghubungkan konsol…</pre>
+      <form id="panelCommandForm" class="panel-command"><input id="panelCommandInput" type="text" placeholder="Ketik perintah lalu Enter (mis. npm start)" autocomplete="off"><button class="btn btn-primary" type="submit">KIRIM</button></form>
+    </div>
+    <div id="panelTabFiles" class="hidden">
+      <div class="panel-filebar">
+        <button id="panelDirUp" class="mini" type="button">⬆ NAIK</button>
+        <b id="panelDirPath">/</b>
+        <button id="panelNewFile" class="mini" type="button">＋ FILE</button>
+        <button id="panelNewFolder" class="mini" type="button">＋ FOLDER</button>
+        <label class="mini panel-upload">⬆ UNGGAH<input id="panelUploadInput" type="file" hidden></label>
+        <button id="panelRefreshFiles" class="mini" type="button">↻</button>
+      </div>
+      <div id="panelFileList" class="list"><p>Memuat file…</p></div>
+      <div id="panelEditor" class="hidden">
+        <div class="section-head"><h4 id="panelEditorName">FILE</h4><span class="chip partner">EDITOR</span></div>
+        <textarea id="panelEditorText" spellcheck="false"></textarea>
+        <div class="actions"><button id="panelEditorSave" class="btn btn-primary" type="button">SIMPAN FILE</button><button id="panelEditorClose" class="btn" type="button">TUTUP</button></div>
+      </div>
+    </div>
+    <div id="panelTabStartup" class="hidden">
+      <p>Command startup dijalankan panel setiap server dinyalakan. Ubah <b>CMD_RUN</b> untuk mengganti perintah utama bot kamu (mis. <code>npm start</code>), lalu restart server.</p>
+      <label>Startup Command<textarea id="panelStartupCommand" rows="3" readonly></textarea></label>
+      <label>Docker Image<input id="panelDockerImage" type="text" readonly></label>
+      <div id="panelStartupVars" class="list"><p>Memuat variable…</p></div>
+    </div>
+  </article>
+</section>
+
+        <section id="filesPage" class="page hidden"><article class="panel block"><div class="section-head"><h3>UPLOAD FILE ZIP</h3><button id="refreshFiles" class="mini" type="button">↻ REFRESH</button></div><p>Unggah berkas <b>.zip</b> (maks 50 MB). File tersimpan privat di storage owner — unduh lagi atau hapus kapan saja dari daftar di bawah. Link unduh yang dibuat berlaku 1 jam.</p><div id="zipDrop" role="button" tabindex="0" class="umi-layout-8"><b class="umi-layout-9">📦 Seret &amp; letakkan file ZIP di sini</b><br><small>atau klik untuk memilih file dari perangkat</small><input id="zipFileInput" type="file" accept=".zip,application/zip" class="hidden"></div><div id="zipProgressWrap" class="hidden umi-layout-10"><div class="umi-layout-11"><div id="zipProgressBar" class="umi-layout-12"></div></div><small id="zipProgressText">0%</small></div><div id="zipUploadStatus" class="notice hidden"></div></article><article class="panel block"><div class="section-head"><h3>FILE SAYA</h3><span class="chip partner">ZIP · PRIVAT</span></div><div id="filesList" class="list"><p>Memuat file…</p></div></article></section>
+
+        <section id="connectPage" class="page hidden"><div class="split"><article class="panel"><span class="step">01</span><h3>MASUKKAN NOMOR</h3><p>Gunakan format internasional tanpa tanda plus. Contoh: <b>628123456789</b>.</p><form id="pairForm"><label>Nomor WhatsApp<input id="pairPhone" inputmode="numeric" required placeholder="628xxxxxxxxxx"></label><button class="btn btn-primary" type="submit">MINTA PAIRING CODE</button></form></article><article class="panel yellow-panel"><span class="step">02</span><h3>PAIRING CODE</h3><output id="pairCode" class="pair-code">••••-••••</output><div class="actions pair-actions"><button id="copyPairCode" class="mini" type="button" disabled>SALIN CODE</button></div><ol><li>Buka WhatsApp.</li><li>Pilih <b>Perangkat tertaut</b>.</li><li>Pilih tautkan dengan nomor telepon.</li><li>Masukkan kode di atas.</li></ol><div id="pairStatus" class="notice">Menunggu nomor.</div><div class="pair-log-wrap"><b>LOG PAIRING</b><pre id="pairLogs" class="terminal output pair-log" aria-live="polite">Belum ada aktivitas pairing.</pre></div></article></div></section>
+
+        <section id="settingsPage" class="page hidden">
+          <div class="settings-layout"><aside class="panel session-picker"><h3>PILIH SESSION</h3><select id="settingsSession"></select><div id="sessionStatus" class="notice">—</div><button id="restartSession" class="mini" type="button">↻ RESTART BOT</button></aside>
+          <form id="settingsForm" class="panel"><div class="section-head"><h3>IDENTITAS & RUNTIME</h3><button id="resetSettings" class="mini danger" type="button">RESET</button></div>
+            <div class="notice"><b>INFO LIMIT</b><br>Isi <b>-1</b> untuk Unlimited. Limit awal berlaku untuk user baru pada session ini. User Premium aktif otomatis Unlimited dan tidak dipotong limit.</div>
+            <div class="form-grid"><label>Nama Bot<input name="bot_name" maxlength="80"></label><label>Nomor Owner Bot<input name="owner_number" inputmode="numeric" pattern="[0-9]{8,15}" minlength="8" maxlength="15" required placeholder="628xxxxxxxxxx"><small>Owner pertama untuk bot session ini.</small></label><label>Owner/Developer Terkunci<input id="lockedOwnerNumber" value="6287813709432" readonly aria-readonly="true"><small>Selalu aktif dan tidak dapat dihapus.</small></label><label>Prefix<input name="prefix" maxlength="3"></label><label>Mode Akses<select name="mode"><option value="public">Public — semua pengguna</option><option value="self">Self — hanya owner dan bot</option></select></label><label>Limit Awal<input name="default_limit" type="number" min="-1" max="100000" step="1"><small>Gunakan -1 untuk Unlimited (berlaku untuk semua pengguna, termasuk yang sudah punya limit).</small></label></div>
+            <p>Pengaturan hanya berlaku untuk session yang dipilih. AutoAI OFF tidak menonaktifkan command manual.</p><div class="toggle-grid"><label><input name="limit_enabled" type="checkbox"> Limit ON — ON: potong limit seperti biasa · OFF: semua perintah berlimit jadi gratis</label><label><input name="auto_ai" type="checkbox"> AutoAI — ON/OFF untuk session ini</label><label><input name="only_group" type="checkbox"> Only GB — blokir private chat</label><label><input name="registration_required" type="checkbox"> Wajib daftar sebelum memakai bot</label><label><input name="auto_typing" type="checkbox"> Auto Typing</label><label><input name="auto_translate" type="checkbox"> Auto Translate</label><label><input name="send_music" type="checkbox"> Musik TikTok</label><label><input name="menu_audio_enabled" type="checkbox"> Audio Menu</label></div>
+            <h4>MODE PREMIUM BOT</h4><div class="notice" id="premiumSystemNotice">Memeriksa mode premium…</div><div class="toggle-grid"><label><input name="premium_enabled" type="checkbox"> Mode Premium — ON: fitur premium dikunci · OFF: semua fitur gratis di bot ini</label></div><label>Fitur yang dijadikan premium<textarea name="premium_plugins" rows="5" spellcheck="false" placeholder="sticker&#10;brat&#10;toimg"></textarea><small>Isi nama command tanpa titik, nama plugin, <b>command:nama</b>, <b>plugin:folder/file.js</b>, atau <b>tag:ai</b>. Pemilik bot mengisi daftar ini; owner/developer juga bisa lewat <b>.premium</b> di WhatsApp.</small></label><div class="form-grid"><label>Cari fitur (klik untuk menambahkan)<input id="premiumFeatureQuery" autocomplete="off" placeholder="mis. sticker, ai, brat"></label></div><div id="premiumFeatureResults" class="list"></div><h4>CHANNEL UTAMA /UPCH</h4><div class="form-grid"><label>Link Channel Utama<input name="upch_channel_url" type="url" placeholder="https://whatsapp.com/channel/..."><small>Untuk /upch dan /sendch Jadibot. Jadikan nomor Jadibot pada session ini (bukan nomor bot utama) sebagai admin Channel sebelum disimpan.</small></label></div><h4>LINK & TIKTOK</h4><div class="form-grid"><label>Maks. Foto TikTok<input name="max_photos" type="number" min="1" max="20"></label><label>Website<input name="website_url" type="url"></label><label>Channel Publik/Menu<input name="channel_url" type="url"></label><label>Grup<input name="group_url" type="url"></label></div>
+            <h4>AUTO TYPING & TRANSLATE</h4><div class="form-grid"><label>Typing min (ms)<input name="typing_min" type="number" min="0" max="5000"></label><label>Typing maks (ms)<input name="typing_max" type="number" min="0" max="10000"></label><label>Karakter/detik<input name="typing_cps" type="number" min="1" max="10000"></label><label>Bahasa default<input name="translate_language" maxlength="10"></label></div>
+            <h4>RUNTIME LANJUTAN</h4><div class="form-grid"><label>Connect timeout<input name="connect_timeout" type="number" min="10000" max="120000"></label><label>Keep alive<input name="keepalive" type="number" min="5000" max="120000"></label><label>Retry delay<input name="retry_delay" type="number" min="0" max="10000"></label><label>Maks retry<input name="max_retries" type="number" min="1" max="30"></label><label>Multiplier<input name="multiplier" type="number" min="1" max="1000"></label></div>
+            <label>Pesan tunggu<textarea name="wait_text" maxlength="500"></textarea></label><label>Pesan error<textarea name="error_text" maxlength="500"></textarea></label><label>Command nonaktif<textarea name="disabled_plugins" placeholder="Satu per baris"></textarea></label><button class="btn btn-primary" type="submit">SIMPAN & TERAPKAN</button>
+          </form></div>
+          <article class="panel block"><div class="section-head"><h3>BACKUP SESSION</h3><button id="createBackup" class="mini" type="button">+ BUAT BACKUP</button></div><div id="backupList" class="list"></div></article>
+          <form id="mediaForm" class="panel block"><div class="section-head"><h3>MEDIA BOT</h3><span class="chip partner">URL / UPLOAD</span></div><div class="form-grid"><label>Jenis media<select id="mediaKind"><option value="logo">Logo bot</option><option value="menu_banner">Banner menu (gambar)</option><option value="menu_video">Video menu (mode video)</option><option value="menu_audio">Audio menu</option><option value="welcome_image">Gambar welcome</option><option value="goodbye_image">Foto goodbye</option><option value="thumbnail">Thumbnail</option></select></label><label>URL media<input id="mediaUrl" type="url" placeholder="https://..."></label></div><label>Upload file<input id="mediaFile" type="file" accept="image/*,video/mp4,video/webm,audio/*"></label><div id="mediaProgress" class="notice hidden"></div><button class="btn btn-primary" type="submit">UPLOAD & TERAPKAN</button></form>
+        </section>
+
+
+        <section id="feedbackPage" class="page hidden"><div class="feedback-layout"><form id="feedbackForm" class="panel feedback-form"><div class="section-head"><h3>LAPORKAN BUG</h3><span class="chip owner">PRIVATE</span></div><p>Laporkan masalah pada website atau session bot milikmu. Laporan hanya dapat dilihat oleh owner platform.</p><div class="form-grid"><label>Terjadi di<select id="feedbackTarget" name="target"><option value="website">Website Jadibot</option><option value="bot">Bot / Jadibot saya</option></select></label><label id="feedbackSessionWrap" class="hidden">Session bot<select id="feedbackSession" name="session_id"></select></label></div><label>Judul masalah<input name="title" maxlength="160" required placeholder="Contoh: Menu tidak mengirim gambar banner"></label><label>Penjelasan bug<textarea name="description" maxlength="5000" minlength="10" required placeholder="Jelaskan apa yang terjadi, hasil yang diharapkan, dan pesan error bila ada."></textarea></label><label>Langkah untuk mengulanginya <small>(opsional)</small><textarea name="steps" maxlength="2500" placeholder="1. Buka halaman...&#10;2. Tekan...&#10;3. Terjadi..."></textarea></label><div id="feedbackStatus" class="notice hidden"></div><button class="btn btn-primary" type="submit">KIRIM FEEDBACK</button></form><article class="panel feedback-history"><div class="section-head"><h3>RIWAYAT LAPORAN</h3><button id="refreshFeedback" class="mini" type="button">↻ REFRESH</button></div><div id="feedbackList" class="feedback-list"><p>Belum ada laporan.</p></div></article></div></section>
+
+        <section id="profilePage" class="page hidden">
+          <div class="profile-layout umi-layout-13">
+            <article class="panel block">
+              <div class="section-head"><h3>PROFIL SAYA</h3><span class="chip user">AKUN</span></div>
+              <div class="umi-layout-14">
+                <div id="profileAvatar" class="umi-layout-15">?</div>
+                <div>
+                  <div id="profileDisplayName" class="umi-layout-16">—</div>
+                  <div id="profileDisplayRole" class="umi-layout-4">—</div>
+                </div>
+              </div>
+              <div class="form-grid">
+                <label>Username<input id="profileUsername" readonly class="umi-layout-17"></label>
+                <label>Email<input id="profileEmail" readonly class="umi-layout-17"></label>
+                <label>Role<span id="profileRole" class="chip user umi-layout-18">—</span></label>
+                <label>Bergabung<span id="profileJoined" class="umi-layout-19">—</span></label>
+              </div>
+            </article>
+
+            <article class="panel block">
+              <div class="section-head"><h3>TOKEN AKUN</h3><span class="chip partner">API TOKEN</span></div>
+              <p class="umi-layout-20">Token ini digunakan untuk verifikasi di fitur Trading $AS dan API lainnya. Jangan bagikan token ke siapapun.</p>
+              <div class="umi-layout-21">
+                <span id="profileToken" class="umi-layout-22">••••••••••••••••</span>
+                <button id="toggleTokenBtn" class="mini umi-layout-23" type="button">TAMPILKAN</button>
+              </div>
+              <div class="actions">
+                <button id="copyTokenBtn" class="btn btn-primary" type="button">📋 SALIN TOKEN</button>
+                <button id="regenerateTokenBtn" class="btn btn-yellow" type="button">🔄 REGENERATE TOKEN</button>
+              </div>
+              <div id="tokenNotice" class="notice hidden umi-layout-24"></div>
+            </article>
+
+            <article class="panel block">
+              <div class="section-head"><h3>UBAH PASSWORD</h3></div>
+              <form id="changePasswordForm">
+                <div class="form-grid">
+                  <label>Password Lama<input name="old_password" type="password" autocomplete="current-password" required placeholder="Password saat ini"></label>
+                  <label>Password Baru<input name="new_password" type="password" autocomplete="new-password" minlength="8" required placeholder="Minimal 8 karakter"></label>
+                </div>
+                <button class="btn btn-primary" type="submit">SIMPAN PASSWORD BARU</button>
+              </form>
+            </article>
+
+            <article class="panel block">
+              <div class="section-head"><h3>TENTANG AKUN</h3></div>
+              <p class="umi-layout-20">Akun ini terhubung ke platform Usanagi Umi Jadibot Studio. Dari sini kamu bisa mengelola bot WhatsApp, trading $AS, dan mengakses semua fitur premium.</p>
+              <div class="actions umi-layout-24">
+                <a class="btn btn-glass" href="https://game.gwenna.my.id/trading" target="_blank">📈 TRADING $AS</a>
+                <a class="btn btn-glass" href="https://game.gwenna.my.id/" target="_blank">🎮 GAME WEB</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="chatPage" class="page hidden"><article class="panel chat-panel"><div class="section-head"><h3>CHAT GLOBAL</h3><button id="refreshChat" class="mini" type="button">↻ REFRESH</button></div><p>Alamat email lengkap tidak ditampilkan kepada pengguna lain.</p><div id="chatMessages" class="messages" aria-live="polite"></div><form id="chatForm" class="send-form"><input id="chatInput" maxlength="1000" required placeholder="Tulis pesan..."><button class="btn btn-primary" type="submit">KIRIM</button></form></article></section>
+
+        <section id="pluginsPage" class="page hidden"><form id="pluginUploadForm" class="panel hidden" data-owner><div class="section-head"><h3>UPLOAD PLUGIN</h3><span class="chip owner">OWNER ONLY</span></div><div class="form-grid"><label>Slug<input name="slug" pattern="[a-z0-9_-]{2,64}" required></label><label>JavaScript<input name="file" type="file" accept=".js,text/javascript" required></label></div><label>Deskripsi<textarea name="description" maxlength="1000"></textarea></label><button class="btn btn-yellow" type="submit">KIRIM KE KATALOG</button></form><article class="panel block"><div class="section-head"><h3>KATALOG PLUGIN</h3><button id="refreshPlugins" class="mini" type="button">↻ REFRESH</button></div><label>Install ke session<select id="pluginSession"></select></label><div id="pluginList" class="card-grid"></div></article></section>
+
+        <section id="consolePage" class="page hidden"><article class="panel"><div class="section-head"><h3>SAFE CONSOLE</h3><button id="refreshLogs" class="mini" type="button">↻ LOG</button></div><p>Hanya command aman yang diizinkan: status, restart, disconnect, plugins, enable, dan disable.</p><label>Session<select id="consoleSession"></select></label><pre id="consoleLogs" class="terminal">Pilih session.</pre><form id="consoleForm" class="send-form"><input id="consoleCommand" maxlength="200" required placeholder="status"><button class="btn btn-yellow" type="submit">JALANKAN</button></form><pre id="consoleOutput" class="terminal output"></pre></article></section>
+
+        <section id="main-settingsPage" class="page hidden">
+          <article class="panel main-console-panel">
+            <div class="section-head"><h3>STATUS &amp; SAKLAR BOT UTAMA</h3><span class="chip owner">OWNER &middot; PARTNER &middot; DEVELOPER</span></div>
+            <p>Pusat pengaturan <b>bot utama</b>: status, saklar on/off, auto read, identitas, menu, AutoAI, link, premium, dan API key. Nomor &amp; kode pairing ada di <a href="#main-pairing"><b>Pairing Bot Utama</b></a>; log mentah ada di <a href="#main-console"><b>Console Bot Utama</b></a>.</p>
+            <div id="mainSettingsStatus" class="notice" aria-live="polite">Memeriksa status bot utama&hellip;</div>
+            <div class="actions"><button id="refreshMainSettings" class="mini" type="button">&#8635; REFRESH STATUS &amp; SETTING</button></div>
+            <section class="main-pairing-settings">
+              <div class="section-head"><h4>SAKLAR BOT UTAMA</h4><span class="chip partner">LANGSUNG BERLAKU</span></div>
+              <p>Perubahan saklar langsung berlaku tanpa restart bot. Kalau bot utama dimatikan, API dan jadibot tetap jalan, tetapi bot utama berhenti menerima pesan sampai diaktifkan lagi.</p>
+              <div class="actions main-bot-mode"><button id="toggleMainBot" class="mini" type="button">MEMUAT&hellip;</button><span id="mainBotToggleState" class="chip">MEMERIKSA</span></div>
+              <div class="actions main-bot-mode"><button id="toggleAutoread" class="mini" type="button">MEMUAT&hellip;</button><span id="autoreadState" class="chip">MEMERIKSA</span></div>
+              <p class="notice"><b>Auto read</b> membuat bot menandai pesan masuk sebagai sudah dibaca (centang biru) di semua sesi WhatsApp-nya. Matikan kalau nomor bot dipakai untuk hal lain, atau biarkan aktif kalau ingin balasan terasa lebih hidup. Perubahan langsung berlaku tanpa restart bot.</p>
+            </section>
+          </article>
+
+          <form id="mainSettingsForm" class="panel block">
+            <div class="section-head"><h3>KONFIGURASI BOT UTAMA</h3><span class="chip partner">TANPA RESTART</span></div>
+            <div class="notice">Disimpan di server bot: <code>data/main-bot-settings.json</code> (mode 600, folder <code>data/</code> tidak masuk repo). Semua perubahan berlaku pada pesan berikutnya.</div>
+            <h4>UMUM</h4>
+            <div class="form-grid">
+              <label>Nama Bot<input name="bot_name" maxlength="80" required></label>
+              <label>Nomor Owner<input name="owner_number" inputmode="numeric" maxlength="20" placeholder="628xxxxxxxxxx"><small>8&ndash;15 digit, tanpa <code>+</code> atau spasi. Kosongkan untuk memakai owner dari <code>config.js</code>.</small></label>
+              <label>Prefix<input name="prefix" maxlength="3" required><small>1&ndash;3 karakter tanpa spasi, misal <code>.</code>, <code>/</code>, <code>#</code>.</small></label>
+              <label>Mode Akses<select name="mode"><option value="public">Public &mdash; semua pengguna</option><option value="self">Self &mdash; hanya owner dan bot</option></select><small>Sama dengan perintah <code>/self</code> dan <code>/public</code>.</small></label>
+              <label>Limit Awal<input name="default_limit" type="number" min="-1" max="100000" step="1"><small>-1 = unlimited.</small></label>
+            </div>
+            <div class="toggle-grid">
+              <label><input name="limit_enabled" type="checkbox"> Limit ON &mdash; OFF: semua fitur berlimit gratis</label>
+              <label><input name="only_group" type="checkbox"> Only Group &mdash; blokir chat pribadi</label>
+              <label><input name="registration_required" type="checkbox"> Wajib daftar sebelum memakai bot</label>
+              <label><input name="auto_ai" type="checkbox"> AutoAI &mdash; balas otomatis dengan Gemini/Groq</label>
+              <label><input name="auto_typing" type="checkbox"> Auto Typing &mdash; indikator mengetik</label>
+              <label><input name="auto_translate" type="checkbox"> Auto Translate &mdash; menu/teks diterjemahkan</label>
+            </div>
+            <div class="form-grid">
+              <label>Typing min (ms)<input name="typing_min" type="number" min="0" max="5000"></label>
+              <label>Typing maks (ms)<input name="typing_max" type="number" min="0" max="10000"></label>
+              <label>Karakter/detik<input name="typing_cps" type="number" min="1" max="10000"></label>
+              <label>Bahasa default<input name="translate_language" maxlength="10" placeholder="id"></label>
+            </div>
+
+            <h4>MENU &amp; TAMPILAN</h4>
+            <div class="form-grid">
+              <label>Gaya Menu<select name="menu_style"><option value="modern">Modern &mdash; Native Flow</option><option value="default">Klasik &mdash; tombol interaktif</option></select><small>Berlaku untuk perintah <code>/menu</code> di bot utama.</small></label>
+            </div>
+            <div class="toggle-grid">
+              <label><input name="menu_audio_enabled" type="checkbox"> Audio menu saat <code>/menu</code></label>
+            </div>
+            <p class="notice">Thumbnail dan banner menu diganti lewat WhatsApp: reply gambar dengan <code>/setthumbnail</code>. Media sesi jadibot diatur di halaman Settings masing-masing sesi.</p>
+
+            <h4>LINK</h4>
+            <div class="form-grid">
+              <label>Website<input name="website_url" type="url" placeholder="https://..."></label>
+              <label>Channel Publik / Menu<input name="channel_url" type="url" placeholder="https://whatsapp.com/channel/..."></label>
+              <label>Grup<input name="group_url" type="url" placeholder="https://chat.whatsapp.com/..."></label>
+              <label>Channel ID (UPCH)<input name="channel_id" maxlength="120" placeholder="1203630&hellip;@newsletter"><small>Dipakai perintah <code>/upch</code> bot utama. Kosongkan kalau belum ada channel.</small></label>
+            </div>
+            <p class="notice">Link dipakai menu, info runtime, dan pesan tombol. Kosongkan untuk menghapus link yang lama.</p>
+
+            <h4>PLUGIN</h4>
+            <label>Plugin yang dimatikan<textarea name="disabled_plugins" rows="4" spellcheck="false" placeholder="sticker/sticker.js&#10;command:brat&#10;plugin:tools/tts.js"></textarea><small>Satu per baris: <code>folder/file.js</code>, <code>plugin:folder/file.js</code>, atau <code>command:nama</code>. Kosongkan untuk mengaktifkan semua plugin.</small></label>
+
+            <h4>PESAN &amp; EKONOMI</h4>
+            <div class="form-grid">
+              <label>Multiplier XP<input name="multiplier" type="number" min="1" max="1000"><small>Pengali XP level pengguna.</small></label>
+            </div>
+            <label>Pesan tunggu<textarea name="wait_text" maxlength="500"></textarea></label>
+            <label>Pesan error<textarea name="error_text" maxlength="500"></textarea></label>
+
+            <h4>MODE PREMIUM BOT UTAMA</h4>
+            <div class="notice" id="mainPremiumSystemNotice">Memeriksa mode premium&hellip;</div>
+            <div class="toggle-grid"><label><input name="premium_enabled" type="checkbox"> Mode Premium &mdash; ON: fitur di daftar dikunci &middot; OFF: semua gratis</label></div>
+            <label>Fitur yang dijadikan premium<textarea name="premium_plugins" rows="5" spellcheck="false" placeholder="sticker&#10;brat&#10;toimg"></textarea><small>Satu per baris: nama command, nama plugin, <b>command:nama</b>, <b>plugin:folder/file.js</b>, atau <b>tag:ai</b>.</small></label>
+
+            <div class="actions"><button class="btn btn-primary" type="submit">SIMPAN SETTING BOT UTAMA</button><button id="resetMainSettings" class="mini danger" type="button">RESET SETTING (KECUALI KEY)</button></div>
+          </form>
+
+          <article class="panel block">
+            <div class="section-head"><h3>API KEY</h3><span class="chip owner">MASK &middot; FILE 600</span></div>
+            <p>Simpan key dari website. Server hanya mengembalikan versi mask; key utuh tidak pernah dikirim balik ke browser, tidak masuk log, dan tidak ditulis ke database website.</p>
+            <div id="mainApiKeyStatus" class="list">Memeriksa key&hellip;</div>
+            <form id="mainApiKeyForm" class="block">
+              <div class="form-grid">
+                <label>Penyedia<select name="provider"><option value="gemini">Gemini &mdash; Auto-AI utama</option><option value="groq">Groq &mdash; cadangan Auto-AI</option><option value="openrouter">OpenRouter &mdash; AI Agent</option></select></label>
+                <label>API Key<input name="api_key" type="password" autocomplete="new-password" minlength="16" maxlength="400" placeholder="Tempel key baru di sini"></label>
+              </div>
+              <div class="actions"><button class="btn btn-primary" type="submit">SIMPAN KEY</button><button id="deleteMainApiKey" class="mini danger" type="button">HAPUS KEY</button></div>
+            </form>
+            <p class="notice">Gemini &amp; Groq disimpan di <code>.env.gemini</code> / <code>.env.groq</code> mode 600 pada server bot, di luar repo. Key OpenRouter disimpan terenkripsi oleh AI Agent; menyimpannya di sini juga menjadikan OpenRouter provider aktif AI Agent.</p>
+          </article>
+
+          <article class="panel block">
+            <div class="section-head"><h3>NOMOR PAIRING</h3><span class="chip owner">FILE 600 &middot; DI SERVER</span></div>
+            <p>Nomor bot utama disimpan di server bot dengan izin file 600, di luar repo dan tidak ikut backup. Untuk memasang atau mengganti nomor, buka halaman <a href="#main-pairing"><b>Pairing Bot Utama</b></a>.</p>
+            <div class="actions"><a class="btn btn-yellow" href="#main-pairing">BUKA PAIRING BOT UTAMA &rarr;</a></div>
+          </article>
+
+          <article class="panel block">
+            <div class="section-head"><h3>RESET CONFIG BOT UTAMA</h3><span class="chip owner">TINDAKAN PENTING</span></div>
+            <p class="notice"><b>RESET CONFIG</b> menghapus <code>.main-bot.env</code>: nomor pairing dikosongkan dan bot utama diaktifkan kembali. Setelah reset, masukkan nomor baru lewat halaman Pairing Bot Utama. Sesi WhatsApp tidak dihapus &mdash; kalau sesi rusak atau logout, pakai <b>HAPUS SESI BOT UTAMA</b> di halaman Pairing.</p>
+            <div class="actions pair-actions"><button id="resetMainBotConfig" class="mini danger" type="button">RESET CONFIG BOT UTAMA</button></div>
+          </article>
+
+          <article class="panel yellow-panel block"><span class="step">SET</span><h3>URUTAN PAKAI</h3><ol><li><b>Setting Bot Utama</b> &mdash; nyalakan bot, atur identitas/menu/AutoAI, simpan API key.</li><li><b>Pairing Bot Utama</b> &mdash; simpan nomor, minta kode pairing, hapus sesi.</li><li><b>Console Bot Utama</b> &mdash; pantau log mentah dan kirim input prompt.</li></ol><p class="notice">Ketiga halaman ini hanya untuk role <b>owner</b>, <b>partner</b>, dan <b>developer</b>. Akun role lain tidak melihat menunya dan tetap ditolak server.</p></article>
+        </section>
+        
+<section id="main-pairingPage" class="page hidden">
+          <article class="panel main-console-panel">
+            <div class="section-head"><h3>PAIRING BOT UTAMA</h3><span class="chip owner">OWNER &middot; PARTNER &middot; DEVELOPER</span></div>
+            <p>Pasang nomor WhatsApp bot utama di sini. Nomor disimpan di server bot dengan izin file 600, di luar repo dan tidak ikut backup. Kode pairing dibaca langsung dari status server, jadi tetap tampil walau buffer log console sudah berputar.</p>
+            <section class="main-pairing-settings">
+              <div class="section-head"><h4>NOMOR &amp; KODE PAIRING</h4><span class="chip owner">NOMOR TERSIMPAN &middot; FILE 600</span></div>
+              <p>Pastikan bot utama <b>AKTIF</b> di halaman <a href="#main-settings"><b>Setting Bot Utama</b></a>, lalu masukkan nomor format internasional tanpa tanda plus (contoh <code>628xxxxxxxxxx</code>).</p>
+              <form id="mainBotPairingForm" class="send-form"><input id="mainBotNumber" inputmode="numeric" autocomplete="off" minlength="8" maxlength="20" required placeholder="628xxxxxxxxxx"><button id="requestMainBotPairing" class="btn btn-yellow" type="submit">SIMPAN &amp; MINTA CODE</button></form>
+              <div class="actions pair-actions"><output id="mainBotPairCode" class="pair-code">&bull;&bull;&bull;&bull;-&bull;&bull;&bull;&bull;</output><button id="copyMainBotPairCode" class="mini" type="button" disabled>SALIN CODE</button><button id="requestMainBotPairCode" class="mini" type="button">MINTA CODE LAGI</button></div>
+              <div id="mainBotPairingStatus" class="notice" aria-live="polite">Masukkan nomor bot utama untuk memulai pairing.</div>
+            </section>
+            <section>
+              <div class="section-head"><h4>HAPUS SESI BOT UTAMA</h4><span class="chip owner">TINDAKAN PENTING</span></div>
+              <p class="notice"><b>HAPUS SESI</b> menghapus berkas sesi WhatsApp bot utama (<code>sessions/creds.json</code> dan sesi di memori) supaya bisa pairing ulang ketika sesi rusak atau sudah logout. Folder sesi jadibot tidak tersentuh. Setelah menghapus sesi, tekan <b>MINTA CODE LAGI</b> untuk kode baru.</p>
+              <div class="actions pair-actions"><button id="deleteMainBotSession" class="mini danger" type="button">HAPUS SESI BOT UTAMA</button></div>
+            </section>
+          </article>
+          <article class="panel yellow-panel"><span class="step">PAIR</span><h3>PASANG BOT UTAMA</h3><ol><li>Aktifkan bot utama di halaman Setting, lalu masukkan nomor dalam format internasional tanpa tanda plus pada formulir <b>SIMPAN &amp; MINTA CODE</b>.</li><li>Tunggu sampai kotak kode menampilkan 8 karakter (format <code>XXXX-XXXX</code>). Kode hanya hidup &plusmn;60 detik.</li><li>Buka WhatsApp &rarr; <b>Perangkat tertaut</b> &rarr; <b>Tautkan dengan nomor telepon</b>, lalu masukkan kode.</li><li>Kalau muncul <i>Connection Failure</i> atau <i>Sesi telah logout</i>, tekan <b>HAPUS SESI BOT UTAMA</b> lalu <b>MINTA CODE LAGI</b>.</li></ol><p class="notice">Jangan menyalin nomor, pairing code, token, atau kredensial ke chat maupun feedback.</p></article>
+        </section>
+        <section id="main-consolePage" class="page hidden">
+          <article class="panel main-console-panel">
+            <div class="section-head"><h3>CONSOLE BOT UTAMA</h3><span class="chip owner">OWNER &middot; PARTNER &middot; DEVELOPER &middot; RAW</span></div>
+            <p>Console langsung di website untuk role owner, partner, dan developer. Output menampilkan log mentah proses bot; akses dan input selalu diverifikasi di server.</p>
+            <div id="mainConsoleStatus" class="notice" aria-live="polite">Memeriksa status bot utama&hellip;</div>
+            <div class="actions"><button id="refreshMainConsole" class="mini" type="button">&#8635; REFRESH STATUS</button><button id="clearMainConsole" class="mini" type="button">BERSIHKAN LAYAR</button></div>
+            <pre id="mainConsoleLogs" class="terminal main-console-log" aria-live="polite">Menghubungkan terminal&hellip;</pre>
+            <form id="mainConsoleForm" class="send-form"><input id="mainConsoleInput" maxlength="4096" autocomplete="off" spellcheck="false" required placeholder="Ketik input untuk prompt bot utama&hellip;"><button class="btn btn-primary" type="submit">KIRIM INPUT</button></form>
+            <p><small>Input dikirim hanya saat bot utama memang menunggu prompt console, misalnya pairing manual. Input tidak disimpan dalam audit, file, maupun backup.</small></p>
+          </article>
+          <article class="panel yellow-panel"><span class="step">LOG</span><h3>BACA CONSOLE</h3><ul><li><b>Refresh status</b> memperbarui ringkasan koneksi tanpa menghapus log.</li><li><b>Bersihkan layar</b> hanya membersihkan tampilan lokal; buffer log di server tetap utuh.</li><li>Kode pairing tidak perlu dicari di log &mdash; buka halaman <b>Pairing Bot Utama</b>.</li></ul><p class="notice">Log bersifat mentah sesuai pengaturan owner. Jangan menyalin nomor, pairing code, token, atau kredensial ke chat maupun feedback.</p></article>
+        </section>
+
+                <section id="agentPage" class="page hidden"><article class="panel chat-panel"><div class="section-head"><h3>AI AGENT</h3><span id="agentStatus" class="chip partner">MEMERIKSA…</span></div><p id="agentIntro">Agent bantuan untuk website dan Jadibot. Workspace publik dipisahkan dari server dan tidak memiliki akses shell.</p><div id="agentMessages" class="messages agent-messages" aria-live="polite"><p>Halo, saya Umi Agent. Tanyakan bantuan tentang bot atau website.</p></div><form id="agentForm" class="send-form"><input id="agentInput" maxlength="12000" required autocomplete="off" placeholder="Tulis tugas atau pertanyaan untuk AI Agent…"><button class="btn btn-primary" type="submit">KIRIM</button></form></article></section>
+
+        <section id="agent-ownerPage" class="page hidden"><div class="split"><article class="panel"><div class="section-head"><h3>AI AGENT OWNER</h3><span class="chip owner">OWNER ONLY</span></div><p>API key disimpan terenkripsi di runtime bot dan tidak dikembalikan ke browser. Agent dapat memakai tool otomatis, tetapi command berisiko, secret, session, dan operasi destruktif diblokir.</p><div id="ownerAgentStatus" class="notice">Memeriksa konfigurasi agent…</div><form id="agentSettingsForm"><label>Provider AI<select name="provider"><option value="gemini">Gemini (default · key owner)</option><option value="groq">Groq</option><option value="openrouter">OpenRouter</option></select></label><label>API Key<input name="api_key" type="password" autocomplete="new-password" minlength="16" maxlength="1000" placeholder="Kosongkan untuk mempertahankan key tersimpan"></label><label>Model AI<input name="model" maxlength="160" placeholder="gemini-3.5-flash"></label><small>Gemini (<code>gemini-3.5-flash</code>) dipakai AI Agent &amp; AI Owner dengan key owner di server (<code>.env.gemini</code>). Groq hanya untuk auto-AI mention/reply. Key tidak pernah dikembalikan ke browser.</small><div class="actions"><button id="testAgentConnection" class="mini" type="button">TES KONEKSI AI</button></div><div id="agentTestResult" class="notice" aria-live="polite">Belum diuji. Tombol ini memanggil provider aktif; kalau kuota Gemini habis, pesannya menyebut kuota + estimasi waktu.</div><button class="btn btn-yellow" type="submit">SIMPAN KONFIGURASI</button></form></article><article class="panel"><div class="section-head"><h3>OWNER SHELL</h3><span class="chip owner">GUARDED · AUDIT</span></div><p>Berjalan di container bot, bukan browser. Output disaring; akses credential, session, file environment, serta command destruktif diblokir.</p><form id="agentShellForm" class="send-form"><input id="agentShellInput" maxlength="2000" autocomplete="off" spellcheck="false" required placeholder="Contoh: pwd && ls -la"><button class="btn btn-primary" type="submit">JALANKAN</button></form><pre id="agentShellOutput" class="terminal output">Belum ada command.</pre></article></div></section>
+
+<section id="ownerPage" class="page hidden">
+          <div id="ownerLive" class="owner-live"><span class="dot" aria-hidden="true"></span><span id="ownerLiveStatus">Menghubungkan ke server…</span><button id="ownerLiveRefresh" class="mini" type="button">↻ SEGARKAN</button><span id="ownerLiveErrors" class="owner-live-error"></span></div>
+          <div class="stats owner-stats"><article class="stat cyan"><span>AKUN</span><b id="ownerUsers">0</b></article><article class="stat lime"><span>BOT ONLINE</span><b id="ownerOnline">0</b></article><article class="stat pink"><span>TOTAL SESSION</span><b id="ownerSessions">0</b></article></div>
+          <article class="panel block" id="panelAutoOrderCard"><div class="section-head"><h3>PANEL AUTO ORDER</h3><span class="chip owner">OWNER ONLY · DANA</span></div><p>Konfigurasi Pterodactyl dan TriPay disimpan terenkripsi di server bot. Token tidak ditampilkan ulang dan tidak pernah dikirim ke pelanggan.</p><div id="panelAutoOrderStatus" class="notice">Memeriksa konfigurasi Panel Auto Order…</div><form id="panelAutoOrderForm" autocomplete="off"><h4>KONEKSI PTERODACTYL</h4><div class="form-grid"><label>URL Website Panel<input name="panel_url" type="url" inputmode="url" maxlength="500" placeholder="https://panel.domainkamu.com" required><small>Origin HTTPS publik tanpa path. Dipakai sebagai tujuan Panel pelanggan.</small></label><label>URL Website Jadibot<input name="site_url" type="url" inputmode="url" maxlength="500" placeholder="https://websitekamu.com" required><small>Dipakai untuk URL callback TriPay dan halaman Wallet pelanggan.</small></label><label>PLTA · Application API<input name="plta" type="password" autocomplete="new-password" maxlength="1000" placeholder="ptla_…"><small>Diperlukan untuk membuat user dan server setelah pembayaran.</small></label><label>PLTC · Control Bridge<input name="pltc" type="password" autocomplete="new-password" maxlength="1000" placeholder="ptlc_…"><small>Gunakan akun bridge khusus, bukan token owner utama. Dipakai backend untuk file/console pelanggan.</small></label><label>ID Egg Server<input name="egg_id" type="number" inputmode="numeric" min="0" max="100000" placeholder="15"><small>Egg Pterodactyl untuk server pelanggan (mis. NodeJS).</small></label><label>ID Lokasi<input name="location_id" type="number" inputmode="numeric" min="0" max="100000" placeholder="3"><small>Lokasi node tempat server dibuat otomatis.</small></label><label>Docker Image<input name="docker_image" type="text" maxlength="200" placeholder="ghcr.io/pterodactyl/yolks:nodejs_20"><small>Kosongkan untuk memakai bawaan egg.</small></label><label>Startup Command<input name="startup" type="text" maxlength="500" placeholder="npm start"><small>Kosongkan untuk memakai bawaan egg.</small></label></div><div class="toggle-grid"><label><input name="clear_plta" type="checkbox"> Cabut PLTA tersimpan</label><label><input name="clear_pltc" type="checkbox"> Cabut PLTC bridge tersimpan</label></div><h4>PEMBAYARAN DANA · TRIPAY</h4><div class="form-grid"><label>Mode Pembayaran<select name="payment_mode"><option value="manual_dana">DANA Manual — verifikasi owner</option><option value="tripay">TriPay — callback otomatis</option></select><small>Mode manual memakai QR DANA yang diberikan owner dan saldo dikreditkan hanya setelah persetujuan owner.</small></label><label>Channel TriPay<input name="tripay_channel" autocomplete="off" maxlength="40" pattern="[A-Za-z0-9_-]{2,40}" value="DANA" required><small>Digunakan hanya saat mode TriPay aktif.</small></label><label>TriPay Merchant Code<input name="tripay_merchant_code" autocomplete="off" maxlength="160" placeholder="Kode merchant TriPay"></label><label>TriPay API Key<input name="tripay_api_key" type="password" autocomplete="new-password" maxlength="1000" placeholder="API key merchant"></label><label>TriPay Private Key<input name="tripay_private_key" type="password" autocomplete="new-password" maxlength="1000" placeholder="Private key callback"></label></div><div class="toggle-grid"><label><input name="clear_tripay" type="checkbox"> Cabut kredensial TriPay tersimpan</label></div><div class="actions"><button class="btn btn-primary" type="submit">SIMPAN KONFIGURASI AMAN</button><button id="testPanelConnection" class="mini" type="button">TES KONEKSI PANEL</button></div></form><hr><div class="section-head"><h4>KATALOG PAKET STARTER</h4><button id="addPanelPackage" class="mini" type="button">+ PAKET</button></div><p><small>Harga dalam Rupiah. Paket baru tidak dipublikasikan sampai dicentang aktif. Mapping egg/location akan dikonfigurasi pada tahap provisioning sebelum checkout live diaktifkan.</small></p><form id="panelPackagesForm"><div id="panelPackageEditor" class="card-grid"><p>Memuat paket…</p></div><button class="btn btn-yellow" type="submit">SIMPAN KATALOG</button></form><hr><div class="section-head"><h4>PRODUK PREMIUM &amp; DIGITAL</h4><span class="chip partner">AUTO ORDER</span></div><p><small>Katalog produk dijual dari saldo Wallet. Tipe <b>premium</b> mengaktifkan premium bot (perlu <b>days</b>). Tipe <b>digital</b> mengirim satu item dari <b>stock</b> untuk setiap pembelian. Tulis katalog lengkap sebagai JSON lalu simpan (mengganti seluruh katalog produk).</small></p><div id="panelProductsSummary" class="list"><p>Memuat produk…</p></div><form id="panelProductsForm"><label>Katalog Produk (JSON)<textarea id="panelProductsJson" rows="9" spellcheck="false" placeholder='[{"id":"prem-30","name":"Premium 30 Hari","description":"Premium bot","price":5000,"type":"premium","days":30,"enabled":true},{"id":"akun-pro","name":"Akun Pro","description":"Stok digital","price":10000,"type":"digital","stock":["AKUN-001"],"enabled":true}]'></textarea></label><div class="actions"><button class="btn btn-yellow" type="submit">SIMPAN PRODUK</button></div></form></article>
+          <form id="createAccountForm" class="panel block"><div class="section-head"><h3>TAMBAH AKUN</h3><span class="chip owner">OWNER</span></div><div class="form-grid"><label>Username<input name="username" minlength="2" maxlength="40" required></label><label>Email<input name="email" type="email" required></label><label>Password sementara<input name="password" type="password" minlength="8" required></label><label>Role<select name="roles" multiple size="5"><option value="user" selected>User</option><option value="admin">Admin</option><option value="partner">Partner</option><option value="owner">Owner</option><option value="developer">Developer</option></select></label></div><button class="btn btn-primary" type="submit">BUAT AKUN</button></form>
+          <article class="panel block"><div class="section-head"><h3>AKUN & SESSION</h3><button id="refreshOwner" class="mini" type="button">↻ REFRESH</button></div><label>Cari username atau email<input id="ownerSearch" type="search" placeholder="Cari akun..."></label><div class="owner-table-wrap"><table><thead><tr><th>Akun</th><th>Role</th><th>Session</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="ownerTable"></tbody></table></div></article>
+          <article class="panel block"><div class="section-head"><h3>AUDIT LOG</h3><button id="refreshAudit" class="mini" type="button">↻ REFRESH</button></div><div id="auditList" class="list"></div></article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <script src="/assets/supabase.min.js?v=2.76.1"></script>
+  <script src="/assets/app.js?v=20261020-navfix1" defer></script>
+
+  <script src="/assets/auth-controls.js?v=20261018-session60" defer></script>
+</body>
+</html>

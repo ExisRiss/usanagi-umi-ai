@@ -1,0 +1,30 @@
+node_modules/
+sessions/
+jadibot/
+database.json
+tmp/
+.env
+*.log
+cookies.txt
+
+.env.groq
+.env.groq.*
+.groq.env
+.groq.env.*
+feature-smoke-results.json
+
+!.env.groq.example
+# Public audited integration sources/data are not production runtime state.
+!integrations/
+!integrations/**
+
+# Token tunnel Cloudflare - jangan pernah di-commit
+.tunnel.env
+.backup-export.env
+config.js
+!lib/backup/config.js
+start-bot.sh
+start-bot.js
+
+# symlink node_modules untuk tes lokal
+node_modules

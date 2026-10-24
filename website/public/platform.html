@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ecosystem Console · Usanagi Umi</title>
+<link rel="icon" href="/assets/logo.jpg" type="image/jpeg">
+<link rel="stylesheet" href="/assets/platform.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lewati ke konten</a>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <div>
+        <strong>Usanagi Umi</strong>
+        <span>Ecosystem Console</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Navigasi utama">
+      <button type="button" class="nav-item is-active" data-view="dashboard"><span aria-hidden="true">▦</span> Ringkasan</button>
+      <button type="button" class="nav-item" data-view="telegram"><span aria-hidden="true">✈</span> Telegram</button>
+      <button type="button" class="nav-item" data-view="mainbot"><span aria-hidden="true">☎</span> Bot Utama</button>
+      <button type="button" class="nav-item" data-view="premium"><span aria-hidden="true">💎</span> Premium</button>
+      <button type="button" class="nav-item" data-view="servers"><span aria-hidden="true">▤</span> Server</button>
+      <button type="button" class="nav-item" data-view="rpg"><span aria-hidden="true">🎮</span> RPG</button>
+      <button type="button" class="nav-item" data-view="saham"><span aria-hidden="true">💹</span> Saham</button>
+      <button type="button" class="nav-item" data-view="users"><span aria-hidden="true">◉</span> Pengguna</button>
+      <button type="button" class="nav-item" data-view="audit"><span aria-hidden="true">⌘</span> Audit</button>
+      <button type="button" class="nav-item" data-view="media"><span aria-hidden="true">⇪</span> Media</button>
+      <button type="button" class="nav-item" data-view="link"><span aria-hidden="true">⇄</span> Tautkan Telegram</button>
+      <button type="button" class="nav-item" data-view="reseller"><span aria-hidden="true">◎</span> Reseller</button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="user-chip" id="userChip">
+        <span class="avatar" id="userAvatar">·</span>
+        <div>
+          <strong id="userName">memuat…</strong>
+          <span id="userRole">—</span>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-block" id="logoutBtn" type="button">Keluar</button>
+    </div>
+  </aside>
+
+  <main id="main" class="main">
+    <header class="page-head">
+      <div>
+        <p class="eyebrow">Multi-app · WhatsApp + Telegram</p>
+        <h1 id="pageTitle">Ringkasan</h1>
+        <p class="muted" id="pageSub">Satu backend, satu sumber data, dua antarmuka.</p>
+      </div>
+      <div class="head-actions">
+        <span class="pill" id="connPill"><span class="dot"></span><span id="connText">memeriksa…</span></span>
+        <button class="btn btn-sm" id="refreshBtn" type="button">Muat ulang</button>
+      </div>
+    </header>
+
+    <section class="view" id="loginView" hidden>
+      <div class="card narrow">
+        <h2>Masuk ke console</h2>
+        <p class="muted">Pakai akun website yang sama. Peran diambil dari database, bukan dari halaman ini.</p>
+        <form id="loginForm" class="form">
+          <label>Email atau username<input name="identifier" autocomplete="username" required></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+          <button class="btn btn-primary" type="submit">Masuk</button>
+        </form>
+        <p class="hint">Belum punya akun? Daftar di <a href="/register">halaman utama</a>.</p>
+      </div>
+    </section>
+
+    <div id="appViews" hidden>
+      <section class="view" data-view="dashboard">
+        <div class="grid stats" id="statGrid"></div>
+        <div class="grid two">
+          <div class="card">
+            <div class="card-head"><h2>Status layanan</h2><span class="muted" id="statTime"></span></div>
+            <div id="serviceList" class="list"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Aktivitas terbaru</h2><a href="#" data-jump="audit" class="link">Semua audit</a></div>
+            <div id="recentAudit" class="timeline"></div>
+          </div>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <div class="card-head"><h2>Slot server</h2><span class="muted" id="slotMeta"></span></div>
+            <div id="slotSummary" class="list compact"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Bot Telegram</h2><a href="#" data-jump="telegram" class="link">Kelola</a></div>
+            <div id="botSummary" class="list compact"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view="telegram" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Bot Telegram</h2>
+            <button class="btn btn-sm btn-primary" id="openBotForm" type="button">Tambah bot</button>
+          </div>
+          <p class="muted">Token disimpan terenkripsi (AES-256-GCM) dan tidak pernah ditampilkan kembali. Validasi memakai <code>getMe</code> resmi Telegram.</p>
+          <form id="botForm" class="form form-grid" hidden>
+            <label>Label<input name="label" placeholder="Bot Utama" maxlength="60" required></label>
+            <label>Token dari BotFather<input name="token" placeholder="123456:ABC…" autocomplete="off" required></label>
+            <label class="inline"><input type="checkbox" name="enabled" checked> Jalankan setelah disimpan</label>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Validasi &amp; simpan</button>
+              <button class="btn btn-ghost" type="button" id="cancelBotForm">Batal</button>
+            </div>
+          </form>
+          <div id="botTable" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="mainbot" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Nomor bot utama</h2>
+            <span class="muted">khusus owner</span>
+          </div>
+          <p class="muted">
+            Nomor <b>bebas</b> — nomor biasa pun boleh. Syaratnya pairing dilakukan
+            <b>di bot utama ini sendiri</b>: setelah nomor disimpan, bot meminta
+            <i>pairing code</i>, lalu kode itu dimasukkan dari WhatsApp di nomor tersebut.
+          </p>
+          <div id="mainBotStatus" class="stack"></div>
+          <form id="mainBotForm" class="form form-grid">
+            <label>Nomor WhatsApp bot utama
+              <input name="number" placeholder="08xxxxxxxxxx atau 62xxxxxxxxxx" inputmode="numeric" maxlength="15" required>
+            </label>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Simpan &amp; pairing</button>
+            </div>
+          </form>
+          <p class="muted">
+            Nomor yang sedang dipakai sesi jadibot akun lain akan ditolak (409) karena
+            dua socket dengan kredensial sama akan saling menendang.
+          </p>
+        </div>
+      </section>
+
+      <section class="view" data-view="servers" hidden>
+        <div class="card">
+          <div class="card-head"><h2>Slot server 1–10</h2><span class="muted">Slot kosong tidak dipantau</span></div>
+          <p class="muted">Kredensial hanya berupa <b>nama variabel env</b> di server bot (mis. <code>PANEL_KEY_UTAMA</code>). Host wajib HTTPS.</p>
+          <div id="serverTable" class="table-wrap"></div>
+        </div>
+        <div class="card" id="serverDetailCard" hidden>
+          <div class="card-head"><h2 id="serverDetailTitle">Detail server</h2><button class="btn btn-sm btn-ghost" id="closeServerDetail" type="button">Tutup</button></div>
+          <div id="serverDetail"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="rpg" hidden>
+        <div class="grid two">
+          <div class="card">
+            <div class="card-head"><h2>Profil RPG</h2><span class="muted" id="rpgMeta"></span></div>
+            <div id="rpgProfile"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Papan peringkat</h2></div>
+            <div id="rpgBoard" class="list compact"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view="saham" hidden>
+        <div class="card">
+          <div class="card-head"><h2>Pasar UMI TRADE</h2><span class="muted" id="stockMeta"></span></div>
+          <p class="muted">Data diambil dari service website yang sama (bukan harga karangan).</p>
+          <div class="table-wrap" id="stockTable"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="users" hidden>
+        <div class="card">
+          <div class="card-head"><h2>Pengguna &amp; peran</h2><span class="muted" id="userMeta"></span></div>
+          <div class="table-wrap" id="userTable"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="audit" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2>Audit log</h2>
+            <div class="head-actions">
+              <input class="input input-sm" id="auditFilter" placeholder="filter aksi (mis. server.)">
+              <button class="btn btn-sm" id="auditReload" type="button">Terapkan</button>
+            </div>
+          </div>
+          <div class="table-wrap" id="auditTable"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="media" hidden>
+        <div class="card">
+          <div class="card-head"><h2>Media → URL</h2><span class="muted" id="mediaMeta"></span></div>
+          <p class="muted">Media dibuat lewat bot Telegram (kirim foto/video/dokumen) atau perintah <span class="mono">/to-url</span> di WhatsApp. <b>Disimpan permanen</b> — tautan tidak kedaluwarsa, penghapusan hanya manual. Panel ini menampilkan berkas yang benar-benar tersimpan.</p>
+          <div class="table-wrap" id="mediaTable"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="premium" hidden>
+        <div class="card narrow">
+          <div class="card-head">
+            <h2>Mode Premium Platform</h2>
+            <span class="muted">khusus owner/developer</span>
+          </div>
+          <p class="muted">
+            Saklar ini menyalakan atau mematikan <b>seluruh</b> mode premium di semua bot WhatsApp.
+            Saat <b>OFF</b>, semua fitur premium — plugin bawaan maupun daftar fitur premium milik
+            tiap bot — terbuka untuk semua pengguna. Saat <b>ON</b>, pemilik bot mengisi sendiri
+            fitur mana yang mau dijadikan premium lewat website → Settings → Mode Premium,
+            atau lewat perintah <code>.premium</code> di WhatsApp.
+          </p>
+          <div id="premiumStatus" class="stack"></div>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="togglePremium" type="button">Muat status…</button>
+            <button class="btn btn-ghost" id="refreshPremium" type="button">Muat ulang</button>
+          </div>
+          <p class="muted">Setiap perubahan dicatat di audit dengan aksi <code>premium.system.toggle</code>.</p>
+        </div>
+      </section>
+
+      <section class="view" data-view="link" hidden>
+        <div class="card narrow">
+          <h2>Tautkan akun Telegram</h2>
+          <p class="muted">Kode sekali pakai, berlaku 10 menit. Kirim ke bot Telegram dengan format <code>/link KODE</code>. Nomor WhatsApp diambil dari sesi jadibot akun ini, bukan dari input manual.</p>
+          <div class="link-box" id="linkBox">
+            <button class="btn btn-primary" id="createLinkBtn" type="button">Buat kode tautan</button>
+          </div>
+          <div class="kv" id="linkInfo"></div>
+        </div>
+      </section>
+
+      <section class="view" data-view="reseller" hidden>
+        <div class="card">
+          <div class="card-head"><h2>Reseller</h2><span class="muted" id="resellerMeta"></span></div>
+          <div id="resellerBody"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<dialog id="confirmDialog" class="dialog">
+  <form method="dialog">
+    <h2 id="confirmTitle">Konfirmasi</h2>
+    <p id="confirmText" class="muted"></p>
+    <div class="form-actions">
+      <button class="btn btn-danger" value="yes" id="confirmYes">Lanjutkan</button>
+      <button class="btn btn-ghost" value="no">Batal</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="/assets/platform.js?v=20261020-premium" defer></script>
+</body>
+</html>

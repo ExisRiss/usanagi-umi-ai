@@ -1,0 +1,15 @@
+# Tunnel Umi Games (6f82f294) — mode lokal (config + credentials-file).
+# Dijalankan dari dalam container bot oleh scripts/companion.js.
+# game.gwenna.my.id  -> game web  (localhost:3900)
+# api.gwenna.my.id   -> bot API   (localhost:3366)
+tunnel: 6f82f294-ff18-4966-9b8e-38edd97f8359
+credentials-file: /home/container/tunnel-games-creds.json
+no-autoupdate: true
+ingress:
+  - hostname: game.gwenna.my.id
+    service: http://127.0.0.1:3900
+  - hostname: api.gwenna.my.id
+    service: http://127.0.0.1:3366
+  - hostname: umi-api.gwenna.my.id
+    service: http://127.0.0.1:3366
+  - service: http_status:404

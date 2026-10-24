@@ -1,0 +1,37 @@
+{
+  "name": "UMI TRADE — Pasar $AS",
+  "short_name": "UMI TRADE",
+  "description": "Pasar saham $AS Umi Games: harga real-time, order beli/jual, portofolio, top up, dan papan peringkat.",
+  "start_url": "/trading",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "orientation": "portrait-primary",
+  "lang": "id",
+  "categories": [
+    "finance",
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

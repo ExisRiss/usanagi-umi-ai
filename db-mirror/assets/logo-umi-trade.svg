@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-label="UMI Trade">
+  <defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5b7cfa"/><stop offset="1" stop-color="#22d67f"/></linearGradient></defs>
+  <rect x="4" y="4" width="152" height="152" rx="34" fill="#0a0e1a"/>
+  <rect x="10" y="10" width="140" height="140" rx="28" fill="url(#m)" opacity=".12"/>
+  <g fill="#22d67f">
+    <line x1="42" y1="104" x2="42" y2="76" stroke="#22d67f" stroke-width="5"/><rect x="34" y="86" width="16" height="18" rx="3"/>
+    <line x1="72" y1="92" x2="72" y2="62" stroke="#22d67f" stroke-width="5"/><rect x="64" y="72" width="16" height="20" rx="3"/>
+    <line x1="102" y1="78" x2="102" y2="46" stroke="#22d67f" stroke-width="5"/><rect x="94" y="58" width="16" height="20" rx="3"/>
+    <line x1="132" y1="64" x2="132" y2="34" stroke="#22d67f" stroke-width="5"/><rect x="124" y="44" width="16" height="20" rx="3"/>
+  </g>
+  <circle cx="132" cy="46" r="17" fill="#ffcc57" stroke="#7a5205" stroke-width="3"/>
+  <text x="132" y="55" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="800" fill="#5c4006">$</text>
+  <text x="180" y="78" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="52" font-weight="800" fill="#eef3ff">UMI <tspan fill="#22d67f">TRADE</tspan></text>
+  <text x="182" y="112" font-family="system-ui,sans-serif" font-size="21" letter-spacing="6" fill="#6b7c9c">PASAR $AS · REAL-TIME</text>
+</svg>

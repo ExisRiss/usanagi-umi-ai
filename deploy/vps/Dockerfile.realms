@@ -1,0 +1,18 @@
+FROM node:22-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ ca-certificates && rm -rf /var/lib/apt/lists/*
+WORKDIR /opt/umi
+COPY standalone/realms/package*.json ./standalone/realms/
+RUN npm ci --prefix standalone/realms --omit=dev --no-audit --no-fund
+COPY bot/package.json ./bot/package.json
+COPY bot/lib/realms ./bot/lib/realms
+COPY bot/lib/rpg/awang-db.js bot/lib/rpg/awang-lock.js ./bot/lib/rpg/
+COPY bot/public/realms ./bot/public/realms
+COPY standalone/realms/*.mjs ./standalone/realms/
+RUN mkdir -p /data && chown node:node /data
+ENV REALMS_MODE=preview REALMS_DATA_DIR=/data PORT=4173 NODE_ENV=production
+WORKDIR /opt/umi/standalone/realms
+USER node
+EXPOSE 4173
+VOLUME ["/data"]
+HEALTHCHECK --interval=30s --timeout=5s CMD node -e "fetch('http://127.0.0.1:4173/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+CMD ["npm", "start"]

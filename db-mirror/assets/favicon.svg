@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="UMI Trade">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b7cfa"/><stop offset="1" stop-color="#22d67f"/>
+    </linearGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#ffb020"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#0a0e1a"/>
+  <rect x="10" y="10" width="492" height="492" rx="104" fill="url(#g)" opacity=".10"/>
+  <g stroke="#28395c" stroke-width="2" opacity=".55">
+    <line x1="0" y1="128" x2="512" y2="128"/><line x1="0" y1="256" x2="512" y2="256"/><line x1="0" y1="384" x2="512" y2="384"/>
+  </g>
+  <g fill="#22d67f" stroke="#22d67f" stroke-width="7" stroke-linecap="round">
+    <line x1="126" y1="336" x2="126" y2="252"/><rect x="108" y="300" width="36" height="40" rx="4" stroke="none"/>
+    <line x1="198" y1="300" x2="198" y2="212"/><rect x="180" y="248" width="36" height="46" rx="4" stroke="none"/>
+    <line x1="270" y1="252" x2="270" y2="164"/><rect x="252" y="196" width="36" height="48" rx="4" stroke="none"/>
+    <line x1="342" y1="196" x2="342" y2="118"/><rect x="324" y="146" width="36" height="44" rx="4" stroke="none"/>
+    <line x1="414" y1="150" x2="414" y2="80"/><rect x="396" y="104" width="36" height="42" rx="4" stroke="none"/>
+  </g>
+  <circle cx="392" cy="132" r="60" fill="url(#coin)" stroke="#7a5205" stroke-width="6"/>
+  <text x="392" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="76" font-weight="800" fill="#5c4006">$</text>
+</svg>

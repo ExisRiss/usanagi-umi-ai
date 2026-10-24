@@ -1,0 +1,13 @@
+# Caddy runs on the HOST for the full bot/game stack, not in the preview container.
+# Confirm the existing bot API port; do not change keys or live dashboard settings.
+game.gwenna.my.id {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:3900 {
+        flush_interval -1
+    }
+}
+api.gwenna.my.id, jadibot-alzriss.gwenna.my.id {
+    reverse_proxy 127.0.0.1:3366 {
+        flush_interval -1
+    }
+}

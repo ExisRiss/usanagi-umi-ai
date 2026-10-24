@@ -1,0 +1,14 @@
+{
+  "name": "umi-db-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cermin cadangan database website & sesi jadibot Umi Usanagi AI (panel beyy).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

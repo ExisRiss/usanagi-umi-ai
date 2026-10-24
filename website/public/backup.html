@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Backup Control · Usanagi Umi</title>
+<link rel="icon" href="/assets/logo.jpg" type="image/jpeg">
+<link rel="stylesheet" href="/assets/backup.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lewati ke konten</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">🛡</span>
+    <div>
+      <h1>Backup Control</h1>
+      <p>Usanagi Umi · otomatis tiap 10 menit</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <span class="pill" id="statusPill"><span class="dot" id="statusDot"></span><span id="statusText">memuat…</span></span>
+    <button class="btn btn-sm" id="refreshBtn" type="button">Muat ulang</button>
+    <a class="btn btn-sm btn-ghost" href="/">Dashboard</a>
+    <button class="btn btn-sm btn-ghost hidden" id="logoutBtn" type="button">Keluar</button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Login -->
+  <section class="card auth-view" id="authView">
+    <h2>Masuk sebagai owner</h2>
+    <p>Halaman ini memakai akun platform yang sama. Hanya role <b>owner</b> yang dapat mengelola backup.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" type="email" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input class="input" id="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-primary" type="submit" id="loginBtn" style="width:100%">Masuk</button>
+      <p class="muted" id="loginMsg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="appView" class="hidden">
+    <div id="banner" class="banner hidden" role="status" aria-live="polite"></div>
+
+    <div class="grid-stats" id="statsGrid">
+      <article class="card stat">
+        <div class="stat-label">Scheduler</div>
+        <div class="stat-value" id="statScheduler">–</div>
+        <div class="stat-foot" id="statSchedulerFoot">memuat…</div>
+      </article>
+      <article class="card stat">
+        <div class="stat-label">Backup terakhir</div>
+        <div class="stat-value" id="statLast">–</div>
+        <div class="stat-foot" id="statLastFoot">memuat…</div>
+      </article>
+      <article class="card stat">
+        <div class="stat-label">24 jam terakhir</div>
+        <div class="stat-value" id="stat24">–</div>
+        <div class="stat-foot" id="stat24Foot">memuat…</div>
+      </article>
+      <article class="card stat">
+        <div class="stat-label">Penyimpanan arsip</div>
+        <div class="stat-value" id="statStorage">–</div>
+        <div class="stat-bar" id="storageBar"><span style="width:0%"></span></div>
+        <div class="stat-foot" id="statStorageFoot">memuat…</div>
+      </article>
+      <article class="card stat">
+        <div class="stat-label">Database</div>
+        <div class="stat-value" id="statDb">–</div>
+        <div class="stat-foot" id="statDbFoot">memuat…</div>
+      </article>
+      <article class="card stat">
+        <div class="stat-label">Storage eksternal</div>
+        <div class="stat-value" id="statExternal">–</div>
+        <div class="stat-foot" id="statExternalFoot">memuat…</div>
+      </article>
+    </div>
+
+    <h2 class="section-title">Arsip backup</h2>
+    <div class="toolbar">
+      <button class="btn btn-primary" id="backupFull" type="button">Backup sekarang</button>
+      <button class="btn" id="backupDatabase" type="button">Database saja</button>
+      <button class="btn" id="backupConfig" type="button">Konfigurasi saja</button>
+      <button class="btn" id="backupFiles" type="button">File saja</button>
+      <span class="grow"></span>
+      <label class="muted" for="filterStatus" style="font-size:12px">Status</label>
+      <select class="select" id="filterStatus" aria-label="Filter status">
+        <option value="">Semua</option>
+        <option value="completed">Selesai</option>
+        <option value="failed">Gagal</option>
+        <option value="running">Berjalan</option>
+      </select>
+      <input class="input" id="searchBox" type="search" placeholder="Cari ID atau nama…" aria-label="Cari backup">
+      <button class="btn btn-sm" id="uploadBtn" type="button">Unggah arsip</button>
+      <input type="file" id="uploadInput" accept=".gz,.tgz,.tar.gz" class="hidden">
+    </div>
+
+    <div class="card table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Waktu</th>
+            <th>ID</th>
+            <th>Jenis</th>
+            <th>Ukuran</th>
+            <th>Durasi</th>
+            <th>Verifikasi</th>
+            <th>Status</th>
+            <th style="text-align:right">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="backupRows">
+          <tr><td colspan="8"><div class="skeleton"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="toolbar" style="margin-top:10px">
+      <span class="muted" id="tableInfo">–</span>
+      <span class="grow"></span>
+      <button class="btn btn-sm" id="prevPage" type="button">Sebelumnya</button>
+      <button class="btn btn-sm" id="nextPage" type="button">Berikutnya</button>
+    </div>
+
+    <div class="panels">
+      <section class="card panel">
+        <h2>Log sistem</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" aria-selected="true" data-logtab="all">Semua</button>
+          <button class="tab" role="tab" aria-selected="false" data-logtab="error">Error</button>
+          <button class="tab" role="tab" aria-selected="false" data-logtab="warn">Warning</button>
+          <button class="tab" role="tab" aria-selected="false" data-logtab="backup">Backup</button>
+          <button class="tab" role="tab" aria-selected="false" data-logtab="restore">Restore</button>
+        </div>
+        <div class="log-list" id="logList" aria-live="polite"><div class="skeleton"></div></div>
+      </section>
+
+      <section class="card panel">
+        <h2>Kesehatan & pengaturan</h2>
+        <dl class="kv" id="healthKv"><dt>memuat…</dt><dd></dd></dl>
+        <div class="checks" id="healthChecks"></div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+        <div class="toolbar" style="margin-bottom:8px">
+          <label class="muted" for="intervalInput" style="font-size:12px">Interval (menit)</label>
+          <input class="input" id="intervalInput" type="number" min="1" max="1440" step="1" value="10" style="width:96px" aria-label="Interval backup dalam menit">
+          <button class="btn btn-sm" id="saveInterval" type="button">Simpan</button>
+        </div>
+        <div class="toolbar">
+          <button class="btn btn-sm" id="toggleScheduler" type="button">Nonaktifkan scheduler</button>
+          <button class="btn btn-sm" id="runVerifyAll" type="button">Verifikasi arsip terbaru</button>
+        </div>
+        <h2 style="margin-top:16px">Audit admin</h2>
+        <div class="log-list" id="auditList"><div class="empty">Belum ada aktivitas.</div></div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<!-- Modal konfirmasi -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="modal">
+    <h2 id="modalTitle">Konfirmasi</h2>
+    <p id="modalText"></p>
+    <div class="facts" id="modalFacts"></div>
+    <div class="field hidden" id="modalTokenField">
+      <label for="modalToken">Kode konfirmasi</label>
+      <input class="input mono" id="modalToken" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="actions">
+      <button class="btn" id="modalCancel" type="button">Batal</button>
+      <button class="btn btn-danger" id="modalConfirm" type="button">Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<script type="module" src="/assets/backup.js"></script>
+</body>
+</html>

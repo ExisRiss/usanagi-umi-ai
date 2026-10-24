@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" width="480" height="160" role="img" aria-label="UMI Games">
+<defs>
+  <linearGradient id="bg-uno" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#2c2150"/><stop offset="0.55" stop-color="#1d1638"/><stop offset="1" stop-color="#130e26"/>
+  </linearGradient>
+  <radialGradient id="glow-uno" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#e5484d" stop-opacity="0.42"/><stop offset="1" stop-color="#e5484d" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glow2-uno" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#5b7cfa" stop-opacity="0.34"/><stop offset="1" stop-color="#5b7cfa" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="480" height="160" fill="url(#bg-uno)"/>
+<rect x="30" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="90" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="150" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="210" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="270" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="330" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="390" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<rect x="450" y="0" width="1" height="160" fill="#ffffff" opacity="0.035"/>
+<ellipse cx="374.40000000000003" cy="32" rx="136" ry="144" fill="url(#glow-uno)"/>
+<ellipse cx="76.8" cy="144" rx="120" ry="128" fill="url(#glow2-uno)"/>
+
+<g transform="translate(154 84) rotate(-16)">
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="#d8353f"/>
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="-31" y="-47" width="62" height="94" rx="7" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2"/>
+  <ellipse cx="0" cy="0" rx="21" ry="31" fill="#fdfcff"/>
+  <text x="0" y="10" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="28" font-weight="bold" fill="#b01824">9</text>
+  <text x="-25" y="-36" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">9</text>
+  <text x="25" y="46" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">9</text>
+</g>
+
+<g transform="translate(228 80) rotate(-3)">
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="#2fbf7d"/>
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="-31" y="-47" width="62" height="94" rx="7" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2"/>
+  <ellipse cx="0" cy="0" rx="21" ry="31" fill="#fdfcff"/>
+  <text x="0" y="10" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="16" font-weight="bold" fill="#0b6b45">+2</text>
+  <text x="-25" y="-36" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">+2</text>
+  <text x="25" y="46" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">+2</text>
+</g>
+
+<g transform="translate(302 84) rotate(14)">
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="#4f6cf0"/>
+  <rect x="-38" y="-54" width="76" height="108" rx="11" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="-31" y="-47" width="62" height="94" rx="7" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2"/>
+  <ellipse cx="0" cy="0" rx="21" ry="31" fill="#fdfcff"/>
+  <text x="0" y="10" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="28" font-weight="bold" fill="#22309e">7</text>
+  <text x="-25" y="-36" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">7</text>
+  <text x="25" y="46" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">7</text>
+</g>
+<g>
+  <rect x="352" y="34" width="104" height="26" rx="13" fill="#0d0a1c" stroke="#ffd166" stroke-width="1.6"/>
+  <text x="404" y="52" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ffd166">10 KURSI</text>
+  <text x="404" y="86" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f3effb">Kartu +2, skip,</text>
+  <text x="404" y="104" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f3effb">reverse, wild</text>
+  <text x="404" y="128" text-anchor="middle" font-family="DejaVu Sans, system-ui, sans-serif" font-size="11" fill="#8a7faa">2 – 10 pemain</text>
+</g></svg>

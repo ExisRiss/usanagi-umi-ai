@@ -1,0 +1,26 @@
+/* Existing layout declarations moved out of HTML for strict CSP. */
+:root .umi-layout-1 {display:flex;gap:24px;margin:20px 0;flex-wrap:wrap}
+:root .umi-layout-2 {text-align:center}
+:root .umi-layout-3 {font-size:32px;color:var(--lime,#6ee7b7)}
+:root .umi-layout-4 {font-size:12px;color:var(--muted)}
+:root .umi-layout-5 {font-size:32px;color:var(--gold,#ffd166)}
+:root .umi-layout-6 {display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;background:#fff;color:#333;border:1px solid #dadce0;font-weight:600}
+:root .umi-layout-7 {text-align:center;color:var(--muted);font-size:12px;margin-bottom:12px}
+:root .umi-layout-8 {border:1.5px dashed rgba(140,190,255,.55);border-radius:18px;padding:28px 18px;text-align:center;cursor:pointer;background:rgba(90,150,255,.07)}
+:root .umi-layout-9 {font-size:15px}
+:root .umi-layout-10 {margin-top:14px}
+:root .umi-layout-11 {height:10px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+:root .umi-layout-12 {height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#3b82f6,#06b6d4);transition:width .2s}
+:root .umi-layout-13 {display:grid;gap:20px;max-width:700px}
+:root .umi-layout-14 {display:flex;align-items:center;gap:16px;margin-bottom:16px}
+:root .umi-layout-15 {width:56px;height:56px;border-radius:50%;background:var(--accent,#6c5ce7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;flex-shrink:0}
+:root .umi-layout-16 {font-size:16px;font-weight:600}
+:root .umi-layout-17 {opacity:.7}
+:root .umi-layout-18 {display:inline-block;margin-top:8px}
+:root .umi-layout-19 {display:block;margin-top:8px;color:var(--muted);font-size:13px}
+:root .umi-layout-20 {font-size:13px;color:var(--muted)}
+:root .umi-layout-21 {margin:16px 0;padding:14px;background:var(--bg,#0a0a1a);border-radius:10px;border:1px solid var(--line,#333);word-break:break-all;font-family:monospace;font-size:13px;position:relative}
+:root .umi-layout-22 {color:var(--gold,#ffd166)}
+:root .umi-layout-23 {position:absolute;top:8px;right:8px;font-size:11px;padding:4px 10px}
+:root .umi-layout-24 {margin-top:12px}
+:root .wallet-payment-qr {display:block;width:min(100%,320px);margin:14px auto 0;background:#fff;padding:8px}

@@ -1,0 +1,1855 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umi Games — Multiplayer WhatsApp</title>
+<meta name="description" content="Main UNO, UNO Flip, Catur, Ular Tangga, Monopoli & Werewolf bareng teman — room dibuat dari WhatsApp atau web, kursi bisa diisi bot AI kalau pemain kurang.">
+<meta name="theme-color" content="#070d18">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="UMI GAMES">
+<link rel="icon" href="/assets/game-icon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/game-icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/apple-touch-games.png">
+<link rel="manifest" href="/assets/manifest-games.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UMI GAMES — Multiplayer WhatsApp">
+<meta property="og:description" content="6 meja: UNO, UNO Flip, Catur, Ular Tangga, Monopoli, Werewolf. Room dibuat dari WhatsApp, kursi bisa diisi bot AI.">
+<meta property="og:image" content="/assets/og-umi-games.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Empat teman main board game di meja kayu — UMI Games">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/assets/og-umi-games.jpg">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#1d1631; --surface:#261e3d; --surface-2:#302650;
+    --line:#3a2f5a; --line-2:#4a3d6e;
+    --ink:#f3effb; --ink-2:#b1a7cc; --muted:#8a7faa;
+    --cyan:#7dd3fc; --blue:#818cf8; --violet:#a78bfa; --lime:#6ee7b7; --amber:#fbbf24; --red:#fb7185;
+    --gold:#ffd166; --gold-2:#f0a43a;
+    --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:26px;
+    --shadow:0 8px 32px rgba(10,6,20,.5);
+    --ring:0 0 0 3px rgba(125,211,252,.25);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;min-height:100vh;color:var(--ink);line-height:1.55;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);
+  }
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button,input,select,textarea{font:inherit;color:inherit}
+  :focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 18px 72px}
+  .hidden{display:none!important}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky;top:0;z-index:30;
+    background:rgba(29,22,49,.92);
+    border-bottom:1px solid var(--line);
+  }
+  .top-in{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+  .brand:hover{text-decoration:none}
+  .brand-mark{
+    width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-size:18px;
+    overflow:hidden;background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    box-shadow:0 4px 14px rgba(240,164,58,.35);
+  }
+  .brand b{display:block;font-size:14px;letter-spacing:.10em;line-height:1.15}
+  .brand small{display:block;font-size:9.5px;letter-spacing:.22em;color:var(--muted);font-weight:600}
+  .top-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;
+    font-size:11.5px;font-weight:650;letter-spacing:.02em;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-2);white-space:nowrap;
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+  .pill.on .dot{background:var(--lime);box-shadow:0 0 0 3px rgba(110,231,183,.18)}
+  .pill.off .dot{background:var(--red);box-shadow:0 0 0 3px rgba(251,113,133,.18)}
+  .pill.warn{color:var(--amber);border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.10)}
+
+  /* ---------- kartu & tipografi ---------- */
+  .glass{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+    box-shadow:var(--shadow);
+  }
+  .card{padding:22px}
+  .card + .card{margin-top:16px}
+  h1{font-size:clamp(29px,5vw,46px);line-height:1.08;letter-spacing:-.025em;margin:0 0 14px;font-weight:800}
+  h2{margin:0 0 6px;font-size:17.5px;letter-spacing:-.01em}
+  h3{margin:18px 0 8px;font-size:14.5px;color:var(--ink-2)}
+  p{margin:0 0 10px}
+  .sub{color:var(--ink-2);max-width:68ch}
+  .tiny{font-size:12.5px;color:var(--muted)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;margin-bottom:18px;
+    font-size:10.5px;font-weight:750;letter-spacing:.20em;color:var(--gold);
+    border:1px solid rgba(255,209,102,.30);background:rgba(255,209,102,.08);
+  }
+  .hero{padding:44px 0 8px}
+  /* ---------- foto suasana (meja + orang) ---------- */
+  .hero-banner{position:relative;margin:20px 0 6px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:var(--bg);box-shadow:0 24px 60px rgba(5,3,12,.5)}
+  .hero-banner img{display:block;width:100%;height:320px;object-fit:cover;object-position:center 40%;transform:scale(1.01)}
+  .hero-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.18) 0%,rgba(7,13,24,.05) 38%,rgba(7,13,24,.86) 100%)}
+  .hero-cap{position:absolute;z-index:2;left:24px;right:24px;bottom:20px}
+  .hero-cap b{display:block;font-size:22px;letter-spacing:-.02em;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  .hero-cap span{display:block;margin-top:4px;font-size:13.5px;color:#d7dced;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+  .room-banner{position:relative;margin:14px 0 0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 44px rgba(5,3,12,.45)}
+  .room-banner img{display:block;width:100%;height:190px;object-fit:cover;object-position:center 42%}
+  .room-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.55) 0%,rgba(7,13,24,0) 45%,rgba(7,13,24,.55) 100%)}
+
+  /* ---------- grid game ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 30px}
+  /* Property Empire — kartu sorotan di lobi */
+  .feature{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border-radius:18px;overflow:hidden;
+    margin:18px 0 6px;border:1px solid var(--line);background:linear-gradient(120deg,#0f1e36,#17294a 55%,#2a1f45);
+    box-shadow:0 18px 44px rgba(6,10,22,.45);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s}
+  .feature:hover{transform:translateY(-2px);border-color:#3a5b8f}
+  .feature .txt{padding:24px 26px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;justify-content:center}
+  .feature h2{font-size:clamp(19px,2.4vw,27px);margin:0;letter-spacing:-.01em}
+  .feature p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55;max-width:52ch}
+  .feature img{width:100%;height:100%;object-fit:cover;min-height:210px}
+  .feature .go{margin-top:6px}
+  @media (max-width:760px){.feature{grid-template-columns:1fr}.feature img{height:160px;min-height:0;order:-1}.feature .txt{padding:18px}}
+  .gcard{
+    position:relative;padding:18px;cursor:pointer;text-align:left;overflow:hidden;
+    border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);
+    transition:transform .16s ease,border-color .16s ease,background .16s ease;
+  }
+  .gcard::after{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--accent,var(--gold));opacity:.65}
+  .gcard:hover{transform:translateY(-3px);border-color:var(--line-2);background:var(--surface-2)}
+  .gcard.sel{border-color:var(--accent,var(--gold));background:var(--surface-2);box-shadow:0 0 0 1px var(--accent,var(--gold)),0 14px 34px rgba(10,6,20,.45)}
+  .gcard .gimg{width:100%;height:148px;overflow:hidden;border-radius:8px;margin-bottom:8px;background:var(--bg)}
+  .gcard .gimg img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s}
+  .gcard:hover .gimg img{opacity:1}
+  .gcard b{display:block;font-size:16px;letter-spacing:-.01em}
+  .gcard span{display:block;color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.45}
+  .gcard .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .tag{
+    display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:7px;font-size:11px;font-weight:650;
+    background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);
+  }
+  .tag.cmd{color:var(--lime);border-color:rgba(110,231,183,.28);background:rgba(110,231,183,.08);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:start}
+
+  /* ---------- form ---------- */
+  label{display:block;font-size:12.5px;font-weight:650;color:var(--ink-2);margin:0 0 14px}
+  label > span{display:block;margin-bottom:6px}
+  input,select,textarea{
+    width:100%;min-height:46px;padding:11px 13px;border-radius:var(--r-md);
+    border:1px solid var(--line);background:var(--surface-2);color:var(--ink);
+    transition:border-color .16s,box-shadow .16s;
+  }
+  textarea{min-height:56px;resize:vertical;line-height:1.5}
+  input::placeholder,textarea::placeholder{color:var(--muted)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:var(--ring)}
+  select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 20px,calc(100% - 13px) 20px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+  /* ---------- tombol ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:46px;padding:11px 18px;border-radius:var(--r-md);font-weight:700;font-size:14.5px;
+    border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);cursor:pointer;
+    transition:transform .13s ease,filter .13s ease,border-color .13s ease;
+  }
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.18)}
+  .btn:active{transform:translateY(0)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+  .btn-pri{background:linear-gradient(135deg,var(--gold),var(--gold-2));border-color:transparent;color:#1a1305;box-shadow:0 6px 18px rgba(240,164,58,.35)}
+  .btn-lime{background:linear-gradient(135deg,#34d399,#10b981);border-color:transparent;color:#022c22;box-shadow:0 6px 18px rgba(16,185,129,.3)}
+  .btn-ghost{background:transparent}
+  .btn-sm{min-height:36px;padding:7px 12px;font-size:13px;border-radius:10px}
+  .btn-block{width:100%}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .row > .grow{flex:1;min-width:0}
+
+  /* ---------- panel status ---------- */
+  .notice{
+    padding:13px 15px;border-radius:var(--r-md);font-size:13.5px;line-height:1.5;
+    background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.25);color:#bae6fd;
+  }
+  .notice b{color:#fff}
+  .notice.warn{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.28);color:#fde68a}
+  .notice.good{background:rgba(110,231,183,.08);border-color:rgba(110,231,183,.25);color:#a7f3d0}
+  .notice.bad{background:rgba(251,113,133,.08);border-color:rgba(251,113,133,.25);color:#fecdd3}
+  .notice + .notice{margin-top:10px}
+  .err{
+    margin-top:10px;padding:10px 13px;border-radius:11px;font-size:13px;display:none;
+    background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.25);color:#fecdd3;
+  }
+  code.cmd{
+    display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:11px;
+    background:var(--surface-2);border:1px solid var(--line);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14.5px;color:#a7f3d0;
+    word-break:break-all;
+  }
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* ---------- room ---------- */
+  .room-head{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px}
+  .room-head .em{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:var(--surface-2);border:1px solid var(--line)}
+  .room-head h1{font-size:clamp(22px,3.4vw,30px);margin:0 0 4px}
+  .room-head .idrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+  .idbox{
+    display:inline-flex;align-items:center;gap:8px;padding:6px 8px 6px 12px;border-radius:10px;
+    background:var(--surface-2);border:1px solid var(--line);font-size:13px;
+  }
+  .seats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+  .seat{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 8px;border-radius:999px;
+    border:1px solid var(--line);background:var(--surface);font-size:13px;max-width:100%;
+  }
+  .seat .av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;background:var(--surface-2);border:1px solid var(--line);flex:none}
+  .seat .nm{font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .seat .mt{color:var(--muted);font-size:11.5px}
+  .seat.turn{border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,209,102,.2)}
+  .seat.turn .av{background:linear-gradient(135deg,var(--gold),var(--gold-2));border-color:transparent}
+  .seat.dead{opacity:.5}
+  .seat.dead .nm{text-decoration:line-through}
+  .log{max-height:236px;overflow:auto;font-size:13px;color:var(--ink-2);padding:10px 12px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--line)}
+  .log div{padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+  .log div:last-child{border-bottom:0}
+  .chatbox{max-height:190px;overflow:auto;font-size:13px;margin-bottom:10px;padding:10px 12px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--line)}
+  .chatbox div{padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.06)}
+  .chatbox div:last-child{border-bottom:0}
+  .chatbox b{color:var(--cyan)}
+  .scroll-hint{height:1px}
+
+  /* ---------- UNO ---------- */
+  .topcard-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:12px 0 6px}
+  .unocard{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+    width:66px;height:96px;border-radius:13px;margin:4px;padding:4px;
+    border:2px solid rgba(255,255,255,.55);font-weight:800;font-size:15px;color:#fff;text-align:center;
+    text-shadow:0 1px 3px rgba(0,0,0,.55);cursor:pointer;vertical-align:top;
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .unocard small{font-size:9.5px;font-weight:700;opacity:.9;letter-spacing:.03em}
+  .unocard:hover{transform:translateY(-7px);box-shadow:0 12px 26px rgba(0,0,0,.4)}
+  .unocard.no{opacity:.42;cursor:not-allowed}
+  .unocard.no:hover{transform:none;box-shadow:none}
+  .c-red{--cc:#d7263d}.c-yellow{--cc:#f5b90d}.c-green{--cc:#2e9e63}.c-blue{--cc:#2f5bd8}
+  .c-purple{--cc:#8e4ec6}.c-pink{--cc:#e93d82}.c-orange{--cc:#f76b15}.c-teal{--cc:#12a594}
+  .c-wild{--cc:#22242c}
+  /* Kartu UNO sungguhan: bingkai putih, badan warna, oval putih miring di tengah */
+  .unocard{position:relative;background:#fff;border:3px solid #fff;border-radius:12px;overflow:hidden;
+    width:66px;height:96px;padding:0;margin:4px;cursor:pointer;vertical-align:top;
+    transition:transform .12s ease,box-shadow .12s ease;box-shadow:0 4px 10px rgba(0,0,0,.35)}
+  .unocard::before{content:"";position:absolute;inset:0;background:var(--cc,#e5484d)}
+  .unocard::after{content:"";position:absolute;left:50%;top:50%;width:88%;height:54%;
+    transform:translate(-50%,-50%) rotate(-22deg);border-radius:50%;background:#fff;
+    box-shadow:inset 0 0 0 2px rgba(0,0,0,.06)}
+  .unocard.c-wild::before{background:conic-gradient(from 210deg,#d7263d 0 25%,#f5b90d 0 50%,#2e9e63 0 75%,#2f5bd8 0)}
+  .unocard .lab{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;display:block;
+    text-align:center;font-size:22px;font-weight:900;line-height:1;color:var(--cc,#e5484d);
+    letter-spacing:-.02em;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+  .unocard .lab.sm{font-size:15px}
+  .unocard.c-wild .lab{color:#fff;text-shadow:0 2px 3px rgba(0,0,0,.55)}
+  .unocard small{position:absolute;left:0;right:0;bottom:3px;z-index:2;display:block;font-size:8.5px;font-weight:800;
+    letter-spacing:.04em;color:#fff;opacity:.85;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+  .unocard.c-wild::after{background:rgba(10,10,14,.62)}
+  .topcard{transform:scale(1.12);transform-origin:left center;cursor:default;margin-left:6px}
+  .topcard:hover{transform:scale(1.12);box-shadow:none}
+  .colorpick{width:38px;height:38px;border-radius:50%;border:3px solid rgba(255,255,255,.35);cursor:pointer;padding:0;transition:transform .12s}
+  .colorpick:hover{transform:scale(1.1)}
+  .colorpick.on{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+  .handwrap{display:flex;flex-wrap:wrap;margin:6px -4px}
+
+  /* ---------- catur ---------- */
+  .board{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);aspect-ratio:1;
+    width:100%;max-width:520px;margin:12px auto;border:2px solid var(--line-2);border-radius:12px;overflow:hidden}
+  .sq{position:relative;min-width:0;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
+  .sq.dk{background:url(/assets/pieces/kayu-gelap.jpg) center/cover}
+  .sq.lt{background:url(/assets/pieces/kayu-terang.jpg) center/cover}
+  .sq.sel{outline:3px solid var(--lime);outline-offset:-3px}
+  .sq.hint{outline:3px solid rgba(110,231,183,.65);outline-offset:-6px}
+  .sq.last{box-shadow:inset 0 0 0 999px rgba(251,191,36,.34)}
+  .sq img.pc{position:absolute;inset:0;margin:auto;width:88%;height:88%;object-fit:contain;pointer-events:none;
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,.45))}
+  .pw img.pc{filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+
+  /* ---------- ular tangga & monopoli ---------- */
+  /* papan ular tangga baru (SVG bergambar) */
+  .snakewrap{position:relative;max-width:600px;margin:12px auto 8px;padding:10px;border-radius:18px;
+    background:linear-gradient(160deg,#3a2a1a,#241a10);border:1px solid #5c4526;
+    box-shadow:0 20px 46px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)}
+  .snk-svg{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+  .snk-ladder,.snk-snake{filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+  .snk-pawn{transition:transform .32s cubic-bezier(.34,1.4,.5,1)}
+  .snk-pawn.hop{animation:snkHop .35s ease-out}
+  @keyframes snkHop{0%{opacity:.4}60%{opacity:1}100%{opacity:1}}
+  .snk-pawn.on image{filter:drop-shadow(0 0 6px rgba(255,255,255,.8))}
+  .snk-legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;font-size:11px;color:#e7d9bd}
+  .snk-legend span{display:inline-flex;align-items:center;gap:6px}
+  .snk-legend i{width:16px;height:6px;border-radius:3px;display:inline-block}
+  .snk-legend .sw-lad{background:linear-gradient(90deg,#f0c674,#8a5a1e)}
+  .snk-legend .sw-snk{background:linear-gradient(90deg,#57b84a,#0f3d24)}
+  .snk-legend .sw-you{background:#fff;border-radius:50%;width:10px;height:10px;box-shadow:0 0 6px #fff}
+  .snk-players{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0 12px}
+  .snk-pchip{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12px;
+    background:rgba(255,255,255,.06);border:1px solid var(--line)}
+  .snk-pchip.now{background:rgba(61,220,154,.16);border-color:rgba(61,220,154,.45);box-shadow:0 0 0 1px rgba(61,220,154,.2)}
+  .snk-pchip img{width:18px;height:24px;object-fit:contain}
+  .snk-pchip b{color:#fff}
+  .snakeboard{display:grid;grid-template-columns:repeat(10,1fr);max-width:520px;margin:12px auto;gap:3px}
+  .cell{
+    aspect-ratio:1;border-radius:7px;background:var(--surface-2);border:1px solid var(--line);
+    font-size:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;line-height:1.25;
+  }
+  .cell.lad{background:rgba(110,231,183,.15);border-color:rgba(110,231,183,.30)}
+  .cell.snk{background:rgba(251,113,133,.12);border-color:rgba(251,113,133,.25)}
+  .pawn{display:inline-flex;gap:1px;flex-wrap:wrap;justify-content:center}
+  img.pwn{width:12px;height:16px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
+  img.pwn.lg{width:18px;height:24px}
+  img.tic{width:20px;height:20px;object-fit:contain;vertical-align:-4px;margin-right:4px;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+  button.btn img.dice-ic{width:20px;height:20px;object-fit:contain;vertical-align:-5px;margin-right:6px}
+  /* kartu peran Werewolf */
+  .rolecard{display:inline-block;width:168px;border-radius:14px;overflow:hidden;border:2px solid var(--gold);
+    box-shadow:0 10px 28px rgba(0,0,0,.45);margin:6px 10px 6px 0;vertical-align:top;background:#0d0b16}
+  .rolecard img{display:block;width:100%;height:210px;object-fit:cover}
+  .rolecard b{display:block;padding:7px 9px;font-size:12.5px;text-align:center;background:linear-gradient(180deg,rgba(255,209,102,.16),rgba(0,0,0,.35))}
+  .rolemini{display:inline-flex;align-items:center;gap:6px;margin:3px 8px 3px 0}
+  .rolemini img{width:30px;height:40px;object-fit:cover;border-radius:6px;border:1px solid var(--line-2)}
+  /* ---------- papan monopoli (mirip papan asli) ---------- */
+  .monoboard{
+    display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);aspect-ratio:1;
+    width:100%;max-width:560px;margin:14px auto;padding:6px;gap:3px;border-radius:14px;
+    background:url(/assets/pieces/kayu-gelap.jpg) center/cover;box-shadow:0 18px 40px rgba(0,0,0,.5), inset 0 0 0 2px rgba(255,255,255,.08);
+  }
+  .mo-tile{
+    position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+    background:#f7f2e3 url(/assets/pieces/tekstur-papan.jpg) center/cover;border:1px solid #2a2440;border-radius:3px;
+    padding:3px 3px 2px;text-align:center;line-height:1.1;color:#20182e;min-width:0;min-height:0;
+    font-size:clamp(6px,1.25vw,9.5px);transition:box-shadow .25s,transform .25s;
+  }
+  .mo-tile .band{position:absolute;inset:0 0 auto;height:16%;background:var(--tc,#8b8b8b);border-bottom:1px solid rgba(0,0,0,.35)}
+  .mo-tile .nm{margin-top:18%;font-weight:800;font-size:clamp(6px,1.2vw,9px);letter-spacing:-.01em;word-break:break-word}
+  .mo-tile .pr{font-weight:700;font-size:clamp(5.5px,1.05vw,8px);color:#4a3f63}
+  .mo-tile img{width:auto;height:100%;max-height:100%;max-width:62%;margin:0 auto;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+  .mo-tile .ico{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;overflow:hidden;padding:1px 0}
+  .mo-tile .pawns{display:flex;flex-wrap:wrap;gap:1px;justify-content:center;align-items:flex-end;min-height:10px}
+  .mo-tile .pawns img{width:11px;height:15px;margin:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+  .mo-tile.here{box-shadow:inset 0 0 0 2px #ffd166, 0 0 12px rgba(255,209,102,.55)}
+  .mo-tile.corner{background:#f0ead8 url(/assets/pieces/tekstur-papan.jpg) center/cover}
+  .mo-tile.corner .nm{margin-top:0;font-size:clamp(6.5px,1.3vw,10px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+  .mo-tile.corner .ico img{max-width:78%}
+  .mo-tile.owner::after{
+    content:"";position:absolute;inset:0;border:2px solid var(--own,#7ee787);border-radius:3px;pointer-events:none;opacity:.9;
+  }
+  .mo-center{
+    grid-area:2 / 2 / 5 / 5;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;background:linear-gradient(135deg,#f7f2e3,#e8dfc8);border:1px solid #2a2440;color:#20182e;text-align:center;padding:10px;
+  }
+  .mo-center .lg{font-size:clamp(16px,3.4vw,30px);font-weight:900;letter-spacing:-.03em;transform:rotate(-8deg)}
+  .mo-center .sm{font-size:clamp(7px,1.4vw,11px);font-weight:700;color:#6a5d86;letter-spacing:.12em}
+  .mo-center .cards{display:flex;gap:8px;margin-top:2px}
+  .mo-center .cards img{width:clamp(18px,4vw,34px);object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+  .mo-legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px}
+  .mo-legend span{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted)}
+  .mo-legend img{width:14px;height:14px;object-fit:contain}
+
+  /* ---------- dadu 3D (CSS) ---------- */
+  .dice{
+    display:inline-grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:2px;
+    width:44px;height:44px;padding:5px;border-radius:10px;background:linear-gradient(150deg,#fff,#e8e4f3 60%,#cfc9e2);
+    box-shadow:0 6px 14px rgba(0,0,0,.45), inset 0 -2px 4px rgba(0,0,0,.18), inset 0 2px 2px #fff;
+    vertical-align:middle;margin-right:8px;
+  }
+  .dice i{width:100%;height:100%;border-radius:50%;background:transparent;display:block}
+  .dice i.on{background:radial-gradient(circle at 35% 30%,#4a4a58,#12121a)}
+  .dice.rolling{animation:diceRoll .7s ease-in-out}
+  @keyframes diceRoll{
+    0%{transform:rotate(0) scale(1)}
+    25%{transform:rotate(140deg) scale(1.12)}
+    50%{transform:rotate(260deg) scale(.94)}
+    75%{transform:rotate(330deg) scale(1.06)}
+    100%{transform:rotate(360deg) scale(1)}
+  }
+
+  /* ---------- animasi umum ---------- */
+  @keyframes popIn{0%{transform:scale(.4) rotate(-8deg);opacity:0}70%{transform:scale(1.08) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+  @keyframes hop{0%,100%{transform:translateY(0)}35%{transform:translateY(-9px) scale(1.08)}65%{transform:translateY(-3px)}}
+  @keyframes slideIn{0%{transform:scale(.5);opacity:.1}100%{transform:scale(1);opacity:1}}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+  @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,209,102,0)}50%{box-shadow:0 0 0 5px rgba(255,209,102,.35)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes wolfFlash{0%{opacity:0}25%{opacity:.75}100%{opacity:0}}
+  .anim-pop{animation:popIn .38s cubic-bezier(.2,1.4,.5,1) both}
+  .anim-hop{animation:hop .55s ease-in-out both}
+  .anim-slide{animation:slideIn .3s ease-out both}
+  .anim-shake{animation:shake .4s ease-in-out}
+  .anim-glow{animation:glowPulse 1.6s ease-in-out infinite}
+  .anim-fade{animation:fadeUp .35s ease-out both}
+  .gcard{animation:fadeUp .45s ease-out both}
+  .gcard:nth-child(2){animation-delay:.05s}.gcard:nth-child(3){animation-delay:.1s}
+  .gcard:nth-child(4){animation-delay:.15s}.gcard:nth-child(5){animation-delay:.2s}.gcard:nth-child(6){animation-delay:.25s}
+
+  /* kilau malam/hari werewolf */
+  .phase-flash{position:fixed;inset:0;pointer-events:none;z-index:60;animation:wolfFlash 1.4s ease-out both}
+  .phase-flash.night{background:radial-gradient(circle at 50% 30%,rgba(60,80,180,.35),rgba(0,0,0,.92))}
+  .phase-flash.day{background:radial-gradient(circle at 50% 30%,rgba(255,225,140,.55),rgba(255,180,60,.25))}
+
+  /* konfeti kemenangan */
+  .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:70}
+  .confetti i{position:absolute;top:-12px;width:8px;height:14px;border-radius:2px;animation:confFall linear forwards}
+  @keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
+
+  /* tombol suara */
+  .sfx-btn{display:inline-flex;align-items:center;gap:6px}
+  .sfx-btn.off{opacity:.55}
+  .tile i{color:var(--muted)}
+
+  /* ---------- toast ---------- */
+  .toasts{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;flex-direction:column;gap:8px;max-width:min(360px,calc(100vw - 32px))}
+  .toast{
+    padding:11px 14px;border-radius:12px;font-size:13.5px;line-height:1.45;
+    background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);
+    animation:tin .18s ease;
+  }
+  .toast.bad{border-color:rgba(251,113,133,.5);color:#fecdd3}
+  .toast.good{border-color:rgba(110,231,183,.5);color:#a7f3d0}
+  @keyframes tin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .skel{height:14px;border-radius:7px;background:linear-gradient(90deg,var(--surface-2),var(--line),var(--surface-2));background-size:200% 100%;animation:sh 1.3s infinite}
+  @keyframes sh{from{background-position:200% 0}to{background-position:-200% 0}}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:720px){
+    .cols{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero{padding-top:26px}
+  }
+  @media(max-width:480px){
+    .grid{grid-template-columns:1fr}
+    .hero-banner img{height:210px}
+    .room-banner img{height:150px}
+    .hero-cap b{font-size:18px}
+    .unocard{width:56px;height:82px;font-size:13px}
+    .top-in{padding:9px 13px}
+    .brand small{display:none}
+    .toasts{right:10px;left:10px;bottom:10px;max-width:none}
+  }
+  /* ---------- papan Property Empire (multiplayer) ---------- */
+  /* Papan 11x11 butuh ruang: di room empire kolom kanan dipindah ke bawah. */
+  body.empire-room .cols{grid-template-columns:minmax(0,1fr)}
+  body.empire-room .cols > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  @media (max-width:760px){ body.empire-room .cols > div:last-child{grid-template-columns:1fr} }
+  .emp-wrap{display:block;margin-top:12px}
+  .emp-board-col{min-width:0}
+  .emp-board{
+    display:grid;grid-template-columns:repeat(11,minmax(0,1fr));grid-template-rows:repeat(11,minmax(0,1fr));
+    aspect-ratio:1;width:100%;max-width:880px;margin:0 auto;padding:8px;gap:2px;border-radius:18px;
+    background:url(/assets/pieces/kayu-gelap.jpg) center/cover;
+    box-shadow:0 22px 46px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.07);
+  }
+  .emp-board{--bw:clamp(5px,.85vw,9px)}
+  .emt{
+    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    overflow:hidden;min-width:0;min-height:0;cursor:pointer;text-align:center;padding:2px;
+    background:#f6f1e1 url(/assets/pieces/tekstur-papan.jpg) center/cover;
+    border:1px solid #2a2440;border-radius:3px;color:#20182e;
+    font-size:clamp(5.5px,1.02vw,9.5px);line-height:1.05;
+    box-shadow:inset 0 0 0 2px var(--own, transparent);
+    transition:transform .18s, box-shadow .18s;
+  }
+  .emt:hover{transform:translateY(-1px)}
+  .emt.sel{box-shadow:inset 0 0 0 2px var(--own, transparent), 0 0 0 2px #ffd166, 0 0 14px rgba(255,209,102,.5)}
+  .emt .band{position:absolute;background:var(--c,#8b8b8b)}
+  .emt.bottom .band{inset:0 0 auto;height:var(--bw);border-bottom:1px solid rgba(0,0,0,.35)}
+  .emt.top .band{inset:auto 0 0;height:var(--bw);border-top:1px solid rgba(0,0,0,.35)}
+  .emt.left .band{inset:0 0 0 auto;width:var(--bw);border-left:1px solid rgba(0,0,0,.35)}
+  .emt.right .band{inset:0 auto 0 0;width:var(--bw);border-right:1px solid rgba(0,0,0,.35)}
+  .emt.bottom{padding-top:calc(var(--bw) + 1px)}
+  .emt.top{padding-bottom:calc(var(--bw) + 1px)}
+  .emt.left{padding-right:calc(var(--bw) + 1px)}
+  .emt.right{padding-left:calc(var(--bw) + 1px)}
+  .emt .nm{width:100%;font-weight:800;font-size:clamp(6px,.94vw,10px);letter-spacing:-.04em;word-break:normal;overflow-wrap:break-word;hyphens:manual;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .emt .pr{width:100%;font-weight:700;font-size:clamp(5.4px,.84vw,9px);color:#584a72;opacity:.9}
+  .emt .ic{font-size:clamp(9px,1.7vw,16px);line-height:1}
+  .emt.corner{background:#fbf7ea url(/assets/pieces/tekstur-papan.jpg) center/cover}
+  .emt.corner .nm{font-size:clamp(6px,1vw,10.5px);letter-spacing:0;text-transform:uppercase}
+  .emt .nm.lng{font-size:clamp(5.6px,.84vw,9px);letter-spacing:-.05em}
+  .emt .hs{position:absolute;left:2px;bottom:1px;font-size:clamp(4px,.55vw,6px);color:#1f7a44;letter-spacing:-.5px;line-height:1}
+  .emt .hs.hotel{left:2px;bottom:2px;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:6px solid #d7263d}
+  .emt .mq{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(220,38,38,.16);
+    color:#a51d1d;font-weight:900;font-size:clamp(4px,.6vw,6.5px);transform:rotate(-18deg);pointer-events:none}
+  .emt .pawns{position:absolute;inset:auto 0 0;display:flex;justify-content:center;align-items:flex-end;gap:0;pointer-events:none;height:50%}
+  .emp-pawn{width:36%;height:100%;object-fit:contain;margin:0 -2%;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)) drop-shadow(0 0 2px var(--pc))}
+  .em-center{
+    grid-area:2 / 2 / 11 / 11;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    border-radius:12px;padding:8px;text-align:center;color:#fff;
+    background:radial-gradient(circle at 50% 38%,#312659,#140f28 72%);
+    box-shadow:inset 0 0 26px rgba(242,193,78,.18), inset 0 0 0 1px rgba(255,255,255,.07);
+  }
+  .em-brand{font-weight:900;font-size:clamp(13px,2.2vw,34px);letter-spacing:.16em;line-height:1;color:#f2c14e;text-shadow:0 2px 10px rgba(242,193,78,.25)}
+  .em-brand span{color:#fff}
+  .em-center .dice{width:clamp(24px,3vw,46px);height:clamp(24px,3vw,46px);padding:4px;gap:1px;margin:0 5px;border-radius:9px}
+  .em-center::before{content:'';position:absolute;inset:10px;border-radius:10px;border:1px dashed rgba(242,193,78,.18);pointer-events:none}
+  .em-center{position:relative}
+  .em-dice{font-size:clamp(14px,2.4vw,24px);letter-spacing:.1em;opacity:.55}
+  .em-turn{font-size:clamp(9px,1.2vw,16px);color:#d6cff0}
+  .em-hint{font-size:clamp(8px,1vw,13px);color:#a79cc6;max-width:90%;line-height:1.25}
+  .em-bank{font-size:clamp(7px,.9vw,11px);color:#7ee787;opacity:.85}
+  .em-deco{display:flex;gap:8px;align-items:center;opacity:.9}
+  .em-deco img{width:clamp(18px,2.2vw,32px);height:auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+  .em-side{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:10px;margin-top:12px;align-items:start}
+  .em-side h3{display:none}
+  .em-side h3{margin:4px 0 0;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:800}
+  .em-players{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .em-pl{display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:11px;background:var(--surface-2);
+    border:1px solid var(--line);font-size:12px;min-width:0}
+  .em-pl .grow{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .em-pl b{font-variant-numeric:tabular-nums;font-size:11.5px;color:#fff}
+  .em-pl.turn{border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,209,102,.16)}
+  .em-pl.dead{opacity:.42;filter:grayscale(1)}
+  .em-pl .dot{width:9px;height:9px;border-radius:50%;background:var(--pc,#7ee787);box-shadow:0 0 8px var(--pc,#7ee787);flex:none}
+  .em-log{max-height:200px;overflow:auto;display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--ink-2);
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px;line-height:1.4}
+  .em-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 2px;align-items:center}
+  .em-num{width:86px;padding:8px 10px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface-2);font-size:13px}
+  .em-panel{margin:12px 0;padding:12px 13px;border-radius:16px;background:var(--surface);border:1px solid var(--line-2)}
+  .em-ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .em-mrow{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:12px;flex-wrap:wrap}
+  .em-mrow .sw{width:8px;height:17px;border-radius:3px;flex:none}
+  .em-trade{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+  .em-pick{display:flex;gap:6px;align-items:center;font-size:11.5px;padding:2px 0;cursor:pointer}
+  .em-rank{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+  .em-rrow{display:flex;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--surface);font-size:12px}
+  .em-rrow.first{background:linear-gradient(90deg,rgba(255,209,102,.18),var(--surface));border:1px solid rgba(255,209,102,.4)}
+  .em-info{display:flex;gap:10px;align-items:center;margin-top:10px;padding:9px 12px;border-radius:13px;
+    background:var(--surface);border:1px solid var(--line-2);font-size:12.5px;flex-wrap:wrap}
+  .em-info .sw{width:10px;height:22px;border-radius:3px;flex:none}
+  .btn-xs{padding:4px 7px;font-size:10.5px;border-radius:8px}
+  @media (max-width:860px){
+    .em-side{grid-template-columns:1fr;gap:8px}
+    .em-log{max-height:150px}
+  }
+  @media (max-width:560px){
+    /* header tidak menutupi papan saat digulir di room Empire */
+    body.empire-room header.top{position:static}
+    /* papan melebar sampai tepi kartu supaya petak semaksimal mungkin */
+    .emp-scroll{margin:0 -40px;padding:0 5px 2px}
+    .emp-board{padding:4px;gap:1px;border-radius:10px;--bw:3px}
+    .emt{border-radius:2px;padding:3px}
+    .emt.bottom{padding-top:3px}
+    .emt.top{padding-bottom:3px}
+    .emt.left{padding-right:3px}
+    .emt.right{padding-left:3px}
+    .emt .nm{font-size:6px;line-height:1.03;-webkit-line-clamp:3}
+    .emt .nm.lng{font-size:5.2px}
+    .emt .pr{font-size:4.8px}
+    .emt.corner .nm{font-size:5.4px}
+    .em-actions .btn{flex:1 1 44%}
+    .em-trade{grid-template-columns:1fr}
+  }
+  .em-scrollhint{display:none}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="/"><span class="brand-mark"><img src="/assets/logo-umi-games.png" alt="UMI Games" style="width:36px;height:36px;border-radius:10px"></span><span><b>UMI GAMES</b><small>MULTIPLAYER · WHATSAPP</small></span></a>
+  <div class="top-right">
+    <span class="pill hidden" id="connPill"><span class="dot"></span><span id="connText">menyambung…</span></span>
+    <a class="btn btn-sm btn-lime" href="/trading" title="Pasar saham $AS">📈 $AS TRADE</a>
+    <button class="btn btn-sm btn-ghost sfx-btn" id="sfxBtn" type="button" title="Suara game" aria-pressed="true">🔊</button>
+    <a class="btn btn-sm btn-ghost" href="https://jadibot-alzriss.gwenna.my.id" target="_blank" rel="noopener">Jadibot Studio ↗</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <!-- ================= LOBI ================= -->
+  <section id="lobby">
+    <div class="hero">
+      <span class="eyebrow">6 MEJA · BOT AI · VERIFIKASI WA</span>
+      <h1>Main bareng teman.<br>Mejanya di web, verifikasinya di WhatsApp.</h1>
+      <p class="sub">Buat room, bagikan tautannya, lalu duduk di meja. Pemain kurang? Isi kursi kosong dengan bot AI — bisa 1 lawan 1, bertiga, berempat, sampai 10 orang di UNO.</p>
+    </div>
+
+    <figure class="hero-banner">
+      <img src="/assets/hero-meja.jpg" alt="Empat teman tertawa sambil main board game di meja kayu" width="1200" height="630" fetchpriority="high">
+      <figcaption class="hero-cap">
+        <b>Meja sungguhan, teman sungguhan.</b>
+        <span>Enam papan siap dimainkan — dari UNO sampai Werewolf, tinggal pilih mejanya.</span>
+      </figcaption>
+    </figure>
+
+    <a class="feature" href="/empire">
+      <div class="txt">
+        <span class="eyebrow">BARU · PAPAN 40 PETAK</span>
+        <h2>Property Empire</h2>
+        <p>Papan lengkap seperti aslinya: beli, bangun rumah & hotel, gadai, lelang, tukar properti, penjara, kartu kesempatan. Lawan bot dengan 4 gaya main — atau 6 pemain bergiliran di satu perangkat. Progres tersimpan otomatis.</p>
+        <span class="btn btn-lime go">Buka papan →</span>
+      </div>
+      <img src="/assets/papan-monopoli.jpg" alt="Papan properti 40 petak" loading="lazy">
+    </a>
+
+    <a class="feature" href="/realms">
+      <div class="txt"><span class="eyebrow">ECLIPSE REALMS · RPG WEBSITE × WHATSAPP</span><h2>Jelajahi kerajaan Greenleaf.</h2><p>Desa, hutan, Royal Capital dan dungeon Hollow Crypt. Pilih class, jalankan quest, kumpulkan pet dan bertemu adventurer lain. Dungeon saat ini solo; party dan guild masih dalam pengembangan.</p><span class="btn btn-lime go">Masuk dunia RPG →</span></div>
+      <img src="/realms/kingdom.webp" alt="Royal Capital di Eclipse Realms" loading="lazy">
+    </a>
+
+    <div class="grid" id="gameGrid"></div>
+
+    <div class="cols">
+      <div class="glass card">
+        <h2>➕ Buat room baru</h2>
+        <p class="tiny" style="margin-bottom:16px">Kamu jadi host dan satu-satunya yang boleh memulai game.</p>
+        <form id="crForm">
+          <label><span>Nama kamu</span><input id="crName" maxlength="24" placeholder="mis. Alzriss" autocomplete="nickname" required></label>
+          <label><span>Nomor WhatsApp <span style="color:var(--muted);font-weight:500">(opsional kalau open join)</span></span><input id="crNumber" inputmode="numeric" placeholder="628xxxxxxxxxx" autocomplete="tel"></label>
+          <label><span>Nomor verifikasi (jadibot) <span style="color:var(--muted);font-weight:500">(opsional)</span></span><input id="crVerify" inputmode="numeric" placeholder="628xxxxxxxxxx — nomor bot yang akan memverifikasi" autocomplete="tel"></label>
+          <div class="err" id="crErr"></div>
+          <button class="btn btn-pri btn-block" id="crBtn" type="submit">Buat room</button>
+        </form>
+        <p class="tiny" style="margin:14px 0 0">Bisa juga dari WhatsApp: kirim <b class="mono">/uno</b>, <b class="mono">/monopoli</b>, atau <b class="mono">/caturweb</b> ke bot Umi.</p>
+      </div>
+
+      <div class="glass card">
+        <h2>🔑 Masuk meja</h2>
+        <p class="tiny" style="margin-bottom:16px">Tempel tautan room dari temanmu, atau masukkan kode masuk 6 digit dari bot.</p>
+        <form id="jnForm">
+          <label><span>ID atau tautan room</span><input id="jnRoom" placeholder="https://game.gwenna.my.id/uno/AbCdEf1234"></label>
+          <label><span>Kode masuk 6 digit <span style="color:var(--muted);font-weight:500">(opsional)</span></span><input id="jnCode" inputmode="numeric" maxlength="6" placeholder="123456" autocomplete="one-time-code"></label>
+          <div class="err" id="jnErr"></div>
+          <button class="btn btn-lime btn-block" id="jnBtn" type="submit">Masuk meja</button>
+        </form>
+        <p class="tiny" style="margin:14px 0 0">Tanpa kode pun tetap bisa: buka tautannya, lalu ikuti petunjuk di halaman room.</p>
+      </div>
+    </div>
+
+    <div class="glass card" id="tradeCard" style="margin-top:16px">
+      <h2>📈 Pasar $AS — UMI TRADE</h2>
+      <div class="cols" style="gap:14px">
+        <div>
+          <div class="tag" id="tradeSession" style="font-size:12.5px">memuat status pasar…</div>
+          <div id="tradeStats" class="grid" style="grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"></div>
+          <p class="tiny" style="margin:12px 0 0">Trading saham antar pemain: harga naik-turun tiap 3 detik, saldo $AS, papan peringkat trader terkaya &amp; termiskin. Bisa juga dari WhatsApp: <b class="mono">.trading</b>, <b class="mono">.pasar</b>, <b class="mono">.belisaham UMI 5</b>, <b class="mono">.tradingoffline</b>.</p>
+        </div>
+        <div>
+          <h2 style="margin-bottom:8px">🏆 Papan peringkat</h2>
+          <div id="tradeBoard" class="tiny">memuat…</div>
+          <a class="btn btn-lime btn-block" href="/trading" style="margin-top:12px">Buka UMI TRADE →</a>
+          <a class="btn btn-ghost btn-block" href="/trading-offline" style="margin-top:8px">Main offline (tanpa internet)</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="lobbyNotice" style="margin-top:16px"></div>
+  </section>
+
+  <!-- ================= ROOM ================= -->
+  <section id="roomView" class="hidden">
+    <figure class="room-banner" id="rmBanner" hidden>
+      <img id="rmBannerImg" src="/assets/hero-meja.jpg" alt="" width="1200" height="764">
+    </figure>
+    <div class="room-head">
+      <div class="em" id="rmEmoji">🎮</div>
+      <div style="flex:1;min-width:220px">
+        <h1 id="rmTitle">Room</h1>
+        <p class="sub" id="rmSub" style="margin:0"></p>
+        <div class="idrow">
+          <span class="idbox"><span class="tiny">Room</span> <b class="mono" id="rmId">—</b></span>
+          <button class="btn btn-sm" id="copyBtn" type="button">📋 Salin tautan</button>
+          <a class="btn btn-sm btn-ghost" href="/">← Lobi</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="roomNotice"></div>
+    <div class="glass card" id="verifyBox"></div>
+
+    <div class="cols" style="margin-top:16px">
+      <div class="glass card" id="gameArea">
+        <div class="skel" style="width:40%;margin-bottom:12px"></div>
+        <div class="skel" style="width:90%;margin-bottom:8px"></div>
+        <div class="skel" style="width:70%"></div>
+      </div>
+      <div>
+        <div class="glass card">
+          <h2>🪑 Meja</h2>
+          <div class="seats" id="seatList"></div>
+          <div id="hostControls"></div>
+          <h3 style="margin-top:20px">📜 Kejadian</h3>
+          <div class="log" id="logBox"></div>
+        </div>
+        <div class="glass card">
+          <h2>💬 Chat</h2>
+          <div class="chatbox" id="chatBox"></div>
+          <form id="chatForm" class="row"><input id="chatInput" maxlength="300" placeholder="Tulis pesan…" class="grow"><button class="btn btn-sm" type="submit">Kirim</button></form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+const BOT_WA = '6280000000001'
+const PREFIX = '/'
+/* `cmd` harus sama persis dengan yang diterima plugin bot. Catur, ular tangga,
+ * dan werewolf memakai akhiran `web` karena nama polosnya sudah dipakai game
+ * WhatsApp yang lama — kalau salah, bot tidak akan menjawab sama sekali. */
+const GAME_INFO = {
+  uno:      { label:'UNO', emoji:'🃏', desc:'Kartu +2, skip, reverse, wild', min:2, max:10, cmd:'uno', accent:'#e5484d', img:'/assets/kartu-uno.jpg' },
+  unoflip:  { label:'UNO Flip', emoji:'🔄', desc:'Dua sisi kartu, gelap & terang', min:2, max:10, cmd:'unoflip', accent:'#8e4ec6', img:'/assets/kartu-uno.jpg' },
+  chess:    { label:'Catur', emoji:'♟️', desc:'Klasik, ada skakmat & rokade', min:2, max:2, cmd:'caturweb', accent:'#c4cfe8', img:'/assets/papan-catur.jpg' },
+  snakes:   { label:'Ular Tangga', emoji:'🐍', desc:'Balapan ke kotak 100', min:2, max:6, cmd:'utweb', accent:'#3ddc9a', img:'/assets/papan-ular-tangga.jpg' },
+  monopoly: { label:'Monopoli', emoji:'🏠', desc:'Versi ringkas 16 petak', min:2, max:4, cmd:'monopoli', accent:'#5b7cfa', img:'/assets/papan-monopoli.jpg' },
+  empire:   { label:'Property Empire', emoji:'🏙️', desc:'40 petak properti, lelang & tukar', min:2, max:6, cmd:'empire', accent:'#f2c14e', img:'/assets/papan-monopoli.jpg' },
+  werewolf: { label:'Werewolf', emoji:'🐺', desc:'Peran rahasia, voting siang hari', min:5, max:12, cmd:'wwweb', accent:'#9b6bff', img:'/assets/werewolf.jpg' },
+}
+const parts = location.pathname.split('/').filter(Boolean)
+const isRoom = parts.length === 2 && !!GAME_INFO[parts[0]]
+let roomId = isRoom ? parts[1] : null
+let gameKey = isRoom ? parts[0] : 'uno'
+let token = roomId ? (localStorage.getItem('umi-game-' + roomId) || '') : ''
+let myState = null
+let selColor = 'red'
+let chessSel = -1
+let panelMode = ''
+let es = null
+
+const $ = (id) => document.getElementById(id)
+const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+const COLOR_NAME = { red:'Merah', yellow:'Kuning', green:'Hijau', blue:'Biru', purple:'Ungu', pink:'Pink', orange:'Oranye', teal:'Toska', wild:'Wild' }
+const PIONS = Array.from({ length: 12 }, (_, i) => '<img class="pwn" src="/assets/pieces/pawn/pawn-' + (i + 1) + '.png" alt="pion ' + (i + 1) + '">')
+  const PIONS_BIG = Array.from({ length: 12 }, (_, i) => '<img class="pwn lg" src="/assets/pieces/pawn/pawn-' + (i + 1) + '.png" alt="pion ' + (i + 1) + '">')
+
+  /* ============================================================
+   * SUARA GAME (WebAudio, tanpa berkas eksternal)
+   * ============================================================ */
+  const SFX = {
+    on: localStorage.getItem('umi-sfx') !== '0',
+    ctx: null,
+    ac() {
+      if (!this.ctx) {
+        const C = window.AudioContext || window.webkitAudioContext
+        if (!C) return null
+        this.ctx = new C()
+      }
+      if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {})
+      return this.ctx
+    },
+    tone(o) {
+      if (!this.on) return
+      const c = this.ac(); if (!c) return
+      const t0 = c.currentTime + (o.at || 0)
+      const osc = c.createOscillator(), g = c.createGain()
+      osc.type = o.type || 'sine'
+      osc.frequency.setValueAtTime(o.freq || 440, t0)
+      if (o.to) osc.frequency.exponentialRampToValueAtTime(Math.max(30, o.to), t0 + (o.dur || .15))
+      g.gain.setValueAtTime(0.0001, t0)
+      g.gain.exponentialRampToValueAtTime(o.gain || .06, t0 + .012)
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + (o.dur || .15))
+      osc.connect(g).connect(c.destination)
+      osc.start(t0); osc.stop(t0 + (o.dur || .15) + .03)
+    },
+    noise(dur = .25, gain = .05, at = 0) {
+      if (!this.on) return
+      const c = this.ac(); if (!c) return
+      const n = Math.floor(c.sampleRate * dur)
+      const buf = c.createBuffer(1, n, c.sampleRate)
+      const d = buf.getChannelData(0)
+      for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2.2)
+      const src = c.createBufferSource(); src.buffer = buf
+      const g = c.createGain(); g.gain.value = gain
+      const f = c.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 900
+      src.connect(f).connect(g).connect(c.destination)
+      src.start(c.currentTime + at)
+    },
+    click() { this.tone({ freq: 520, to: 380, dur: .07, type: 'triangle', gain: .05 }) },
+    move() { this.tone({ freq: 340, to: 220, dur: .1, type: 'sine', gain: .05 }) },
+    card() {
+      this.noise(.16, .05)
+      this.tone({ freq: 680, to: 900, dur: .09, type: 'triangle', gain: .04, at: .03 })
+    },
+    dice() {
+      for (let i = 0; i < 6; i++) this.noise(.05, .055, i * .07)
+      this.tone({ freq: 180, to: 120, dur: .18, type: 'square', gain: .035, at: .42 })
+    },
+    hop() { this.tone({ freq: 300, to: 620, dur: .13, type: 'sine', gain: .05 }) },
+    capture() {
+      this.tone({ freq: 420, to: 120, dur: .22, type: 'sawtooth', gain: .05 })
+      this.noise(.14, .035)
+    },
+    win() {
+      [523, 659, 784, 1046].forEach((f, i) => this.tone({ freq: f, dur: .2, type: 'triangle', gain: .06, at: i * .11 }))
+    },
+    howl() {
+      if (!this.on) return
+      const c = this.ac(); if (!c) return
+      const t0 = c.currentTime
+      const osc = c.createOscillator(), lfo = c.createOscillator(), lg = c.createGain(), g = c.createGain()
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(320, t0)
+      osc.frequency.exponentialRampToValueAtTime(760, t0 + .5)
+      osc.frequency.exponentialRampToValueAtTime(420, t0 + 1.4)
+      lfo.frequency.value = 5.5; lg.gain.value = 18
+      lfo.connect(lg).connect(osc.frequency)
+      g.gain.setValueAtTime(.0001, t0)
+      g.gain.exponentialRampToValueAtTime(.05, t0 + .18)
+      g.gain.exponentialRampToValueAtTime(.0001, t0 + 1.5)
+      osc.connect(g).connect(c.destination)
+      osc.start(t0); lfo.start(t0); osc.stop(t0 + 1.55); lfo.stop(t0 + 1.55)
+    },
+    bell() { this.tone({ freq: 880, dur: .5, type: 'sine', gain: .05 }); this.tone({ freq: 1320, dur: .5, type: 'sine', gain: .025, at: .02 }) },
+  }
+  const sfxBtn = $('sfxBtn')
+  function paintSfx() {
+    if (!sfxBtn) return
+    sfxBtn.textContent = SFX.on ? '🔊' : '🔇'
+    sfxBtn.classList.toggle('off', !SFX.on)
+    sfxBtn.setAttribute('aria-pressed', SFX.on ? 'true' : 'false')
+  }
+  if (sfxBtn) {
+    paintSfx()
+    sfxBtn.onclick = () => { SFX.on = !SFX.on; localStorage.setItem('umi-sfx', SFX.on ? '1' : '0'); paintSfx(); if (SFX.on) SFX.click() }
+  }
+
+  /* Penanda perubahan state → animasi & suara hanya diputar sekali */
+  const animMemo = new Map()
+  const changed = (key, value) => {
+    const prev = animMemo.get(key)
+    animMemo.set(key, value)
+    return prev !== undefined && prev !== value
+  }
+  function confetti() {
+    const box = document.createElement('div')
+    box.className = 'confetti'
+    const colors = ['#ffd166', '#7ee787', '#7fd3f7', '#f78fb3', '#c9f97a', '#ffa94d']
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('i')
+      p.style.left = Math.random() * 100 + '%'
+      p.style.background = colors[i % colors.length]
+      p.style.animationDuration = (1.4 + Math.random() * 1.6) + 's'
+      p.style.animationDelay = (Math.random() * .5) + 's'
+      p.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'
+      box.appendChild(p)
+    }
+    document.body.appendChild(box)
+    setTimeout(() => box.remove(), 3400)
+  }
+  function phaseFlash(kind) {
+    const el = document.createElement('div')
+    el.className = 'phase-flash ' + kind
+    document.body.appendChild(el)
+    setTimeout(() => el.remove(), 1600)
+  }
+  function celebrate(s) {
+    const done = s.status === 'finished' || (s.state && s.state.winner !== null && s.state.winner !== undefined)
+    if (!done) return false
+    if (changed('win:' + s.roomId + ':' + s.game, true)) { confetti(); SFX.win() }
+    return true
+  }
+
+function toast(msg, kind) {
+  const box = $('toasts')
+  const el = document.createElement('div')
+  el.className = 'toast' + (kind ? ' ' + kind : '')
+  el.textContent = msg
+  box.appendChild(el)
+  setTimeout(() => { el.style.opacity = '0'; el.style.transition = 'opacity .25s'; setTimeout(() => el.remove(), 260) }, 3600)
+}
+function showErr(id, msg) { const el = $(id); if (!el) return; el.textContent = msg; el.style.display = msg ? 'block' : 'none' }
+
+async function api(path, body) {
+  const headers = token ? { 'X-UMI-Seat-Token': token } : {}
+  if (body) headers['Content-Type'] = 'application/json'
+  const res = await fetch(path, body ? { method:'POST', headers, body:JSON.stringify(body) } : { headers })
+  const json = await res.json().catch(() => ({}))
+  if (!res.ok) throw new Error(json.error || ('HTTP ' + res.status))
+  return json
+}
+function waCommand(state) {
+  const cmd = (state && state.waCommand) || GAME_INFO[gameKey].cmd
+  return PREFIX + cmd + ' ' + roomId
+}
+function setConn(state) {
+  const pill = $('connPill')
+  pill.classList.remove('hidden', 'on', 'off')
+  if (state === 'on') { pill.classList.add('on'); $('connText').textContent = 'terhubung' }
+  else if (state === 'off') { pill.classList.add('off'); $('connText').textContent = 'terputus — menyambung ulang' }
+  else $('connText').textContent = 'menyambung…'
+}
+/* Gulung otomatis hanya kalau pembaca memang sedang di bawah, supaya tidak
+ * merampas guliran saat orang sedang membaca riwayat. */
+function stickBottom(el) {
+  const near = el.scrollHeight - el.scrollTop - el.clientHeight < 60
+  if (near) el.scrollTop = el.scrollHeight
+}
+
+/* ============================== LOBI ============================== */
+if (!isRoom) {
+  /* ---------- status pasar $AS (UMI TRADE) ---------- */
+  const rp = (n) => 'Rp' + Number(n || 0).toLocaleString('id-ID')
+  const asNum = (n) => Number(n || 0).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  async function loadTrade() {
+    const sesBox = $('tradeSession'), stats = $('tradeStats'), board = $('tradeBoard')
+    if (!sesBox) return
+    try {
+      const [ses, lb] = await Promise.all([
+        fetch('/api/trading/session').then((r) => r.json()),
+        fetch('/api/trading/leaderboard').then((r) => r.json()),
+      ])
+      sesBox.className = 'tag ' + (ses.active ? 'cmd' : '')
+      sesBox.textContent = (ses.active ? '🚀 ' : '🌙 ') + (ses.label || 'Pasar normal') + (ses.boostPct ? ` · boost +${asNum(ses.boostPct)}%` : '')
+      const rows = lb.richest || []
+      const total = Number(lb.total || 0)
+      const richest = rows[0]
+      const avg = rows.length ? rows.reduce((a, r) => a + Number(r.netWorth || 0), 0) / rows.length : 0
+      stats.innerHTML = [
+        ['TRADER', String(total), ''],
+        ['TERKAYA', richest ? richest.username : '—', 'up'],
+        ['ASET TERKAYA', richest ? '$AS ' + asNum(richest.netWorth) : '—', 'up'],
+        ['RATA-RATA TOP 12', '$AS ' + asNum(avg), ''],
+      ].map(([k, v, c]) => `<div class="tag" style="display:block;padding:9px 11px"><span style="display:block;font-size:9.5px;color:var(--muted);letter-spacing:.08em">${k}</span><b style="font-size:15px" class="${c}">${esc(v)}</b></div>`).join('')
+      const line = (row) => `<div style="display:flex;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid var(--line)"><b style="min-width:22px;color:var(--gold)">${row.rank}</b><span style="flex:1;color:var(--ink)">${esc(row.username)}</span><b class="mono" style="color:var(--lime)">$${'AS'} ${asNum(row.netWorth)}</b></div>`
+      board.innerHTML = rows.slice(0, 5).map(line).join('') + (total > 5 ? `<div class="tiny" style="margin-top:8px">+${total - 5} trader lain — lihat semua di halaman UMI TRADE.</div>` : '')
+    } catch (error) {
+      sesBox.className = 'tag'
+      sesBox.textContent = '⚠️ status pasar belum bisa dimuat'
+      stats.innerHTML = ''
+      board.innerHTML = '<div class="tiny">Papan peringkat belum tersedia.</div>'
+    }
+  }
+  loadTrade()
+
+  const grid = $('gameGrid')
+  for (const [key, g] of Object.entries(GAME_INFO)) {
+    const d = document.createElement('button')
+    d.type = 'button'
+    d.className = 'glass gcard' + (key === gameKey ? ' sel' : '')
+    d.style.setProperty('--accent', g.accent)
+    d.setAttribute('aria-pressed', key === gameKey ? 'true' : 'false')
+    d.innerHTML = '<div class="gimg"><img src="' + g.img + '" alt="' + esc(g.label) + '" loading="lazy"></div><div class="em">' + g.emoji + '</div><b>' + esc(g.label) + '</b><span>' + esc(g.desc) + '</span>'
+      + '<div class="meta"><span class="tag">👥 ' + g.min + (g.min === g.max ? '' : '–' + g.max) + '</span><span class="tag cmd">' + PREFIX + esc(g.cmd) + '</span></div>'
+    d.onclick = () => {
+      gameKey = key
+      document.querySelectorAll('.gcard').forEach(x => { x.classList.remove('sel'); x.setAttribute('aria-pressed', 'false') })
+      d.classList.add('sel'); d.setAttribute('aria-pressed', 'true')
+    }
+    grid.appendChild(d)
+  }
+
+  $('crForm').onsubmit = async (e) => {
+    e.preventDefault()
+    showErr('crErr', '')
+    const btn = $('crBtn')
+    btn.disabled = true
+    try {
+      const out = await api('/api/rooms', { game: gameKey, name: $('crName').value.trim(), number: $('crNumber').value.trim(), verifyNumber: $('crVerify').value.trim() })
+      localStorage.setItem('umi-game-' + out.roomId, out.token)
+      location.href = out.url
+    } catch (err) { showErr('crErr', err.message); btn.disabled = false }
+  }
+
+  $('jnForm').onsubmit = async (e) => {
+    e.preventDefault()
+    showErr('jnErr', '')
+    const btn = $('jnBtn')
+    btn.disabled = true
+    try {
+      const raw = $('jnRoom').value.trim()
+      const m = raw.match(/([A-Za-z0-9]{10})(?:[/?#].*)?$/) || raw.match(/\/([A-Za-z0-9]{10})/)
+      const id = m ? m[1] : raw
+      if (!/^[A-Za-z0-9]{10}$/.test(id)) throw new Error('ID room harus 10 huruf/angka. Tempel tautan lengkapnya saja.')
+      const gm = (raw.match(/\/(uno|unoflip|chess|snakes|monopoly|empire|werewolf)\//) || [])[1]
+      const code = $('jnCode').value.trim()
+      if (code) {
+        const out = await api('/api/rooms/' + id + '/enter', { entryCode: code })
+        localStorage.setItem('umi-game-' + id, out.token)
+      }
+      location.href = '/' + (gm || 'uno') + '/' + id
+    } catch (err) { showErr('jnErr', err.message); btn.disabled = false }
+  }
+
+  api('/health').then(h => {
+    if (h.openJoinDefault) {
+      $('lobbyNotice').innerHTML = '<div class="notice warn"><b>Mode masuk bebas sedang aktif.</b> Kursi bisa langsung diduduki tanpa verifikasi WhatsApp — biasanya karena bot utama sedang offline. Kalau bot sudah online lagi, verifikasi berjalan normal.</div>'
+    }
+  }).catch(() => {})
+}
+
+/* ============================== ROOM ============================== */
+if (isRoom) {
+  if (gameKey === 'empire') document.body.classList.add('empire-room')
+  $('lobby').classList.add('hidden')
+  $('roomView').classList.remove('hidden')
+  const info = GAME_INFO[gameKey]
+  $('rmEmoji').textContent = info.emoji
+  if (info.img) {
+    const rb = $('rmBannerImg')
+    rb.src = info.img
+    rb.alt = info.label + ' — ' + info.desc
+    $('rmBanner').hidden = false
+  }
+  $('rmTitle').textContent = info.label
+  $('rmSub').textContent = info.desc + ' · ' + info.min + (info.min === info.max ? ' pemain' : '–' + info.max + ' pemain')
+  $('rmId').textContent = roomId
+
+  $('copyBtn').onclick = async () => {
+    const link = location.origin + '/' + gameKey + '/' + roomId
+    try {
+      await navigator.clipboard.writeText(link)
+      toast('Tautan room disalin.', 'good')
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = link; document.body.appendChild(ta); ta.select()
+      try { document.execCommand('copy'); toast('Tautan room disalin.', 'good') }
+      catch { prompt('Salin tautan ini:', link) }
+      ta.remove()
+    }
+  }
+
+  let streamRetry = null
+  async function openStream() {
+    // EventSource tidak bisa mengirim header, jadi kursi ditukar dengan tiket
+    // stream berumur pendek lewat header; token kursi tidak pernah masuk URL.
+    const grant = await api('/api/rooms/' + roomId + '/stream-ticket', {})
+    if (!grant || !grant.ticket) throw new Error('Tidak bisa membuka stream.')
+    es = new EventSource('/api/rooms/' + roomId + '/events?ticket=' + encodeURIComponent(grant.ticket))
+    es.onopen = () => setConn('on')
+    es.onmessage = (ev) => {
+      try { myState = JSON.parse(ev.data); render() } catch {}
+      if (myState === null) fatalRoom()
+    }
+    es.onerror = async () => {
+      setConn('off')
+      try {
+        const s = await api('/api/rooms/' + roomId + '/state')
+        if (s && s.error) return fatalRoom(s.error)
+        myState = s; render()
+      } catch (e) {
+        if (/tidak ditemukan|not found/i.test(e.message)) return fatalRoom(e.message)
+      }
+      clearTimeout(streamRetry)
+      streamRetry = setTimeout(() => { if (!document.hidden) connect() }, 4000)
+    }
+  }
+  function connect() {
+    if (es) { try { es.close() } catch {} es = null }
+    openStream().catch(() => setConn('off'))
+  }
+  function fatalRoom(msg) {
+    setConn('off')
+    $('verifyBox').innerHTML = '<h2>😕 Room tidak ada</h2><p class="sub">' + esc(msg || 'Room ini sudah ditutup atau tautannya salah. Meja yang tidak dipakai lebih dari 6 jam dibersihkan otomatis.') + '</p><a class="btn btn-pri" href="/">Buat room baru</a>'
+    $('gameArea').innerHTML = ''
+  }
+
+  async function act(action, quiet) {
+    try { await api('/api/rooms/' + roomId + '/action', { token, action }); return true }
+    catch (e) { if (!quiet) toast(e.message, 'bad'); return false }
+  }
+  window.act = act
+
+  $('chatForm').onsubmit = async (e) => {
+    e.preventDefault()
+    const text = $('chatInput').value.trim()
+    if (!text) return
+    const okSend = await act({ type:'chat', text }, true)
+    if (okSend) $('chatInput').value = ''
+    else toast('Pesan belum terkirim — kamu perlu duduk di meja dulu.', 'bad')
+  }
+
+  function noticeFor(s) {
+    const box = $('roomNotice')
+    const out = []
+    if (s.openJoin) {
+      out.push('<div class="notice warn"><b>Mode masuk bebas aktif.</b> Pemain boleh duduk tanpa verifikasi WhatsApp — biasanya karena bot utama sedang offline. Siapa pun yang punya tautan ini bisa ikut main.</div>')
+    }
+    box.innerHTML = out.join('')
+  }
+
+  /* Panel verifikasi sengaja hanya dibangun ulang saat modenya berubah, supaya
+   * kode yang sedang diketik tidak hilang setiap ada siaran status baru. */
+  function verifyPanel(s, me) {
+    const box = $('verifyBox')
+    const cmd = waCommand(s)
+    const waTarget = (s.verifyNumber || BOT_WA).replace(/[^0-9]/g, '')
+    const waLink = 'https://wa.me/' + waTarget + '?text=' + encodeURIComponent(cmd)
+    let mode
+    if (me && me.status === 'verified') mode = 'in'
+    else if (s.openJoin) mode = 'open'
+    else if (me && me.status === 'pending') mode = 'pending'
+    else mode = 'locked'
+
+    if (mode !== panelMode) {
+      panelMode = mode
+      if (mode === 'in') {
+        box.innerHTML = '<h2>✅ Kamu sudah duduk</h2><p class="sub" style="margin:0">Sebagai <b>' + esc(me.name) + '</b>. ' + (s.status === 'lobby' ? 'Tunggu pemain lain, lalu host menekan MULAI.' : 'Game sedang berjalan — selamat main!') + '</p>'
+      } else if (mode === 'open') {
+        box.innerHTML = '<h2>🪑 Duduk di meja</h2>'
+          + '<p class="sub">Mode masuk bebas aktif, jadi cukup isi nama dan nomor WhatsApp-mu.</p>'
+          + '<form id="clForm" class="row"><input id="clName" placeholder="nama kamu" maxlength="24" class="grow" style="max-width:200px"><input id="clNum" placeholder="628xxxxxxxxxx" inputmode="numeric" class="grow" style="max-width:210px"><button class="btn btn-pri" type="submit">Duduk</button></form>'
+          + '<div class="err" id="claimErr"></div>'
+        $('clForm').onsubmit = (e) => {
+          e.preventDefault()
+          showErr('claimErr', '')
+          api('/api/rooms/' + roomId + '/claim', { name: $('clName').value.trim(), number: $('clNum').value.trim() })
+            .then(out => { token = out.token; localStorage.setItem('umi-game-' + roomId, token); connect(); panelMode = '' })
+            .catch(err => showErr('claimErr', err.message))
+        }
+      } else if (mode === 'pending') {
+        const botLabel = s.verifyNumber ? 'jadibot ' + s.verifyNumber.replace(/(\d{4})\d+(\d{4})/, '$1…$2') : 'bot Umi'
+        box.innerHTML = '<h2>⏳ Kursimu menunggu verifikasi</h2>'
+          + '<p class="sub">Kirim pesan ini ke ' + botLabel + ' di WhatsApp, lalu masukkan kode masuk 6 digit yang dibalas bot.</p>'
+          + '<p><code class="cmd">' + esc(cmd) + '</code></p>'
+          + '<p><a class="btn btn-lime btn-sm" target="_blank" rel="noopener" href="' + waLink + '">Buka WhatsApp ↗</a></p>'
+          + '<form id="codeForm" class="row"><input id="codeIn" inputmode="numeric" maxlength="6" placeholder="kode masuk" style="max-width:170px" autocomplete="one-time-code"><button class="btn btn-pri" type="submit">Duduk di meja</button></form>'
+          + '<div class="err" id="codeErr"></div>'
+        $('codeForm').onsubmit = (e) => {
+          e.preventDefault()
+          showErr('codeErr', '')
+          api('/api/rooms/' + roomId + '/enter', { entryCode: $('codeIn').value.trim() })
+            .then(out => { token = out.token; localStorage.setItem('umi-game-' + roomId, token); connect(); panelMode = '' })
+            .catch(err => showErr('codeErr', err.message))
+        }
+      } else {
+        const botLabelLk = s.verifyNumber ? 'jadibot ' + s.verifyNumber.replace(/(\d{4})\d+(\d{4})/, '$1…$2') : 'bot Umi'
+        box.innerHTML = '<h2>🔐 Verifikasi WhatsApp dulu</h2>'
+          + '<p class="sub">1) Kirim pesan ini ke ' + botLabelLk + ':</p><p><code class="cmd">' + esc(cmd) + '</code></p>'
+          + '<p><a class="btn btn-lime btn-sm" target="_blank" rel="noopener" href="' + waLink + '">Buka WhatsApp ↗</a></p>'
+          + '<p class="sub">2) Bot membalas <b>kode masuk 6 digit</b>. Masukkan di sini:</p>'
+          + '<form id="codeForm" class="row"><input id="codeIn" inputmode="numeric" maxlength="6" placeholder="kode masuk" style="max-width:170px" autocomplete="one-time-code"><button class="btn btn-pri" type="submit">Duduk di meja</button></form>'
+          + '<div class="err" id="codeErr"></div>'
+          + '<p class="sub" style="margin-top:14px">Atau minta kursi dulu (tetap harus verifikasi setelahnya):</p>'
+          + '<form id="clForm" class="row"><input id="clName" placeholder="nama" maxlength="24" style="max-width:170px"><input id="clNum" placeholder="628xxxxxxxxxx" inputmode="numeric" style="max-width:190px"><button class="btn" type="submit">Minta kursi</button></form>'
+          + '<div class="err" id="claimErr"></div>'
+        $('codeForm').onsubmit = (e) => {
+          e.preventDefault()
+          showErr('codeErr', '')
+          api('/api/rooms/' + roomId + '/enter', { entryCode: $('codeIn').value.trim() })
+            .then(out => { token = out.token; localStorage.setItem('umi-game-' + roomId, token); connect(); panelMode = '' })
+            .catch(err => showErr('codeErr', err.message))
+        }
+        $('clForm').onsubmit = (e) => {
+          e.preventDefault()
+          showErr('claimErr', '')
+          api('/api/rooms/' + roomId + '/claim', { name: $('clName').value.trim(), number: $('clNum').value.trim() })
+            .then(out => { token = out.token; localStorage.setItem('umi-game-' + roomId, token); connect(); panelMode = '' })
+            .catch(err => showErr('claimErr', err.message))
+        }
+      }
+    }
+  }
+
+  function render() {
+    const s = myState
+    if (!s) return
+    const me = s.viewer >= 0 ? s.seats[s.viewer] : null
+    noticeFor(s)
+    verifyPanel(s, me)
+
+    const turnIdx = (s.state && s.game !== 'werewolf' && s.game !== 'chess') ? s.state.turn : (s.game === 'chess' && s.state ? (s.state.turn === 'w' ? 0 : 1) : -1)
+    $('seatList').innerHTML = s.seats.length ? s.seats.map(seat => {
+      let meta = ''
+      if (s.state) {
+        if (s.game === 'monopoly') meta = 'Rp' + s.state.cash[seat.i]
+        else if (s.game === 'empire') meta = s.state.players[seat.i] ? 'Rp' + Math.round(s.state.players[seat.i].cash) : ''
+        else if (s.game === 'uno' || s.game === 'unoflip') meta = s.state.counts[seat.i] + ' kartu'
+        else if (s.game === 'snakes') meta = 'kotak ' + s.state.pos[seat.i]
+      }
+      const alive = !(s.state && s.state.alive && !s.state.alive[seat.i])
+      const badge = seat.kind === 'ai' ? '🤖' : seat.status === 'verified' ? '✅' : '⏳'
+      return '<span class="seat' + (turnIdx === seat.i && s.status === 'playing' ? ' turn' : '') + (alive ? '' : ' dead') + '">'
+        + '<span class="av">' + (seat.kind === 'ai' ? '🤖' : esc(seat.name.slice(0, 1).toUpperCase())) + '</span>'
+        + '<span><span class="nm">' + badge + ' ' + esc(seat.name) + (seat.you ? ' (kamu)' : '') + '</span>'
+        + (meta ? '<span class="mt">' + esc(meta) + '</span>' : '') + '</span></span>'
+    }).join('') : '<span class="tiny">Belum ada yang duduk.</span>'
+
+    const hc = $('hostControls')
+    if (s.viewer === 0 && s.status === 'lobby') {
+      const g = GAME_INFO[s.game]
+      const ready = s.seats.filter(x => x.kind === 'ai' || x.status === 'verified').length
+      hc.innerHTML = '<div class="notice ' + (ready >= g.min ? 'good' : 'warn') + '" style="margin:12px 0">Kamu host. Siap main: <b>' + ready + '</b> dari minimal <b>' + g.min + '</b>.</div>'
+        + '<label><span>Jumlah pemain kalau diisi bot AI</span><select id="tgtPlayers">'
+        + Array.from({ length: g.max - g.min + 1 }, (_, k) => g.min + k).map(n => '<option value="' + n + '"' + (n === Math.max(g.min, 3) ? ' selected' : '') + '>' + n + ' orang</option>').join('')
+        + '</select></label>'
+        + '<div class="row"><button class="btn btn-pri" id="startFill" type="button">▶ Mulai + bot AI</button>'
+        + '<button class="btn" id="startPure" type="button">Mulai tanpa bot</button>'
+        + '<button class="btn btn-sm" id="addBotBtn" type="button">+1 bot</button></div>'
+        + '<div class="row" style="margin-top:12px"><button class="btn btn-sm btn-ghost" id="ojBtn" type="button">' + (s.openJoin ? '🔐 Wajibkan verifikasi WA' : '🔓 Izinkan masuk tanpa verifikasi') + '</button></div>'
+      $('startFill').onclick = () => act({ type:'start', fillBots:true, targetPlayers:Number($('tgtPlayers').value) })
+      $('startPure').onclick = () => act({ type:'start', fillBots:false })
+      $('addBotBtn').onclick = () => act({ type:'addbot' })
+      $('ojBtn').onclick = () => act({ type:'openjoin', value:!s.openJoin })
+    } else if (s.status === 'lobby') {
+      hc.innerHTML = '<p class="tiny" style="margin:10px 0 0">Menunggu host memulai game…</p>'
+    } else if (s.status === 'finished') {
+      hc.innerHTML = '<div class="notice" style="margin-top:12px">🏁 Selesai. <a href="/">Buat room baru</a> atau kirim <b class="mono">' + PREFIX + esc(GAME_INFO[s.game].cmd) + '</b> ke bot.</div>'
+    } else hc.innerHTML = ''
+
+    const lb = $('logBox')
+    lb.innerHTML = s.log.map(t => '<div>' + esc(t) + '</div>').join('')
+    stickBottom(lb)
+    const cb = $('chatBox')
+    cb.innerHTML = s.chat.length ? s.chat.map(c => '<div><b>' + esc(c.name) + ':</b> ' + esc(c.text) + '</div>').join('') : '<div class="tiny">Belum ada pesan.</div>'
+    stickBottom(cb)
+    renderGame(s, me)
+  }
+
+  function renderGame(s, me) {
+    const A = $('gameArea')
+    if (s.status === 'lobby') {
+      A.innerHTML = '<h2>🎲 ' + esc(GAME_INFO[s.game].label) + '</h2><p class="sub">Game belum dimulai. Undang teman lewat tautan room, pastikan kursinya ✅ siap, lalu host menekan <b>Mulai</b>. Kursi kosong boleh diisi bot AI.</p>'
+      return
+    }
+    if (s.game === 'uno' || s.game === 'unoflip') return renderUno(A, s)
+    if (s.game === 'chess') return renderChess(A, s)
+    if (s.game === 'snakes') return renderSnakes(A, s)
+    if (s.game === 'monopoly') return renderMonopoly(A, s)
+    if (s.game === 'empire') return renderEmpire(A, s)
+    if (s.game === 'werewolf') return renderWerewolf(A, s)
+  }
+
+  /* Label pendek di wajah kartu (biar mirip kartu UNO asli) */
+  const UNO_SHORT = { skip:'⊘', skipAll:'⊘⊘', rev:'⇄', flip:'⟲', '+2':'+2', '+4':'+4', '+5':'+5', wild:'WILD' }
+  const UNO_FULL = { skip:'Skip — lawan kehilangan giliran', skipAll:'Skip semua lawan', rev:'Reverse — arah putar balik',
+    flip:'Flip — ganti sisi terang/gelap', '+2':'Tambah 2 kartu', '+4':'Wild +4', '+5':'Tambah 5 kartu',
+    wild:'Wild — pilih warna' }
+  function renderUno(A, s) {
+    const st = s.state
+    const over = st.winner !== null && st.winner !== undefined
+    const myTurn = !over && st.turn === s.viewer
+    const sideKey = st.side === 'dark' ? 1 : 0
+    const top = st.top
+    const topC = top ? (sideKey ? top.d : top.l) : null
+    const topKey = topC ? topC[0] + ':' + topC[1] : ''
+    const topChanged = changed('uno-top:' + s.roomId, topKey)
+    if (topChanged) SFX.card()
+    let html = '<h2>' + GAME_INFO[s.game].emoji + ' ' + esc(GAME_INFO[s.game].label)
+      + (s.game === 'unoflip' ? ' — sisi ' + (st.side === 'dark' ? '🌙 gelap' : '☀️ terang') : '') + '</h2>'
+    if (over) html += '<div class="notice good">🏆 <b>' + esc(s.seats[st.winner] ? s.seats[st.winner].name : 'Pemain') + '</b> menang — kartunya habis!</div>'
+    else html += '<p class="sub">Giliran <b>' + esc(s.seats[st.turn] ? s.seats[st.turn].name : '—') + '</b> · warna aktif <b>' + (COLOR_NAME[st.color] || st.color || '—') + '</b> · sisa deck ' + st.deckCount + '</p>'
+    html += '<div class="topcard-wrap"><div><div class="tiny" style="margin-bottom:4px">Kartu atas</div>'
+      + (top ? '<span class="unocard topcard' + (topChanged ? ' anim-pop' : '') + ' c-' + topC[0] + '" title="' + esc(UNO_FULL[topC[1]] || topC[1]) + '"><b class="lab' + ((UNO_SHORT[topC[1]] || topC[1]).length > 2 ? ' sm' : '') + '">' + esc(UNO_SHORT[topC[1]] || topC[1]) + '</b><small>' + (COLOR_NAME[topC[0]] || '') + '</small></span>' : '<span class="tiny">—</span>')
+      + '</div></div>'
+    if (s.viewer >= 0) {
+      html += '<h3>Kartumu (' + st.hand.length + ')</h3>'
+      if (myTurn && s.game === 'unoflip') {
+        html += '<div class="row" style="margin:4px 0 10px"><span class="tiny">Warna untuk wild:</span>'
+          + ['red','yellow','green','blue','purple','pink','orange','teal'].map(c => '<button class="colorpick c-' + c + (selColor === c ? ' on' : '') + '" data-color="' + c + '" type="button" title="' + COLOR_NAME[c] + '" aria-label="' + COLOR_NAME[c] + '"></button>').join('')
+          + '<b id="selName">' + COLOR_NAME[selColor] + '</b></div>'
+      } else if (myTurn) {
+        html += '<div class="row" style="margin:4px 0 10px"><span class="tiny">Warna untuk wild:</span>'
+          + ['red','yellow','green','blue'].map(c => '<button class="colorpick c-' + c + (selColor === c ? ' on' : '') + '" data-color="' + c + '" type="button" title="' + COLOR_NAME[c] + '" aria-label="' + COLOR_NAME[c] + '"></button>').join('')
+          + '<b id="selName">' + COLOR_NAME[selColor] + '</b></div>'
+      }
+      html += '<div class="handwrap">' + (st.hand.length ? st.hand.map((card, i) => {
+        const cd = sideKey ? card.d : card.l
+        const lab = UNO_SHORT[cd[1]] || cd[1]
+        return '<button class="unocard c-' + cd[0] + (myTurn ? '' : ' no') + '" data-card="' + i + '" type="button" title="' + esc(UNO_FULL[cd[1]] || cd[1]) + '"><b class="lab' + (lab.length > 2 ? ' sm' : '') + '">' + esc(lab) + '</b><small>' + (COLOR_NAME[cd[0]] || '') + '</small></button>'
+      }).join('') : '<span class="tiny">Kartumu habis.</span>') + '</div>'
+      if (myTurn) html += '<div class="row" style="margin-top:14px"><button class="btn" id="drawBtn" type="button">🃏 Ambil kartu &amp; lewati</button></div>'
+    } else html += '<p class="sub">Kamu penonton. Duduk di meja untuk ikut main.</p>'
+    A.innerHTML = html
+    /* Pilih warna cukup mengganti penanda, tanpa membangun ulang seluruh meja —
+     * rebuild penuh bikin kartu berkedip tiap kali warna dipilih. */
+    A.querySelectorAll('[data-color]').forEach(b => b.onclick = () => {
+      selColor = b.dataset.color
+      A.querySelectorAll('[data-color]').forEach(x => x.classList.toggle('on', x === b))
+      const n = $('selName'); if (n) n.textContent = COLOR_NAME[selColor]
+    })
+    A.querySelectorAll('[data-card]').forEach(b => b.onclick = () => { if (myTurn) { SFX.card(); act({ type:'play', card:Number(b.dataset.card), color:selColor }) } else SFX.click() })
+    const d = $('drawBtn'); if (d) d.onclick = () => { SFX.card(); act({ type:'draw' }) }
+    celebrate(s)
+  }
+
+  const CH = { k:'king', q:'queen', r:'rook', b:'bishop', n:'knight', p:'pawn' }  // berkas bidak PNG di /assets/pieces/chess
+  function renderChess(A, s) {
+    const st = s.state
+    const myColor = s.viewer === 0 ? 'w' : s.viewer === 1 ? 'b' : null
+    const over = st.winner !== null && st.winner !== undefined
+    const myTurn = !!myColor && !over && st.turn === myColor
+    if (!myTurn) chessSel = -1
+    const hints = {}
+    if (chessSel >= 0 && st.legal) st.legal.filter(m => m.from === chessSel).forEach(m => { hints[m.to] = true })
+    const moveKey = st.lastMove ? st.lastMove.join('-') : ''
+    const moved = changed('chess-move:' + s.roomId, moveKey)
+    if (moved && moveKey) { SFX.move(); setTimeout(() => SFX.click(), 90) }
+    let html = '<h2>♟️ Catur</h2>'
+    if (st.winner === 'draw') html += '<div class="notice">🤝 Seri (stalemate).</div>'
+    else if (over) html += '<div class="notice good">🏆 <b>' + esc(s.seats[st.winner] ? s.seats[st.winner].name : 'Pemain') + '</b> menang skakmat!</div>'
+    else html += '<p class="sub">Giliran <b>' + (st.turn === 'w' ? '⚪ Putih — ' + esc(s.seats[0] ? s.seats[0].name : '') : '⚫ Hitam — ' + esc(s.seats[1] ? s.seats[1].name : '')) + '</b>'
+      + (myTurn ? ' · <span style="color:var(--lime)">klik bidakmu, lalu kotak tujuan</span>' : '') + '</p>'
+    html += '<div class="board">'
+    for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) {
+      const i = y * 8 + x
+      const p = st.board[i]
+      const last = st.lastMove && (st.lastMove[0] === i || st.lastMove[1] === i)
+      html += '<div class="sq ' + ((x + y) % 2 ? 'dk' : 'lt') + (chessSel === i ? ' sel' : '') + (hints[i] ? ' hint' : '') + (last ? ' last' : '') + '" data-sq="' + i + '">'
+        + (p ? '<span class="' + (p.c === 'w' ? 'pw' : 'pb') + '"><img class="pc' + (moved && st.lastMove && st.lastMove[1] === i ? ' anim-slide' : '') + '" src="/assets/pieces/chess/' + p.t + '-' + p.c + '.png" alt="' + (p.c === 'w' ? 'putih ' : 'hitam ') + CH[p.t] + '" draggable="false"></span>' : '') + '</div>'
+    }
+    html += '</div>'
+    html += '<h3>Riwayat langkah</h3><div class="log" style="max-height:130px">'
+      + (st.history.length ? st.history.map(t => '<div>' + esc(t) + '</div>').join('') : '<div class="tiny">Belum ada langkah.</div>') + '</div>'
+    A.innerHTML = html
+    celebrate(s)
+    A.querySelectorAll('[data-sq]').forEach(el => el.onclick = () => {
+      if (!myTurn) return toast('Bukan giliranmu.', 'bad')
+      const sq = Number(el.dataset.sq)
+      const p = st.board[sq]
+      if (chessSel >= 0 && hints[sq]) { SFX.move(); act({ type:'move', from:chessSel, to:sq }); chessSel = -1; return }
+      if (p && p.c === myColor) { SFX.click(); chessSel = sq; render() }
+      else if (p) toast('Itu bidak lawan.', 'bad')
+    })
+  }
+
+  /* ============================================================
+   * ULAR TANGGA — papan bergambar (SVG asli, bukan emoji)
+   * ============================================================ */
+  const SNK_GREEN = ['#3fae6a','#2f9e5f','#57b84a','#2f8f7a','#4aa35b','#3d9a4e','#48a86b','#35945a']
+  const SNK_LADDER = '#c9973f'
+
+  /* nomor → koordinat tengah kotak (papan ular tangga: 1 kiri-bawah, zig-zag) */
+  function snkCell(n) {
+    const i = Math.max(1, Math.min(100, n)) - 1
+    const row = Math.floor(i / 10), col = i % 10
+    const c = row % 2 === 0 ? col : 9 - col
+    return { x: c * 100 + 50, y: (9 - row) * 100 + 50, row, col: c }
+  }
+  function snkLite(hex, amt) {
+    const n = parseInt(hex.slice(1), 16)
+    const r = Math.min(255, Math.max(0, (n >> 16) + amt))
+    const g = Math.min(255, Math.max(0, ((n >> 8) & 255) + amt))
+    const b = Math.min(255, Math.max(0, (n & 255) + amt))
+    return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')
+  }
+
+  function snkLadder(from, to) {
+    const a = snkCell(from), b = snkCell(to)
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1
+    const ux = dx / len, uy = dy / len, px = -uy, py = ux
+    const off = 13
+    let rungs = '', rails = ''
+    for (let d = 16; d < len - 8; d += 33) {
+      const cx = a.x + ux * d, cy = a.y + uy * d
+      rungs += `<line x1="${(cx - px * off).toFixed(1)}" y1="${(cy - py * off).toFixed(1)}" x2="${(cx + px * off).toFixed(1)}" y2="${(cy + py * off).toFixed(1)}" stroke="#7a4d15" stroke-width="8" stroke-linecap="round"/>`
+      rungs += `<line x1="${(cx - px * off).toFixed(1)}" y1="${(cy - py * off).toFixed(1)}" x2="${(cx + px * off).toFixed(1)}" y2="${(cy + py * off).toFixed(1)}" stroke="#f0c674" stroke-width="4.5" stroke-linecap="round"/>`
+    }
+    for (const sgn of [-1, 1]) {
+      const ax = a.x + px * off * sgn, ay = a.y + py * off * sgn
+      const bx = b.x + px * off * sgn, by = b.y + py * off * sgn
+      rails += `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="rgba(0,0,0,.35)" stroke-width="11" stroke-linecap="round" transform="translate(2,4)"/>`
+      rails += `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="#7a4d15" stroke-width="10" stroke-linecap="round"/>`
+      rails += `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="#e8bb6f" stroke-width="6.5" stroke-linecap="round"/>`
+    }
+    return `<g class="snk-ladder">${rungs}${rails}</g>`
+  }
+
+  function snkSnake(from, to, idx) {
+    const a = snkCell(from), b = snkCell(to)
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1
+    const ux = dx / len, uy = dy / len, px = -uy, py = ux
+    const dir = idx % 2 ? 1 : -1
+    const amp = Math.min(140, Math.max(55, len * 0.26)) * dir
+    const c1x = a.x + dx * 0.28 + px * amp, c1y = a.y + dy * 0.28 + py * amp
+    const c2x = a.x + dx * 0.72 - px * amp * 0.8, c2y = a.y + dy * 0.72 - py * amp * 0.8
+    const d = `M ${a.x} ${a.y} C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${b.x} ${b.y}`
+    const col = SNK_GREEN[idx % SNK_GREEN.length]
+    const eye = (sx, sy) => `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="6.2" fill="#fdfdf5" stroke="rgba(0,0,0,.35)" stroke-width="1"/>
+      <circle cx="${(sx + ux * 1.6).toFixed(1)}" cy="${(sy + uy * 1.6).toFixed(1)}" r="3.1" fill="#132a1c"/>
+      <circle cx="${(sx + ux * 1.6 - .8).toFixed(1)}" cy="${(sy + uy * 1.6 - .8).toFixed(1)}" r="1" fill="#fff"/>`
+    const e1 = eye(a.x + ux * 5 + px * 8, a.y + uy * 5 + py * 8)
+    const e2 = eye(a.x + ux * 5 - px * 8, a.y + uy * 5 - py * 8)
+    /* lidah bercabang ke arah luar (berlawanan badan) */
+    const tx = a.x - ux * 24, ty = a.y - uy * 24
+    const t1x = a.x - ux * 30 + px * 9, t1y = a.y - uy * 30 + py * 9
+    const t2x = a.x - ux * 30 - px * 9, t2y = a.y - uy * 30 - py * 9
+    return `<g class="snk-snake">
+      <path d="${d}" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="30" stroke-linecap="round" transform="translate(4,6)"/>
+      <path d="${d}" fill="none" stroke="#0f3d24" stroke-width="31" stroke-linecap="round"/>
+      <path class="body" d="${d}" fill="none" stroke="${col}" stroke-width="25" stroke-linecap="round"/>
+      <path d="${d}" fill="none" stroke="${snkLite(col, 45)}" stroke-width="7" stroke-linecap="round" stroke-dasharray="3 26" opacity=".7"/>
+      <line x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}" stroke="#c2185b" stroke-width="3.4" stroke-linecap="round"/>
+      <line x1="${tx.toFixed(1)}" y1="${ty.toFixed(1)}" x2="${t1x.toFixed(1)}" y2="${t1y.toFixed(1)}" stroke="#c2185b" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="${tx.toFixed(1)}" y1="${ty.toFixed(1)}" x2="${t2x.toFixed(1)}" y2="${t2y.toFixed(1)}" stroke="#c2185b" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="${a.x}" cy="${a.y}" r="22" fill="${col}" stroke="#0f3d24" stroke-width="3"/>
+      <ellipse cx="${(a.x + ux * 6).toFixed(1)}" cy="${(a.y + uy * 6).toFixed(1)}" rx="9" ry="6" fill="${snkLite(col, 26)}" opacity=".75"/>
+      ${e1}${e2}
+    </g>`
+  }
+
+  function renderSnakes(A, s) {
+    const st = s.state
+    const over = st.winner !== null && st.winner !== undefined
+    const myTurn = !over && st.turn === s.viewer
+    const cols = ['#7ee787','#7fd3f7','#ffd166','#f78fb3','#c792ea','#ffa94d','#63e6be','#ff8787','#a5b4fc','#f9e79f','#9ae6b4','#f5b7b1']
+
+    let svg = `<svg class="snk-svg" viewBox="0 0 1000 1000" role="img" aria-label="Papan ular tangga 100 kotak">
+      <defs>
+        <linearGradient id="snkPaper" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f7f1df"/><stop offset=".55" stop-color="#efe6cf"/><stop offset="1" stop-color="#e6dcc0"/>
+        </linearGradient>
+        <linearGradient id="snkFrame" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#d8ae62"/><stop offset="1" stop-color="#a9772f"/>
+        </linearGradient>
+        <pattern id="snkWeave" width="16" height="16" patternUnits="userSpaceOnUse">
+          <path d="M0 8h16M8 0v16" stroke="#000" stroke-opacity=".035" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1000" height="1000" fill="url(#snkPaper)"/>
+      <rect width="1000" height="1000" fill="url(#snkWeave)"/>`
+
+    /* kotak */
+    for (let n = 1; n <= 100; n++) {
+      const c = snkCell(n)
+      const x = c.col * 100, y = (9 - c.row) * 100
+      const isLad = !!st.ladders[n], isSnk = !!st.snakes[n]
+      const PAL = ['#ffe1e7', '#ffeccb', '#fff7c4', '#ddf6d2', '#d2efff', '#e7e0ff', '#ffe0f3', '#d4f6ef']
+      let fill = PAL[(c.row * 3 + c.col) % PAL.length]
+      if (n === 1) fill = '#c9f0d0'
+      if (n === 100) fill = '#ffe08a'
+      svg += `<g class="snk-cell" data-n="${n}">
+        <rect x="${x + 1.5}" y="${y + 1.5}" width="97" height="97" rx="7" fill="${fill}" stroke="rgba(60,45,20,.28)" stroke-width="1.6"/>
+        <rect x="${x + 4.5}" y="${y + 4.5}" width="91" height="91" rx="5" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.2"/>
+        <text x="${x + 11}" y="${y + 28}" font-size="22" font-weight="900" fill="#4a3c22" opacity=".78">${n}</text>
+        ${n === 100 ? `<text x="${x + 50}" y="${y + 70}" font-size="40" text-anchor="middle">🏆</text>` : ''}
+        ${isLad ? `<text x="${x + 89}" y="${y + 91}" font-size="18" text-anchor="end" fill="#1c7a44" font-weight="900" stroke="#fffdf4" stroke-width="3.2" paint-order="stroke">▲${st.ladders[n]}</text>` : ''}
+        ${isSnk ? `<text x="${x + 89}" y="${y + 91}" font-size="18" text-anchor="end" fill="#b3263a" font-weight="900" stroke="#fffdf4" stroke-width="3.2" paint-order="stroke">▼${st.snakes[n]}</text>` : ''}
+      </g>`
+    }
+
+    /* tangga & ular */
+    svg += '<g class="snk-paths">'
+    for (const [from, to] of Object.entries(st.ladders)) svg += snkLadder(Number(from), to)
+    let k = 0
+    for (const [from, to] of Object.entries(st.snakes)) { svg += snkSnake(Number(from), to, k); k++ }
+    svg += '</g>'
+
+    /* pion pemain */
+    const groups = {}
+    st.pos.forEach((p, i) => { (groups[p] = groups[p] || []).push(i) })
+    const offs = [[-20, -24], [20, -24], [-20, 20], [20, 20], [0, -38], [0, 30]]
+    st.pos.forEach((p, i) => {
+      const seat = s.seats[i]
+      const joined = seat && (seat.kind === 'ai' || seat.status === 'verified')
+      if (!p && !joined) return
+      const c = snkCell(p)
+      const o = offs[(groups[p] || []).indexOf(i)] || [0, 0]
+      const isTurn = !over && st.turn === i
+      svg += `<g class="snk-pawn${isTurn ? ' on' : ''}" data-pawn="${i}" style="transform:translate(${(c.x + o[0] - 23).toFixed(1)}px,${(c.y + o[1] - 31).toFixed(1)}px)">
+        ${isTurn ? `<circle cx="23" cy="34" r="27" fill="${cols[i % cols.length]}" opacity=".28"/>` : ''}
+        <ellipse cx="23" cy="63" rx="15" ry="5" fill="rgba(20,30,25,.28)"/>
+        <image href="/assets/pieces/pawn/pawn-${(i % 12) + 1}.png" width="46" height="92" x="0" y="-30" preserveAspectRatio="xMidYMid meet" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))"/>
+        <circle cx="23" cy="66" r="10.5" fill="${cols[i % cols.length]}" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+        <text x="23" y="70" font-size="11.5" font-weight="900" text-anchor="middle" fill="#12211a">${i + 1}</text>
+      </g>`
+    })
+    svg += '</svg>'
+
+    let html = '<h2>🐍 Ular Tangga <span class="tiny" style="font-weight:500">papan 100 kotak</span></h2>'
+    if (over) html += '<div class="notice good">🏆 <b>' + esc(s.seats[st.winner] ? s.seats[st.winner].name : 'Pemain') + '</b> mencapai kotak 100!</div>'
+    else html += '<div class="row" style="align-items:center;gap:10px;margin:2px 0 6px">'
+      + (st.dice ? diceHTML(st.dice, changed('snk-dice:' + s.roomId, st.dice)) : '')
+      + '<span class="sub" style="margin:0">Giliran <b>' + esc(s.seats[st.turn] ? s.seats[st.turn].name : '—') + '</b> · lempar dadu 1–6, dapat 6 lempar lagi</span></div>'
+    if (st.dice && changed('snk-sound:' + s.roomId, st.dice)) SFX.dice()
+    html += '<div class="snakewrap">' + svg + '<div class="snk-legend"><span><i class="sw-lad"></i>' + Object.keys(st.ladders).length + ' tangga</span>'
+      + '<span><i class="sw-snk"></i>' + Object.keys(st.snakes).length + ' ular</span>'
+      + '<span><i class="sw-you"></i>pion giliran berkedip</span></div></div>'
+    html += '<div class="snk-players">' + s.seats.map((seat, i) =>
+      '<span class="snk-pchip' + (!over && st.turn === i ? ' now' : '') + '"><img src="/assets/pieces/pawn/pawn-' + ((i % 12) + 1) + '.png" alt="">'
+      + esc(seat.name) + ' <b>' + st.pos[i] + '</b></span>').join('') + '</div>'
+    if (myTurn) html += '<button class="btn btn-pri anim-glow" id="rollBtn" type="button"><img class="dice-ic" src="/assets/pieces/dice/dice-5.png" alt="">Lempar dadu</button>'
+    A.innerHTML = html
+
+    /* sisik ular ditempel di sepanjang badan */
+    A.querySelectorAll('.snk-snake .body').forEach(path => {
+      const g = path.parentNode
+      const total = path.getTotalLength()
+      const count = Math.max(6, Math.floor(total / 42))
+      for (let i = 1; i < count; i++) {
+        const pt = path.getPointAtLength(total * i / count)
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+        dot.setAttribute('cx', pt.x.toFixed(1))
+        dot.setAttribute('cy', pt.y.toFixed(1))
+        dot.setAttribute('r', i % 2 ? 4.6 : 6.4)
+        dot.setAttribute('fill', 'rgba(255,255,255,.26)')
+        g.insertBefore(dot, path.nextSibling)
+      }
+    })
+
+    /* animasi pion yang berpindah */
+    const posKey = st.pos.join(',')
+    if (changed('snk-pos:' + s.roomId, posKey)) {
+      A.querySelectorAll('.snk-pawn').forEach(g => g.classList.add('hop'))
+      setTimeout(() => SFX.hop(), 120)
+    }
+    const r = $('rollBtn'); if (r) r.onclick = () => { SFX.dice(); act({ type:'roll' }) }
+    celebrate(s)
+  }
+
+  /* ============================================================
+   * MONOPOLI — papan mirip asli (petak berkeliling + ikon gambar)
+   * ============================================================ */
+  const TILE_ICON = { prop:'/assets/pieces/ikon/rumah.png', go:'/assets/pieces/ikon/kereta.png',
+    chance:'/assets/pieces/ikon/kesempatan.png', tax:'/assets/pieces/ikon/pajak.png',
+    jail:'/assets/pieces/ikon/penjara.png', park:'/assets/pieces/ikon/parkir.png',
+    gotojail:'/assets/pieces/ikon/penjara.png' }
+  /* urutan petak: mulai kanan-bawah, mengelilingi papan seperti monopoli asli */
+  const MONO_GRID = [
+    [5,5],[5,4],[5,3],[5,2],[5,1],
+    [4,1],[3,1],[2,1],[1,1],
+    [1,2],[1,3],[1,4],[1,5],
+    [2,5],[3,5],[4,5],
+  ]
+  const MONO_BAND = {
+    1:'#8b5a2b', 3:'#7fd3f7', 5:'#d94ea6', 7:'#f28c28', 9:'#d7263d',
+    11:'#f5c518', 12:'#2e9e63', 14:'#2f5bd8', 15:'#1b2f8a',
+  }
+  const PLAYER_COLOR = ['#7ee787', '#7fd3f7', '#ffd166', '#f78fb3', '#c792ea', '#ffa94d',
+    '#63e6be', '#ff8787', '#a5b4fc', '#f9e79f', '#9ae6b4', '#f5b7b1']
+  function diceHTML(value, rolling) {
+    const pips = { 1:[4], 2:[0,8], 3:[0,4,8], 4:[0,2,6,8], 5:[0,2,4,6,8], 6:[0,2,3,5,6,8] }[value] || []
+    let cells = ''
+    for (let i = 0; i < 9; i++) cells += '<i class="' + (pips.indexOf(i) >= 0 ? 'on' : '') + '"></i>'
+    return '<span class="dice' + (rolling ? ' rolling' : '') + '" role="img" aria-label="dadu ' + (value || '?') + '">' + cells + '</span>'
+  }
+  let lastMonoPos = []
+  function renderMonopoly(A, s) {
+    const st = s.state
+    const over = st.winner !== null && st.winner !== undefined
+    const buying = st.pendingBuy === s.viewer
+    const myTurn = !over && (buying || st.turn === s.viewer)
+    const diceChanged = changed('mono-dice:' + s.roomId, st.dice)
+    if (diceChanged && st.dice) { SFX.dice(); setTimeout(() => SFX.hop(), 620) }
+    let html = '<h2>🏠 Monopoli <span class="tiny" style="font-weight:500">(versi ringkas)</span></h2>'
+    if (over) html += '<div class="notice good">🏆 <b>' + esc(s.seats[st.winner] ? s.seats[st.winner].name : 'Pemain') + '</b> jadi juragan terakhir!</div>'
+    else html += '<div class="row" style="align-items:center;gap:8px;margin:2px 0 4px">'
+      + (st.dice ? diceHTML(st.dice, diceChanged) : '')
+      + '<span class="sub" style="margin:0">Giliran <b>' + esc(s.seats[st.turn] ? s.seats[st.turn].name : '—') + '</b>'
+      + (s.viewer >= 0 ? ' · uangmu <b>Rp' + st.cash[s.viewer] + '</b>' : '') + '</span></div>'
+
+    html += '<div class="monoboard">'
+    st.tiles.forEach((tile, i) => {
+      const [r, c] = MONO_GRID[i] || [1, 1]
+      const here = st.pos.map((p, pi) => p === i && st.solvent[pi] ? pi : -1).filter(x => x >= 0)
+      const owner = st.owners[i]
+      const corner = i % 4 === 0
+      const band = MONO_BAND[i]
+      const icon = TILE_ICON[tile.type]
+      html += '<div class="mo-tile' + (corner ? ' corner' : '') + (here.length ? ' here' : '') + (owner >= 0 ? ' owner' : '')
+        + '" style="grid-area:' + r + '/' + c + ';--tc:' + (band || '#8b8b8b') + ';--own:' + (PLAYER_COLOR[owner] || '#7ee787') + '">'
+        + (band ? '<span class="band"></span>' : '')
+        + '<div class="nm">' + esc(tile.name) + '</div>'
+        + '<div class="ico">' + (icon ? '<img src="' + icon + '" alt="">' : '') + '</div>'
+        + '<div class="pr">' + (tile.type === 'prop' ? 'Rp' + tile.price : '') + '</div>'
+        + '<div class="pawns">' + here.map(pi => PIONS[pi].replace('<img class="pwn"', '<img data-pi="' + pi + '" class="pwn"')).join('') + '</div>'
+        + '</div>'
+    })
+    html += '<div class="mo-center"><div class="sm">UMI GAMES</div><div class="lg">MONOPOLI</div>'
+      + '<div class="cards"><img src="/assets/pieces/ikon/rumah.png" alt=""><img src="/assets/pieces/ikon/kereta.png" alt=""><img src="/assets/pieces/ikon/kesempatan.png" alt=""></div>'
+      + '<div class="sm">16 PETAK · 2–4 PEMAIN</div></div></div>'
+
+    if (s.viewer >= 0) {
+      html += '<div class="mo-legend">' + s.seats.map((seat, i) => (i === s.viewer || st.cash[i] === undefined ? '' :
+        '<span>' + PIONS[i] + esc(seat.name) + ' · Rp' + st.cash[i] + '</span>')).join('') + '</div>'
+    }
+    if (buying) {
+      const tile = st.tiles[st.pos[s.viewer]]
+      html += '<div class="notice warn anim-fade">Kamu mendarat di <b>' + esc(tile.name) + '</b> (Rp' + tile.price + '). Beli?</div>'
+        + '<div class="row" style="margin-top:12px"><button class="btn btn-lime" id="buyBtn" type="button">🏠 Beli</button><button class="btn" id="passBtn" type="button">Lewati</button></div>'
+    } else if (myTurn) html += '<button class="btn btn-pri" id="rollBtn" type="button"><img class="dice-ic" src="/assets/pieces/dice/dice-5.png" alt="">Lempar dadu</button>'
+    A.innerHTML = html
+
+    /* animasi pion hanya untuk yang benar-benar pindah */
+    A.querySelectorAll('.pawns img[data-pi]').forEach(img => {
+      const pi = Number(img.dataset.pi)
+      if (lastMonoPos[pi] !== undefined && lastMonoPos[pi] !== st.pos[pi]) img.classList.add('anim-hop')
+    })
+    lastMonoPos = st.pos.slice()
+    const r = $('rollBtn'); if (r) r.onclick = () => { SFX.dice(); act({ type:'roll' }) }
+    const b = $('buyBtn'); if (b) b.onclick = () => { SFX.card(); act({ type:'buy' }) }
+    const p = $('passBtn'); if (p) p.onclick = () => { SFX.click(); act({ type:'pass' }) }
+    A.querySelectorAll('.mo-tile').forEach(t => t.addEventListener('animationend', () => t.classList.remove('anim-hop')))
+    celebrate(s)
+  }
+
+  /* ==================== PROPERTY EMPIRE (multiplayer) ==================== */
+  const EMP_GROUP_COLOR = { brown:'#8b5a2b', cyan:'#7fd3f7', pink:'#d94ea6', orange:'#f28c28', red:'#d7263d', yellow:'#f5c518', green:'#2e9e63', blue:'#2f5bd8' }
+  const EMP_ICON = { go:'🏁', jail:'🚔', park:'🅿️', gotojail:'👮', chance:'❓', chest:'🎁', tax:'💸', railroad:'🚂', utility:'💡' }
+  let empPanel = ''
+  let empCardSeen = ''
+
+  function empRC(i) {
+    if (i <= 10) return [11, 11 - i, 'bottom']
+    if (i <= 20) return [21 - i, 1, 'left']
+    if (i <= 30) return [1, i - 19, 'top']
+    return [i - 29, 11, 'right']
+  }
+  const empRp = (v) => 'Rp' + Math.round(Number(v) || 0).toLocaleString('id-ID')
+  /* Titik pemenggalan untuk nama panjang di papan sempit (soft hyphen). */
+  const EMP_HYPH = { Kesempatan: 5, Komunitas: 4, Manggarai: 6, Penghasilan: 5, Kemayoran: 4, Kuningan: 6, Setiabudi: 5, Pancoran: 3, Menteng: 3, Stasiun: 3, Penjara: 3, Tanjung: 3, Senayan: 3, Kwitang: 3, Cawang: 3 }
+  function empName(name) {
+    return esc(name).split(' ').map(w => {
+      const at = EMP_HYPH[w]
+      return (!at || w.length <= at) ? w : w.slice(0, at) + '\u00AD' + w.slice(at)
+    }).join(' ')
+  }
+  const empLogText = (l) => (typeof l === 'string' ? l : (l && l.text) || '')
+
+  function empHint(st) {
+    const nm = (i) => (st.players[i] ? st.players[i].name : '—')
+    if (st.phase === 'over') return 'Permainan selesai.'
+    if (st.phase === 'auction' && st.auction) {
+      const t = st.tiles[st.auction.tile]
+      return 'Lelang ' + (t ? t.name : '') + ' · giliran ' + nm(st.auctionCurrent) + ' · tawaran ' + empRp(st.auction.bid)
+    }
+    if (st.phase === 'buy' && st.pending) return nm(st.pending.player) + ' memutuskan membeli ' + st.tiles[st.pending.tile].name + '.'
+    if (st.phase === 'debt' && st.pending) return nm(st.pending.player) + ' butuh ' + empRp(st.pending.amount) + (st.pending.creditor === 'bank' ? ' untuk bank.' : ' untuk ' + nm(st.pending.creditor) + '.')
+    if (st.phase === 'trade' && st.trade) return 'Tawaran tukar untuk ' + nm(st.trade.to) + '.'
+    if (st.phase === 'end') return 'Giliran ' + nm(st.turn) + ' hampir selesai.'
+    return 'Giliran ' + nm(st.turn) + ' — lempar dadu.'
+  }
+
+  function renderEmpire(A, s) {
+    const st = s.state
+    const me = s.viewer
+    const over = st.phase === 'over'
+    const myTurn = !over && me >= 0 && st.turn === me
+    const nm = (i) => (st.players[i] ? st.players[i].name : '—')
+    const pc = (i) => (st.players[i] ? st.players[i].color : '#7ee787')
+    const diceChanged = changed('emp-dice:' + s.roomId, st.dice)
+    if (diceChanged && st.dice && st.dice[0]) { SFX.dice(); setTimeout(() => SFX.hop(), 600) }
+
+    let h = '<h2>🏙️ Property Empire <span class="tiny" style="font-weight:500">40 petak · lelang · tukar</span></h2>'
+
+    if (over) {
+      const rank = st.players.map((p, i) => ({ i, name: p.name, wealth: (st.wealth && st.wealth[i]) || 0, cash: p.cash })).sort((a, b) => b.wealth - a.wealth)
+      h += '<div class="notice good">🏆 <b>' + esc(rank[0] ? rank[0].name : '—') + '</b> menang! Kekayaan akhir ' + empRp(rank[0] ? rank[0].wealth : 0) + '</div>'
+        + '<div class="em-rank">' + rank.map((r, k) => '<div class="em-rrow' + (k === 0 ? ' first' : '') + '"><b>' + (k + 1) + '</b><span class="grow">' + esc(r.name) + '</span><span>' + empRp(r.wealth) + '</span><span class="tiny">kas ' + empRp(r.cash) + '</span></div>').join('') + '</div>'
+    }
+
+    if (st.lastCard && !over) {
+      const key = st.lastCard.deck + ':' + st.lastCard.id + ':' + st.turnCount
+      if (key !== empCardSeen) {
+        h += '<div class="notice" style="border-color:#f2c14e"><b>' + (st.lastCard.deck === 'chance' ? '❓ Kesempatan' : '🎁 Dana Komunitas') + ' — ' + esc(nm(st.lastCard.player)) + '</b><div>' + esc(st.lastCard.text) + '</div><button class="btn btn-sm" id="empCardClose" type="button" style="margin-top:8px">Tutup</button></div>'
+      }
+    }
+
+    /* papan */
+    h += '<div class="emp-wrap"><div class="emp-board-col"><div class="emp-scroll"><div class="emp-board">'
+    for (const t of st.tiles) {
+      const pos = empRC(t.i)
+      const hold = st.holdings[t.i] || {}
+      const own = (hold.owner === null || hold.owner === undefined) ? null : hold.owner
+      const band = t.group ? EMP_GROUP_COLOR[t.group] : (t.type === 'railroad' ? '#475569' : t.type === 'utility' ? '#3d7fa8' : null)
+      const corner = t.i % 10 === 0
+      let style = 'grid-area:' + pos[0] + '/' + pos[1]
+      if (band) style += ';--c:' + band
+      if (own !== null) style += ';--own:' + pc(own)
+      let inner = band ? '<span class="band"></span>' : ''
+      inner += '<span class="nm' + (t.name.length > 9 ? ' lng' : '') + '">' + empName(t.name) + '</span>'
+      if (t.price) inner += '<span class="pr">Rp' + t.price + '</span>'
+      else if (t.amount) inner += '<span class="pr">Rp' + t.amount + '</span>'
+      else if (EMP_ICON[t.type]) inner += '<span class="ic">' + EMP_ICON[t.type] + '</span>'
+      if (hold.hotel) inner += '<span class="hs hotel" title="hotel"></span>'
+      else if (hold.houses) inner += '<span class="hs">' + '●'.repeat(hold.houses) + '</span>'
+      if (hold.mortgaged) inner += '<span class="mq">GADAI</span>'
+      const pawns = st.players.map((p, pi) => (!p.bankrupt && p.pos === t.i
+        ? '<img class="emp-pawn" src="/assets/pieces/pawn/pawn-' + ((pi % 12) + 1) + '.png" alt="" style="--pc:' + pc(pi) + '">' : '')).join('')
+      h += '<div class="emt ' + pos[2] + (corner ? ' corner' : '') + (empSel === t.i ? ' sel' : '') + '" style="' + style + '" data-tile="' + t.i + '" title="' + esc(t.name) + '">'
+        + inner + (own !== null ? '<span class="own"></span>' : '') + '<span class="pawns">' + pawns + '</span></div>'
+    }
+    h += '<div class="em-center">'
+      + '<div class="em-brand">PROPERTY <span>EMPIRE</span></div>'
+      + (st.dice && st.dice[0] ? '<div class="em-dice">' + diceHTML(st.dice[0], diceChanged) + diceHTML(st.dice[1], diceChanged) + '</div>' : '<div class="em-dice">🎲 🎲</div>')
+      + '<div class="em-deco"><img src="/assets/pieces/ikon/rumah.png" alt=""><img src="/assets/pieces/ikon/kereta.png" alt=""><img src="/assets/pieces/ikon/kesempatan.png" alt=""></div>'
+      + '<div class="em-hint">' + esc(empHint(st)) + '</div>'
+      + (st.bank ? '<div class="em-bank">Bank: ' + st.bank.houses + ' rumah · ' + st.bank.hotels + ' hotel</div>' : '')
+      + '</div></div></div><div class="em-scrollhint">Geser papan ke samping bila perlu.</div>'
+
+    if (empSel >= 0 && st.tiles[empSel]) {
+      const t = st.tiles[empSel], hold = st.holdings[empSel] || {}
+      const own = (hold.owner === null || hold.owner === undefined) ? null : hold.owner
+      const kindName = { prop: 'Properti', railroad: 'Stasiun', utility: 'Utilitas', tax: 'Pajak', chance: 'Kesempatan', chest: 'Dana Komunitas', go: 'Mulai', jail: 'Penjara', park: 'Parkir Bebas', gotojail: 'Masuk Penjara' }[t.type] || t.type
+      const col = t.group ? EMP_GROUP_COLOR[t.group] : (t.type === 'railroad' ? '#475569' : t.type === 'utility' ? '#3d7fa8' : '#6b7280')
+      let info = '<span class="sw" style="background:' + col + '"></span><span class="grow"><b>' + esc(t.name) + '</b> <span class="tiny">· petak ' + (t.i + 1) + ' · ' + kindName + '</span><br><span class="tiny">'
+      if (t.price) info += 'Harga ' + empRp(t.price)
+      if (t.rents) info += ' · sewa dasar ' + empRp(t.rents[0]) + ' · rumah ' + empRp(t.houseCost)
+      if (t.amount) info += 'Bayar ' + empRp(t.amount)
+      if (own !== null) info += ' · pemilik <b style="color:' + pc(own) + '">' + esc(nm(own)) + '</b>'
+      else if (t.price) info += ' · belum ada pemilik'
+      info += '</span></span><button class="btn btn-xs" id="empInfoClose" type="button">✕</button>'
+      h += '<div class="em-info">' + info + '</div>'
+    }
+
+    /* tombol aksi */
+    if (!over && me >= 0) {
+      const p = st.players[me]
+      let b = ''
+      if (st.phase === 'roll' && myTurn) {
+        b += '<button class="btn btn-pri" id="empRoll" type="button">🎲 Lempar Dadu</button>'
+        if (p.inJail) {
+          b += '<button class="btn" id="empJailPay" type="button"' + (p.cash < 50 ? ' disabled' : '') + '>Bayar denda Rp50</button>'
+          if (p.getOutCards > 0) b += '<button class="btn" id="empJailCard" type="button">Pakai kartu bebas</button>'
+        }
+      }
+      if (st.phase === 'buy' && st.pending && st.pending.player === me) {
+        const t = st.tiles[st.pending.tile]
+        b += '<button class="btn btn-lime" id="empBuy" type="button"' + (p.cash < (t.price || 0) ? ' disabled' : '') + '>Beli ' + esc(t.name) + ' — ' + empRp(t.price || 0) + '</button>'
+        b += '<button class="btn" id="empDecline" type="button">Lewati / Lelang</button>'
+      }
+      if (st.phase === 'auction' && st.auctionCurrent === me) {
+        const minBid = (st.auction ? st.auction.bid : 0) + 10
+        b += '<input id="empBid" type="number" min="' + minBid + '" step="10" value="' + Math.min(Math.floor(p.cash), minBid + 20) + '" class="em-num">'
+        b += '<button class="btn btn-lime" id="empBidGo" type="button">Tawar</button><button class="btn" id="empPass" type="button">Lewati</button>'
+      }
+      if (st.phase === 'debt' && st.pending && st.pending.player === me) {
+        b += '<button class="btn btn-lime" id="empDebtPay" type="button"' + (p.cash < st.pending.amount ? ' disabled' : '') + '>Bayar ' + empRp(st.pending.amount) + '</button>'
+        b += '<button class="btn btn-ghost" id="empDebtBankrupt" type="button">Bangkrut</button>'
+      }
+      if (st.phase === 'trade' && st.trade && st.trade.to === me) {
+        b += '<button class="btn btn-lime" id="empTradeYes" type="button">Terima</button><button class="btn" id="empTradeNo" type="button">Tolak</button>'
+      }
+      if (st.phase === 'end' && myTurn) b += '<button class="btn btn-pri" id="empEnd" type="button">Akhiri Giliran →</button>'
+      if (st.phase !== 'trade') {
+        b += '<button class="btn btn-sm" id="empManage" type="button">🏗 Kelola</button>'
+        b += '<button class="btn btn-sm" id="empTradeOpen" type="button">🤝 Tukar</button>'
+      }
+      h += '<div class="em-actions">' + b + '</div>'
+    }
+
+    /* panel kelola */
+    if (empPanel === 'manage' && me >= 0 && !over) {
+      const mine = Object.keys(st.holdings).map(Number).filter(i => st.holdings[i].owner === me)
+      h += '<div class="em-panel"><div class="em-ph"><b>🏗 Kelola Aset</b><button class="btn btn-xs" id="empPanelClose" type="button">Tutup</button></div>'
+      if (!mine.length) h += '<div class="tiny">Belum punya properti.</div>'
+      mine.forEach(i => {
+        const t = st.tiles[i], hold = st.holdings[i]
+        const col = t.group ? EMP_GROUP_COLOR[t.group] : '#475569'
+        h += '<div class="em-mrow"><span class="sw" style="background:' + col + '"></span>'
+          + '<span class="grow">' + esc(t.name) + (hold.hotel ? ' · hotel' : hold.houses ? ' · ' + hold.houses + ' rumah' : '') + (hold.mortgaged ? ' · gadai' : '') + '</span>'
+          + '<button class="btn btn-xs" data-op="build" data-tile="' + i + '" type="button">+ Rumah</button>'
+          + '<button class="btn btn-xs" data-op="sellhouse" data-tile="' + i + '" type="button">− Jual</button>'
+          + (hold.mortgaged
+            ? '<button class="btn btn-xs" data-op="unmortgage" data-tile="' + i + '" type="button">Tebus</button>'
+            : '<button class="btn btn-xs" data-op="mortgage" data-tile="' + i + '" type="button">Gadai</button>')
+          + '</div>'
+      })
+      h += '<div class="tiny" style="margin-top:6px">Bangun harus merata per kelompok warna. Gadai hanya kalau tidak ada bangunan.</div></div>'
+    }
+
+    /* panel tukar */
+    if (empPanel === 'trade' && me >= 0 && !over) {
+      const others = st.players.filter(p => p.id !== me && !p.bankrupt)
+      const mine = Object.keys(st.holdings).map(Number).filter(i => st.holdings[i].owner === me)
+      const to = empTradePartner && others.some(o => o.id === empTradePartner) ? empTradePartner : (others[0] ? others[0].id : -1)
+      const theirs = Object.keys(st.holdings).map(Number).filter(i => st.holdings[i].owner === to)
+      h += '<div class="em-panel"><div class="em-ph"><b>🤝 Tukar Properti</b><button class="btn btn-xs" id="empPanelClose" type="button">Tutup</button></div>'
+      h += '<div class="row" style="gap:8px;flex-wrap:wrap"><label class="tiny">Lawan <select id="empPartner">'
+        + others.map(o => '<option value="' + o.id + '"' + (o.id === to ? ' selected' : '') + '>' + esc(o.name) + '</option>').join('')
+        + '</select></label></div>'
+      h += '<div class="em-trade"><div><b class="tiny">Kamu beri</b>'
+        + (mine.length ? mine.map(i => '<label class="em-pick"><input type="checkbox" data-side="give" value="' + i + '"> ' + esc(st.tiles[i].name) + '</label>').join('') : '<div class="tiny">—</div>')
+        + '<label class="tiny">+ uang <input id="empCashGive" type="number" min="0" step="10" value="0" class="em-num"></label></div>'
+        + '<div><b class="tiny">Kamu minta</b>'
+        + (theirs.length ? theirs.map(i => '<label class="em-pick"><input type="checkbox" data-side="want" value="' + i + '"> ' + esc(st.tiles[i].name) + '</label>').join('') : '<div class="tiny">—</div>')
+        + '<label class="tiny">+ uang <input id="empCashWant" type="number" min="0" step="10" value="0" class="em-num"></label></div></div>'
+      h += '<button class="btn btn-lime" id="empPropose" type="button">Kirim Tawaran</button></div>'
+    }
+
+    /* pemain + log */
+    h += '<div class="em-side"><div class="em-players">'
+      + st.players.map((p, i) => '<div class="em-pl' + (i === st.turn && !over ? ' turn' : '') + (p.bankrupt ? ' dead' : '') + '" style="--pc:' + pc(i) + '">'
+        + '<span class="dot"></span><span class="grow">' + esc(p.name) + (p.isBot ? ' 🤖' : '') + (p.inJail ? ' 🚔' : '') + (p.bankrupt ? ' 💀' : '') + '</span>'
+        + '<b>' + empRp(p.cash) + '</b></div>').join('') + '</div>'
+      + '<div class="em-log">' + st.log.slice(-16).map(l => '<div>' + esc(empLogText(l)) + '</div>').join('') + '</div></div></div>'
+
+    A.innerHTML = h
+
+    const on = (id, fn) => { const el = $(id); if (el) el.onclick = fn }
+    on('empRoll', () => act({ type: 'roll' }))
+    on('empBuy', () => act({ type: 'buy' }))
+    on('empDecline', () => act({ type: 'decline' }))
+    on('empBidGo', () => act({ type: 'bid', amount: Number($('empBid').value) }))
+    on('empPass', () => act({ type: 'pass' }))
+    on('empDebtPay', () => act({ type: 'debtpay' }))
+    on('empDebtBankrupt', () => act({ type: 'debtbankrupt' }))
+    on('empTradeYes', () => act({ type: 'tradeResp', accept: true }))
+    on('empTradeNo', () => act({ type: 'tradeResp', accept: false }))
+    on('empEnd', () => act({ type: 'end' }))
+    on('empJailPay', () => act({ type: 'jailpay' }))
+    on('empJailCard', () => act({ type: 'jailcard' }))
+    on('empCardClose', () => { empCardSeen = st.lastCard.deck + ':' + st.lastCard.id + ':' + st.turnCount; render() })
+    on('empManage', () => { empPanel = empPanel === 'manage' ? '' : 'manage'; render() })
+    on('empTradeOpen', () => { empPanel = empPanel === 'trade' ? '' : 'trade'; render() })
+    on('empPanelClose', () => { empPanel = ''; render() })
+    on('empInfoClose', () => { empSel = -1; render() })
+    A.querySelectorAll('.emt').forEach(el => {
+      el.onclick = () => { const n = Number(el.dataset.tile); empSel = empSel === n ? -1 : n; render() }
+    })
+    on('empPropose', () => {
+      const to = Number($('empPartner').value)
+      const giveTiles = Array.from(A.querySelectorAll('input[data-side="give"]:checked')).map(x => Number(x.value))
+      const wantTiles = Array.from(A.querySelectorAll('input[data-side="want"]:checked')).map(x => Number(x.value))
+      const giveCash = Number($('empCashGive').value) || 0
+      const wantCash = Number($('empCashWant').value) || 0
+      if (!giveTiles.length && !wantTiles.length && !giveCash && !wantCash) return toast('Isi dulu tawarannya', 'bad')
+      act({ type: 'trade', to, giveTiles, wantTiles, giveCash, wantCash })
+    })
+    A.querySelectorAll('[data-op]').forEach(btn => {
+      btn.onclick = () => act({ type: btn.dataset.op, tile: Number(btn.dataset.tile) })
+    })
+    const partner = $('empPartner')
+    if (partner) partner.onchange = () => { empTradePartner = Number(partner.value); render() }
+  }
+  let empTradePartner = -1
+  let empSel = -1
+
+  const ROLE_ID = { werewolf:'🐺 Werewolf', seer:'🔮 Peramal', doctor:'💉 Dokter', villager:'🧑‍🌾 Warga' }
+  const ROLE_IMG = { werewolf:'/assets/pieces/ww/werewolf.jpg', seer:'/assets/pieces/ww/seer.jpg',
+    doctor:'/assets/pieces/ww/dokter.jpg', villager:'/assets/pieces/ww/warga.jpg' }
+  function roleCard(role) {
+    return '<div class="rolecard"><img src="' + ROLE_IMG[role] + '" alt="kartu ' + esc(ROLE_ID[role] || role) + '">'
+      + '<b>' + esc(ROLE_ID[role] || role) + '</b></div>'
+  }
+  function renderWerewolf(A, s) {
+    const st = s.state
+    const phaseKey = st.day + ':' + st.phase
+    if (changed('ww-phase:' + s.roomId, phaseKey)) {
+      if (st.phase === 'night') { phaseFlash('night'); SFX.howl() }
+      else { phaseFlash('day'); SFX.bell() }
+    }
+    let html = '<h2>🐺 Werewolf — hari ' + st.day + ' · ' + (st.phase === 'night' ? '🌙 malam' : '☀️ siang') + '</h2>'
+    if (st.winner) html += '<div class="notice good">🏆 ' + (st.winner === 'werewolf' ? 'WEREWOLF menang!' : 'WARGA menang!') + '</div>'
+    if (st.myRole) html += '<div class="notice">Peran rahasiamu' + (s.viewer >= 0 && st.alive[s.viewer] ? '' : ' — kamu sudah mati, hanya bisa menonton &amp; chat.') + '</div>' + roleCard(st.myRole)
+    if (st.peeked) html += '<div class="notice warn">🔮 Terawanganmu: <b>' + esc(s.seats[st.peeked.target] ? s.seats[st.peeked.target].name : '') + '</b> adalah <b>' + ROLE_ID[st.peeked.role] + '</b>.</div>'
+      + '<div style="margin:2px 0 8px">' + roleCard(st.peeked.role) + '</div>'
+    html += '<p class="sub">' + esc(st.lastNews || '') + '</p>'
+    const iAmAlive = s.viewer >= 0 && st.alive[s.viewer]
+    const needNight = st.phase === 'night' && iAmAlive && ['werewolf','seer','doctor'].indexOf(st.myRole) >= 0 && !st.winner
+    const needVote = st.phase === 'day' && iAmAlive && !st.winner
+    if (needNight) html += '<h3>Pilih target malam ini' + (st.nightActed ? ' ✅ (sudah, tunggu yang lain)' : '') + '</h3>'
+    if (needVote) html += '<h3>Voting — siapa yang digantung?' + (st.voted !== undefined && st.voted !== null ? ' ✅ (sudah memilih)' : '') + '</h3>'
+    if (needNight || needVote) {
+      html += '<div class="row">' + s.seats.map((seat, i) => {
+        if (!st.alive[i] || i === s.viewer) return ''
+        const cnt = st.phase === 'day' && st.voteCounts ? ' (' + (st.voteCounts[i] || 0) + ')' : ''
+        return '<button class="btn btn-sm" data-target="' + i + '" type="button">' + (st.phase === 'night' ? '🎯 ' : '⚖️ ') + esc(seat.name) + cnt + '</button>'
+      }).join('') + '</div>'
+    }
+    if (st.phase === 'night' && iAmAlive && st.myRole === 'villager') html += '<p class="sub">😴 Kamu warga biasa — tidur nyenyak, tunggu pagi.</p>'
+    if (st.roles) html += '<h3>Peran semua pemain</h3><div class="tiny">' + s.seats.map((seat, i) =>
+      '<span class="rolemini"><img src="' + ROLE_IMG[st.roles[i]] + '" alt="">' + esc(seat.name) + ' = ' + ROLE_ID[st.roles[i]] + '</span>').join('') + '</div>'
+    A.innerHTML = html
+    A.querySelectorAll('[data-target]').forEach(b => b.onclick = () => { SFX.click(); act({ type: st.phase === 'night' ? 'night' : 'vote', target:Number(b.dataset.target) }) })
+    celebrate(s)
+  }
+
+  connect()
+}
+</script>
+</body>
+</html>

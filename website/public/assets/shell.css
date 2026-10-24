@@ -1,0 +1,349 @@
+/* ==========================================================================
+   USANAGI UMI — APP SHELL
+   --------------------------------------------------------------------------
+   Lapisan struktural di atas tema Liquid Glass:
+     1. Topbar: brand di kiri, aksi (tema + menu) menempel di pojok kanan atas.
+     2. Navigasi: SATU sidebar kanan yang dibuka tombol pojok kanan atas.
+        Memakai <nav id="mainNav"> yang sudah ada — tidak ada menu kedua.
+     3. Status live panel owner.
+     4. Kontrol tambahan (pemilih fitur premium).
+
+   Dimuat paling akhir supaya menang atas aturan layout lama di app.css,
+   termasuk media query 1280px yang dulu mengubah nav menjadi dropdown.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOPBAR
+   -------------------------------------------------------------------------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: clamp(14px, 3vw, 36px);
+  padding-top: max(9px, env(safe-area-inset-top));
+}
+
+.topbar .brand { margin-right: auto; min-width: 0; }
+.topbar .brand span { min-width: 0; }
+.topbar .brand strong,
+.topbar .brand small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Tombol tema & menu selalu terlihat, 44px target sentuh (pedoman iOS). */
+.topbar .icon-btn,
+.topbar .nav-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.topbar .theme-toggle { order: 2; }
+.topbar .nav-toggle { order: 3; }
+
+.topbar .theme-toggle .theme-icon-light { display: none; }
+html[data-theme='light'] .topbar .theme-toggle .theme-icon-light { display: inline; }
+html[data-theme='light'] .topbar .theme-toggle .theme-icon-dark { display: none; }
+
+/* --------------------------------------------------------------------------
+   2. SIDEBAR KANAN (drawer)
+   -------------------------------------------------------------------------- */
+#mainNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 220;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  width: min(360px, 88vw);
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: calc(72px + env(safe-area-inset-top)) 14px calc(18px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 40%),
+    rgba(6, 14, 30, 0.82);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: -30px 0 70px -40px rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(34px) saturate(190%);
+  -webkit-backdrop-filter: blur(34px) saturate(190%);
+  transform: translate3d(104%, 0, 0);
+  visibility: hidden;
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1), visibility 0.32s;
+  scrollbar-width: thin;
+}
+
+#mainNav.open {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+
+/* Tombol keluar & tautan eksternal tidak boleh menempel aneh di kolom. */
+#mainNav > a,
+#mainNav > button {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+#mainNav .nav-icon { width: 18px; height: 18px; margin-right: 10px; flex: 0 0 auto; }
+
+#mainNav > [data-private] { display: flex; }
+
+/* Scrim gelap di belakang drawer. */
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  background: rgba(3, 8, 20, 0.52);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s;
+}
+
+.nav-scrim.open { opacity: 1; visibility: visible; }
+
+html[data-theme='light'] .nav-scrim { background: rgba(10, 25, 50, 0.28); }
+
+html[data-theme='light'] #mainNav {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.72) 40%),
+    rgba(247, 250, 255, 0.9);
+  border-left-color: rgba(11, 25, 51, 0.12);
+  box-shadow: -30px 0 70px -46px rgba(15, 35, 70, 0.5);
+}
+
+/* app.css @media(max-width:1280px) menjadikan nav dropdown full-width.
+   Aturan di bawah mengembalikannya menjadi drawer kanan yang sama. */
+@media (max-width: 1280px) {
+  #mainNav {
+    top: 0;
+    left: auto;
+    right: 0;
+    width: min(340px, 86vw);
+    border-radius: 0;
+    max-height: none;
+    padding: calc(70px + env(safe-area-inset-top)) 12px calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 1281px) {
+  /* Di layar lebar tetap drawer supaya satu pola navigasi di semua ukuran. */
+  #mainNav { width: min(360px, 32vw); }
+}
+
+/* --------------------------------------------------------------------------
+   3. STATUS LIVE PANEL OWNER
+   -------------------------------------------------------------------------- */
+.owner-live {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--lg-hairline, rgba(255, 255, 255, 0.12));
+  border-radius: var(--lg-r-pill, 999px);
+  background: var(--lg-scrim-soft, rgba(6, 14, 30, 0.24));
+  font-size: 12px;
+  color: var(--lg-text-2, #a9bada);
+}
+
+.owner-live .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #30d158;
+  box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.18);
+  flex: 0 0 auto;
+}
+
+.owner-live .dot.bad {
+  background: #ff9f0a;
+  box-shadow: 0 0 0 4px rgba(255, 159, 10, 0.18);
+}
+
+.owner-live.bad { color: #ffd9a1; border-color: rgba(255, 159, 10, 0.36); }
+html[data-theme='light'] .owner-live { background: rgba(255, 255, 255, 0.8); color: #3b4a63; }
+html[data-theme='light'] .owner-live.bad { color: #7a4a00; border-color: rgba(190, 120, 0, 0.4); }
+
+.owner-live .owner-live-error {
+  flex: 1 1 100%;
+  font-size: 11.5px;
+  opacity: 0.85;
+  word-break: break-word;
+}
+
+.owner-live .mini { margin-left: auto; }
+
+/* Angka yang tidak tersedia tidak boleh terlihat seperti nol. */
+.stat b.is-unknown {
+  color: var(--lg-text-3, #6b7d9e);
+  font-size: clamp(24px, 3.4vw, 34px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mainNav, .nav-scrim { transition: none; }
+}
+
+/* --------------------------------------------------------------------------
+   4. PEMILIH FITUR PREMIUM (Settings)
+   -------------------------------------------------------------------------- */
+.premium-picker { display: grid; gap: 8px; margin-top: 8px; }
+
+.premium-picker input[type='search'] { max-width: 340px; }
+
+.premium-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 168px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px dashed var(--lg-hairline, rgba(255, 255, 255, 0.14));
+  border-radius: 14px;
+}
+
+.premium-results:empty { display: none; }
+
+.premium-results .mini { white-space: nowrap; }
+
+.premium-hint { font-size: 12px; color: var(--lg-text-3, #6b7d9e); }
+
+/* --------------------------------------------------------------------------
+   5. KETERBACAAN & TARGET SENTUH
+   -------------------------------------------------------------------------- */
+.btn,
+.mini,
+.icon-btn { min-height: 40px; }
+
+.mini { min-height: 32px; }
+
+.btn:focus-visible,
+.mini:focus-visible,
+.icon-btn:focus-visible,
+.nav-link:focus-visible,
+#mainNav a:focus-visible,
+#mainNav button:focus-visible {
+  outline: 2px solid #5ac8fa;
+  outline-offset: 2px;
+}
+
+html[data-theme='light'] .btn:focus-visible,
+html[data-theme='light'] .mini:focus-visible,
+html[data-theme='light'] .icon-btn:focus-visible,
+html[data-theme='light'] #mainNav a:focus-visible,
+html[data-theme='light'] #mainNav button:focus-visible {
+  outline-color: #0a84ff;
+}
+
+/* Teks yang tadinya kuning/paper di tema gelap harus tetap terbaca. */
+html:not([data-theme='light']) .hero-copy p,
+html:not([data-theme='light']) .auth-intro p { color: var(--lg-text-2, #a9bada); }
+
+@media (max-width: 520px) {
+  .topbar { height: 64px; }
+  #mainNav { padding-top: calc(62px + env(safe-area-inset-top)); }
+  .brand small { display: none; }
+  .owner-live { border-radius: 18px; }
+}
+
+/* --------------------------------------------------------------------------
+   6. TOMBOL GOOGLE — brand guideline: tetap putih di kedua tema
+   --------------------------------------------------------------------------
+   `.umi-layout-6` (layout-compat.css) menetapkan latar putih, tetapi aturan
+   tema kaca dengan spesifisitas lebih tinggi menimpanya sehingga tombol jadi
+   gelap dan teksnya tenggelam. Di sini latarnya dikunci putih di kedua tema.
+   -------------------------------------------------------------------------- */
+.btn-google,
+html[data-theme='light'] .btn-google {
+  background: #ffffff !important;
+  color: #202124 !important;
+  border: 1px solid rgba(11, 25, 51, 0.16) !important;
+  box-shadow: 0 1px 2px rgba(15, 35, 70, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.btn-google:hover,
+html[data-theme='light'] .btn-google:hover {
+  background: #f6f8fc !important;
+  color: #101418 !important;
+  border-color: rgba(10, 132, 255, 0.5) !important;
+}
+
+.btn-google svg { flex: 0 0 auto; }
+
+/* --------------------------------------------------------------------------
+   7. URUTAN LAPISAN — PENTING
+   --------------------------------------------------------------------------
+   #mainNav berada DI DALAM .topbar yang punya `position:relative; z-index:100`
+   sehingga membentuk stacking context sendiri. Akibatnya z-index:220 milik
+   drawer tidak pernah naik di atas .nav-scrim (z-index:210 di root) — scrim
+   menutupi drawer dan seluruh menu tampak gelap/blur. Saat drawer terbuka,
+   topbar dinaikkan di atas scrim.
+   -------------------------------------------------------------------------- */
+body.nav-open .topbar { z-index: 230; }
+body.nav-open { overflow: hidden; }
+
+@media (max-width: 1280px) {
+  body.nav-open .topbar { z-index: 230; }
+}
+
+/* --------------------------------------------------------------------------
+   8. OVERLAY DI LUAR STACKING CONTEXT TOPBAR
+   --------------------------------------------------------------------------
+   Drawer tetap memakai <nav id="mainNav"> asli, tetapi saat terbuka ia
+   "dilepas" dari .topbar (position:fixed sudah, dan .topbar tidak membentuk
+   containing block karena tidak memakai transform/filter — jadi koordinatnya
+   tetap viewport). Urutan tumpuk ditetapkan eksplisit per-layer:
+
+     .topbar ............ 100  (bar biasa)
+     .nav-scrim ......... 200
+     .topbar.nav-open ... 300  (bar + drawer saat terbuka)
+     #mainNav ........... 301
+     toast .............. 400
+
+   Sebelumnya drawer (220) berada DI DALAM .topbar (z-index:100), sehingga
+   scrim (210) selalu menutupinya. Di sini topbar dinaikkan saat menu terbuka
+   dan drawer diletakkan tepat di atasnya.
+   -------------------------------------------------------------------------- */
+.nav-scrim { z-index: 200; }
+body.nav-open .topbar { z-index: 300; }
+#mainNav { z-index: 301; }
+#mainNav.open { z-index: 301; }
+.toast { z-index: 400; }
+
+/* --------------------------------------------------------------------------
+   9. TOMBOL TUTUP DRAWER
+   -------------------------------------------------------------------------- */
+#mainNav .nav-close {
+  position: absolute;
+  top: calc(14px + env(safe-area-inset-top));
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+#mainNav .nav-close span { font-size: 10.5px; opacity: 0.8; letter-spacing: 0.12em; }
+
+@media (max-width: 520px) {
+  #mainNav .nav-close { top: calc(12px + env(safe-area-inset-top)); }
+}

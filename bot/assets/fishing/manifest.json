@@ -1,0 +1,48 @@
+{
+  "name": "Usanagi Fishing Visual Pack",
+  "version": "6.0",
+  "runtime": "canvas",
+  "assets": [
+    "background.svg",
+    "bait.svg",
+    "birds.svg",
+    "boat.svg",
+    "bobber.svg",
+    "cloud.svg",
+    "coin.svg",
+    "crate.svg",
+    "fish-bass.svg",
+    "fish-catfish.svg",
+    "fish-koi.svg",
+    "fish-perch.svg",
+    "fish-trout.svg",
+    "hook.svg",
+    "lilypad.svg",
+    "net.svg",
+    "reeds.svg",
+    "rod.svg",
+    "angler.svg",
+    "spark.svg",
+    "splash.svg",
+    "watergrass.svg"
+  ],
+  "notes": "Usanagi-native vector assets. JavaScript animates movement, water lines, fish swimmers, boat bob, bobber, hook and particles. CC0 public asset sources were reviewed during planning; no remote asset URL is required at runtime.",
+  "performance": "local-inline-svg, no runtime network fetch, paused non-arena rendering",
+  "public_references": [
+    {
+      "source": "Kenney Fish Pack",
+      "license": "CC0",
+      "url": "https://kenney.nl/assets/fish-pack"
+    },
+    {
+      "source": "Kenney Animal Pack",
+      "license": "CC0",
+      "url": "https://kenney.nl/assets/animal-pack"
+    },
+    {
+      "source": "OpenGameArt CC0 coral reference",
+      "license": "CC0",
+      "url": "https://opengameart.org/content/2d-pixelart-corals"
+    }
+  ]
+}

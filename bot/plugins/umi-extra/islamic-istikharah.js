@@ -1,0 +1,129 @@
+/*
+╔══════════════════════════════════════════════╗
+║        ⚡  𝑨𝑳𝒁𝑹𝑰𝑺𝑺 𝑴𝑫  ⚡                     ║
+╚══════════════════════════════════════════════╝
+
+╭───────────「 ✦ 𝑰𝑵𝑭𝑶 𝑨𝑳𝒁𝑹𝑰𝑺𝑺 ✦ 」───────────╮
+│ 👤 Developer : 𝑨𝒍𝒛𝑹𝒊𝒔𝒔
+│ 📢 Saluran   : https://whatsapp.com/channel/0029VbDBOXH11ulIKHVbmO0m
+│ ⚙️ Engine    : Baileys Multi-Device
+╰──────────────────────────────────────────────╯
+
+              「 ⚡ 𝑨𝑳𝒁𝑹𝑰𝑺𝑺 𝑴𝑫 ⚡ 」
+*/
+
+import axios from 'axios';
+
+const pluginConfig = {
+  name: 'istikharah',
+  alias: ['sholatistikharah', 'istikhoroh', 'istikharoh'],
+  category: 'religi',
+  description: 'Panduan Sholat Istikharah lengkap (tata cara, doa, waktu, dan keutamaan)',
+  usage: '.istikharah',
+  example: '.istikharah',
+  isOwner: false,
+  isPremium: false,
+  isGroup: false,
+  isPrivate: false,
+  cooldown: 3,
+  isEnabled: true,
+};
+
+async function handler(m, { sock }) {
+  const caption = `🕌 *SHOLAT ISTIKHARAH*
+Sholat untuk meminta petunjuk terbaik dari Allah
+
+📌 *Pengertian:*
+Sholat Istikharah adalah sholat sunnah 2 rakaat untuk meminta petunjuk Allah dalam menentukan pilihan terbaik.
+
+⏰ *Waktu:*
+Bisa dilakukan kapan saja, kecuali waktu terlarang sholat. Paling utama di sepertiga malam.
+
+📋 *Tata Cara:*
+
+1️⃣ Niat Sholat Istikharah (2 rakaat)
+"Ushalli sunnatal istikharati rak'ataini lillahi ta'ala"
+
+2️⃣ Rakaat 1: Baca Al-Fatihah + Al-Kafirun
+Rakaat 2: Baca Al-Fatihah + Al-Ikhlas
+
+3️⃣ Setelah salam, baca doa Istikharah
+
+🤲 *Doa Istikharah:*
+
+اَللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ، فَإِنَّكَ تَقْدِرُ وَلَا أَقْدِرُ، وَتَعْلَمُ وَلَا أَعْلَمُ، وَأَنْتَ عَلَّامُ الْغُيُوبِ
+
+Allahumma inni astakhiruka bi'ilmika, wa astaqdiruka bi qudratika, wa as-aluka min fadlikal 'azhim, fa innaka taqdiru wa la aqdiru, wa ta'lamu wa la a'lamu, wa anta 'allamul ghuyub.
+
+Ya Allah, aku memohon petunjuk kepada-Mu dengan ilmu-Mu, dan aku memohon kemampuan dari-Mu dengan kekuatan-Mu, dan aku memohon karunia-Mu yang agung. Sesungguhnya Engkau Maha Kuasa, sedang aku tidak kuasa, Engkau Maha Mengetahui sedang aku tidak mengetahui, dan Engkau Maha Mengetahui hal-hal yang gaib.
+
+🌙 *Kemudian dilanjutkan:*
+
+اَللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي ثُمَّ بَارِكْ لِي فِيهِ
+
+Allahumma in kunta ta'lamu anna hadzal amra khairun li fi dini wa ma'asyi wa 'aqibati amri, faqdurhu li wa yassirhu li tsumma barik li fih.
+
+Ya Allah, jika Engkau mengetahui bahwa urusan ini baik bagiku dalam agamaku, kehidupanku, dan akhir urusanku, maka takdirkanlah ia untukku, mudahkanlah ia untukku, kemudian berkahilah ia untukku.
+
+✦ *Dan jika tidak baik:*
+
+وَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ، وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ ثُمَّ أَرْضِنِي بِهِ
+
+Wa in kunta ta'lamu anna hadzal amra syarrun li fi dini wa ma'asyi wa 'aqibati amri, fashrifhu 'anni wash-rifni 'anhu, waqdur liyal khaira haitsu kana tsumma ardini bih.
+
+Dan jika Engkau mengetahui bahwa urusan ini buruk bagiku dalam agamaku, kehidupanku, dan akhir urusanku, maka jauhkanlah ia dariku, dan jauhkanlah aku darinya, dan takdirkanlah untukku kebaikan di mana pun ia berada, kemudian ridhailah aku dengannya.
+
+💡 *Keutamaan:*
+• Mendapat petunjuk terbaik dari Allah
+• Terhindar dari penyesalan
+• Menyerahkan urusan kepada Allah
+• Meningkatkan ketakwaan
+
+📚 *Sumber:* HR. Bukhari
+
+💗 *By AlzRiss - Usanagi Umi AI* • ${new Date().getFullYear()}`;
+
+  await m.reply(caption);
+  await m.react('🕌');
+}
+
+/* Compatibility adapter — By AlzRiss - Usanagi Umi AI */
+const __umiCommands = ["istikharah", "sholatistikharah", "istikhoroh", "istikharoh"]
+const __umiOriginalHandler = handler
+const __umiHandler = async function (m, context = {}) {
+  const adapted = Object.create(m)
+  Object.defineProperties(adapted, {
+    text: { value: String(context.text || ''), writable: true, configurable: true },
+    args: { value: context.args || [], writable: true, configurable: true },
+    command: { value: String(context.command || '').toLowerCase(), writable: true, configurable: true },
+    prefix: { value: context.usedPrefix || '.', writable: true, configurable: true },
+    isOwner: { value: Boolean(context.isOwner), writable: true, configurable: true },
+    isPremium: { value: Boolean(context.isPrems), writable: true, configurable: true },
+    isAdmin: { value: Boolean(context.isAdmin), writable: true, configurable: true },
+    isBotAdmin: { value: Boolean(context.isBotAdmin), writable: true, configurable: true }
+  })
+  return __umiOriginalHandler.call(this, adapted, {
+    ...context,
+    sock: context.conn,
+    conn: context.conn,
+    text: String(context.text || ''),
+    query: String(context.text || ''),
+    args: context.args || [],
+    command: String(context.command || '').toLowerCase(),
+    prefix: context.usedPrefix || '.',
+    usedPrefix: context.usedPrefix || '.',
+    db: global.db
+  })
+}
+__umiHandler.help = ["istikharah .istikharah"]
+__umiHandler.tags = ["islamic"]
+__umiHandler.command = new RegExp(`^(${__umiCommands.map(value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})$`, 'i')
+__umiHandler.owner = false
+__umiHandler.premium = false
+__umiHandler.group = false
+__umiHandler.private = false
+__umiHandler.admin = false
+__umiHandler.botAdmin = false
+__umiHandler.limit = false
+__umiHandler.source = 'Usanagi Umi AI feature collection'
+export default __umiHandler

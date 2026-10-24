@@ -1,0 +1,47 @@
+// Extract of installed @rexxhayanasi/elaina-baileys assertSessions for regression testing.
+    const assertSessions = async (jids, force) => {
+        let didFetchNewSession = false;
+        const uniqueJids = [...new Set(jids)];
+        const jidsRequiringFetch = [];
+        logger.debug({ jids }, 'assertSessions call with jids');
+        for (const jid of uniqueJids) {
+            if (!force) {
+                const sessionValidation = await signalRepository.validateSession(jid);
+                if (sessionValidation.exists) {
+                    continue;
+                }
+            }
+            jidsRequiringFetch.push(jid);
+        }
+        if (jidsRequiringFetch.length) {
+
+            const wireJids = [
+                ...jidsRequiringFetch.filter(jid => !!isLidUser(jid) || !!isHostedLidUser(jid)),
+                ...((await signalRepository.lidMapping.getLIDsForPNs(jidsRequiringFetch.filter(jid => !!isPnUser(jid) || !!isHostedPnUser(jid)))) || []).map(a => a.lid)
+            ];
+            logger.debug({ jidsRequiringFetch, wireJids }, 'fetching sessions');
+            const result = await query({
+                tag: 'iq',
+                attrs: {
+                    xmlns: 'encrypt',
+                    type: 'get',
+                    to: S_WHATSAPP_NET
+                },
+                content: [
+                    {
+                        tag: 'key',
+                        attrs: {},
+                        content: wireJids.map(jid => {
+                            const attrs = { jid };
+                            if (force)
+                                attrs.reason = 'identity';
+                            return { tag: 'user', attrs };
+                        })
+                    }
+                ]
+            });
+            await parseAndInjectE2ESessions(result, signalRepository);
+            didFetchNewSession = true;
+        }
+        return didFetchNewSession;
+    };
