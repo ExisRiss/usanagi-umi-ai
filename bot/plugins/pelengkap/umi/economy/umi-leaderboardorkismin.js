@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "leaderboard-orang-miskin", "category": "economy", "aliasMap": {"umi-economy-leaderboard-orang-miskin": "leaderboard-orang-miskin", "umi-leaderboard-orang-miskin": "leaderboard-orang-miskin", "umi-topmiskin": "topmiskin", "umi-orangmiskin": "orangmiskin", "umi-lbmiskin": "lbmiskin", "umi-poorest": "poorest", "umi-toppoor": "toppoor", "leaderboard-orang-miskin": "leaderboard-orang-miskin", "topmiskin": "topmiskin", "orangmiskin": "orangmiskin", "lbmiskin": "lbmiskin", "poorest": "poorest", "toppoor": "toppoor"}, "description": "Ranking orang paling miskin versi Umi 🗿💸", "usage": ".topmiskin", "example": ".topmiskin", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/economy/leaderboardorkismin.js", metadata, m, extra)

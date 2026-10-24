@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "divorce", "category": "rpg", "aliasMap": {"umi-rpg-divorce": "divorce", "umi-divorce": "divorce", "umi-pisah": "pisah"}, "description": "Bercerai dari pasangan", "usage": ".divorce", "example": ".divorce", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/divorce.js", metadata, m, extra)

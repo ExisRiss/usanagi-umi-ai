@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "remini", "category": "tools", "aliasMap": {"umi-tools-remini": "remini", "umi-remini": "remini", "umi-hd": "hd", "umi-upscale": "upscale"}, "description": "Enhance gambar jadi HD", "usage": ".remini (reply gambar)", "example": ".remini", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hd.js", metadata, m, extra)

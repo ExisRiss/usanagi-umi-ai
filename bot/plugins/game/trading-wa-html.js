@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * HTML game UMI TRADE untuk WhatsApp (rich message).
  *

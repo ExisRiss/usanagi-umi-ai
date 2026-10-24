@@ -29,6 +29,7 @@ Rimuru MD adalah SC hasil rename dari SC Ourin MD.
 import axios from "axios";
 import te from "../../src/lib/rimuru-error.js";
 import { sendToolsPreview } from "../../src/lib/rimuru-context.js";
+import { requireApiKey } from '../../../../config/api-keys.js'
 const pluginConfig = {
   name: "pastebin",
   alias: ["paste", "pb"],
@@ -63,7 +64,12 @@ async function handler(m, { sock }) {
     );
   }
 
-  const api_dev_key = "h9WMT2Mn9QW-qDhvUSc-KObqAYcjI0he";
+  let api_dev_key;
+  try {
+    api_dev_key = requireApiKey('pastebin', 'Upload Pastebin');
+  } catch (e) {
+    return m.reply(`📋 *ᴘᴀsᴛᴇʙɪɴ*\n\n${e.message}`);
+  }
   const api_paste_code = text.trim();
   const api_paste_name = `Paste dari ${m.pushName || "User"} - ${new Date().toLocaleDateString("id-ID")}`;
 

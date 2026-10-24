@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "swgcv2all", "category": "owner", "aliasMap": {"umi-owner-swgcv2all": "swgcv2all", "umi-swgcv2all": "swgcv2all", "umi-statusgrupv2all": "statusgrupv2all", "swgcv2all": "swgcv2all", "statusgrupv2all": "statusgrupv2all"}, "description": "Post Group Status V2 ke SEMUA grup", "usage": ".swgcv2all <teks> atau reply media", "example": ".swgcv2all Halo semua grup!", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/swgcv2all.js", metadata, m, extra)

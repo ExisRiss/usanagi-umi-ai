@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakevhs", "category": "tools", "aliasMap": {"umi-tools-fakevhs": "fakevhs", "umi-fakevhs": "fakevhs", "umi-vhscam": "vhscam", "umi-retrovhs": "retrovhs", "umi-handycam": "handycam", "fakevhs": "fakevhs", "vhscam": "vhscam", "retrovhs": "retrovhs", "handycam": "handycam"}, "description": "Mengubah Foto menjadi Efek Kamera Retro VHS 90-an (Ultra Real)", "usage": ".fakevhs [reply/kirim foto/dokumen foto/view once]", "example": "reply foto dengan .fakevhs"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fakevhs.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "chords", "category": "search", "aliasMap": {"umi-search-chords": "chords", "umi-chords": "chords", "umi-chord": "chord", "umi-kunci": "kunci", "umi-kuncigitar": "kuncigitar", "chords": "chords", "chord": "chord", "kunci": "kunci", "kuncigitar": "kuncigitar"}, "description": "Cari chord/kunci gitar lagu", "usage": ".chords <judul lagu>", "example": ".chords komang", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/chords.js", metadata, m, extra)

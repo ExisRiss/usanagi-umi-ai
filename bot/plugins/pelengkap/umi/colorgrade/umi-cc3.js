@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cc3", "category": "colorgrade", "aliasMap": {"umi-colorgrade-cc3": "cc3", "umi-cc3": "cc3", "umi-cyberpunk": "cyberpunk", "umi-neoncity": "neoncity", "cc3": "cc3", "cyberpunk": "cyberpunk", "neoncity": "neoncity"}, "description": "Color Grading CC3 - Cyberpunk Neon Blue Pink", "usage": ".cc3 (Kirim/Reply Foto)", "example": ".cc3"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/colorgrade/cc3.js", metadata, m, extra)

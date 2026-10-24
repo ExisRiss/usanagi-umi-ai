@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "likeedl", "category": "download", "aliasMap": {"umi-download-likeedl": "likeedl", "umi-likeedl": "likeedl", "umi-lkdl": "lkdl", "umi-likee": "likee", "umi-lk": "lk", "likeedl": "likeedl", "lkdl": "lkdl", "likee": "likee", "lk": "lk"}, "description": "Download video Likee", "usage": ".lkdl <url>", "example": ".lkdl https://likee.video/@xxx", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/likeedl.js", metadata, m, extra)

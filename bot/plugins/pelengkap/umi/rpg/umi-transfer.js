@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "transfer", "category": "rpg", "aliasMap": {"umi-rpg-transfer": "transfer", "umi-transfer": "transfer", "umi-tf": "tf", "umi-pay": "pay"}, "description": "Transfer uang atau item ke user lain", "usage": ".transfer <money/nama_item> <jumlah> @user", "example": ".transfer money 10000 @tag", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/transfer.js", metadata, m, extra)

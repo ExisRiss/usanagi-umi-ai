@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakewa", "category": "canvas", "aliasMap": {"umi-canvas-fakewa": "fakewa", "umi-fakewa": "fakewa", "fakewa": "fakewa"}, "description": "Bikin profil WA palsu", "usage": ".fakewa <nama>|<nomor>|[status] (reply/kirim foto)", "example": ".fakewa Fauzan|08123456789|Sibuk", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakewa.js", metadata, m, extra)

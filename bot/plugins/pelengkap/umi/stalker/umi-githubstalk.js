@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "githubstalk", "category": "stalker", "aliasMap": {"umi-stalker-githubstalk": "githubstalk", "umi-githubstalk": "githubstalk", "umi-ghstalk": "ghstalk", "umi-stalkgh": "stalkgh", "githubstalk": "githubstalk", "ghstalk": "ghstalk", "stalkgh": "stalkgh"}, "description": "Stalk akun GitHub", "usage": ".githubstalk <username>", "example": ".githubstalk torvalds", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/githubstalk.js", metadata, m, extra)

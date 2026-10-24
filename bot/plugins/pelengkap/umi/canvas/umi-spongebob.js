@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "spongebob", "category": "canvas", "aliasMap": {"umi-canvas-spongebob": "spongebob", "umi-spongebob": "spongebob", "spongebob": "spongebob"}, "description": "Buat meme SpongeBob", "usage": ".spongebob <teks>", "example": ".spongebob Wahai kerang ajaib", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/spongebob.js", metadata, m, extra)

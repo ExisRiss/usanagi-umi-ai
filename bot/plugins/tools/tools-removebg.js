@@ -2,6 +2,7 @@
   *» Nama :* — [ REMOVE BACKGROUND - AI ] —
   *» Type :* Plugin - ESM
   *» Base Url :* https://www.photoroom.com/tools/background-remover
+   * By AlzRiss - Usanagi Umi AI
 **/
 
 import axios from 'axios'

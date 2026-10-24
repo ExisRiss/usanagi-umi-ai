@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeijazah", "category": "canvas", "aliasMap": {"umi-canvas-fakeijazah": "fakeijazah", "umi-fakeijazah": "fakeijazah", "umi-ijazahfake": "ijazahfake", "umi-fakediploma": "fakediploma", "fakeijazah": "fakeijazah", "ijazahfake": "ijazahfake", "fakediploma": "fakediploma"}, "description": "Bikin fake ijazah (buat konten/gaguan doang)", "usage": ".fakeijazah <nama> | <gelar> | <universitas>", "example": ".fakeijazah Umi | S.Kom | Universitas Zero", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeijazah.js", metadata, m, extra)

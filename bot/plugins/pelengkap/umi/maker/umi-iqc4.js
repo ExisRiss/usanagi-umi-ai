@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "iqc4", "category": "maker", "aliasMap": {"umi-maker-iqc4": "iqc4", "umi-iqc4": "iqc4", "umi-canvasiqc4": "canvasiqc4", "umi-iqcv2": "iqcv2", "iqc4": "iqc4", "canvasiqc4": "canvasiqc4"}, "description": "Generate gambar IQC v2 (WA Reaction) dengan teks otomatis", "usage": ".iqc4 <teks>", "example": ".iqc4 Tes", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/iqc4.js", metadata, m, extra)

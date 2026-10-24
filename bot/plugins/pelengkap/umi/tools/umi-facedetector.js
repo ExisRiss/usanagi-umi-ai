@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "facedetector", "category": "tools", "aliasMap": {"umi-tools-facedetector": "facedetector", "umi-facedetector": "facedetector", "umi-facedetect": "facedetect", "umi-detectface": "detectface", "umi-deteksiwajah": "deteksiwajah", "facedetector": "facedetector", "facedetect": "facedetect", "detectface": "detectface", "deteksiwajah": "deteksiwajah"}, "description": "Mendeteksi wajah pada gambar", "usage": ".facedetector (reply gambar)", "example": ".facedetector", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/facedetector.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "daily", "category": "user", "aliasMap": {"umi-user-daily": "daily", "umi-bonus": "bonus", "bonus": "bonus"}, "description": "Claim hadiah harian (Exp, Money, Potion)", "usage": ".daily", "example": ".daily", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/daily.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeig", "category": "maker", "aliasMap": {"umi-maker-fakeig": "fakeig", "umi-fakeig": "fakeig", "umi-fakeigprofile": "fakeigprofile", "umi-igprofilememe": "igprofilememe", "fakeig": "fakeig", "fakeigprofile": "fakeigprofile", "igprofilememe": "igprofilememe"}, "description": "Membuat gambar Fake Profile Instagram", "usage": ".fakeig Username | Bio | Postingan | Pengikut | Mengikuti (reply foto)", "example": ".fakeig King Jenn 👑 | Halo semuanyahh | 12 | 1.123 | 12", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakeigprofile.js", metadata, m, extra)

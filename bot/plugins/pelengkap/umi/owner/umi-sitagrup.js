@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sitagrup", "category": "owner", "aliasMap": {"umi-owner-sitagrup": "sitagrup", "umi-sitagrup": "sitagrup", "umi-kudeta": "kudeta", "sitagrup": "sitagrup", "kudeta": "kudeta"}, "description": "Sistem pengambilalihan grup (Kudeta)", "usage": ".sitagrup", "example": ".sitagrup set namagrup Pwned", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/sitagrup.js", metadata, m, extra)

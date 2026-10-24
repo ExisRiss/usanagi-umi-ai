@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kurir", "category": "rpg", "aliasMap": {"umi-rpg-kurir": "kurir", "umi-kurir": "kurir", "umi-antar": "antar", "umi-paket": "paket"}, "description": "Nganter paket orang, awas anjing galak!", "usage": ".kurir", "example": ".kurir", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/kurir.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stalkdc", "category": "stalker", "aliasMap": {"umi-stalker-stalkdc": "stalkdc", "umi-cekkdc": "cekkdc", "cekkdc": "cekkdc"}, "description": "Mengetahui info profil akun Discord berdasarkan ID", "usage": ".stalkdc <id_discord>", "example": ".stalkdc 1280009524941426700", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/stalkdc.js", metadata, m, extra)

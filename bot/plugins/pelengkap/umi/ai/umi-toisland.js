@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "toisland", "category": "ai", "aliasMap": {"umi-ai-toisland": "toisland", "umi-toisland": "toisland", "umi-island": "island", "umi-tropical": "tropical", "toisland": "toisland", "island": "island", "tropical": "tropical"}, "description": "Ubah foto menjadi suasana pulau tropis", "usage": ".toisland (reply/kirim gambar)", "example": ".toisland", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/toisland.js", metadata, m, extra)

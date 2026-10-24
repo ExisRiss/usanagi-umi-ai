@@ -34,3 +34,4 @@ Fitur Threads dari source tidak ditambahkan ulang karena Usanagi sudah memiliki 
 
 ## Kredit
 
+Atribusi source dipertahankan di `CREDITS.md`. Semua identitas fitur aktif tetap menggunakan **By AlzRiss - Usanagi Umi AI**.

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "parkir", "category": "rpg", "aliasMap": {"umi-rpg-parkir": "parkir", "umi-parkir": "parkir", "umi-kangparkir": "kangparkir", "umi-markir": "markir"}, "description": "Jadi tukang parkir minimarket, waspada satpol PP!", "usage": ".parkir", "example": ".parkir", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/parkir.js", metadata, m, extra)

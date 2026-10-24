@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeidcard", "category": "canvas", "aliasMap": {"umi-canvas-fakeidcard": "fakeidcard", "umi-fakeidcard": "fakeidcard", "umi-idcardfake": "idcardfake", "umi-faketanda": "faketanda", "fakeidcard": "fakeidcard", "idcardfake": "idcardfake", "faketanda": "faketanda"}, "description": "Bikin fake ID Card (buat konten/gaguan doang)", "usage": ".fakeidcard <nama> | <jabatan>", "example": ".fakeidcard Umi | CEO", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeidcard.js", metadata, m, extra)

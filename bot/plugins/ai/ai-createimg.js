@@ -2,6 +2,7 @@
   *» Nama :* — [ TEXT TO IMAGE - AI ] —
   *» Type :* Plugin - ESM
   *» Base Url :* https://www.createimg.com
+   * By AlzRiss - Usanagi Umi AI
 **/
 
 import fetch from 'node-fetch';

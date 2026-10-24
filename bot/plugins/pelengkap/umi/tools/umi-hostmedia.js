@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hostmedia", "category": "tools", "aliasMap": {"umi-tools-hostmedia": "hostmedia", "umi-hostmedia": "hostmedia", "umi-serverhostmedia": "serverhostmedia", "umi-hostmed": "hostmed", "hostmedia": "hostmedia", "serverhostmedia": "serverhostmedia", "hostmed": "hostmed"}, "description": "Nampilin daftar server host media beserta batas maksimalnya", "usage": "hostmedia", "example": "hostmedia", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hostmedia.js", metadata, m, extra)

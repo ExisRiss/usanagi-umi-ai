@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addmp3", "category": "owner", "aliasMap": {"umi-owner-addmp3": "addmp3", "umi-addmp3": "addmp3", "umi-addaudio": "addaudio", "umi-tambahmp3": "tambahmp3", "umi-setmp3": "setmp3", "umi-addmusik": "addmusik", "addmp3": "addmp3", "addaudio": "addaudio", "tambahmp3": "tambahmp3", "setmp3": "setmp3", "addmusik": "addmusik"}, "description": "Tambah file MP3/Audio ke folder assets/audio", "usage": ".addmp3 <nama_file.mp3> (reply audio)", "example": ".addmp3 zerotwo.mp3", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addmp3.js", metadata, m, extra)

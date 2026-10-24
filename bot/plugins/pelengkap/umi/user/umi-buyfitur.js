@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "buyfitur", "category": "user", "aliasMap": {"umi-user-buyfitur": "buyfitur", "umi-buyfitur": "buyfitur", "umi-belifitur": "belifitur", "umi-purchasefeature": "purchasefeature", "umi-buyfeature": "buyfeature", "buyfitur": "buyfitur", "belifitur": "belifitur", "purchasefeature": "purchasefeature", "buyfeature": "buyfeature"}, "description": "Beli fitur premium (1 fitur = 3000 koin)", "usage": ".buyfitur [nama_fitur]", "example": ".buyfitur", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/buyfitur.js", metadata, m, extra)

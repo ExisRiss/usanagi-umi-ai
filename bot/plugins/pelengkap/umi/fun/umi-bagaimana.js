@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bagaimana", "category": "fun", "aliasMap": {"umi-fun-bagaimana": "bagaimana", "umi-bagaimana": "bagaimana", "umi-gimana": "gimana", "umi-how": "how"}, "description": "Tanya bot bagaimana sesuatu", "usage": ".bagaimana <pertanyaan>", "example": ".bagaimana cara jadi sukses?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/bagaimana.js", metadata, m, extra)

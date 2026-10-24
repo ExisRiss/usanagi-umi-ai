@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "test", "category": "test", "aliasMap": {"umi-test-test": "test", "umi-test": "test"}, "description": "Test Poll Menu Interaktif", "usage": ".poll", "example": ".poll", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/test.js", metadata, m, extra)

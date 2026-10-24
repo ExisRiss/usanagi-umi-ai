@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listown", "category": "owner", "aliasMap": {"umi-owner-listown": "listown", "umi-listown": "listown", "umi-er": "er", "umi-ers": "ers", "listown": "listown", "er": "er", "ers": "ers"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/listown.js", metadata, m, extra)

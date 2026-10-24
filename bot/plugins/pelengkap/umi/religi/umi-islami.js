@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "islami", "category": "religi", "aliasMap": {"umi-religi-islami": "islami", "umi-islami": "islami", "umi-niatsholat": "niatsholat", "umi-niatshalat": "niatshalat", "umi-doa": "doa", "umi-berdoa": "berdoa", "umi-gislam": "gislam", "islami": "islami", "niatsholat": "niatsholat", "niatshalat": "niatshalat", "berdoa": "berdoa", "gislam": "gislam"}, "description": "Kumpulan fitur Islami (Asmaul Husna, Niat Sholat, Surah, Doa, Artikel, Kata Mutiara)", "usage": ".islami <fitur>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/religi/islami.js", metadata, m, extra)

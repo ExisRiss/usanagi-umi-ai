@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "watercolortext", "category": "canvas", "aliasMap": {"umi-canvas-watercolortext": "watercolortext", "umi-watercolortext": "watercolortext", "umi-watercolor": "watercolor", "umi-wctext": "wctext", "watercolortext": "watercolortext", "watercolor": "watercolor", "wctext": "wctext"}, "description": "Buat gambar teks dengan efek watercolor", "usage": ".watercolortext <teks>", "example": ".watercolortext RIMURU", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/watercolortext.js", metadata, m, extra)

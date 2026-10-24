@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { settings } from '../config/settings.js'
 import { getActivePrefix } from './awang-prefix.js'

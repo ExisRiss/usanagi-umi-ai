@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const localDare = [
   'Kirim chat "Aku sayang kamu" ke contact terakhir di list kamu.',

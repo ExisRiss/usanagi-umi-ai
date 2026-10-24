@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autojoingc", "category": "owner", "aliasMap": {"umi-owner-autojoingc": "autojoingc", "umi-autojoingc": "autojoingc", "umi-autojoin": "autojoin", "umi-autojoingroup": "autojoingroup", "autojoingc": "autojoingc", "autojoin": "autojoin", "autojoingroup": "autojoingroup"}, "description": "Auto join grup dari link yang terdeteksi di chat", "usage": ".autojoingc on/off", "example": ".autojoingc on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/autojoingc.js", metadata, m, extra)

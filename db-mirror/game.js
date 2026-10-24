@@ -2,7 +2,7 @@
  * Umi Web Multiplayer Games — server game web yang terhubung ke bot WhatsApp.
  *
  * Berjalan di container yang sama dengan Umi DB Mirror (panel beyy), port
- * internal 3900, diteruskan Cloudflare Tunnel ke https://game.gwenna.my.id.
+ * internal 3900, diteruskan Cloudflare Tunnel ke https://game.example.com.
  * Hanya memakai modul bawaan Node (realtime via Server-Sent Events).
  *
  * Alur meja (room):
@@ -66,7 +66,7 @@ const OPEN_JOIN_DEFAULT = String(process.env.UMI_GAME_OPEN_JOIN || '1').toLowerC
  * Bisa ditimpa lewat env UMI_VERIFY_URL kalau backend pindah lagi. */
 const VERIFY_URL = String(process.env.UMI_VERIFY_URL || 'https://jadibot-alzriss.gwenna.my.id/api/platform/verify-token').trim()
 /* Alamat publik game dipakai saat bot mengirim tautan trading. */
-const PUBLIC_URL = String(process.env.UMI_GAME_PUBLIC_URL || 'https://game.gwenna.my.id').trim().replace(/\/+$/, '')
+const PUBLIC_URL = String(process.env.UMI_GAME_PUBLIC_URL || 'https://game.example.com').trim().replace(/\/+$/, '')
 /* Endpoint top up (Task64): koin RPG ditukar jadi $AS, tanpa DANA.
  * Bot memotong koin secara idempoten lalu mengkredit $AS lewat jalur internal. */
 const TOPUP_URL = String(process.env.UMI_KOIN_TOPUP_URL || process.env.UMI_TOPUP_URL || 'https://jadibot-alzriss.gwenna.my.id/api/platform/rpg-topup').trim()
@@ -166,7 +166,7 @@ function startRoomIdleWatcher() {
             }
             if (!watching && idle >= IDLE_CLOSE_MS && !room.notifiedClosed) {
                 room.notifiedClosed = true
-                pushNotify(room, 'closed', `🎮 *UMI Games*\n\n🔒 Room ${(GAMES[room.game] || {}).label || room.game} (${id}) ditutup otomatis karena tidak dipakai. Buat room baru kapan saja lewat bot atau ${'https://game.gwenna.my.id'}`)
+                pushNotify(room, 'closed', `🎮 *UMI Games*\n\n🔒 Room ${(GAMES[room.game] || {}).label || room.game} (${id}) ditutup otomatis karena tidak dipakai. Buat room baru kapan saja lewat bot atau ${'https://game.example.com'}`)
                 rooms.delete(id)
             }
         }

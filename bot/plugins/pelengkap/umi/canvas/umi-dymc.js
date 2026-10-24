@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dymc", "category": "canvas", "aliasMap": {"umi-canvas-dymc": "dymc", "umi-dymc": "dymc", "umi-dynamiccircular": "dynamiccircular", "dymc": "dymc", "dynamiccircular": "dynamiccircular"}, "description": "Buat gambar dengan efek dynamic circular text", "usage": ".dymc <teks>", "example": ".dymc RIMURU BOT (sambil reply gambar)", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/dymc.js", metadata, m, extra)

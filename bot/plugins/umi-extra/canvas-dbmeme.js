@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 // plugins/dbmeme.js
 const pluginConfig = {
   name: "dbmeme",

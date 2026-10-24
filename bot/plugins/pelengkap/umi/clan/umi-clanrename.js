@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanrename", "category": "clan", "aliasMap": {"umi-clan-clanrename": "clanrename", "umi-clanrename": "clanrename", "umi-renameclan": "renameclan", "umi-guildrename": "guildrename", "clanrename": "clanrename", "renameclan": "renameclan", "guildrename": "guildrename"}, "description": "Ganti nama clan", "usage": ".clanrename <nama baru>", "example": ".clanrename DarkPhoenix", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanrename.js", metadata, m, extra)

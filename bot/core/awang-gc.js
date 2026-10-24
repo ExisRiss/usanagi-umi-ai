@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getAccessModeState, setAccessMode, ACCESS_MODES } from './awang-mode.js'
 

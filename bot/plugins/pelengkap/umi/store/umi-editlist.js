@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "editlist", "category": "store", "aliasMap": {"umi-store-editlist": "editlist", "umi-editlist": "editlist", "umi-editinfo": "editinfo", "editlist": "editlist", "editinfo": "editinfo"}, "description": "✏️ Edit informasi toko (hanya di private chat)", "usage": ".editlist <nomor> <field> <nilai>", "example": ".editlist 1 isi Konten baru di sini", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/editlist.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "konachan", "category": "anime", "aliasMap": {"umi-anime-konachan": "konachan", "umi-konachan": "konachan", "umi-konasearch": "konasearch", "umi-kona": "kona", "umi-konaimg": "konaimg", "konachan": "konachan", "konasearch": "konasearch", "kona": "kona", "konaimg": "konaimg"}, "description": "Cari gambar anime dari konachan", "usage": ".konachan <tags>", "example": ".konachan long_hair blue_eyes", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/konachan.js", metadata, m, extra)

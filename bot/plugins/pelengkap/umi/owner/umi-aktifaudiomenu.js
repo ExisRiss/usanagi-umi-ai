@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "aktifaudiomenu", "category": "owner", "aliasMap": {"umi-owner-aktifaudiomenu": "aktifaudiomenu", "umi-aktifaudiomenu": "aktifaudiomenu", "umi-audiomenu": "audiomenu", "umi-setaudiomenu": "setaudiomenu", "umi-toggleaudiomenu": "toggleaudiomenu", "aktifaudiomenu": "aktifaudiomenu", "audiomenu": "audiomenu", "setaudiomenu": "setaudiomenu", "toggleaudiomenu": "toggleaudiomenu"}, "description": "Toggle audio saat menampilkan menu", "usage": ".aktifaudiomenu ya/gak", "example": ".aktifaudiomenu ya", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/aktifaudiomenu.js", metadata, m, extra)

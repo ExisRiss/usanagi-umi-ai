@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "createchannel", "category": "owner", "aliasMap": {"umi-owner-createchannel": "createchannel", "umi-createchannel": "createchannel", "umi-createch": "createch", "createchannel": "createchannel", "createch": "createch"}, "description": "Membuat WhatsApp Channel/newsletter baru", "usage": ".createchannel <nama>|<deskripsi>", "example": ".createchannel Umi MD|Channel resmi bot", "cooldown": 10}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/createchannel.js", metadata, m, extra)

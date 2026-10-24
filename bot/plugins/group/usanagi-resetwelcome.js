@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { ensureGroupManager, resetGroupEventComponent } from '../../core/awang-welcome-config.js'
 import { clearSessionWelcomeTemplate } from '../../lib/jadibot-group-welcome.js'

@@ -27,7 +27,7 @@ function loadConfig() {
   const token = String(parsed.token || process.env.UMI_GAME_TOKEN || '').trim()
   let baseUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || '').trim()
   if (!baseUrl) {
-    try { baseUrl = 'http://127.0.0.1:' + (process.env.GAME_PORT || '3900') } catch { baseUrl = 'https://game.gwenna.my.id' }
+    try { baseUrl = 'http://127.0.0.1:' + (process.env.GAME_PORT || '3900') } catch { baseUrl = 'https://game.example.com' }
   }
   baseUrl = baseUrl.replace(/\/+$/, '')
   configCache = { at: Date.now(), value: { enabled: parsed.enabled !== false, baseUrl, token } }

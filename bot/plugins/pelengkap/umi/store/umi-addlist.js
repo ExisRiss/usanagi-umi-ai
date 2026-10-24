@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addlist", "category": "store", "aliasMap": {"umi-store-addlist": "addlist", "umi-addlist": "addlist", "umi-addinfo": "addinfo", "addinfo": "addinfo"}, "description": "➕ Tambah informasi toko baru (hanya di private chat)", "usage": ".addlist <nama>|<isi>", "example": ".addlist Syarat & Ketentuan|1. Pembelian tidak bisa dibatalkan;;2. Garansi 7 hari", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/addlist.js", metadata, m, extra)

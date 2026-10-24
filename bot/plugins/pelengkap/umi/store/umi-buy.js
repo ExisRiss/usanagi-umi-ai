@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "beliproduk", "category": "store", "aliasMap": {"umi-store-beliproduk": "beliproduk", "umi-beliproduk": "beliproduk", "umi-buyproduk": "buyproduk", "umi-belisaldo": "belisaldo", "umi-buywithkoin": "buywithkoin", "umi-ordersaldo": "ordersaldo", "beliproduk": "beliproduk", "buyproduk": "buyproduk", "belisaldo": "belisaldo", "buywithkoin": "buywithkoin", "ordersaldo": "ordersaldo"}, "description": "Beli produk dengan saldo/koin", "usage": ".beliproduk [nomor_produk] [jumlah]", "example": ".beliproduk 1", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/buy.js", metadata, m, extra)

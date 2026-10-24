@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kisahnabi", "category": "islamic", "aliasMap": {"umi-islamic-kisahnabi": "kisahnabi", "umi-kisahnabi": "kisahnabi", "umi-nabi": "nabi", "umi-storynabi": "storynabi", "umi-ceritanabi": "ceritanabi", "kisahnabi": "kisahnabi", "nabi": "nabi", "storynabi": "storynabi", "ceritanabi": "ceritanabi"}, "description": "Kisah para nabi dan rasul", "usage": ".kisahnabi <nama_nabi>", "example": ".kisahnabi muhammad", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/kisahnabi.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quilbot", "category": "ai", "aliasMap": {"umi-ai-quilbot": "quilbot", "umi-quilbot": "quilbot", "umi-quillbot": "quillbot", "umi-parafrase": "parafrase", "quilbot": "quilbot", "parafrase": "parafrase"}, "description": "AI Quillbot untuk menulis ulang atau menyempurnakan kalimat", "usage": ".quilbot <teks>", "example": ".quilbot Saya sedang makan nasi di rumah", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/quillbot.js", metadata, m, extra)

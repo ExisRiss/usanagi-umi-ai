@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bisakah", "category": "fun", "aliasMap": {"umi-fun-bisakah": "bisakah", "umi-bisakah": "bisakah", "umi-bisa": "bisa"}, "description": "Tanya bot bisakah sesuatu", "usage": ".bisakah <pertanyaan>", "example": ".bisakah aku lulus ujian?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/bisakah.js", metadata, m, extra)

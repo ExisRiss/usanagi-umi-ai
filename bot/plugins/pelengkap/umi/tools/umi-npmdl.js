@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "npmdl", "category": "tools", "aliasMap": {"umi-tools-npmdl": "npmdl", "umi-npmdl": "npmdl", "umi-npmdownload": "npmdownload", "npmdl": "npmdl", "npmdownload": "npmdownload"}, "description": "Download package NPM dalam format tarball .tgz", "usage": ".npmdl <package atau URL NPM>", "example": ".npmdl axios", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/npmdl.js", metadata, m, extra)

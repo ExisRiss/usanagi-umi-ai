@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Pembersih sesi jadibot yang sudah mati.
  *

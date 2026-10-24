@@ -36,7 +36,7 @@ export function stockConfig(env = process.env) {
     if (parsed) break
   }
   const token = String(parsed?.token || env.UMI_GAME_TOKEN || env.GAME_TOKEN || '').trim()
-  const baseUrl = String(parsed?.baseUrl || env.UMI_GAME_BASE || 'https://game.gwenna.my.id').replace(/\/+$/, '')
+  const baseUrl = String(parsed?.baseUrl || env.UMI_GAME_BASE || 'https://game.example.com').replace(/\/+$/, '')
   const value = { enabled: parsed ? parsed.enabled !== false : true, baseUrl, token, source: parsed ? 'lib/webgame.json' : 'env' }
   cache = { at: Date.now(), value }
   return value

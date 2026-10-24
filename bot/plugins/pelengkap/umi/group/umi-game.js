@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "game", "category": "group", "aliasMap": {"umi-group-game": "game", "umi-game": "game", "umi-togglegame": "togglegame", "game": "game", "togglegame": "togglegame"}, "description": "Mengaktifkan atau menonaktifkan fitur game di grup", "usage": ".game <on/off>", "example": ".game on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/game.js", metadata, m, extra)

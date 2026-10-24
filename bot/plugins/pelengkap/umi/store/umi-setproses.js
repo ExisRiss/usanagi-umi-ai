@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setproses", "category": "store", "aliasMap": {"umi-store-setproses": "setproses", "umi-setproses": "setproses", "umi-prosesconfig": "prosesconfig", "umi-configproses": "configproses", "setproses": "setproses", "prosesconfig": "prosesconfig", "configproses": "configproses"}, "description": "Set template untuk .proses", "usage": ".setproses template <full text>", "example": ".setproses template 「 *TRANSAKSI DIPROSES* 」\\n\\n👤 Buyer: @{buyer_number}", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/setproses.js", metadata, m, extra)

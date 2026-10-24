@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "crime", "category": "rpg", "aliasMap": {"umi-rpg-crime": "crime", "umi-crime": "crime", "umi-curi": "curi", "curi": "curi"}, "description": "Melakukan kejahatan membobol ATM (risiko tinggi)", "usage": ".crime", "example": ".crime", "cooldown": 300, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/crime.js", metadata, m, extra)

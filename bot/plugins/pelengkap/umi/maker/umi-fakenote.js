@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakenote", "category": "maker", "aliasMap": {"umi-maker-fakenote": "fakenote", "umi-fakenote": "fakenote", "fakenote": "fakenote"}, "description": "Generate gambar Note speech bubble meme", "usage": ".fakenote name|pesan|avatar_url", "example": ".fakenote @kyynhz|jadilah manusia berkualitas, tidak menindas untuk menjadi teratas", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakenote.js", metadata, m, extra)

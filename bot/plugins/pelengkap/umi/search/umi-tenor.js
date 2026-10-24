@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tenor", "category": "search", "aliasMap": {"umi-search-tenor": "tenor", "umi-tenor": "tenor", "umi-gif": "gif", "umi-gifsearch": "gifsearch", "tenor": "tenor", "gifsearch": "gifsearch"}, "description": "Cari GIF dari Tenor", "usage": ".tenor <query>", "example": ".tenor kucing lucu", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/tenor.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "spekhp", "category": "search", "aliasMap": {"umi-search-spekhp": "spekhp", "umi-spekhp": "spekhp", "umi-spek": "spek", "umi-spesifikasi": "spesifikasi", "spekhp": "spekhp", "spek": "spek", "spesifikasi": "spesifikasi"}, "description": "Mencari spesifikasi lengkap smartphone dari Carisinyal.", "usage": ".spekhp <nama hp>", "example": ".spekhp oppo a3s", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/carisinyal.js", metadata, m, extra)

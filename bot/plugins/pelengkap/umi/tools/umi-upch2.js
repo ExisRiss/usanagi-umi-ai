@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "upch2", "category": "tools", "aliasMap": {"umi-tools-upch2": "upch2", "umi-upch2": "upch2", "umi-setchid2": "setchid2", "umi-addchid2": "addchid2", "umi-getchid2": "getchid2", "upch2": "upch2", "setchid2": "setchid2", "addchid2": "addchid2", "getchid2": "getchid2"}, "description": "Varian broadcast ke channel dari Tensura.", "usage": ".upch2 <teks>", "example": ".upch2 <teks>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/upch2.js", metadata, m, extra)

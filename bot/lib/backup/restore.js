@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Restore dari arsip backup.
  *

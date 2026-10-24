@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nomerhoki", "category": "primbon", "aliasMap": {"umi-primbon-nomerhoki": "nomerhoki", "umi-nomerhoki": "nomerhoki", "umi-nomorhoki": "nomorhoki", "umi-ceknomor": "ceknomor", "nomerhoki": "nomerhoki", "nomorhoki": "nomorhoki", "ceknomor": "ceknomor"}, "description": "Cek keberuntungan nomor HP", "usage": ".nomerhoki <nomor>", "example": ".nomerhoki 6281234567890", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/nomerhoki.js", metadata, m, extra)

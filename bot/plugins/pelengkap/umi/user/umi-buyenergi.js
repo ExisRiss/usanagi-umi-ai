@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "buyenergi", "category": "user", "aliasMap": {"umi-user-buyenergi": "buyenergi", "umi-buyenergi": "buyenergi", "umi-belienergi": "belienergi", "umi-purchaseenergi": "purchaseenergi", "umi-buyenergy": "buyenergy", "buyenergi": "buyenergi", "belienergi": "belienergi", "purchaseenergi": "purchaseenergi", "buyenergy": "buyenergy"}, "description": "Beli energi dengan koin (1 energi = 100 koin)", "usage": ".buyenergi <jumlah>", "example": ".buyenergi 10", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/buyenergi.js", metadata, m, extra)

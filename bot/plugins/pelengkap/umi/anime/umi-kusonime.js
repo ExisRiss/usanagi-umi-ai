@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kusonime", "category": "anime", "aliasMap": {"umi-anime-kusonime": "kusonime", "umi-kusonime": "kusonime", "umi-animeku": "animeku", "umi-nimeku": "nimeku", "umi-animebatch": "animebatch", "kusonime": "kusonime", "animeku": "animeku", "nimeku": "nimeku", "animebatch": "animebatch"}, "description": "Cari anime dari kusonime.com (batch download)", "usage": ".kusonime <search|latest|genre>", "example": ".kusonime search naruto\n.kusonime latest\n.kusonime genre action", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/kusonime.js", metadata, m, extra)

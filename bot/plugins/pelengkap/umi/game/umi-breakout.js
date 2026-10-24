@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "breakout", "category": "game", "aliasMap": {"umi-game-breakout": "breakout", "umi-breakout": "breakout", "umi-arrowbreakout": "arrowbreakout", "breakout": "breakout", "arrowbreakout": "arrowbreakout"}, "description": "Game webview Arrow Breakout interaktif", "usage": ".breakout", "example": ".breakout", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/breakout.js", metadata, m, extra)

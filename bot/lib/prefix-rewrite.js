@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Penulisan ulang prefix pada pesan keluar.
  *

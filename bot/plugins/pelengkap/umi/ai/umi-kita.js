@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kita", "category": "ai", "aliasMap": {"umi-ai-kita": "kita", "umi-kita": "kita", "umi-kitaikuyo": "kitaikuyo", "kita": "kita", "kitaikuyo": "kitaikuyo"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/kita.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { randomUUID } from 'node:crypto'
 import { getDb } from './awang-sqlite.js'

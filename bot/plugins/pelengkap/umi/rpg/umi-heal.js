@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "heal", "category": "rpg", "aliasMap": {"umi-rpg-heal": "heal", "umi-heal": "heal", "umi-sembuh": "sembuh", "umi-recover": "recover"}, "description": "Pulihkan health dengan istirahat (gratis tapi lama)", "usage": ".heal", "example": ".heal", "cooldown": 600, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/heal.js", metadata, m, extra)

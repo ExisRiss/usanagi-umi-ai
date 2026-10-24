@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "surah2", "category": "general", "aliasMap": {"umi-general-surah2": "surah2", "umi-surah2": "surah2", "surah2": "surah2"}, "description": "Pencarian surah lengkap dengan Arab, bacaan, dan arti.", "usage": ".surah2 <nama/nomor>", "example": ".surah2 <nama/nomor>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/general/surah.js", metadata, m, extra)

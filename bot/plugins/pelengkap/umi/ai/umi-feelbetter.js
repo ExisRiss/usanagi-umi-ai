@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "feelbetter", "category": "ai", "aliasMap": {"umi-ai-feelbetter": "feelbetter", "umi-feelbetter": "feelbetter", "umi-feelbetterbot": "feelbetterbot", "umi-healing": "healing", "feelbetter": "feelbetter", "feelbetterbot": "feelbetterbot", "healing": "healing"}, "description": "Chat dengan FeelBetterBot — AI yang siap mendengarkan tanpa menghakimi", "usage": ".feelbetter <curhat/pertanyaan>", "example": ".feelbetter lagi sedih nih", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/feelbetter.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 function asText(value) {
   return typeof value === 'string' ? value : ''

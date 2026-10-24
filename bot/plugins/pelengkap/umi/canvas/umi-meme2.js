@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "meme2", "category": "canvas", "aliasMap": {"umi-canvas-meme2": "meme2", "umi-meme2": "meme2", "umi-changemymind": "changemymind", "meme2": "meme2", "changemymind": "changemymind"}, "description": "Membuat meme change my mind", "usage": ".meme2 <teks>", "example": ".meme2 Tahu bacem enak banget", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/meme2.js", metadata, m, extra)

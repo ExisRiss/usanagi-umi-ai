@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Pembungkus arsip tar.gz + proteksi path traversal.
  * Memakai paket `tar` (sudah tersedia di node_modules bot).

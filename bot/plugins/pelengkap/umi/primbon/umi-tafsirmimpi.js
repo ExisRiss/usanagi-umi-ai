@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tafsirmimpi", "category": "primbon", "aliasMap": {"umi-primbon-tafsirmimpi": "tafsirmimpi", "umi-tafsirmimpi": "tafsirmimpi", "umi-artimimpi": "artimimpi", "artimimpi": "artimimpi"}, "description": "Cari tafsir mimpi", "usage": ".tafsirmimpi <kata kunci>", "example": ".tafsirmimpi bertemu", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/tafsirmimpi.js", metadata, m, extra)

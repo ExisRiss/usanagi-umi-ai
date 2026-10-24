@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "balap", "category": "game", "aliasMap": {"umi-game-balap": "balap", "umi-balap": "balap", "umi-racing": "racing", "umi-race": "race", "umi-turborace": "turborace", "balap": "balap", "race": "race", "turborace": "turborace"}, "description": "Game Turbo Race HTML AI Rich.", "usage": ".balap", "example": ".balap", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/balap.js", metadata, m, extra)

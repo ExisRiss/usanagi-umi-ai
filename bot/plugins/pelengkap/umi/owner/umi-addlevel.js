@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addlevel", "category": "owner", "aliasMap": {"umi-owner-addlevel": "addlevel", "umi-addlevel": "addlevel", "umi-tambahlevel": "tambahlevel", "umi-givelevel": "givelevel", "umi-addlvl": "addlvl", "addlevel": "addlevel", "tambahlevel": "tambahlevel", "givelevel": "givelevel", "addlvl": "addlvl"}, "description": "Tambah level user (via exp)", "usage": ".addlevel <jumlah> @user", "example": ".addlevel 5 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addlevel.js", metadata, m, extra)

@@ -1,5 +1,6 @@
 /**
  * akinator.js
+  * By AlzRiss - Usanagi Umi AI
  * Base: https://id.akinator.com
  *
  * ESM Plugin - Usanagi Umi AI

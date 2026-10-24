@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "apkmod-get", "category": "search", "aliasMap": {"umi-search-apkmod-get": "apkmod-get", "umi-apkmod-get": "apkmod-get", "umi-apkmodget": "apkmodget", "umi-getapkmod": "getapkmod", "apkmod-get": "apkmod-get", "apkmodget": "apkmodget", "getapkmod": "getapkmod"}, "description": "Download APK MOD dari hasil pencarian", "usage": ".apkmod-get <no> <query>", "example": ".apkmod-get 1 vpn", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/apkmod-get.js", metadata, m, extra)

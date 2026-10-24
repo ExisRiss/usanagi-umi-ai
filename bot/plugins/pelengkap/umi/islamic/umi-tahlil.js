@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tahlil", "category": "religi", "aliasMap": {"umi-religi-tahlil": "tahlil", "umi-tahlil": "tahlil", "umi-tahlilan": "tahlilan", "umi-doatahlil": "doatahlil", "tahlil": "tahlil", "tahlilan": "tahlilan", "doatahlil": "doatahlil"}, "description": "Panduan Tahlil Lengkap (Doa, Bacaan, dan Tata Cara)", "usage": ".tahlil", "example": ".tahlil", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/tahlil.js", metadata, m, extra)

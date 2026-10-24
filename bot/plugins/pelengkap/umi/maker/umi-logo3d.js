@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "logo-3d", "category": "maker", "aliasMap": {"umi-maker-logo-3d": "logo-3d", "umi-logo-3d": "logo-3d", "umi-logo3d": "logo3d", "umi-3dlogo": "3dlogo", "umi-3dtext": "3dtext", "logo-3d": "logo-3d", "logo3d": "logo3d", "3dlogo": "3dlogo", "3dtext": "3dtext"}, "description": "Buat logo dengan efek 3D pop out", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/logo3d.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mistral", "category": "ai", "aliasMap": {"umi-ai-mistral": "mistral", "umi-mistral": "mistral", "umi-mistralai": "mistralai", "umi-chatmistral": "chatmistral", "mistral": "mistral", "mistralai": "mistralai", "chatmistral": "chatmistral"}, "description": "AI Chat using Mistral AI", "usage": ".mistral <pesan>", "example": ".mistral Halo, apa kabar?", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/mistralai.js", metadata, m, extra)

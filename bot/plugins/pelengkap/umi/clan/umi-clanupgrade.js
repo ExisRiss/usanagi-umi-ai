@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanupgrade", "category": "clan", "aliasMap": {"umi-clan-clanupgrade": "clanupgrade", "umi-clanupgrade": "clanupgrade", "umi-upgradeclan": "upgradeclan", "umi-levelupclan": "levelupclan", "clanupgrade": "clanupgrade", "upgradeclan": "upgradeclan", "levelupclan": "levelupclan"}, "description": "Upgrade level clan menggunakan kas clan", "usage": ".clanupgrade", "example": ".clanupgrade", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanupgrade.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jodoh", "category": "fun", "aliasMap": {"umi-fun-jodoh": "jodoh", "umi-shipcouple": "shipcouple", "shipcouple": "shipcouple"}, "description": "Jodohkan 2 member random dengan kecocokan", "usage": ".jodoh", "example": ".jodoh", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/jodoh.js", metadata, m, extra)

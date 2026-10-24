@@ -1,5 +1,5 @@
 import { withRealmGate } from './realms/gate.js'
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Penjadwal perintah Auto-AI.
  *

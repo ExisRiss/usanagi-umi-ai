@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antilink", "category": "group", "aliasMap": {"umi-group-antilink": "antilink", "umi-antilink": "antilink", "umi-al": "al", "umi-antilinkgroup": "antilinkgroup", "umi-nolink": "nolink", "al": "al", "antilinkgroup": "antilinkgroup", "nolink": "nolink"}, "description": "Hapus otomatis semua link yang dikirim member grup", "usage": ".antilink <on/off>", "example": ".antilink on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antilink.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "emojitoanimasi", "category": "tools", "aliasMap": {"umi-tools-emojitoanimasi": "emojitoanimasi", "umi-emojitoanimasi": "emojitoanimasi", "umi-emoji2sticker": "emoji2sticker", "umi-emojisticker": "emojisticker", "umi-e2s": "e2s", "emojitoanimasi": "emojitoanimasi", "emoji2sticker": "emoji2sticker", "emojisticker": "emojisticker", "e2s": "e2s"}, "description": "Konversi emoji ke sticker animasi", "usage": ".emojitoanimasi <emoji>", "example": ".emojitoanimasi 😳", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/emojitoanimasi.js", metadata, m, extra)

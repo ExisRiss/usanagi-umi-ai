@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "buykoin", "category": "rpg", "aliasMap": {"umi-rpg-buykoin": "buykoin", "umi-buykoin": "buykoin", "umi-belikoin": "belikoin", "umi-belicoin": "belicoin", "umi-exptokoin": "exptokoin", "umi-exptocoin": "exptocoin", "belicoin": "belicoin", "exptocoin": "exptocoin"}, "description": "Tukar EXP menjadi Koin", "usage": ".buykoin <jumlah>", "example": ".buykoin 10000", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/buykoin.js", metadata, m, extra)

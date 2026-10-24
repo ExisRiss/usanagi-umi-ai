@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gag", "category": "info", "aliasMap": {"umi-info-gag": "gag", "umi-gag": "gag", "umi-growagarden": "growagarden", "umi-gaginfo": "gaginfo", "gag": "gag", "growagarden": "growagarden", "gaginfo": "gaginfo"}, "description": "Menampilkan informasi stok Grow a Garden", "usage": ".gag", "example": ".gag", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/gag.js", metadata, m, extra)

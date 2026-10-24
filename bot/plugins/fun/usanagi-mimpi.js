@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const tafsir = {
   jatuh: 'Mimpi jatuh sering berkaitan dengan rasa kehilangan kontrol. Waktunya lebih hati-hati.',

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const quotes = [
   'Kadang kita terlalu sibuk mencari yang hilang, sampai lupa mensyukuri yang ada.',

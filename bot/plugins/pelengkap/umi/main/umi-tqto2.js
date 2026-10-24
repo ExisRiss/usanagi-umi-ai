@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tqto2", "category": "main", "aliasMap": {"umi-main-tqto2": "tqto2", "umi-tqto2": "tqto2", "umi-thanksto2": "thanksto2", "umi-credits2": "credits2", "umi-kredit2": "kredit2", "tqto2": "tqto2", "thanksto2": "thanksto2", "credits2": "credits2", "kredit2": "kredit2"}, "description": "Menampilkan daftar kontributor bot", "usage": ".tqto2", "example": ".tqto2", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/tqto2.js", metadata, m, extra)

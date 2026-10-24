@@ -1,5 +1,6 @@
 // lib/magma.js
 // MAGMA Indonesia - Erupsi Gunung Api Scraper (ESM)
+// By AlzRiss - Usanagi Umi AI
 
 'use strict';
 

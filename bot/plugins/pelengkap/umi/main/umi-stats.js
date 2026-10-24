@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stats", "category": "main", "aliasMap": {"umi-main-stats": "stats", "umi-botstats": "botstats", "umi-stat": "stat", "botstats": "botstats"}, "description": "Menampilkan statistik bot", "usage": ".stats", "example": ".stats", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/stats.js", metadata, m, extra)

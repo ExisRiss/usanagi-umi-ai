@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mediafiredl", "category": "download", "aliasMap": {"umi-download-mediafiredl": "mediafiredl", "umi-mediafiredl": "mediafiredl", "umi-mfdl": "mfdl", "umi-mediafire": "mediafire", "umi-mf": "mf", "mediafiredl": "mediafiredl", "mfdl": "mfdl"}, "description": "Download file dari MediaFire", "usage": ".mfdl <url>", "example": ".mfdl https://www.mediafire.com/file/xxx", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/mediafiredl.js", metadata, m, extra)

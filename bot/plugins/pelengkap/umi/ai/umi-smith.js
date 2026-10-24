@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "chatsmith", "category": "ai", "aliasMap": {"umi-ai-chatsmith": "chatsmith", "umi-chatsmith": "chatsmith", "umi-smith": "smith", "umi-chatsmithai": "chatsmithai", "umi-smithai": "smithai", "chatsmith": "chatsmith", "smith": "smith", "chatsmithai": "chatsmithai", "smithai": "smithai"}, "description": "AI Chat menggunakan Chat Smith (GPT-4o Mini)", "usage": ".chatsmith <pesan>", "example": ".chatsmith Siapakah penemu listrik?", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/smith.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tweetss", "category": "tools", "aliasMap": {"umi-tools-tweetss": "tweetss", "umi-tweetss": "tweetss", "umi-orshot": "orshot", "umi-tweetimage": "tweetimage", "umi-tweetimg": "tweetimg", "tweetss": "tweetss", "orshot": "orshot", "tweetimage": "tweetimage", "tweetimg": "tweetimg"}, "description": "Membuat gambar screenshot aesthetic dari link postingan X (Twitter)", "usage": ".tweetss <url tweet>", "example": ".tweetss https://x.com/i/status/2026539641311199692", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/tweetss.js", metadata, m, extra)

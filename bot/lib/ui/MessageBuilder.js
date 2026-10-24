@@ -1,4 +1,5 @@
 /**
+ * By AlzRiss - Usanagi Umi AI
  *
  * Advanced WhatsApp Interactive Message Builder
  * Built for creating buttons, carousels, native flows,
@@ -9,8 +10,10 @@
  * Runtime:
  * - Baileys: @whiskeysockets/baileys (latest)
  *
+  * By AlzRiss - Usanagi Umi AI
  * Contributors: ~ Ahmad tumbuh kembang
  *
+  * By AlzRiss - Usanagi Umi AI
  *
  * Copyright (c) 2026 Nixel
  *

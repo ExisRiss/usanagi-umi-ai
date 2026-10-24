@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bank", "category": "rpg", "aliasMap": {"umi-rpg-bank": "bank", "umi-bank": "bank", "umi-atm": "atm", "umi-nabung": "nabung", "umi-deposit": "deposit", "umi-tarik": "tarik", "umi-withdraw": "withdraw", "nabung": "nabung", "tarik": "tarik"}, "description": "Bank system untuk menyimpan uang aman dari rampok", "usage": ".bank <deposit/withdraw> <jumlah>", "example": ".bank deposit 10000", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/bank.js", metadata, m, extra)

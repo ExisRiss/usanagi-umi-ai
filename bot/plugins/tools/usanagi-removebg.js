@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { removeBackground } from '../../lib/scraper/awang-removebackground.js'
 import { downloadMediaBuffer, getMediaSource, getMimeType, getFileName, react } from '../../lib/awang-media.js'

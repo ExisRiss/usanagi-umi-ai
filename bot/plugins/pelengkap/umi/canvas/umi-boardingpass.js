@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "boardingpass", "category": "canvas", "aliasMap": {"umi-canvas-boardingpass": "boardingpass", "umi-boardingpass": "boardingpass", "umi-nasapass": "nasapass", "umi-boarding": "boarding", "boardingpass": "boardingpass", "nasapass": "nasapass", "boarding": "boarding"}, "description": "Membuat tiket NASA Boarding Pass kustom", "usage": ".boardingpass <nama>", "example": ".boardingpass Alex", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/boardingpass.js", metadata, m, extra)

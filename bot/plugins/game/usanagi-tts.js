@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const html = `<!DOCTYPE html>
 <html lang="id">

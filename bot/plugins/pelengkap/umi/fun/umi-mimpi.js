@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mimpi", "category": "fun", "aliasMap": {"umi-fun-mimpi": "mimpi", "umi-dream": "dream", "umi-dreamworld": "dreamworld", "dream": "dream", "dreamworld": "dreamworld"}, "description": "Jelajahi dunia mimpimu berdasarkan nama", "usage": ".mimpi <nama>", "example": ".mimpi Keisya", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/mimpi.js", metadata, m, extra)

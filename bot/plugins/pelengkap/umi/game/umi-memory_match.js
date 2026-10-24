@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "memorymatch", "category": "game", "aliasMap": {"umi-game-memorymatch": "memorymatch", "umi-memorymatch": "memorymatch", "umi-memorymatchgame": "memorymatchgame", "umi-mmatch": "mmatch", "memorymatch": "memorymatch", "memorymatchgame": "memorymatchgame", "mmatch": "mmatch"}, "description": "Game hafalan kartu - cocokin pasangan emoji!", "usage": "", "example": ".memory", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/memory_match.js", metadata, m, extra)

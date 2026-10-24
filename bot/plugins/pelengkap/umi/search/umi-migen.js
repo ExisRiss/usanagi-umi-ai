@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "meigen", "category": "search", "aliasMap": {"umi-search-meigen": "meigen", "umi-meigen": "meigen", "umi-meigens": "meigens", "meigen": "meigen", "meigens": "meigens"}, "description": "Cari prompt dari Meigen AI", "usage": ".meigen <query>", "example": ".meigen anime girl", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/migen.js", metadata, m, extra)

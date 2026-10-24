@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sapa", "category": "general", "aliasMap": {"umi-general-sapa": "sapa", "umi-sapa": "sapa", "umi-greet": "greet", "umi-sayhi": "sayhi", "sapa": "sapa", "greet": "greet", "sayhi": "sayhi"}, "description": "Umi nyapa kamu dengan random pesan manis", "usage": ".sapa", "example": ".sapa", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/general/sapa.js", metadata, m, extra)

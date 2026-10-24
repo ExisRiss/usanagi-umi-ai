@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quoteswindows", "category": "canvas", "aliasMap": {"umi-canvas-quoteswindows": "quoteswindows", "umi-quoteswindows": "quoteswindows", "umi-wq": "wq", "umi-qwindows": "qwindows", "quoteswindows": "quoteswindows", "qwindows": "qwindows"}, "description": "Buat meme quotes bergaya Windows", "usage": ".wq <text>", "example": ".wq just friend kok manggil sayang dan cemburu", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/quoteswindows.js", metadata, m, extra)

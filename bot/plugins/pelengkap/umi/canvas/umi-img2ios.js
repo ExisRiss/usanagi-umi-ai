@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "img2ios", "category": "canvas", "aliasMap": {"umi-canvas-img2ios": "img2ios", "umi-img2ios": "img2ios", "umi-toios": "toios", "img2ios": "img2ios", "toios": "toios"}, "description": "Bikin gambarmu menjadi gaya foto iOS", "usage": ".img2ios (reply/kirim foto)", "example": ".img2ios", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/img2ios.js", metadata, m, extra)

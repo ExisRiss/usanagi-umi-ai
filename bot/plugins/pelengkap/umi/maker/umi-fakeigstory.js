@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeigstory", "category": "maker", "aliasMap": {"umi-maker-fakeigstory": "fakeigstory", "umi-fakeigstory": "fakeigstory", "umi-igstoryfake": "igstoryfake", "umi-fakeigs": "fakeigs", "fakeigstory": "fakeigstory", "igstoryfake": "igstoryfake", "fakeigs": "fakeigs"}, "description": "Membuat fake Instagram Story", "usage": ".fakeigstory <username>|<caption>|<time>", "example": ".fakeigstory zerobot|lagi gabut bjir|5 menit lalu", "cooldown": 5, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakeigstory.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setwelcometype", "category": "owner", "aliasMap": {"umi-owner-setwelcometype": "setwelcometype", "umi-setwelcometype": "setwelcometype", "umi-welcometype": "welcometype", "umi-welcomevariant": "welcomevariant", "umi-welcomestyle": "welcomestyle", "setwelcometype": "setwelcometype", "welcometype": "welcometype", "welcomevariant": "welcomevariant", "welcomestyle": "welcomestyle"}, "description": "Mengatur variant tampilan welcome message", "usage": ".setwelcometype", "example": ".setwelcometype", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setwelcometype.js", metadata, m, extra)

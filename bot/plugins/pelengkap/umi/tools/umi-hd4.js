@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hd4", "category": "tools", "aliasMap": {"umi-tools-hd4": "hd4", "umi-hd4": "hd4", "umi-upscale4": "upscale4", "hd4": "hd4", "upscale4": "upscale4"}, "description": "Memperjelas resolusi gambar / dokumen foto (Upscale 4x)", "usage": ".hd4 <reply/kirim gambar atau dokumen foto>", "example": ".hd4", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hd4.js", metadata, m, extra)

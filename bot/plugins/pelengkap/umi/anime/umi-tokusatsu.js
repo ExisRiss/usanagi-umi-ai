@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tokusatsu", "category": "anime", "aliasMap": {"umi-anime-tokusatsu": "tokusatsu", "umi-tokusatsu": "tokusatsu", "umi-toku": "toku", "tokusatsu": "tokusatsu", "toku": "toku"}, "description": "Cari dan lihat data serial/episode tokusatsu dari TokusatsuIndo", "usage": ".tokusatsu <judul atau link>", "example": ".tokusatsu kamen rider\n.tokusatsu https://www.tokusatsuindo.com/...", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/tokusatsu.js", metadata, m, extra)

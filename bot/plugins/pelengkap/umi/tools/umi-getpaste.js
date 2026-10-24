@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getpaste", "category": "tools", "aliasMap": {"umi-tools-getpaste": "getpaste", "umi-getpaste": "getpaste", "umi-getpb": "getpb", "getpaste": "getpaste", "pastebin": "pastebin", "getpb": "getpb"}, "description": "Ambil konten dari Pastebin", "usage": ".getpaste <link pastebin>", "example": ".getpaste https://pastebin.com/Gu8RZaqv", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/getpaste.js", metadata, m, extra)

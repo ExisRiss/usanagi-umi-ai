@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Satu tempat untuk urusan prefix yang tampil di menu & pesan perintah.
  *

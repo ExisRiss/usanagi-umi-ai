@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autoread", "category": "owner", "aliasMap": {"umi-owner-autoread": "autoread", "umi-autoread": "autoread", "umi-readchat": "readchat", "umi-autobaca": "autobaca", "autoread": "autoread", "readchat": "readchat", "autobaca": "autobaca"}, "description": "Auto read pesan masuk", "usage": ".autoread on/off", "example": ".autoread on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/autoread.js", metadata, m, extra)

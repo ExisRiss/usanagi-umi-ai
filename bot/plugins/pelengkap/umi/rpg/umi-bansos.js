@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bansos", "category": "rpg", "aliasMap": {"umi-rpg-bansos": "bansos", "umi-bansos": "bansos", "umi-korupsi": "korupsi", "bansos": "bansos"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/bansos.js", metadata, m, extra)

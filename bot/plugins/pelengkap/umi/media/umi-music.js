@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "music", "category": "media", "aliasMap": {"umi-media-music": "music", "umi-music": "music", "music": "music"}, "description": "Koleksi musik 1-65", "usage": ".music1 sampai .music65", "example": ".music1", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/media/music.js", metadata, m, extra)

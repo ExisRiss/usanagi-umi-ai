@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { sendInteractive } from '../../lib/awang-tombol.js'
 import { uploaders, mimeLookup } from '../../lib/scraper/awang-uploaders.js'

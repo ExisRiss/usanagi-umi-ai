@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wormgpt", "category": "ai", "aliasMap": {"umi-ai-wormgpt": "wormgpt", "umi-wormgpt": "wormgpt", "umi-worm": "worm", "wormgpt": "wormgpt", "worm": "worm"}, "description": "Chat dengan WormGPT (uncensored AI)", "usage": ".wormgpt <pertanyaan>", "example": ".wormgpt perkenalkan dirimu", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/wormgpt.js", metadata, m, extra)

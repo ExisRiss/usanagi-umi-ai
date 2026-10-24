@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wwprotect", "category": "game", "aliasMap": {"umi-game-wwprotect": "wwprotect", "umi-wwprotect": "wwprotect", "umi-protect": "protect", "umi-guardian": "guardian", "umi-wpr": "wpr", "wwprotect": "wwprotect", "protect": "protect", "guardian": "guardian", "wpr": "wpr"}, "description": "Guardian night action - Protect target", "usage": ".wwprotect <nomor>", "example": ".wwprotect 3", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/wwprotect.js", metadata, m, extra)

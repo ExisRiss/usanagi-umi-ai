@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sertifikatnasa", "category": "maker", "aliasMap": {"umi-maker-sertifikatnasa": "sertifikatnasa", "umi-sertifikatnasa": "sertifikatnasa", "umi-nasacert": "nasacert", "umi-sertifnasa": "sertifnasa", "umi-sertifikat-nasa": "sertifikat-nasa", "sertifikatnasa": "sertifikatnasa", "nasacert": "nasacert", "sertifnasa": "sertifnasa", "sertifikat-nasa": "sertifikat-nasa"}, "description": "Generate gambar Sertifikat NASA dengan nama custom", "usage": ".sertifikatnasa <nama>", "example": ".sertifikatnasa John Doe", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/sertifikatnasa.js", metadata, m, extra)

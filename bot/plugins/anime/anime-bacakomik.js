@@ -2,6 +2,7 @@
   *» Nama :* — [ BACA KOMIK ] —
   *» Type :* Plugin - ESM
   *» Base Url :* https://bacakomik.my
+   * By AlzRiss - Usanagi Umi AI
 **/
 
 import fs from 'fs';

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ekspedisilist", "category": "tools", "aliasMap": {"umi-tools-ekspedisilist": "ekspedisilist", "umi-ekspedisilist": "ekspedisilist", "ekspedisilist": "ekspedisilist"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ekspedisilist.js", metadata, m, extra)

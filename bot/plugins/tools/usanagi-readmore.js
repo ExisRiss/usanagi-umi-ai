@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const handler = async (m, { rawConn, usedPrefix }) => {
   const text = String(m.text || '').trim()

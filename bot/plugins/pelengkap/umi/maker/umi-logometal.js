@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "logo-metal", "category": "maker", "aliasMap": {"umi-maker-logo-metal": "logo-metal", "umi-logo-metal": "logo-metal", "umi-logometal": "logometal", "umi-metallogo": "metallogo", "umi-steellogo": "steellogo", "umi-metaltext": "metaltext", "logo-metal": "logo-metal", "logometal": "logometal", "metallogo": "metallogo", "steellogo": "steellogo", "metaltext": "metaltext"}, "description": "Buat logo dengan efek logam/steel", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/logometal.js", metadata, m, extra)

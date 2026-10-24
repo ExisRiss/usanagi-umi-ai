@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "playtiktok", "category": "search", "aliasMap": {"umi-search-playtiktok": "playtiktok", "umi-playtiktok": "playtiktok", "umi-ttplay": "ttplay", "umi-tiktokplay": "tiktokplay", "playtiktok": "playtiktok", "ttplay": "ttplay", "tiktokplay": "tiktokplay"}, "description": "Cari dan kirim satu video TikTok terbaik", "usage": ".playtiktok <query>", "example": ".playtiktok cewe tiktok", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/playtiktok.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antispam", "category": "group", "aliasMap": {"umi-group-antispam": "antispam", "umi-antispam": "antispam", "umi-antispamgc": "antispamgc", "antispamgc": "antispamgc"}, "description": "Mengatur fitur perlindungan grup dari pesan spam secara brutal", "usage": ".antispam <on/off/action/delay>", "example": ".antispam on\n.antispam warning\n.antispam 2", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antispam.js", metadata, m, extra)

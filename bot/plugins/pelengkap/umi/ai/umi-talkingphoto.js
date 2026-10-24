@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "talkingphoto", "category": "ai", "aliasMap": {"umi-ai-talkingphoto": "talkingphoto", "umi-talkingphoto": "talkingphoto", "umi-talkphoto": "talkphoto", "talkingphoto": "talkingphoto", "talkphoto": "talkphoto"}, "description": "Mengubah foto menjadi talking photo/video", "usage": ".talkingphoto <teks> | woman1|woman2|man1|man2 (reply gambar)", "example": ".talkingphoto aku adalah asisten AI | woman1", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/talkingphoto.js", metadata, m, extra)

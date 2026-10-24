@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "simi", "category": "ai", "aliasMap": {"umi-ai-simi": "simi", "umi-simi": "simi", "umi-simisimi": "simisimi", "simi": "simi", "simisimi": "simisimi"}, "description": "Ngobrol santai bareng SimiSimi", "usage": ".simi <pesan>", "example": ".simi Halo Simi!", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/simi.js", metadata, m, extra)

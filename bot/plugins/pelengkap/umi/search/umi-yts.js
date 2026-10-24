@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "yts", "category": "search", "aliasMap": {"umi-search-yts": "yts", "umi-yts": "yts", "umi-ytsearch": "ytsearch", "umi-youtubesearch": "youtubesearch", "yts": "yts", "ytsearch": "ytsearch", "youtubesearch": "youtubesearch"}, "description": "Mencari video di YouTube berdasarkan kata kunci dan menampilkan detail lengkap beserta thumbnail.", "usage": ".yts <query>", "example": ".yts lagu pop terbaru", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/yts.js", metadata, m, extra)

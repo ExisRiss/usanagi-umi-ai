@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "slotui", "category": "rpg", "aliasMap": {"umi-rpg-slotui": "slotui", "umi-slotui": "slotui", "umi-slotgame": "slotgame", "umi-fruitbonanza": "fruitbonanza", "slotui": "slotui", "slotgame": "slotgame", "fruitbonanza": "fruitbonanza"}, "description": "Fruit Bonanza slot machine dengan UI HTML interaktif.", "usage": ".slotui", "example": ".slotui", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/slotui.js", metadata, m, extra)

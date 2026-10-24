@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listantilink", "category": "group", "aliasMap": {"umi-group-listantilink": "listantilink", "umi-listantilink": "listantilink", "umi-antilinklist": "antilinklist", "umi-cekantilink": "cekantilink", "listantilink": "listantilink", "antilinklist": "antilinklist", "cekantilink": "cekantilink"}, "description": "Melihat daftar link yang diblokir", "usage": ".listantilink", "example": ".listantilink", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/listantilink.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekprem", "category": "cek", "aliasMap": {"umi-cek-cekprem": "cekprem", "umi-cekprem": "cekprem", "umi-cekpremium": "cekpremium", "umi-preminfo": "preminfo", "cekprem": "cekprem", "cekpremium": "cekpremium", "preminfo": "preminfo"}, "description": "Cek detail status premium user", "usage": ".cekprem @user", "example": ".cekprem", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cekprem.js", metadata, m, extra)

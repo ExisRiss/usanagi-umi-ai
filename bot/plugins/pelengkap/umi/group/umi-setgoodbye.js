@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setgoodbye", "category": "group", "aliasMap": {"umi-group-setgoodbye": "setgoodbye", "umi-setgoodbye": "setgoodbye", "umi-customgoodbye": "customgoodbye", "customgoodbye": "customgoodbye"}, "description": "Set custom goodbye message", "usage": ".setgoodbye <pesan>", "example": ".setgoodbye Bye {user}, sampai jumpa lagi!", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setgoodbye.js", metadata, m, extra)

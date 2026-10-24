@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dice", "category": "rpg", "aliasMap": {"umi-rpg-dice": "dice", "umi-dice": "dice", "umi-dadu": "dadu", "umi-roll": "roll"}, "description": "Lempar dadu untuk gambling", "usage": ".dice <1-6> <bet>", "example": ".dice 6 5000", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/dice.js", metadata, m, extra)

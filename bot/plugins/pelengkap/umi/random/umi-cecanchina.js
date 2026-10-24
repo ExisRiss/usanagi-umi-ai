@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cecanchina", "category": "cecan", "aliasMap": {"umi-cecan-cecanchina": "cecanchina", "umi-cecanchina": "cecanchina", "umi-cewekchina": "cewekchina", "umi-cewekcina": "cewekcina", "cecanchina": "cecanchina", "cewekchina": "cewekchina", "cewekcina": "cewekcina"}, "description": "Random gambar cewek cantik China", "usage": ".cecanchina", "example": ".cecanchina", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/cecanchina.js", metadata, m, extra)

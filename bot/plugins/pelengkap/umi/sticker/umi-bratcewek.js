@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bratcewek", "category": "sticker", "aliasMap": {"umi-sticker-bratcewek": "bratcewek", "umi-bratcewek": "bratcewek", "umi-cewekbrat": "cewekbrat", "umi-bratperempuan": "bratperempuan", "umi-bratgirl": "bratgirl", "bratcewek": "bratcewek", "bratperempuan": "bratperempuan", "bratgirl": "bratgirl"}, "description": "Membuat sticker brat", "usage": ".bratcewek <text>", "example": ".bratcewek Hai semua", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/bratcewek.js", metadata, m, extra)

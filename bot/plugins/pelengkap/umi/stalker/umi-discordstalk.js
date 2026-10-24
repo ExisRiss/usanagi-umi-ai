@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "discordstalk", "category": "stalker", "aliasMap": {"umi-stalker-discordstalk": "discordstalk", "umi-dcstalk": "dcstalk", "umi-dsstalk": "dsstalk", "discordstalk": "discordstalk", "dcstalk": "dcstalk", "dsstalk": "dsstalk", "stalkdc": "stalkdc", "stalkdiscord": "stalkdiscord"}, "description": "Stalk akun Discord berdasarkan User ID", "usage": ".discordstalk <userid>", "example": ".discordstalk 297574907510784000", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/discordstalk.js", metadata, m, extra)

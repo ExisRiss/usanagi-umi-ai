@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ptvch", "category": "owner", "aliasMap": {"umi-owner-ptvch": "ptvch", "umi-ptvch": "ptvch", "umi-ptvchanel": "ptvchanel", "umi-ptvstory": "ptvstory", "ptvch": "ptvch", "ptvchanel": "ptvchanel", "ptvstory": "ptvstory"}, "description": "Kirim video sebagai PTV ke channel", "usage": ".ptvch (reply video)", "example": ".ptvch", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/ptvch.js", metadata, m, extra)

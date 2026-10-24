@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const localBucin = [
   'Cinta itu seperti angin, tidak terlihat tapi bisa dirasakan.',

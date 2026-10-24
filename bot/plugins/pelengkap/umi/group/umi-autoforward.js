@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autoforward", "category": "group", "aliasMap": {"umi-group-autoforward": "autoforward", "umi-autoforward": "autoforward", "umi-autofw": "autofw", "umi-autofwd": "autofwd", "autoforward": "autoforward", "autofw": "autofw", "autofwd": "autofwd"}, "description": "Auto forward pesan yang masuk ke grup ke grup ini", "usage": ".autoforward <on/off>", "example": ".autoforward on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/autoforward.js", metadata, m, extra)

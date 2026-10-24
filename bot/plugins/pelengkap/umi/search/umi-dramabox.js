@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dramabox", "category": "search", "aliasMap": {"umi-search-dramabox": "dramabox", "umi-dramabox": "dramabox", "umi-drama": "drama", "umi-dramasearch": "dramasearch", "dramabox": "dramabox", "drama": "drama", "dramasearch": "dramasearch"}, "description": "Cari drama di DramaBox", "usage": ".dramabox <query>", "example": ".dramabox billionaire", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/dramabox.js", metadata, m, extra)

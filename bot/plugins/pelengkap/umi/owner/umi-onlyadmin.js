@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "onlyadmin", "category": "owner", "aliasMap": {"umi-owner-onlyadmin": "onlyadmin", "umi-onlyadmin": "onlyadmin", "umi-selfadmin": "selfadmin", "umi-publicadmin": "publicadmin", "umi-adminonly": "adminonly", "onlyadmin": "onlyadmin", "selfadmin": "selfadmin", "publicadmin": "publicadmin"}, "description": "Hanya admin grup yang bisa akses command bot", "usage": ".onlyadmin on/off", "example": ".onlyadmin on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/onlyadmin.js", metadata, m, extra)

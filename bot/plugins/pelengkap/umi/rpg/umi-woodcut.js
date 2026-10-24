@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "woodcut", "category": "rpg", "aliasMap": {"umi-rpg-woodcut": "woodcut", "umi-woodcut": "woodcut", "umi-chop": "chop", "umi-nebang": "nebang", "umi-kayu": "kayu"}, "description": "Menebang pohon untuk mendapatkan kayu", "usage": ".woodcut", "example": ".woodcut", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/woodcut.js", metadata, m, extra)

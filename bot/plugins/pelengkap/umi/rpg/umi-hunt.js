@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hunt", "category": "rpg", "aliasMap": {"umi-rpg-hunt": "hunt", "umi-hunt": "hunt", "umi-hunting": "hunting", "hunting": "hunting"}, "description": "Berburu hewan untuk mendapatkan daging dan kulit", "usage": ".hunt", "example": ".hunt", "cooldown": 90, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/hunt.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekabsen", "category": "group", "aliasMap": {"umi-group-cekabsen": "cekabsen", "umi-cekabsen": "cekabsen", "umi-listabsen": "listabsen", "umi-daftarabsen": "daftarabsen", "umi-lihathadir": "lihathadir", "cekabsen": "cekabsen", "daftarabsen": "daftarabsen", "lihathadir": "lihathadir"}, "description": "Lihat daftar peserta yang sudah absen", "usage": ".cekabsen", "example": ".cekabsen", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/cekabsen.js", metadata, m, extra)

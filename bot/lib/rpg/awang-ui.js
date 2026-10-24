@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { createCanvas, loadImage } from '@napi-rs/canvas'
 import fs from 'fs-extra'

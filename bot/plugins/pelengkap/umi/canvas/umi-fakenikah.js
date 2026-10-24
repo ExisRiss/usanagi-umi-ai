@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakenikah", "category": "canvas", "aliasMap": {"umi-canvas-fakenikah": "fakenikah", "umi-fakenikah": "fakenikah", "umi-nikahfake": "nikahfake", "umi-fakemarriage": "fakemarriage", "fakenikah": "fakenikah", "nikahfake": "nikahfake", "fakemarriage": "fakemarriage"}, "description": "Bikin fake sertifikat nikah (buat konten/gaguan doang)", "usage": ".fakenikah <nama1> | <nama2>", "example": ".fakenikah Umi | Darling", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakenikah.js", metadata, m, extra)

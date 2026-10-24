@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sora2", "category": "ai", "aliasMap": {"umi-ai-sora2": "sora2", "umi-sora2": "sora2", "umi-sora": "sora", "sora2": "sora2", "sora": "sora"}, "description": "Ubah gambar menjadi video (Sora 2)", "usage": ".sora <prompt>", "example": ".sora anime cinematic", "cooldown": 20, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/sora2.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clancreate", "category": "clan", "aliasMap": {"umi-clan-clancreate": "clancreate", "umi-clancreate": "clancreate", "umi-createclan": "createclan", "umi-guildcreate": "guildcreate", "clancreate": "clancreate", "createclan": "createclan", "guildcreate": "guildcreate"}, "description": "Buat clan baru", "usage": ".clancreate <nama>", "example": ".clancreate DragonSlayer", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clancreate.js", metadata, m, extra)

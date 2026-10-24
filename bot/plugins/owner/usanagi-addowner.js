@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { settings } from '../../config/settings.js'
 import { addDynamicOwner } from '../../core/awang-ownerdb.js'

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ping", "category": "main", "aliasMap": {"umi-main-ping": "ping", "umi-ping": "ping", "umi-speed": "speed", "umi-p": "p", "umi-latency": "latency", "umi-sys": "sys", "speed": "speed", "p": "p", "latency": "latency", "sys": "sys", "status": "status"}, "description": "Cek performa dan status sistem bot secara real-time (Canvas Epic)", "usage": ".ping", "example": ".ping", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/ping.js", metadata, m, extra)

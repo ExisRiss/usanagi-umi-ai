@@ -36,6 +36,7 @@ export const FEATURE_CREDIT = "Fitur By: Anita Putri Azzahra\nFitur SC Bot Rimur
 import axios from "axios"
 import FormData from "form-data"
 import fs from "fs"
+import { requireApiKey } from '../../../../config/api-keys.js'
 
 const pluginConfig = {
   name: "imgprompt",
@@ -68,7 +69,7 @@ async function handler(m, { sock }) {
     const res = await axios.post("https://be.neuralframes.com/clip_interrogate/", form, {
       headers: {
         ...form.getHeaders(),
-        "Authorization": "Bearer GANTI-DENGAN-TOKEN-LAYANAN",
+        "Authorization": `Bearer ${requireApiKey('neuralFrames', 'Image to Prompt')}`,
         "User-Agent": "Mozilla/5.0 (Linux; Android 10)",
         "Referer": "https://www.neuralframes.com/tools/image-to-prompt"
       }

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { downloadMediaBuffer, getMediaSource, getMimeType, react } from '../../lib/awang-media.js'
 import { renderQuotesVideo } from '../../lib/awang-engine.js'

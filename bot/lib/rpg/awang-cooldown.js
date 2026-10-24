@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { checkCooldown, setCooldown } from './awang-db.js'
 

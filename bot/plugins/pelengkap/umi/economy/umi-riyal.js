@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "riyal", "category": "economy", "aliasMap": {"umi-economy-riyal": "riyal", "umi-riyal": "riyal", "umi-sar": "sar", "umi-kursriyal": "kursriyal", "umi-arab": "arab", "umi-konversiriyal": "konversiriyal", "umi-saudi": "saudi", "riyal": "riyal", "sar": "sar", "kursriyal": "kursriyal", "arab": "arab", "konversiriyal": "konversiriyal", "saudi": "saudi"}, "description": "Konversi mata uang Rupiah ke Riyal Arab Saudi / sebaliknya", "usage": ".riyal <nominal> <idr/sar>", "example": ".riyal 100000 idr\n.riyal 500 sar", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/economy/riyal.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nanobananapro", "category": "ai", "aliasMap": {"umi-ai-nanobananapro": "nanobananapro", "umi-nanobananapro": "nanobananapro", "umi-nanopro": "nanopro", "nanobananapro": "nanobananapro", "nanopro": "nanopro"}, "description": "Edit gambar dengan Nano Banana Pro dari source CANTARELLA", "usage": ".nanobananapro <prompt> (reply gambar)", "example": ".nanobananapro ubah jadi sketsa pensil", "cooldown": 30, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/nanobananapro.js", metadata, m, extra)

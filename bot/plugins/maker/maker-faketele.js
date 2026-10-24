@@ -1,5 +1,6 @@
 /**
 ‎✧ Name   : fake tele profile 
+ * By AlzRiss - Usanagi Umi AI
 ‎✧ Category : Canvas
 ‎✧ *Note* : Jangan hapus wm ya,ga mudah buat kanpas
 ‎**/

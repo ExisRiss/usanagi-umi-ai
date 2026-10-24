@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "compresspdf", "category": "tools", "aliasMap": {"umi-tools-compresspdf": "compresspdf", "umi-compresspdf": "compresspdf", "umi-komprespdf": "komprespdf", "umi-pdfcompress": "pdfcompress", "compresspdf": "compresspdf", "komprespdf": "komprespdf", "pdfcompress": "pdfcompress"}, "description": "Mengompres file PDF", "usage": ".compresspdf <reply/kirim PDF>", "example": ".compresspdf", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/compresspdf.js", metadata, m, extra)

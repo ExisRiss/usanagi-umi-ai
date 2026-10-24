@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mcpedl", "category": "search", "aliasMap": {"umi-search-mcpedl": "mcpedl", "umi-mcpedl": "mcpedl", "umi-mcpe": "mcpe", "umi-mcpesearch": "mcpesearch", "umi-searchmcpe": "searchmcpe", "mcpedl": "mcpedl", "mcpe": "mcpe", "mcpesearch": "mcpesearch", "searchmcpe": "searchmcpe"}, "description": "Cari map dan addon Minecraft PE dari MCPEDL", "usage": ".mcpe <query>", "example": ".mcpe survival", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/mcpedl.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mortalkombat", "category": "game", "aliasMap": {"umi-game-mortalkombat": "mortalkombat", "umi-mortalkombat": "mortalkombat", "umi-mortal": "mortal", "umi-mk": "mk", "mortalkombat": "mortalkombat", "mortal": "mortal", "mk": "mk"}, "description": "Mortal Kombat mini - fight 1 vs 1!", "usage": "", "example": ".mk", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/mortal_kombat.js", metadata, m, extra)

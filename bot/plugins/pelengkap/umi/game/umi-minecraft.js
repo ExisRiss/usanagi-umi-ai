@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mct", "category": "game", "aliasMap": {"umi-game-mct": "mct", "umi-mct": "mct", "umi-minecraft": "minecraft", "mct": "mct", "minecraft": "minecraft"}, "description": "Minecraft - Mining & Crafting Game", "usage": ".mct <command>", "example": ".mct help", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/minecraft.js", metadata, m, extra)

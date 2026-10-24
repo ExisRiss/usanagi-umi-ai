@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mvp", "category": "canvas", "aliasMap": {"umi-canvas-mvp": "mvp", "umi-mvp": "mvp", "umi-sertifikatmvp": "sertifikatmvp", "mvp": "mvp", "sertifikatmvp": "sertifikatmvp"}, "description": "Buat sertifikat MVP", "usage": ".mvp <nama>", "example": ".mvp Fauzan", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/mvp.js", metadata, m, extra)

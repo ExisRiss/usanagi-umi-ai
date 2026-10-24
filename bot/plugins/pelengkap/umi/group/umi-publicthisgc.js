@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "publicthisgc", "category": "group", "aliasMap": {"umi-group-publicthisgc": "publicthisgc", "umi-publicthisgc": "publicthisgc", "umi-publicgc": "publicgc", "umi-publicgroup": "publicgroup", "umi-publicthisgroup": "publicthisgroup", "publicthisgc": "publicthisgc", "publicgc": "publicgc", "publicgroup": "publicgroup", "publicthisgroup": "publicthisgroup"}, "description": "Aktifkan mode public hanya di grup ini", "usage": ".publicthisgc", "example": ".publicthisgc", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/publicthisgc.js", metadata, m, extra)

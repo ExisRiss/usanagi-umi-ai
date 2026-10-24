@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "similarity", "category": "owner", "aliasMap": {"umi-owner-similarity": "similarity", "umi-similarity": "similarity", "umi-setsimilarity": "setsimilarity", "umi-sim": "sim", "similarity": "similarity", "setsimilarity": "setsimilarity", "sim": "sim"}, "description": "Mengaktifkan/menonaktifkan fitur similarity (saran typo)", "usage": ".similarity <on/off>", "example": ".similarity on", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/similarity.js", metadata, m, extra)

@@ -2,6 +2,7 @@
   *» Nama :* — [ HAIRSTYLE AI ] —
   *» Type :* Plugin - ESM
   *» Base Url :* https://live3d.io
+   * By AlzRiss - Usanagi Umi AI
 **/
 
 import fetch from 'node-fetch'

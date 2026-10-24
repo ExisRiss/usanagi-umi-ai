@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wmp1", "category": "maker", "aliasMap": {"umi-maker-wmp1": "wmp1", "umi-wmp1": "wmp1", "umi-canvaswmp1": "canvaswmp1", "umi-wmp1meme": "wmp1meme", "wmp1": "wmp1", "canvaswmp1": "canvaswmp1", "wmp1meme": "wmp1meme"}, "description": "Membuat gambar Canvas WMP1 dengan teks custom", "usage": ".wmp1 <teks1|teks2|teks3|teks4>", "example": ".wmp1 ngapain cemburu|kan|cuman sebatas|teman", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/wmp1.js", metadata, m, extra)

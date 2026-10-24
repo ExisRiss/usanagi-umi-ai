@@ -6,6 +6,7 @@
  *   .bataljadwal       bentuk singkat
  *
  * Owner bisa melihat/membatalkan jadwal semua orang di chat tersebut.
+ * By AlzRiss - Usanagi Umi AI
  */
 import { listScheduled, cancelScheduled } from '../../lib/auto-ai-scheduler.js'
 

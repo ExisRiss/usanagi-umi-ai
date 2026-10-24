@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dimana", "category": "fun", "aliasMap": {"umi-fun-dimana": "dimana", "umi-dimana": "dimana", "umi-where": "where", "umi-mana": "mana"}, "description": "Tanya bot dimana sesuatu", "usage": ".dimana <pertanyaan>", "example": ".dimana jodohku berada?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/dimana.js", metadata, m, extra)

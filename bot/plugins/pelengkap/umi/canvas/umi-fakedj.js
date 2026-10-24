@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakedj", "category": "canvas", "aliasMap": {"umi-canvas-fakedj": "fakedj", "umi-fakedj": "fakedj", "umi-djfake": "djfake", "fakedj": "fakedj", "djfake": "djfake"}, "description": "Membuat gambar fake DJ dari teks", "usage": ".fakedj <teks>", "example": ".fakedj nama pengirim", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakedj.js", metadata, m, extra)

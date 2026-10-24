@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addpartner", "category": "owner", "aliasMap": {"umi-owner-addpartner": "addpartner", "umi-addpartner": "addpartner", "umi-delpartner": "delpartner", "umi-listpartner": "listpartner", "addpartner": "addpartner", "delpartner": "delpartner", "listpartner": "listpartner"}, "description": "Kelola daftar partner bot", "usage": ".addpartner <nomor/@tag> [hari]\n.delpartner <nomor/@tag>\n.listpartner\n.cekpartner <nomor/@tag>", "example": ".addpartner 6281234567890 30", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addpartner.js", metadata, m, extra)

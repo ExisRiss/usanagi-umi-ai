@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animereco", "category": "anime", "aliasMap": {"umi-anime-animereco": "animereco", "umi-animereco": "animereco", "umi-animekomen": "animekomen", "umi-rekomenanime": "rekomenanime", "umi-animerank": "animerank", "umi-recoanime": "recoanime", "animereco": "animereco", "animekomen": "animekomen", "rekomenanime": "rekomenanime", "animerank": "animerank", "recoanime": "recoanime"}, "description": "Dapat rekomendasi anime berdasarkan genre atau top rating", "usage": ".animereco [genre]", "example": ".animereco\n.animereco action\n.animereco romance\n.animereco top", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animereco.js", metadata, m, extra)

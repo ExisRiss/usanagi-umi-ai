@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "juaraml", "category": "canvas", "aliasMap": {"umi-canvas-juaraml": "juaraml", "umi-juaraml": "juaraml", "juaraml": "juaraml"}, "description": "Bikin sertifikat juara Mobile Legends", "usage": ".juaraml <nama>", "example": ".juaraml Fauzan", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/juaraml.js", metadata, m, extra)

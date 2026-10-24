@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antiflood", "category": "group", "aliasMap": {"umi-group-antiflood": "antiflood", "umi-antiflood": "antiflood", "umi-floodguard": "floodguard", "umi-noflood": "noflood", "antiflood": "antiflood", "floodguard": "floodguard", "noflood": "noflood"}, "description": "Deteksi banjir pesan cepat dan kick bertahap", "usage": ".antiflood <on/off/status>", "example": ".antiflood on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antiflood.js", metadata, m, extra)

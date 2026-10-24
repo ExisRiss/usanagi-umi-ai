@@ -36,6 +36,7 @@ Rimuru MD adalah SC hasil rename dari SC Ourin MD.
  * Penyedia APIs
  * Penyedia Scrapers
  * 
+ * JANGAN HAPUS/GANTI CREDITS & THANKS TO
  * JANGAN DIJUAL YA MEK
  * 
  * Saluran Resmi Rimuru:

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listban", "category": "owner", "aliasMap": {"umi-owner-listban": "listban", "umi-listban": "listban", "umi-listbanned": "listbanned", "umi-banlist": "banlist", "listban": "listban", "listbanned": "listbanned", "banlist": "banlist"}, "description": "Melihat daftar banned user", "usage": ".listban", "example": ".listban", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/listban.js", metadata, m, extra)

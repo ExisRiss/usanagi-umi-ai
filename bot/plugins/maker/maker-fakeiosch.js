@@ -1,5 +1,6 @@
 /**
 ‎✧ Name   : fake ch ios
+ * By AlzRiss - Usanagi Umi AI
 ‎✧ Category : Canvas
 ‎✧ *Note* : Jangan hapus wm ya ,kalo ketauan hapus otw viral😂
 ‎**/

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setreply", "category": "owner", "aliasMap": {"umi-owner-setreply": "setreply", "umi-setreply": "setreply", "umi-replyvariant": "replyvariant", "umi-replystyle": "replystyle", "replyvariant": "replyvariant", "replystyle": "replystyle"}, "description": "Mengatur variant tampilan reply", "usage": ".setreply <v1-v11>", "example": ".setreply v5", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setreply.js", metadata, m, extra)

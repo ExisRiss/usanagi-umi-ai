@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antiremove", "category": "group", "aliasMap": {"umi-group-antiremove": "antiremove", "umi-antiremove": "antiremove", "umi-antidelete": "antidelete", "umi-antihapus": "antihapus", "umi-ar": "ar", "antiremove": "antiremove", "antidelete": "antidelete", "antihapus": "antihapus", "ar": "ar"}, "description": "Mengaktifkan/menonaktifkan anti hapus pesan di grup", "usage": ".antiremove <on/off>", "example": ".antiremove on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antiremove.js", metadata, m, extra)

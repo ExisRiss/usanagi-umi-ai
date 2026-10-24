@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "get", "category": "owner", "aliasMap": {"umi-owner-get": "get", "umi-get": "get", "umi-fetch": "fetch", "umi-http": "http", "umi-request": "request", "umi-curl": "curl", "http": "http", "request": "request", "curl": "curl"}, "description": "Advanced HTTP request tool (Owner Only)", "usage": ".get <url> [options]", "example": ".get https://api.example.com --method POST --json {\"key\":\"value\"} --header \"Authorization: Bearer token\"", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/get.js", metadata, m, extra)

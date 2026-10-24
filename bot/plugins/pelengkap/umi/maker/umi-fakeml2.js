@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeml2", "category": "maker", "aliasMap": {"umi-maker-fakeml2": "fakeml2", "umi-fakeml2": "fakeml2", "umi-mlfake2": "mlfake2", "umi-fakecardml2": "fakecardml2", "umi-profileml2": "profileml2", "fakeml2": "fakeml2", "mlfake2": "mlfake2", "fakecardml2": "fakecardml2", "profileml2": "profileml2"}, "description": "Membuat kartu profil Mobile Legends palsu (v2)", "usage": ".fakeml2 username|rank|border (reply/kirim foto untuk avatar)", "example": ".fakeml2 AlwaysCodex|imo|10", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakeml2.js", metadata, m, extra)

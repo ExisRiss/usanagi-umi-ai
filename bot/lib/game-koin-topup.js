@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Task64 — Tukar koin RPG menjadi saldo $AS UMI TRADE.
  *

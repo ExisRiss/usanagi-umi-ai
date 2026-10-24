@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "savedb", "category": "owner", "aliasMap": {"umi-owner-savedb": "savedb", "umi-savedb": "savedb", "umi-downloaddb": "downloaddb", "umi-getdb": "getdb", "savedb": "savedb", "downloaddb": "downloaddb", "getdb": "getdb"}, "description": "Download file database", "usage": ".savedb", "example": ".savedb", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/savedb.js", metadata, m, extra)

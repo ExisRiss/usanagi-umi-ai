@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autotambahproduk", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-autotambahproduk": "autotambahproduk", "umi-autotambahproduk": "autotambahproduk", "umi-autoaddproduk": "autoaddproduk", "autotambahproduk": "autotambahproduk", "autoaddproduk": "autoaddproduk"}, "description": "🛍️ Menambah produk ke autoorder store", "usage": ".autotambahproduk <nama> | <harga> | <deskripsi>", "example": ".autotambahproduk Netflix 1 Bulan | 35000 | Akun sharing anti screen limit", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/tambahproduk.js", metadata, m, extra)

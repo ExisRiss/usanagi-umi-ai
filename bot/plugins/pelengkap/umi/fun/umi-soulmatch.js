@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "soulmatch", "category": "fun", "aliasMap": {"umi-fun-soulmatch": "soulmatch", "umi-soulmatch": "soulmatch"}, "description": "Cek kecocokan jiwa dengan seseorang", "usage": ".soulmatch nama1|nama2", "example": ".soulmatch Raiden|Mei", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/soulmatch.js", metadata, m, extra)

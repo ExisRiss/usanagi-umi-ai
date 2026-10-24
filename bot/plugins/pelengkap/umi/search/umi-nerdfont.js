@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dafont", "category": "search", "aliasMap": {"umi-search-dafont": "dafont", "umi-nerdfont": "nerdfont", "dafont": "dafont", "nerdfont": "nerdfont", "font": "font"}, "description": "Cari font di DaFont", "usage": ".dafont <query>", "example": ".dafont Coolvetica", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/nerdfont.js", metadata, m, extra)

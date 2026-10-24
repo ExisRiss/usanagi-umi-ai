@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { normalizeNumber, resolvePhoneNumber } from './awang-cekakses.js'
 

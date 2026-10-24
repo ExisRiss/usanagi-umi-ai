@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setownertype", "category": "owner", "aliasMap": {"umi-owner-setownertype": "setownertype", "umi-setownertype": "setownertype", "umi-ownertype": "ownertype", "umi-ownervariant": "ownervariant", "umi-ownerstyle": "ownerstyle", "setownertype": "setownertype", "ownertype": "ownertype", "ownervariant": "ownervariant", "ownerstyle": "ownerstyle"}, "description": "Mengatur variant tampilan owner message", "usage": ".setownertype", "example": ".setownertype", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setownertype.js", metadata, m, extra)

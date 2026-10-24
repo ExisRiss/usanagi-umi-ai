@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "truth", "category": "fun", "aliasMap": {"umi-fun-truth": "truth", "umi-truth": "truth", "umi-truthq": "truthq", "truthq": "truthq"}, "description": "Random pertanyaan truth", "usage": ".truth", "example": ".truth", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/truth.js", metadata, m, extra)

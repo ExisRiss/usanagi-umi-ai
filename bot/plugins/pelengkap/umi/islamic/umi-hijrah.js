@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hijriyah", "category": "islamic", "aliasMap": {"umi-islamic-hijriyah": "hijriyah", "umi-hijriyah": "hijriyah", "umi-hijri": "hijri", "umi-tahunislam": "tahunislam", "hijriyah": "hijriyah", "hijri": "hijri", "tahunislam": "tahunislam"}, "description": "Menampilkan tahun hijriah saat ini", "usage": ".hijriyah", "example": ".hijriyah", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/hijrah.js", metadata, m, extra)

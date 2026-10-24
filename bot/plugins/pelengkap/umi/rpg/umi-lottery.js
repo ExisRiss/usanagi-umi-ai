@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lottery", "category": "rpg", "aliasMap": {"umi-rpg-lottery": "lottery", "umi-lottery": "lottery", "umi-undian": "undian"}, "description": "Gacha/lottery untuk hadiah random", "usage": ".lottery <1/10>", "example": ".lottery 10", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/lottery.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antilinkkick", "category": "group", "aliasMap": {"umi-group-antilinkkick": "antilinkkick", "umi-antilinkkick": "antilinkkick", "umi-alkick": "alkick", "umi-antilinkwarn": "antilinkwarn", "umi-linkkick": "linkkick", "antilinkkick": "antilinkkick", "alkick": "alkick", "antilinkwarn": "antilinkwarn", "linkkick": "linkkick"}, "description": "Hapus link, beri peringatan, lalu kick saat batas tercapai", "usage": ".antilinkkick <on/off/status/reset>", "example": ".antilinkkick on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antilinkkick.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "debiner", "category": "tools", "aliasMap": {"umi-tools-debiner": "debiner", "umi-debiner": "debiner", "umi-bintotext": "bintotext", "umi-bin2teks": "bin2teks", "umi-decodebiner": "decodebiner", "debiner": "debiner", "bintotext": "bintotext", "bin2teks": "bin2teks", "decodebiner": "decodebiner"}, "description": "Mengubah kode binary menjadi teks", "usage": ".debiner <binary>", "example": ".debiner 01001000 01100101", "cooldown": 2, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/debiner.js", metadata, m, extra)

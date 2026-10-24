@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { isAnticallActive, setAnticallStatus } from '../../core/awang-call.js'
 

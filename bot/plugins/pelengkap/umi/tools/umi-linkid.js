@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "linkid", "category": "tools", "aliasMap": {"umi-tools-linkid": "linkid", "umi-linkid": "linkid", "umi-idlink": "idlink", "umi-getidlink": "getidlink", "linkid": "linkid", "idlink": "idlink", "getidlink": "getidlink"}, "description": "Ambil ID WhatsApp dari link channel atau grup", "usage": ".linkid <link channel/grup>", "example": ".linkid https://whatsapp.com/channel/0029Vb8dmsUElagkVPIw9X2P", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/linkid.js", metadata, m, extra)

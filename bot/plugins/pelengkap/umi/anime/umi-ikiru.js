@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ikiru", "category": "anime", "aliasMap": {"umi-anime-ikiru": "ikiru", "umi-ikiru": "ikiru", "ikiru": "ikiru"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/ikiru.js", metadata, m, extra)

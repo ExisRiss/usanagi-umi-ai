@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "onlyowner", "category": "owner", "aliasMap": {"umi-owner-onlyowner": "onlyowner", "umi-onlyowner": "onlyowner", "umi-onlyownerbot": "onlyownerbot", "umi-modeowner": "modeowner", "umi-owneronly": "owneronly", "onlyowner": "onlyowner", "onlyownerbot": "onlyownerbot", "modeowner": "modeowner", "owneronly": "owneronly"}, "description": "Atur mode hanya owner yang bisa pakai bot (owner utama + owner tambahan + creator)", "usage": ".onlyowner on/off", "example": ".onlyowner on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/onlyowner.js", metadata, m, extra)

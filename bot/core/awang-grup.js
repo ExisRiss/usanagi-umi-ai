@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 export async function getGroupMetadata(conn, groupId) {
   if (!groupId?.endsWith('@g.us') || typeof conn?.groupMetadata !== 'function') {

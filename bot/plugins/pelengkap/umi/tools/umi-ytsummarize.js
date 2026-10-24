@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ytsummarize", "category": "tools", "aliasMap": {"umi-tools-ytsummarize": "ytsummarize", "umi-ytsummarize": "ytsummarize", "umi-ytsummary": "ytsummary", "umi-summarizeyt": "summarizeyt", "umi-ringkasyt": "ringkasyt", "ytsummarize": "ytsummarize", "ytsummary": "ytsummary", "summarizeyt": "summarizeyt", "ringkasyt": "ringkasyt"}, "description": "Ringkasan video YouTube dengan AI", "usage": ".ytsummarize <url>", "example": ".ytsummarize https://youtu.be/xxxxx", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ytsummarize.js", metadata, m, extra)

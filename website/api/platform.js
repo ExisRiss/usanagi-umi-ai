@@ -935,7 +935,7 @@ export default async function handler(req, res) {
       requireMainBot(profile)
       rateLimit(req, `platform:main-apikey:${user.id}`, 10, 60 * 60 * 1000)
       const body = req.body && typeof req.body === 'object' ? req.body : {}
-      const provider = ['gemini', 'groq', 'openrouter'].includes(String(body.provider)) ? String(body.provider) : 'unknown'
+      const provider = ['gemini', 'groq', 'openrouter', 'tenor', 'pastebin', 'neuralframes'].includes(String(body.provider)) ? String(body.provider) : 'unknown'
       const payload = { provider, delete: body.delete === true }
       if (!payload.delete && typeof body.api_key === 'string') payload.api_key = body.api_key.slice(0, 400)
       const result = await botConsoleRequest('apikey', user, { method: 'POST', body: payload })

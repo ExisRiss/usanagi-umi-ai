@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import axios from 'axios'
 import { generateWAMessageFromContent, prepareWAMessageMedia, proto } from '@rexxhayanasi/elaina-baileys'

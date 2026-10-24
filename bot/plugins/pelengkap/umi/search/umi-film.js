@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "film", "category": "search", "aliasMap": {"umi-search-film": "film", "umi-nonton": "nonton", "umi-lk21": "lk21", "film": "film", "movie": "movie", "nonton": "nonton", "lk21": "lk21"}, "description": "Cari film dan nonton online", "usage": ".film <judul>", "example": ".film civil war", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/film.js", metadata, m, extra)

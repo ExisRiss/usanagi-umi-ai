@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ttqc", "category": "canvas", "aliasMap": {"umi-canvas-ttqc": "ttqc", "umi-ttqc": "ttqc", "umi-tiktokquote": "tiktokquote", "umi-ttq": "ttq", "tiktokquote": "tiktokquote", "ttq": "ttq"}, "description": "Buat fake quote chat ala TikTok", "usage": ".ttqc <teks> (atau reply teks)", "example": ".ttqc Hallo Dunia", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/ttqc.js", metadata, m, extra)

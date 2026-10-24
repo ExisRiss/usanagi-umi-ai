@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "flappy", "category": "game", "aliasMap": {"umi-game-flappy": "flappy", "umi-flappy": "flappy", "umi-flappybird": "flappybird"}, "description": "Game webview Flappy Bird interaktif", "usage": ".flappy", "example": ".flappy", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/flappy.js", metadata, m, extra)

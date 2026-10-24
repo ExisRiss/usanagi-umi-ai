@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "igstory", "category": "canvas", "aliasMap": {"umi-canvas-igstory": "igstory", "umi-igstorypost": "igstorypost", "igstorypost": "igstorypost"}, "description": "Membuat gambar simulasi post Instagram Story dari foto profil dan gambarmu.", "usage": ".igstory [kirim/reply gambar]", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/igstory.js", metadata, m, extra)

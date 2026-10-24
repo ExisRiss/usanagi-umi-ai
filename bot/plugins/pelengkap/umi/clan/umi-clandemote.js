@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clandemote", "category": "clan", "aliasMap": {"umi-clan-clandemote": "clandemote", "umi-clandemote": "clandemote", "umi-demoteclan": "demoteclan", "umi-removerole": "removerole", "clandemote": "clandemote", "demoteclan": "demoteclan", "removerole": "removerole"}, "description": "Turunkan jabatan member", "usage": ".clandemote @user", "example": ".clandemote @user", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clandemote.js", metadata, m, extra)

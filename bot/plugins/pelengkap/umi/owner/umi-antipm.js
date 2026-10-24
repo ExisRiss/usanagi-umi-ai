@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antipm", "category": "owner", "aliasMap": {"umi-owner-antipm": "antipm", "umi-antipm": "antipm", "umi-apm": "apm", "umi-nopm": "nopm", "antipm": "antipm", "apm": "apm", "nopm": "nopm"}, "description": "Anti PM - cuma nomor tertentu yang bisa chat ke bot (BLOKIR ASLI)", "usage": ".antipm <on/off/status>", "example": ".antipm on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/antipm.js", metadata, m, extra)

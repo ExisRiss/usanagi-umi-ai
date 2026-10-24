@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "roket", "category": "rpg", "aliasMap": {"umi-rpg-roket": "roket", "umi-roket": "roket", "umi-ngroket": "ngroket", "umi-groket": "groket", "umi-jadiroket": "jadiroket", "roket": "roket", "ngroket": "ngroket", "groket": "groket", "jadiroket": "jadiroket"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/roket.js", metadata, m, extra)

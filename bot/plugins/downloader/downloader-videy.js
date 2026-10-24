@@ -1,6 +1,7 @@
 /*
 * Nama Fitur : Pinterest Downloader
 * Type : Plugin Esm
+ * By AlzRiss - Usanagi Umi AI
 */
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {

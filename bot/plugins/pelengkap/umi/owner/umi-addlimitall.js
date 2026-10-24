@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addenergiall", "category": "owner", "aliasMap": {"umi-owner-addenergiall": "addenergiall", "umi-addenergiall": "addenergiall", "umi-addenergianall": "addenergianall", "umi-bonusenergiall": "bonusenergiall", "addenergiall": "addenergiall", "addenergianall": "addenergianall", "bonusenergiall": "bonusenergiall"}, "description": "Menambahkan limit/energi ke semua member grup", "usage": ".addenergiall <jumlah>", "example": ".addenergiall 50", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addlimitall.js", metadata, m, extra)

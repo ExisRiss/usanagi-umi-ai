@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifgantitag", "category": "group", "aliasMap": {"umi-group-notifgantitag": "notifgantitag", "umi-notifgantitag": "notifgantitag", "umi-notiflabel": "notiflabel", "umi-notiftag": "notiftag", "umi-labeltag": "labeltag", "notifgantitag": "notifgantitag", "notiflabel": "notiflabel", "notiftag": "notiftag", "labeltag": "labeltag"}, "description": "Mengatur notifikasi perubahan label/tag member", "usage": ".notifgantitag <on/off>", "example": ".notifgantitag on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/notifgantitag.js", metadata, m, extra)

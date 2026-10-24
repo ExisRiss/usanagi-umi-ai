@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "iqc", "category": "canvas", "aliasMap": {"umi-canvas-iqc": "iqc", "umi-iqc": "iqc", "umi-qc2": "qc2", "qc2": "qc2"}, "description": "Membuat Fake Quote iOS style secara instan.", "usage": ".iqc [text/reply]", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/iqc.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeff", "category": "canvas", "aliasMap": {"umi-canvas-fakeff": "fakeff", "umi-fakeff": "fakeff", "fakeff": "fakeff"}, "description": "Bikin gambar banner Fake FF (Solo)", "usage": ".fakeff <teks>|[bgNum]", "example": ".fakeff Fauzan|2", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeff.js", metadata, m, extra)

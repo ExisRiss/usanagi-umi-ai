@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
 import { realmService } from '../../lib/realms/runtime.js'
 import { withRealmGate } from '../../lib/realms/gate.js'
-const WEB='https://game.gwenna.my.id/realms'
+const WEB='https://game.example.com/realms'
 const handler=async(m,{args=[],usedPrefix='/'})=>withRealmGate(async()=>{
  try{
   const service=realmService(),sub=String(args[0]||'').toLowerCase()

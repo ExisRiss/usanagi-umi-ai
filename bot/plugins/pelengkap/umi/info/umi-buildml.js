@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "buildml", "category": "info", "aliasMap": {"umi-info-buildml": "buildml", "umi-buildml": "buildml", "buildml": "buildml"}, "description": "Build hero Mobile Legends", "usage": ".buildml <hero>", "example": ".buildml gusion", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/buildml.js", metadata, m, extra)

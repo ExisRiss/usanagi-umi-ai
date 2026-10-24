@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "exp", "category": "user", "aliasMap": {"umi-user-exp": "exp", "umi-cekexp": "cekexp", "umi-myexp": "myexp", "umi-xp": "xp", "cekexp": "cekexp", "myexp": "myexp", "xp": "xp"}, "description": "Cek exp user", "usage": ".exp [@user]", "example": ".exp", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/exp.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addantilink", "category": "group", "aliasMap": {"umi-group-addantilink": "addantilink", "umi-addantilink": "addantilink", "umi-addalink": "addalink", "umi-addblocklink": "addblocklink", "addantilink": "addantilink", "addalink": "addalink", "addblocklink": "addblocklink"}, "description": "Menambah link ke daftar antilink", "usage": ".addantilink <domain/pattern>", "example": ".addantilink tiktok.com", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/addantilink.js", metadata, m, extra)

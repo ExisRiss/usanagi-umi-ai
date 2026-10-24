@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getpp", "category": "group", "aliasMap": {"umi-group-getpp": "getpp", "umi-getpp": "getpp", "umi-pp": "pp", "umi-profilepic": "profilepic", "umi-avatar": "avatar", "getpp": "getpp", "profilepic": "profilepic", "avatar": "avatar"}, "description": "Ambil foto profil target (mention/reply)", "usage": ".getpp @user", "example": ".getpp @628xxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/getpp.js", metadata, m, extra)

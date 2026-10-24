@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tocodeqr", "category": "tools", "aliasMap": {"umi-tools-tocodeqr": "tocodeqr", "umi-tocodeqr": "tocodeqr", "umi-qrurl": "qrurl", "umi-linktoqr": "linktoqr", "tocodeqr": "tocodeqr", "qrurl": "qrurl", "linktoqr": "linktoqr"}, "description": "Convert link menjadi QR Code", "usage": ".tocodeqr <link>", "example": ".tocodeqr https://youtube.com", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/convert/tocodeqr.js", metadata, m, extra)

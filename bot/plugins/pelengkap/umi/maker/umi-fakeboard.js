@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeboard", "category": "maker", "aliasMap": {"umi-maker-fakeboard": "fakeboard", "umi-fakeboard": "fakeboard", "umi-boardquote": "boardquote", "umi-quoteboard": "quoteboard", "umi-papanquote": "papanquote", "fakeboard": "fakeboard", "boardquote": "boardquote", "quoteboard": "quoteboard", "papanquote": "papanquote"}, "description": "Membuat gambar papan quote/kutipan dengan author custom", "usage": ".fakeboard <teks>|<author>", "example": ".fakeboard Tetap semangat walau codingan error|Alwayscodex", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakeboard.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "checkhost", "category": "tools", "aliasMap": {"umi-tools-checkhost": "checkhost", "umi-checkhost": "checkhost", "umi-cekhost": "cekhost", "umi-check": "check", "checkhost": "checkhost", "cekhost": "cekhost", "check": "check"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/cekhost.js", metadata, m, extra)

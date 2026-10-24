@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wikipedia", "category": "search", "aliasMap": {"umi-search-wikipedia": "wikipedia", "umi-wikipedia": "wikipedia", "umi-wiki": "wiki", "umi-wp": "wp", "wp": "wp"}, "description": "Mencari artikel lengkap dari Wikipedia", "usage": ".wikipedia <query>", "example": ".wikipedia Rendang", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/wikipedia.js", metadata, m, extra)

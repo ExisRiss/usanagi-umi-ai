@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "qwen3", "category": "ai", "aliasMap": {"umi-ai-qwen3": "qwen3", "umi-qwen3": "qwen3", "umi-qwen": "qwen", "umi-qw3": "qw3", "qwen3": "qwen3", "qwen": "qwen", "qw3": "qw3"}, "description": "Chat dengan Qwen3 80B via OverChat", "usage": ".qwen3 <pertanyaan>", "example": ".qwen3 Apa itu machine learning?", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/qwen3.js", metadata, m, extra)

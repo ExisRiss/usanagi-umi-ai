@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "livescore", "category": "info", "aliasMap": {"umi-info-livescore": "livescore", "umi-livescore": "livescore", "umi-skorbola": "skorbola", "umi-livebola": "livebola", "umi-skor": "skor", "livescore": "livescore", "skorbola": "skorbola", "livebola": "livebola", "skor": "skor"}, "description": "Menampilkan live score pertandingan sepak bola dari Goal.com", "usage": ".livescore", "example": ".livescore", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/livescore.js", metadata, m, extra)

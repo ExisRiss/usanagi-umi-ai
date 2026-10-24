@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "apkmod", "category": "search", "aliasMap": {"umi-search-apkmod": "apkmod", "umi-apkmod": "apkmod", "umi-modapk2": "modapk2", "umi-apkpremium": "apkpremium", "apkmod": "apkmod", "modapk2": "modapk2", "apkpremium": "apkpremium"}, "description": "Cari dan download APK MOD Premium", "usage": ".apkmod <query>", "example": ".apkmod vpn", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/apkmod.js", metadata, m, extra)

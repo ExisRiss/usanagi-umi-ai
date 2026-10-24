@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "onlythisgrup", "category": "owner", "aliasMap": {"umi-owner-onlythisgrup": "onlythisgrup", "umi-onlythisgrup": "onlythisgrup", "umi-onlythisgroup": "onlythisgroup", "umi-lockgrup": "lockgrup", "umi-lockgroup": "lockgroup", "onlythisgrup": "onlythisgrup", "onlythisgroup": "onlythisgroup", "lockgrup": "lockgrup", "lockgroup": "lockgroup"}, "description": "Bot hanya aktif di grup ini saja", "usage": ".onlythisgrup", "example": ".onlythisgrup", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/onlythisgrup.js", metadata, m, extra)

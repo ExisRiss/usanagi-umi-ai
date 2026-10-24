@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lobbyff", "category": "maker", "aliasMap": {"umi-maker-lobbyff": "lobbyff", "umi-lobbyff": "lobbyff", "umi-fflobby": "fflobby", "umi-freefirelobby": "freefirelobby", "lobbyff": "lobbyff", "fflobby": "fflobby", "freefirelobby": "freefirelobby"}, "description": "Membuat gambar lobby Free Fire dengan 22 template Aqua", "usage": ".lobbyff <1-22|random>|<nama>", "example": ".lobbyff random|Jagoan FF", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/lobbyff.js", metadata, m, extra)

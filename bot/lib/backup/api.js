@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * REST API backup. Dipasang di server HTTP bot yang sudah ada
  * (lib/jadibot-platform-api.js) pada prefiks /api/backup.

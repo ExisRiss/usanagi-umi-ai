@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mcpedldl", "category": "downloader", "aliasMap": {"umi-downloader-mcpedldl": "mcpedldl", "umi-mcpedldl": "mcpedldl", "umi-dlmcpedl": "dlmcpedl", "umi-mcpedldownload": "mcpedldownload", "umi-mcdl": "mcdl", "mcpedldl": "mcpedldl", "dlmcpedl": "dlmcpedl", "mcpedldownload": "mcpedldownload", "mcdl": "mcdl"}, "description": "Mengunduh file atau mengambil detail dari MCPEDL", "usage": ".mcpedldl <url/slug>", "example": ".mcpedldl lunac-shaders", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/downloader/mcpedldl.js", metadata, m, extra)

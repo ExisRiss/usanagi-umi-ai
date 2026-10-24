@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import axios from 'axios';
 import cheerio from 'cheerio';

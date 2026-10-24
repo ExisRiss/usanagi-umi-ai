@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "saluran", "category": "main", "aliasMap": {"umi-main-saluran": "saluran", "umi-saluran": "saluran", "umi-channel": "channel", "umi-ch": "ch", "umi-joinch": "joinch", "saluran": "saluran", "channel": "channel", "ch": "ch", "joinch": "joinch"}, "description": "Join saluran resmi Umi 😈", "usage": ".saluran", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/saluranbot.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakegroup", "category": "maker", "aliasMap": {"umi-maker-fakegroup": "fakegroup", "umi-fakegroup": "fakegroup", "umi-fgc": "fgc", "fakegroup": "fakegroup", "fgc": "fgc"}, "description": "Membuat fake tampilan grup WhatsApp", "usage": ".fakegroup <url|title|member|time>", "example": ".fakegroup https://img.jpg|Zero Squad|256 members|12:30", "cooldown": 5, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakegroup.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ngojek", "category": "rpg", "aliasMap": {"umi-rpg-ngojek": "ngojek", "umi-ngojek": "ngojek", "umi-ojek": "ojek", "umi-gojek": "gojek", "umi-ojol": "ojol", "gojek": "gojek"}, "description": "Ngojek untuk mendapat uang", "usage": ".ngojek", "example": ".ngojek", "cooldown": 120, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/ngojek.js", metadata, m, extra)

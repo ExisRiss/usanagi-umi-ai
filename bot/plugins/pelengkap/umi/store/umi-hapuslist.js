@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hapuslist", "category": "store", "aliasMap": {"umi-store-hapuslist": "hapuslist", "umi-hapuslist": "hapuslist", "umi-dellist": "dellist", "umi-deletelist": "deletelist", "hapuslist": "hapuslist", "deletelist": "deletelist"}, "description": "🗑️ Hapus informasi toko", "usage": ".hapuslist <nomor>", "example": ".hapuslist 1", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/hapuslist.js", metadata, m, extra)

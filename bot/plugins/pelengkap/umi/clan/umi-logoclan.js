@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanlogo", "category": "clan", "aliasMap": {"umi-clan-clanlogo": "clanlogo", "umi-clanlogo": "clanlogo", "umi-setlogo": "setlogo", "umi-clanicon": "clanicon", "clanlogo": "clanlogo", "setlogo": "setlogo", "clanicon": "clanicon"}, "description": "Set logo clan (reply gambar)", "usage": ".clanlogo (reply gambar)", "example": ".clanlogo", "cooldown": 20, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/logoclan.js", metadata, m, extra)

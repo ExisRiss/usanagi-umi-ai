@@ -1,6 +1,7 @@
 /**
  *
  * Convert text to file
+  * By AlzRiss - Usanagi Umi AI
  *
  * #no delete!
  *

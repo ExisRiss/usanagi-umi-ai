@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "spotplay", "category": "search", "aliasMap": {"umi-search-spotplay": "spotplay", "umi-spotplay": "spotplay", "umi-splay": "splay", "spotplay": "spotplay", "splay": "splay"}, "description": "Putar musik dari Spotify", "usage": ".spotplay <query>", "example": ".spotplay neffex grateful", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/spotplay.js", metadata, m, extra)

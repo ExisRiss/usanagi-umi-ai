@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "garden", "category": "rpg", "aliasMap": {"umi-rpg-garden": "garden", "umi-garden": "garden", "umi-kebun": "kebun"}, "description": "Berkebun dan panen tanaman", "usage": ".garden <plant/harvest/status>", "example": ".garden plant carrot", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/garden.js", metadata, m, extra)

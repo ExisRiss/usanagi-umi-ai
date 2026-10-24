@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import {
   default as makeWASocket,

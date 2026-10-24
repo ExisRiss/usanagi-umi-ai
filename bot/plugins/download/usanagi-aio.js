@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { sendRemoteMediaFast, sendLocalMediaFast } from '../../lib/awang-media-transfer.js'
 import { ytDlpDownloadBest } from '../../lib/awang-ytdlp.js'

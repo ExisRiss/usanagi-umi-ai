@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { requireFunTarget } from '../../lib/awang-fun.js'
 

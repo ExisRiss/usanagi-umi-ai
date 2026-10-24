@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anime2", "category": "search", "aliasMap": {"umi-search-anime2": "anime2", "umi-anime2": "anime2", "umi-animeku2": "animeku2", "umi-nime2": "nime2", "umi-ani2": "ani2", "anime2": "anime2", "animeku2": "animeku2", "nime2": "nime2", "ani2": "ani2"}, "description": "Cari info anime, streaming, download", "usage": ".anime <subcommand>", "example": ".anime search naruto", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/anime2.js", metadata, m, extra)

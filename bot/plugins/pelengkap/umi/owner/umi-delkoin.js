@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delkoin", "category": "owner", "aliasMap": {"umi-owner-delkoin": "delkoin", "umi-delkoin": "delkoin", "umi-kurangkoin": "kurangkoin", "umi-removekoin": "removekoin", "umi-delcoin": "delcoin", "umi-delmoney": "delmoney", "delkoin": "delkoin", "kurangkoin": "kurangkoin", "removekoin": "removekoin", "delcoin": "delcoin", "delmoney": "delmoney"}, "description": "Kurangi koin user", "usage": ".delkoin <jumlah> @user", "example": ".delkoin 50000 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/delkoin.js", metadata, m, extra)

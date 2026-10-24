@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifch", "category": "owner", "aliasMap": {"umi-owner-notifch": "notifch", "umi-notifch": "notifch", "umi-mutech": "mutech", "notifch": "notifch", "mutech": "mutech"}, "description": "Mengatur notifikasi channel WhatsApp yang diikuti bot", "usage": ".notifch <nomor>|on/off", "example": ".notifch 1,3|on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/notifch.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getAllOwnerEntries } from '../../lib/awang-cekakses.js'
 

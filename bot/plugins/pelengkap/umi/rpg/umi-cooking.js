@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cooking", "category": "rpg", "aliasMap": {"umi-rpg-cooking": "cooking", "umi-cooking": "cooking", "umi-chef": "chef"}, "description": "Masak makanan untuk stamina dan HP", "usage": ".cooking <recipe>", "example": ".cooking friedrice", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/cooking.js", metadata, m, extra)

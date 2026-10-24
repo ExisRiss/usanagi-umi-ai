@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ai-leaderboard", "category": "ai", "aliasMap": {"umi-ai-ai-leaderboard": "ai-leaderboard", "umi-ai-leaderboard": "ai-leaderboard", "umi-aileaderboard": "aileaderboard", "umi-aiboard": "aiboard", "umi-ailb": "ailb", "umi-lmarena": "lmarena", "ai-leaderboard": "ai-leaderboard", "aileaderboard": "aileaderboard", "aiboard": "aiboard", "ailb": "ailb", "lmarena": "lmarena"}, "description": "Lihat leaderboard AI model terbaik dari LMArena", "usage": ".ai-leaderboard [category]", "example": ".ai-leaderboard text", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/ai-leaderboard.js", metadata, m, extra)

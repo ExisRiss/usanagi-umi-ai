@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "add", "category": "group", "aliasMap": {"umi-group-add": "add", "umi-add": "add", "umi-addmember": "addmember", "umi-invite": "invite", "addmember": "addmember", "invite": "invite"}, "description": "Menambahkan member ke grup (support multiple)", "usage": ".add <nomor1> [nomor2] [nomor3]... [link_grup]", "example": ".add 6281234567890 6281234567890", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/add.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "facebookdl", "category": "download", "aliasMap": {"umi-download-facebookdl": "facebookdl", "umi-facebookdl": "facebookdl", "umi-fbdown": "fbdown", "umi-facebook": "facebook", "umi-fbdl": "fbdl", "facebookdl": "facebookdl"}, "description": "Download video Facebook", "usage": ".facebookdl <url>", "example": ".facebookdl https://www.facebook.com/watch?v=xxx", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/facebookdl.js", metadata, m, extra)

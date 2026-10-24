@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Satu pintu unduhan YouTube untuk semua plugin (.ytmp3, .ytmp4, .playvideo).
  *

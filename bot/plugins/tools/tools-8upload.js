@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import fs from "fs";
 import path from "path";

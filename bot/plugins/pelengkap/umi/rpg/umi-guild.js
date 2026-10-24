@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "guild", "category": "rpg", "aliasMap": {"umi-rpg-guild": "guild", "umi-guild": "guild", "umi-clan": "clan", "umi-team": "team", "umi-kelompok": "kelompok"}, "description": "Sistem guild/clan", "usage": ".guild <create/join/leave/info>", "example": ".guild create DragonSlayers", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/guild.js", metadata, m, extra)

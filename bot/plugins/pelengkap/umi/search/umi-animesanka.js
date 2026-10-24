@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animesanka", "category": "search", "aliasMap": {"umi-search-animesanka": "animesanka", "umi-animesanka": "animesanka", "umi-sanka": "sanka", "umi-animeid": "animeid", "umi-animeindo": "animeindo", "animesanka": "animesanka", "sanka": "sanka", "animeid": "animeid", "animeindo": "animeindo"}, "description": "Cari info anime, streaming, download dari SankaVollerei", "usage": ".animesanka <subcommand>", "example": ".animesanka search naruto", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/animesanka.js", metadata, m, extra)

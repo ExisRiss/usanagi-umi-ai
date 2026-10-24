@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const TTL_MS = 3 * 60 * 1000;
 const CACHE = new Map();

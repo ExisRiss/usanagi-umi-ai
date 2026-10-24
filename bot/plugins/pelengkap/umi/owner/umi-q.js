@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "q", "category": "tools", "aliasMap": {"umi-tools-q": "q", "umi-q": "q", "umi-quoted": "quoted", "q": "q", "inspect": "inspect"}, "description": "Ambil JSON message dari pesan yang direply", "usage": ".q (reply pesan)", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/q.js", metadata, m, extra)

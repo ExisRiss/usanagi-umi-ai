@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 if (!globalThis.usanagiPasangan) globalThis.usanagiPasangan = new Map()
 

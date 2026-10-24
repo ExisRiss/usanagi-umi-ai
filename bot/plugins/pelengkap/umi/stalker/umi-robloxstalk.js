@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "robloxstalk", "category": "stalker", "aliasMap": {"umi-stalker-robloxstalk": "robloxstalk", "umi-robloxstalk": "robloxstalk", "umi-rblxstalk": "rblxstalk", "umi-rbxstalk": "rbxstalk", "umi-stalkroblox": "stalkroblox", "umi-stalkrbx": "stalkrbx", "robloxstalk": "robloxstalk", "rblxstalk": "rblxstalk", "rbxstalk": "rbxstalk", "stalkroblox": "stalkroblox", "stalkrbx": "stalkrbx"}, "description": "Stalk akun Roblox berdasarkan username", "usage": ".robloxstalk <username>", "example": ".robloxstalk Linkmon99", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/robloxstalk.js", metadata, m, extra)

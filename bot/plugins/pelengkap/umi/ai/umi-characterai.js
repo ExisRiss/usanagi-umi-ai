@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "character-ai", "category": "ai", "aliasMap": {"umi-ai-character-ai": "character-ai", "umi-character-ai": "character-ai", "umi-cai": "cai", "umi-charai": "charai", "character-ai": "character-ai", "cai": "cai", "charai": "charai"}, "description": "Cari karakter AI dan jadikan sebagai Auto AI di chat ini", "usage": ".character-ai search <nama> | .character-ai off | .character-ai reset", "example": ".character-ai search yuji", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/characterai.js", metadata, m, extra)

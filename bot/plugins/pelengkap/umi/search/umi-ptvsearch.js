@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ptvsearch", "category": "search", "aliasMap": {"umi-search-ptvsearch": "ptvsearch", "umi-ptvsearch": "ptvsearch", "umi-ptvs": "ptvs", "ptvsearch": "ptvsearch", "ptvs": "ptvs"}, "description": "Cari video TikTok", "usage": ".ptvsearch <query>", "example": ".ptvsearch jj epep", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/ptvsearch.js", metadata, m, extra)

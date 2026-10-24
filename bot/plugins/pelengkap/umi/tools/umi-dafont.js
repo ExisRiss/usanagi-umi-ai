@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dafont", "category": "tools", "aliasMap": {"umi-tools-dafont": "dafont", "umi-daffont": "daffont", "umi-carifont": "carifont", "daffont": "daffont", "carifont": "carifont"}, "description": "Cari dan download font dari DaFont", "usage": ".dafont <nama font>", "example": ".dafont arial", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/dafont.js", metadata, m, extra)

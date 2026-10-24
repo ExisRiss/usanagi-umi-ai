@@ -16,6 +16,7 @@ import { unifiedRpg } from '../../lib/rpg/unified-store.js'
  *   .leaderboard / .lb - Top balance
  *   .adventure / .petualangan - Petualangan (cooldown 20 menit)
  * 
+ * By AlzRiss - Usanagi Umi AI (clean-room build)
  */
 
 const COOLDOWNS = {

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "profile", "category": "user", "aliasMap": {"umi-user-profile": "profile", "umi-profile": "profile", "umi-me": "me", "umi-profil": "profil", "umi-myprofile": "myprofile", "umi-my": "my", "myprofile": "myprofile"}, "description": "Melihat profil user dengan RPG stats", "usage": ".profile [@user]", "example": ".profile", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/profile.js", metadata, m, extra)

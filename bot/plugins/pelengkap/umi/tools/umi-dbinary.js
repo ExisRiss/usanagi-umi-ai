@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dbinary", "category": "tools", "aliasMap": {"umi-tools-dbinary": "dbinary", "umi-dbinary": "dbinary", "umi-decodebinary": "decodebinary", "umi-binary2text": "binary2text", "dbinary": "dbinary", "decodebinary": "decodebinary", "binary2text": "binary2text"}, "description": "Decode binary menjadi teks", "usage": ".dbinary <binary>", "example": ".dbinary 1001001 110110 110", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/dbinary.js", metadata, m, extra)

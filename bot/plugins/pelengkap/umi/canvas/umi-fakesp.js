@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakesp", "category": "canvas", "aliasMap": {"umi-canvas-fakesp": "fakesp", "umi-fakesp": "fakesp", "umi-spfake": "spfake", "umi-suratpanggilan": "suratpanggilan", "umi-fakesuratpanggil": "fakesuratpanggil", "fakesp": "fakesp", "spfake": "spfake", "suratpanggilan": "suratpanggilan", "fakesuratpanggil": "fakesuratpanggil"}, "description": "Bikin fake surat panggilan (buat konten/gaguan doang)", "usage": ".fakesp <nama> | <instansi>", "example": ".fakesp Umi | OSIS", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakesp.js", metadata, m, extra)

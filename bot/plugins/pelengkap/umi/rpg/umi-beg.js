@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "beg", "category": "rpg", "aliasMap": {"umi-rpg-beg": "beg", "umi-beg": "beg"}, "description": "Mengemis untuk mendapatkan uang receh", "usage": ".beg", "example": ".beg", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/beg.js", metadata, m, extra)

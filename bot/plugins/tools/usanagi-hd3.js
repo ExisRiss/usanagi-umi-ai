@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { enhanceHd3 } from '../../lib/scraper/awang-hd.js'
 import { downloadMediaBuffer, getMediaSource, react } from '../../lib/awang-media.js'

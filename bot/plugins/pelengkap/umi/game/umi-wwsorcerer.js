@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wwsorcerer", "category": "game", "aliasMap": {"umi-game-wwsorcerer": "wwsorcerer", "umi-wwsorcerer": "wwsorcerer", "umi-sorcerer": "sorcerer", "umi-wws": "wws", "wwsorcerer": "wwsorcerer", "sorcerer": "sorcerer", "wws": "wws"}, "description": "Sorcerer night action - Check if target is Seer", "usage": ".wwsorcerer <nomor>", "example": ".wwsorcerer 3", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/wwsorcerer.js", metadata, m, extra)

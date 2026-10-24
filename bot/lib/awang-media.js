@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { downloadContentFromMessage } from '@rexxhayanasi/elaina-baileys'
 

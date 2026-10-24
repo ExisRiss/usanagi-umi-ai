@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "backupdb", "category": "owner", "aliasMap": {"umi-owner-backupdb": "backupdb", "umi-dbbackup": "dbbackup", "umi-backupstore": "backupstore", "umi-storebackup": "storebackup", "backupdb": "backupdb", "dbbackup": "dbbackup", "backupstore": "backupstore", "storebackup": "storebackup"}, "description": "Backup database/store dan kirim ke owner", "usage": ".backupdb"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/backupdb.js", metadata, m, extra)

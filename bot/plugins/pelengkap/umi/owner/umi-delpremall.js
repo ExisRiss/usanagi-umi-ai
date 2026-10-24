@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delpremall", "category": "owner", "aliasMap": {"umi-owner-delpremall": "delpremall", "umi-delpremall": "delpremall", "umi-delpremiumall": "delpremiumall", "umi-removepremall": "removepremall", "delpremall": "delpremall", "delpremiumall": "delpremiumall", "removepremall": "removepremall"}, "description": "Menghapus semua member grup dari premium", "usage": ".delprem all", "example": ".delprem all", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/delpremall.js", metadata, m, extra)

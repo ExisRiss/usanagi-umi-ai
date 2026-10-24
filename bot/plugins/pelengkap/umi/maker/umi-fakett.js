@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakett", "category": "maker", "aliasMap": {"umi-maker-fakett": "fakett", "umi-fakett": "fakett", "umi-faketiktok": "faketiktok", "umi-fakettprofile": "fakettprofile", "fakett": "fakett", "faketiktok": "faketiktok", "fakettprofile": "fakettprofile"}, "description": "Buat gambar tampilan profil TikTok palsu", "usage": ".fakett nama|username|verified|mengikuti|pengikut|suka|bio (sambil kirim/reply gambar)", "example": ".fakett Tes|Tes1|false|10|100|1000|Bio Saya", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakett.js", metadata, m, extra)

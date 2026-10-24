@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kimi-vision", "category": "ai", "aliasMap": {"umi-ai-kimi-vision": "kimi-vision", "umi-kimi-vision": "kimi-vision", "umi-kimivision": "kimivision", "umi-kimi-v": "kimi-v", "kimi-vision": "kimi-vision", "kimivision": "kimivision", "kimi-v": "kimi-v"}, "description": "Analisis gambar memakai Kimi Vision", "usage": ".kimi-vision <pertanyaan> (reply gambar)", "example": ".kimi-vision jelaskan gambar ini", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/kimi-vision.js", metadata, m, extra)

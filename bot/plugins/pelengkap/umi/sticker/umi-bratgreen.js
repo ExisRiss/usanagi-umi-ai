@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bratgreen", "category": "sticker", "aliasMap": {"umi-sticker-bratgreen": "bratgreen", "umi-bratgreen": "bratgreen", "umi-brat2": "brat2", "bratgreen": "bratgreen"}, "description": "Membuat sticker brat ijo", "usage": ".brat2 <text>", "example": ".brat2 Hai semua", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/bratgreen.js", metadata, m, extra)

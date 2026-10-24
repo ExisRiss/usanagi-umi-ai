@@ -1,5 +1,6 @@
 /**
 ‎✧ Name   : fake call ios
+ * By AlzRiss - Usanagi Umi AI
 ‎✧ Category : Canvas
 ‎✧ *Note* : Jangan hapus wm ya kalo hapus liat aja permainan nya pasti lu nyesel😘,kalo masih kurang bagus sesuikan lagi
 ‎**/

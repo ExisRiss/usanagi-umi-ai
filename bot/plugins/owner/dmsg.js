@@ -1,5 +1,6 @@
 /**
  * Dmsg
+  * By AlzRiss - Usanagi Umi AI
  * Type Plugin ESM
  * 
  * Nixel

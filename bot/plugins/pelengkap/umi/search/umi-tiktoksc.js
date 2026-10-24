@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tiktoksc", "category": "search", "aliasMap": {"umi-search-tiktoksc": "tiktoksc", "umi-tiktoksc": "tiktoksc", "umi-searchtt": "searchtt", "umi-tthtml": "tthtml", "tiktoksc": "tiktoksc", "searchtt": "searchtt", "tthtml": "tthtml"}, "description": "TikTok HTML Feed Airich — video vertikal langsung di WhatsApp", "usage": ".tiktoksc <kata kunci>", "example": ".tiktoksc kucing lucu", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/tiktoksc.js", metadata, m, extra)

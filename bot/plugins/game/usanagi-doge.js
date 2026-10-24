@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 'use strict'
 

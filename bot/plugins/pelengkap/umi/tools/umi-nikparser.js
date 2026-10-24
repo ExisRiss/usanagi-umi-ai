@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nikparser", "category": "tools", "aliasMap": {"umi-tools-nikparser": "nikparser", "umi-nikparser": "nikparser", "umi-nik": "nik", "umi-ceknik": "ceknik", "nikparser": "nikparser", "nik": "nik", "ceknik": "ceknik"}, "description": "Parse dan validasi NIK KTP", "usage": ".nikparser <16 digit NIK>", "example": ".nikparser 3517072109020003", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/nikparser.js", metadata, m, extra)

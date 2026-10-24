@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "douyindl", "category": "download", "aliasMap": {"umi-download-douyindl": "douyindl", "umi-douyindl": "douyindl", "umi-douyin": "douyin", "umi-dydl": "dydl", "douyindl": "douyindl", "dydl": "dydl"}, "description": "Download video/audio dari Douyin (TikTok China)", "usage": ".douyindl <url>", "example": ".douyindl https://v.douyin.com/xxx", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/douyindl.js", metadata, m, extra)

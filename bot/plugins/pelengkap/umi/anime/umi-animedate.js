@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animedate", "category": "anime", "aliasMap": {"umi-anime-animedate": "animedate", "umi-animedate": "animedate", "umi-animerilis": "animerilis", "umi-animekalender": "animekalender", "umi-animerelease": "animerelease", "animedate": "animedate", "animerilis": "animerilis", "animekalender": "animekalender", "animerelease": "animerelease"}, "description": "Kalender rilis anime musim ini (Spring/Summer/Fall/Winter)", "usage": ".animedate [season]", "example": ".animedate\n.animedate spring\n.animedate summer\n.animedate fall\n.animedate winter", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animedate.js", metadata, m, extra)

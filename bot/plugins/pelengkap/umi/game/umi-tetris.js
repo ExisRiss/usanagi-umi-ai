@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tetris", "category": "game", "aliasMap": {"umi-game-tetris": "tetris", "umi-tetris": "tetris", "umi-tetri": "tetri"}, "description": "Game Tetris inline HTML", "usage": ".tetris", "example": ".tetris", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/tetris.js", metadata, m, extra)

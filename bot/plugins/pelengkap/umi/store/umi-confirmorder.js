@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "confirmorder", "category": "store", "aliasMap": {"umi-store-confirmorder": "confirmorder", "umi-confirmorder": "confirmorder", "umi-konfirmorder": "konfirmorder", "umi-selesaiorder": "selesaiorder", "umi-doneorder": "doneorder", "confirmorder": "confirmorder", "konfirmorder": "konfirmorder", "selesaiorder": "selesaiorder", "doneorder": "doneorder"}, "description": "Konfirmasi order (Admin)", "usage": ".confirmorder <order_id>", "example": ".confirmorder ORD20260111ABC123", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/confirmorder.js", metadata, m, extra)

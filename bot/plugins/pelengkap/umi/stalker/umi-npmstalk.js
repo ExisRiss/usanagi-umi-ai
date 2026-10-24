@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "npmstalk", "category": "stalker", "aliasMap": {"umi-stalker-npmstalk": "npmstalk", "umi-npmstalk": "npmstalk", "umi-stalknpm": "stalknpm", "umi-npms": "npms", "npmstalk": "npmstalk", "stalknpm": "stalknpm", "npms": "npms"}, "description": "Stalk akun NPM (Node Package Manager)", "usage": ".npmstalk <username>", "example": ".npmstalk hanya_zann", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/npmstalk.js", metadata, m, extra)

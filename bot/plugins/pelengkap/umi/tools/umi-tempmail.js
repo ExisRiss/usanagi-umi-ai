@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tempmail", "category": "tools", "aliasMap": {"umi-tools-tempmail": "tempmail", "umi-tempmail": "tempmail", "umi-tmpmail": "tmpmail", "umi-tmp": "tmp", "umi-trashmail": "trashmail", "tmpmail": "tmpmail", "tmp": "tmp", "trashmail": "trashmail"}, "description": "Buat email sementara & cek inbox", "usage": ".tempmail create/inbox", "example": ".tempmail create", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/tempmail.js", metadata, m, extra)

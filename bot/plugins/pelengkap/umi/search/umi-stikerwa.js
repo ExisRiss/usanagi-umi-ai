@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stikerwa", "category": "search", "aliasMap": {"umi-search-stikerwa": "stikerwa", "umi-stikerwa": "stikerwa", "umi-stickerwa": "stickerwa", "umi-wasearch": "wasearch", "umi-wassticker": "wassticker", "umi-stkrwa": "stkrwa", "stikerwa": "stikerwa", "stickerwa": "stickerwa", "wasearch": "wasearch", "wassticker": "wassticker", "stkrwa": "stkrwa"}, "description": "Cari sticker WhatsApp", "usage": ".stikerwa <query>", "example": ".stikerwa anime", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/stikerwa.js", metadata, m, extra)

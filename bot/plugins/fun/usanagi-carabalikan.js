@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const teks = [
   'Badut paling setia yang masih berharap dia balik lagi padahal udah punya yang baru.',

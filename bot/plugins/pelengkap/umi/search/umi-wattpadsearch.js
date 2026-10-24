@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wattpadsearch", "category": "search", "aliasMap": {"umi-search-wattpadsearch": "wattpadsearch", "umi-wattpadsearch": "wattpadsearch", "wattpadsearch": "wattpadsearch"}, "description": "Mencari cerita Wattpad", "usage": ".wattpadsearch <query>", "example": ".wattpadsearch cinta", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/wattpadsearch.js", metadata, m, extra)

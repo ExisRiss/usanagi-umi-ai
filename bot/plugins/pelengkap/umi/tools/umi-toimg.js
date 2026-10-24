@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "toimg", "category": "tools", "aliasMap": {"umi-tools-toimg": "toimg", "umi-toimg": "toimg", "umi-toimage": "toimage", "umi-stickertoimage": "stickertoimage", "umi-stimg": "stimg"}, "description": "Mengubah sticker menjadi gambar", "usage": ".toimg (reply/caption sticker)", "example": ".toimg", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/toimg.js", metadata, m, extra)

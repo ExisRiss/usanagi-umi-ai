@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mlbb", "category": "game", "aliasMap": {"umi-game-mlbb": "mlbb", "umi-mlbb": "mlbb", "umi-mlbbcounter": "mlbbcounter", "umi-mlsynergy": "mlsynergy", "umi-mltier": "mltier", "umi-mlmatchup": "mlmatchup", "mlbb": "mlbb", "mlbbcounter": "mlbbcounter", "mlsynergy": "mlsynergy", "mltier": "mltier", "mlmatchup": "mlmatchup"}, "description": "Informasi MLBB: Rekomendasi Counter, Sinergi Hero, Prediksi Matchup, & Tier List", "usage": ".mlbb <sub-command> <args>", "example": ".mlbb counter aamon, akai, beatrix", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/mlbb.js", metadata, m, extra)

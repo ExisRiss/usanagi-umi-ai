@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "savekontak", "category": "owner", "aliasMap": {"umi-owner-savekontak": "savekontak", "umi-savekontak": "savekontak", "umi-sv": "sv", "umi-svkontak": "svkontak", "savekontak": "savekontak", "sv": "sv", "svkontak": "svkontak"}, "description": "Menyimpan kontak dari grup menjadi file VCF", "usage": ".savekontak <nama>", "example": ".savekontak Fulan", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/savekontak.js", metadata, m, extra)

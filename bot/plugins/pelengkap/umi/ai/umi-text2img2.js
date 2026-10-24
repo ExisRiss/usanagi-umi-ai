@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "text2img2", "category": "ai", "aliasMap": {"umi-ai-text2img2": "text2img2", "umi-text2img2": "text2img2", "umi-genimg": "genimg", "text2img2": "text2img2", "t2i2": "t2i2", "genimg": "genimg"}, "description": "Generate image from text using AI", "usage": ".text2img2 <prompt>", "example": ".text2img2 a futuristic city in mars", "cooldown": 10, "energi": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/text2img2.js", metadata, m, extra)

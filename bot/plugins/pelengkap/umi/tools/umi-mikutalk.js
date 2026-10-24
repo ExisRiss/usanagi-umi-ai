@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mikutalk", "category": "tools", "aliasMap": {"umi-tools-mikutalk": "mikutalk", "umi-mikutalk": "mikutalk", "mikutalk": "mikutalk"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/mikutalk.js", metadata, m, extra)

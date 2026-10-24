@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kickall", "category": "group", "aliasMap": {"umi-group-kickall": "kickall", "umi-kickall": "kickall", "umi-kicksemua": "kicksemua", "umi-cleargrup": "cleargrup", "kickall": "kickall", "kicksemua": "kicksemua", "cleargrup": "cleargrup"}, "description": "Kick semua member (non-admin)", "usage": ".kickall member", "example": ".kickall member", "cooldown": 10}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/kick-all-member.js", metadata, m, extra)

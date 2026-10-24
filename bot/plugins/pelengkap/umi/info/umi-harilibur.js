@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "harilibur", "category": "info", "aliasMap": {"umi-info-harilibur": "harilibur", "umi-harilibur": "harilibur", "umi-libur": "libur", "umi-harinasional": "harinasional", "harilibur": "harilibur", "libur": "libur", "harinasional": "harinasional"}, "description": "Menampilkan informasi hari libur dan hari nasional mendatang", "usage": ".harilibur", "example": ".harilibur", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/harilibur.js", metadata, m, extra)

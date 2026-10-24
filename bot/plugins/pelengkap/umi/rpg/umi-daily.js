@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "daily", "category": "rpg", "aliasMap": {"umi-rpg-daily": "daily"}, "description": "Klaim hadiah harian", "usage": ".daily", "example": ".daily", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/daily.js", metadata, m, extra)

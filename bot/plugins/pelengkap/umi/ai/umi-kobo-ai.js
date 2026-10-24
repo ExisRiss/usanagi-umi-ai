@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kobo-ai", "category": "ai", "aliasMap": {"umi-ai-kobo-ai": "kobo-ai", "umi-kobo-ai": "kobo-ai", "umi-koboai": "koboai", "umi-kobo": "kobo", "kobo-ai": "kobo-ai", "koboai": "koboai", "kobo": "kobo"}, "description": "Chat dengan Kobo Kanaeru — VTuber Hololive ID", "usage": ".kobo-ai <pertanyaan>", "example": ".kobo-ai Kobo lagi apa?", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/kobo-ai.js", metadata, m, extra)

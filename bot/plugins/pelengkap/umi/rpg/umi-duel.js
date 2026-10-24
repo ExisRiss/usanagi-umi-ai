@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "duel", "category": "rpg", "aliasMap": {"umi-rpg-duel": "duel", "umi-duel": "duel"}, "description": "Duel PvP dengan player lain", "usage": ".duel @user <bet>", "example": ".duel @user 5000", "cooldown": 120, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/duel.js", metadata, m, extra)

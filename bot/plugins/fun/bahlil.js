@@ -1,6 +1,7 @@
 /**
  * Maker Brat Bahlil
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  */
 
 import { createCanvas, loadImage } from '@napi-rs/canvas'

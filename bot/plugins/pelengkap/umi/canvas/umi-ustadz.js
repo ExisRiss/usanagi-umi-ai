@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ustadz", "category": "canvas", "aliasMap": {"umi-canvas-ustadz": "ustadz", "umi-ustadz": "ustadz", "umi-ustad": "ustad", "umi-quoteustadz": "quoteustadz", "umi-canvasustadz": "canvasustadz", "ustadz": "ustadz", "ustad": "ustad", "quoteustadz": "quoteustadz", "canvasustadz": "canvasustadz"}, "description": "Buat quote gaya ustadz", "usage": ".ustadz <text>", "example": ".ustadz Jangan lupa sholat", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/ustadz.js", metadata, m, extra)

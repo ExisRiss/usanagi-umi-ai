@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "afinitasml2", "category": "canvas", "aliasMap": {"umi-canvas-afinitasml2": "afinitasml2", "umi-afinitasml2": "afinitasml2", "afinitasml2": "afinitasml2"}, "description": "Bikin card afinitas ML (versi 2) dari fotomu", "usage": ".afinitasml2 (reply/kirim foto)", "example": ".afinitasml2", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/afinitasml2.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "asmaulhusna", "category": "religi", "aliasMap": {"umi-religi-asmaulhusna": "asmaulhusna", "umi-asmaul": "asmaul", "umi-husna": "husna", "umi-99names": "99names", "asmaulhusna": "asmaulhusna", "asmaul": "asmaul", "husna": "husna", "99names": "99names"}, "description": "99 Nama Allah (Asmaul Husna)", "usage": ".asmaulhusna [nomor/nama]", "example": ".asmaulhusna 1\n.asmaulhusna ar rahman", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/religi/asmaulhusna.js", metadata, m, extra)

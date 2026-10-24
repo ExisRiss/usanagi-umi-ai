@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dongeng", "category": "internet", "aliasMap": {"umi-internet-dongeng": "dongeng", "umi-dongeng": "dongeng", "umi-cerita": "cerita", "umi-dongengku": "dongengku", "dongeng": "dongeng", "cerita": "cerita", "dongengku": "dongengku"}, "description": "Cari dan baca dongeng dari 1000dongeng.com", "usage": ".dongeng <judul>", "example": ".dongeng Pahlawan", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/internet/dongeng.js", metadata, m, extra)

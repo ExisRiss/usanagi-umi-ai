@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autosambut", "category": "group", "aliasMap": {"umi-group-autosambut": "autosambut", "umi-autosambut": "autosambut", "umi-sambutowner": "sambutowner", "autosambut": "autosambut", "sambutowner": "sambutowner"}, "description": "Mengatur fitur sambutan otomatis saat owner muncul setelah lama idle", "usage": ".autosambut on/off/delay/add/del/list", "example": ".autosambut on", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/autosambut.js", metadata, m, extra)

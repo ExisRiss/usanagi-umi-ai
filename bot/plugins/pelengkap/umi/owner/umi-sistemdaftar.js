@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sistemdaftar", "category": "owner", "aliasMap": {"umi-owner-sistemdaftar": "sistemdaftar", "umi-sistemdaftar": "sistemdaftar", "umi-regmode": "regmode", "umi-wajibdaftar": "wajibdaftar", "umi-togglereg": "togglereg", "sistemdaftar": "sistemdaftar", "regmode": "regmode", "wajibdaftar": "wajibdaftar", "togglereg": "togglereg"}, "description": "Kelola sistem wajib daftar dan statistik pendaftaran", "usage": ".sistemdaftar <on/off/stats>", "example": ".sistemdaftar stats", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/sistemdaftar.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kasedaiki", "category": "anime", "aliasMap": {"umi-anime-kasedaiki": "kasedaiki", "umi-kasedaiki": "kasedaiki", "umi-kasedai": "kasedai", "umi-aiki": "aiki", "kasedaiki": "kasedaiki", "kasedai": "kasedai", "aiki": "aiki"}, "description": "Kirim gambar random kasedaiki", "usage": ".kasedaiki", "example": ".kasedaiki", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/kasedaiki.js", metadata, m, extra)

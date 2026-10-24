@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import sharp from 'sharp'
 import { downloadMediaBuffer, getMediaSource, react } from '../../lib/awang-media.js'

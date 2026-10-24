@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cancelproses", "category": "store", "aliasMap": {"umi-store-cancelproses": "cancelproses", "umi-cancelproses": "cancelproses", "umi-batalproses": "batalproses", "umi-canceltrx": "canceltrx", "cancelproses": "cancelproses", "batalproses": "batalproses", "canceltrx": "canceltrx"}, "description": "Batalkan proses transaksi", "usage": ".cancelproses @buyer", "example": ".cancelproses @628xxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/cancelproses.js", metadata, m, extra)

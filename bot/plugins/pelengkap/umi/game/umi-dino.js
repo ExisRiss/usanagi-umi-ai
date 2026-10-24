@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dino", "category": "game", "aliasMap": {"umi-game-dino": "dino", "umi-dino": "dino", "umi-dinorun": "dinorun"}, "description": "Game Dino Run inline HTML dengan endless runner, skor, combo, koin dan perisai", "usage": ".dino", "example": ".dino", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/dino.js", metadata, m, extra)

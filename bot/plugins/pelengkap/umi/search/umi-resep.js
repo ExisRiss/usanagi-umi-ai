@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resep", "category": "search", "aliasMap": {"umi-search-resep": "resep", "umi-resep": "resep", "umi-resepmasak": "resepmasak", "umi-resepmasakan": "resepmasakan", "umi-caramasak": "caramasak", "resep": "resep", "resepmasak": "resepmasak", "resepmasakan": "resepmasakan", "caramasak": "caramasak"}, "description": "Cari resep makanan yang lengkap dan enak", "usage": ".resep <nama makanan>", "example": ".resep ayam geprek", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/resep.js", metadata, m, extra)

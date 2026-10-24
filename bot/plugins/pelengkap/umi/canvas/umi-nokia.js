@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nokia", "category": "canvas", "aliasMap": {"umi-canvas-nokia": "nokia", "umi-nokia": "nokia", "nokia": "nokia"}, "description": "Buat meme nokia", "usage": ".nokia <nama> | <pesan>", "example": ".nokia Bot | Halo dunia", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/nokia.js", metadata, m, extra)

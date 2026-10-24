@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wanted", "category": "maker", "aliasMap": {"umi-maker-wanted": "wanted", "umi-wanted": "wanted", "umi-wantedposter": "wantedposter", "wantedposter": "wantedposter"}, "description": "Efek poster wanted", "usage": ".wanted (reply foto)", "example": ".wanted", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/wanted.js", metadata, m, extra)

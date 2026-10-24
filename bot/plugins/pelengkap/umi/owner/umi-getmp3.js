@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getmp3", "category": "owner", "aliasMap": {"umi-owner-getmp3": "getmp3", "umi-getmp3": "getmp3", "umi-getaudio": "getaudio", "umi-ambilmp3": "ambilmp3", "umi-ambilaudio": "ambilaudio", "getmp3": "getmp3", "getaudio": "getaudio", "ambilmp3": "ambilmp3", "ambilaudio": "ambilaudio"}, "description": "Ambil file MP3/Audio dari folder assets/audio", "usage": ".getmp3 <nama_file.mp3>", "example": ".getmp3 zerotwo.mp3", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/getmp3.js", metadata, m, extra)

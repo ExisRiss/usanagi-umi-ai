@@ -2,6 +2,7 @@
  * Komikindo
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  * API : https://api.kaicloud.my.id
  * Note : Sesuaiain sama SC kalian
  */

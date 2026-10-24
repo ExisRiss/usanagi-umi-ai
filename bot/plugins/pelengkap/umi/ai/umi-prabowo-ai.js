@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "prabowo-ai", "category": "ai", "aliasMap": {"umi-ai-prabowo-ai": "prabowo-ai", "umi-prabowo-ai": "prabowo-ai", "umi-prabowoi": "prabowoi", "umi-prabowo": "prabowo", "umi-pakprabowo": "pakprabowo", "prabowo-ai": "prabowo-ai", "prabowoi": "prabowoi", "prabowo": "prabowo", "pakprabowo": "pakprabowo"}, "description": "Chat dengan Pak Prabowo — Pria Sawit", "usage": ".prabowo-ai <pertanyaan>", "example": ".prabowo-ai Saudara, kita harus berdaulat!", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/prabowo-ai.js", metadata, m, extra)

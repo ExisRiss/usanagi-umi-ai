@@ -1,6 +1,7 @@
 /**
  * Judul : Play Lagu dari Spotify
  * Base Url : spotidown.app
+  * By AlzRiss - Usanagi Umi AI
  */
 
 import axios from 'axios'

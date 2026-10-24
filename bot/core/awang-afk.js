@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 import { unifiedRpg } from '../lib/rpg/unified-store.js'
 const migrated=new WeakSet(),fallback={users:{}}
 export function normalizeAfkJid(value){

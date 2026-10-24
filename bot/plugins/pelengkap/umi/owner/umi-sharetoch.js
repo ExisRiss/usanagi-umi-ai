@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sharetoch", "category": "owner", "aliasMap": {"umi-owner-sharetoch": "sharetoch", "umi-sharetoch": "sharetoch", "umi-sharetosaluran": "sharetosaluran", "sharetoch": "sharetoch", "sharetosaluran": "sharetosaluran"}, "description": "Share ke channel tanpa watermark", "usage": ".sharetoch (reply pesan)", "example": ".sharetoch", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/sharetoch.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const answers = [
   'Hmm, aku coba ya... Kamu lagi mikirin makanan!',

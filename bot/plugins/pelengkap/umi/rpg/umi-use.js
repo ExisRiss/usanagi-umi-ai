@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "use", "category": "rpg", "aliasMap": {"umi-rpg-use": "use", "umi-use": "use", "umi-pake": "pake", "umi-makan": "makan"}, "description": "Menggunakan item consumable atau membuka crate", "usage": ".use <item>", "example": ".use potion", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/use.js", metadata, m, extra)

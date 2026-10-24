@@ -1,5 +1,6 @@
 /*
  * Gemini AI Chat - ESM Plugin (API Version)
+  * By AlzRiss - Usanagi Umi AI
  *
  * Command:
  * .gemini <prompt>

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cc2", "category": "colorgrade", "aliasMap": {"umi-colorgrade-cc2": "cc2", "umi-cc2": "cc2", "umi-warmflash": "warmflash", "umi-vintage90s": "vintage90s", "cc2": "cc2", "warmflash": "warmflash", "vintage90s": "vintage90s"}, "description": "Color Grading CC2 - Warm Vintage Flash Tone", "usage": ".cc2 (Kirim/Reply Foto)", "example": ".cc2"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/colorgrade/cc2.js", metadata, m, extra)

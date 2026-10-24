@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { spawn } from 'child_process'
 import path from 'path'

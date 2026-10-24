@@ -5,6 +5,7 @@
  * Commands:
  *   .spaceshooter / .space / .shooter
  * 
+ * By AlzRiss - Usanagi Umi AI (clean-room build)
  */
 
 const handler = async (m, { conn }) => {

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jarvis", "category": "maker", "aliasMap": {"umi-maker-jarvis": "jarvis", "umi-jarvis": "jarvis", "umi-jarvismeme": "jarvismeme", "jarvis": "jarvis", "jarvismeme": "jarvismeme"}, "description": "Membuat meme Jarvis dengan teks custom", "usage": ".jarvis <teks>", "example": ".jarvis Jarvis, tolong atur dulu itu biar ga apa kali", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/jarvis.js", metadata, m, extra)

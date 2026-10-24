@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { isWelcomeEnabled, isGoodbyeEnabled } from './awang-welcome.js'
 import { normalizeNumber, resolvePhoneNumber } from '../lib/awang-cekakses.js'

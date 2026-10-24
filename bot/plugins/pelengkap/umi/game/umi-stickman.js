@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stickman", "category": "game", "aliasMap": {"umi-game-stickman": "stickman", "umi-stickman": "stickman", "umi-stick": "stick", "umi-stickgame": "stickgame", "stickman": "stickman", "stick": "stick", "stickgame": "stickgame"}, "description": "Game Stickman HTML AI Rich.", "usage": ".stickman", "example": ".stickman", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/stickman.js", metadata, m, extra)

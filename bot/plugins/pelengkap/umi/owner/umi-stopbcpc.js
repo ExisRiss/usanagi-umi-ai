@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stopbcpc", "category": "owner", "aliasMap": {"umi-owner-stopbcpc": "stopbcpc", "umi-stopbcpc": "stopbcpc", "umi-stopbroadcastpc": "stopbroadcastpc", "stopbcpc": "stopbcpc", "stopbroadcastpc": "stopbroadcastpc"}, "description": "Hentikan broadcast private yang sedang berjalan", "usage": ".stopbcpc", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/stopbcpc.js", metadata, m, extra)

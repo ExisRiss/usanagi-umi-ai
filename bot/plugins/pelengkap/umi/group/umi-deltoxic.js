@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "deltoxic", "category": "group", "aliasMap": {"umi-group-deltoxic": "deltoxic", "umi-deltoxic": "deltoxic", "umi-hapustoxic": "hapustoxic", "umi-remtoxic": "remtoxic", "umi-removetoxic": "removetoxic", "deltoxic": "deltoxic", "hapustoxic": "hapustoxic", "remtoxic": "remtoxic", "removetoxic": "removetoxic"}, "description": "Hapus kata toxic dari daftar", "usage": ".deltoxic <kata>", "example": ".deltoxic kata_kasar", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/deltoxic.js", metadata, m, extra)

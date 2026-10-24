@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autohapusproduk", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-autohapusproduk": "autohapusproduk", "umi-autohapusproduk": "autohapusproduk", "umi-autodelproduk": "autodelproduk", "autohapusproduk": "autohapusproduk", "autodelproduk": "autodelproduk"}, "description": "🛍️ Menghapus produk dari autoorder store", "usage": ".autohapusproduk <id_produk/nomor>", "example": ".autohapusproduk 1", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/hapusproduk.js", metadata, m, extra)

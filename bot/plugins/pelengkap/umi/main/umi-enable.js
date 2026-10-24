@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "enable", "category": "main", "aliasMap": {"umi-main-enable": "enable", "umi-enable": "enable", "umi-disable": "disable", "umi-on": "on", "umi-off": "off"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/enable.js", metadata, m, extra)

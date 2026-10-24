@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setdelay", "category": "owner", "aliasMap": {"umi-owner-setdelay": "setdelay", "umi-setdelay": "setdelay", "umi-delay": "delay", "umi-setdelaybot": "setdelaybot", "umi-botdelay": "botdelay", "setdelay": "setdelay", "delay": "delay", "setdelaybot": "setdelaybot", "botdelay": "botdelay"}, "description": "Mengatur delay respon bot (cooldown global)", "usage": ".setdelay <detik>", "example": ".setdelay 3", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setdelay.js", metadata, m, extra)

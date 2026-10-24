@@ -1,8 +1,11 @@
 // • Image to prompt 
 // • Type : Plugins ESM 
+// By AlzRiss - Usanagi Umi AI
+// By AlzRiss - Usanagi Umi AI
 import axios from "axios"
 import FormData from "form-data"
 import fs from "fs"
+import { requireApiKey } from '../../config/api-keys.js'
 
 let handler = async (m, { conn }) => {
   let q = m.quoted?.mimetype ? m.quoted : m
@@ -18,7 +21,7 @@ let handler = async (m, { conn }) => {
     const res = await axios.post("https://be.neuralframes.com/clip_interrogate/", form, {
       headers: {
         ...form.getHeaders(),
-        "Authorization": "Bearer GANTI-DENGAN-TOKEN-LAYANAN",
+        "Authorization": `Bearer ${requireApiKey('neuralFrames', 'Image to Prompt')}`,
         "User-Agent": "Mozilla/5.0 (Linux; Android 10)",
         "Referer": "https://www.neuralframes.com/tools/image-to-prompt"
       }

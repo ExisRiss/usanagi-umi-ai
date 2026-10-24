@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mulai", "category": "rpg", "aliasMap": {"umi-rpg-mulai": "mulai", "umi-mulai": "mulai", "mulai": "mulai"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/mulai.js", metadata, m, extra)

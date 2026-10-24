@@ -29,6 +29,7 @@ Rimuru MD adalah SC hasil rename dari SC Ourin MD.
 import axios from 'axios';
 import { RIMURU_CORE_CONFIG } from "../../config.js";
 import config from '../../config.js';
+import { requireApiKey } from '../../../../config/api-keys.js'
 const pluginConfig = {
     name: 'tenor',
     alias: ['gif', 'gifsearch'],
@@ -106,7 +107,7 @@ async function searchTenor(query) {
     const params = {
         appversion: 'browser-r20251209-1',
         prettyPrint: 'false',
-        key: 'GANTI-DENGAN-KUNCI-TENOR',
+        key: requireApiKey('tenor', 'Pencarian Tenor (GIF)'),
         client_key: 'tenor_web',
         locale: 'es_US',
         anon_id: 'AAZHDntgcvcI5Qq9XzSEuQ',

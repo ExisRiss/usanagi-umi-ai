@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addpremall", "category": "owner", "aliasMap": {"umi-owner-addpremall": "addpremall", "umi-addpremall": "addpremall", "umi-addpremiumall": "addpremiumall", "umi-setpremall": "setpremall", "addpremall": "addpremall", "addpremiumall": "addpremiumall", "setpremall": "setpremall"}, "description": "Menambahkan semua member grup ke premium", "usage": ".addprem all", "example": ".addprem all", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addpremall.js", metadata, m, extra)

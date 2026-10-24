@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bucin", "category": "fun", "aliasMap": {"umi-fun-bucin": "bucin", "umi-gombal": "gombal", "umi-love": "love", "umi-romantis": "romantis"}, "description": "Random kata-kata bucin/romantis", "usage": ".bucin", "example": ".bucin", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/bucin.js", metadata, m, extra)

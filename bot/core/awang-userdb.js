@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import crypto from 'crypto'
 import { getDb } from './awang-sqlite.js'

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getUser, saveUser, getGuild, saveGuild, deleteGuild, getAllGuilds, findGuildByName } from '../../lib/rpg/awang-db.js'
 import { buildRpgContext } from '../../lib/rpg/awang-context.js'

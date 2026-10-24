@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lirik", "category": "search", "aliasMap": {"umi-search-lirik": "lirik", "umi-lirik": "lirik", "umi-lyric": "lyric", "umi-lyrics": "lyrics", "umi-liriklagu": "liriklagu", "lyric": "lyric", "liriklagu": "liriklagu"}, "description": "Cari lirik lagu", "usage": ".lirik <query>", "example": ".lirik sempurna", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/lyrics.js", metadata, m, extra)

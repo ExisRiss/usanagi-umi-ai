@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "patrickmeme", "category": "canvas", "aliasMap": {"umi-canvas-patrickmeme": "patrickmeme", "umi-patrickmeme": "patrickmeme", "umi-pmeme": "pmeme", "umi-memepatrick": "memepatrick", "patrickmeme": "patrickmeme", "pmeme": "pmeme", "memepatrick": "memepatrick"}, "description": "Membuat meme patrick dengan teks kustom", "usage": ".patrickmeme nama|teks", "example": ".patrickmeme Rin|Katanya just friend kok manggil sayang", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/patrickmeme.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bandingkan-hp", "category": "tools", "aliasMap": {"umi-tools-bandingkan-hp": "bandingkan-hp", "umi-bandingkan-hp": "bandingkan-hp", "umi-bandingkanhp": "bandingkanhp", "umi-comparehp": "comparehp", "bandingkan-hp": "bandingkan-hp", "bandingkanhp": "bandingkanhp", "comparehp": "comparehp"}, "description": "Membandingkan dua spesifikasi smartphone dari Carisinyal.", "usage": ".bandingkan-hp <hp1> | <hp2>", "example": ".bandingkan-hp oppo a3s | vivo y91", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/bandingkan-hp.js", metadata, m, extra)

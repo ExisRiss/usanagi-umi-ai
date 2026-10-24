@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "movieposter", "category": "canvas", "aliasMap": {"umi-canvas-movieposter": "movieposter", "umi-movieposter": "movieposter", "umi-posterfilm": "posterfilm", "umi-movieposterelaina": "movieposterelaina", "movieposter": "movieposter", "posterfilm": "posterfilm", "movieposterelaina": "movieposterelaina"}, "description": "Buat poster film bergaya sinematik dari nama, genre, dan judul", "usage": ".movieposter nama|genre|judul|tagline", "example": ".movieposter Anita Putri Azzahra|scifi|Umi: The Movie|The last slime standing", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/movieposter.js", metadata, m, extra)

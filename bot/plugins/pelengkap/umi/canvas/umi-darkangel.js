@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "darkangel", "category": "canvas", "aliasMap": {"umi-canvas-darkangel": "darkangel", "umi-darkangel": "darkangel", "darkangel": "darkangel"}, "description": "Bikin card dark angel dari fotomu", "usage": ".darkangel <teks> (reply/kirim foto)", "example": ".darkangel Dark", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/darkangel.js", metadata, m, extra)

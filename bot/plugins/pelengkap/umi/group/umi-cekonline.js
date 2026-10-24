@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekonline", "category": "group", "aliasMap": {"umi-group-cekonline": "cekonline", "umi-cekonline": "cekonline", "umi-checkonline": "checkonline", "umi-online": "online", "umi-siapayangonline": "siapayangonline", "umi-whosonline": "whosonline", "cekonline": "cekonline", "checkonline": "checkonline", "online": "online", "siapayangonline": "siapayangonline", "whosonline": "whosonline"}, "description": "Cek member yang online di grup", "usage": ".cekonline", "example": ".cekonline", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/cekonline.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setlimitdefault", "category": "owner", "aliasMap": {"umi-owner-setlimitdefault": "setlimitdefault", "umi-setlimitdefault": "setlimitdefault", "umi-setdefaultlimit": "setdefaultlimit", "umi-limitdefault": "limitdefault", "setlimitdefault": "setlimitdefault", "setdefaultlimit": "setdefaultlimit", "limitdefault": "limitdefault"}, "description": "Set default limit untuk user baru", "usage": ".setlimitdefault <jumlah>", "example": ".setlimitdefault 50", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setlimitdefault.js", metadata, m, extra)

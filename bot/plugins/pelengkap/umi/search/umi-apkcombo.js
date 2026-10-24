@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "apkcombo", "category": "search", "aliasMap": {"umi-search-apkcombo": "apkcombo", "umi-apkcombo": "apkcombo", "umi-apk": "apk", "umi-apksearch": "apksearch", "apkcombo": "apkcombo", "apk": "apk", "apksearch": "apksearch"}, "description": "Cari APK di ApkCombo", "usage": ".apkcombo <query>", "example": ".apkcombo WhatsApp", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/apkcombo.js", metadata, m, extra)

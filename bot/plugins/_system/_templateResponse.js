@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { proto, generateWAMessage, areJidsSameUser } from '@rexxhayanasi/elaina-baileys';
 import { extractSelectionId } from '../../lib/message-response.js';

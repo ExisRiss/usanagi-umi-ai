@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "audioquran", "category": "religi", "aliasMap": {"umi-religi-audioquran": "audioquran", "umi-audio-quran": "audio-quran", "audio-quran": "audio-quran"}, "description": "Cari dan putar audio Al-Quran dari berbagai Qari (mp3quran)", "usage": ".audio-quran [mode] [args]", "example": ".audio-quran audio Sudais 1\n.audio-quran reciters\n.audio-quran suwar", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/religi/audioquran.js", metadata, m, extra)

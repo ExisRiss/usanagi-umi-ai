@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gencard", "category": "tools", "aliasMap": {"umi-tools-gencard": "gencard", "umi-gencard": "gencard", "umi-ccgen": "ccgen", "umi-cardgen": "cardgen", "umi-fakecc": "fakecc", "gencard": "gencard", "ccgen": "ccgen", "cardgen": "cardgen", "fakecc": "fakecc"}, "description": "Membuat data dummy nomor kartu kredit (Visa, MasterCard, JCB, Amex)", "usage": ".gencard Tipe | Jumlah", "example": ".gencard Visa | 5", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/gencard.js", metadata, m, extra)

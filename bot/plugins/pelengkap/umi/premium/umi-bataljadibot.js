@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bataljadibot", "category": "premium", "aliasMap": {"umi-premium-bataljadibot": "bataljadibot", "umi-bataljadibot": "bataljadibot", "umi-canceljadibot": "canceljadibot", "umi-stopjadibotstart": "stopjadibotstart", "bataljadibot": "bataljadibot", "canceljadibot": "canceljadibot", "stopjadibotstart": "stopjadibotstart"}, "description": "Batalkan proses jadibot yang sedang dimulai", "usage": ".bataljadibot", "example": ".bataljadibot", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/premium/bataljadibot.js", metadata, m, extra)

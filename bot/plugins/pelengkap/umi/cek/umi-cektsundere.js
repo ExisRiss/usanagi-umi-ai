@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cektsundere", "category": "cek", "aliasMap": {"umi-cek-cektsundere": "cektsundere", "umi-cektsundere": "cektsundere", "umi-tsundere": "tsundere"}, "description": "Cek tingkat tsundere kamu", "usage": ".cektsundere <nama>", "example": ".cektsundere Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cektsundere.js", metadata, m, extra)

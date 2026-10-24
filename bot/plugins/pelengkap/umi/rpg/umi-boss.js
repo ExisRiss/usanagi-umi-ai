@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "boss", "category": "rpg", "aliasMap": {"umi-rpg-boss": "boss", "umi-boss": "boss", "umi-raidboss": "raidboss", "umi-bigboss": "bigboss"}, "description": "Lawan boss untuk hadiah besar", "usage": ".boss", "example": ".boss", "cooldown": 600, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/boss.js", metadata, m, extra)

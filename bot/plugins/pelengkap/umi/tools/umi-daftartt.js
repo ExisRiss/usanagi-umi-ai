@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "daftartiktok", "category": "stalker", "aliasMap": {"umi-stalker-daftartiktok": "daftartiktok", "umi-daftartiktok": "daftartiktok", "umi-daftartt": "daftartt", "umi-regtt": "regtt", "daftartiktok": "daftartiktok", "daftartt": "daftartt", "regtt": "regtt"}, "description": "Mendaftarkan username TikTok ke database user", "usage": ".daftartt <username>", "example": ".daftartt faizprst7", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/daftartt.js", metadata, m, extra)

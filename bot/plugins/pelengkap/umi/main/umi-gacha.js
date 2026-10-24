@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gacha", "category": "rpg", "aliasMap": {"umi-rpg-gacha": "gacha", "umi-pull": "pull", "pull": "pull"}, "description": "Gacha untuk dapat hadiah random", "usage": ".gacha", "example": ".gacha", "cooldown": 300, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/gacha.js", metadata, m, extra)

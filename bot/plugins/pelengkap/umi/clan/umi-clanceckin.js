@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clancheckin", "category": "clan", "aliasMap": {"umi-clan-clancheckin": "clancheckin", "umi-clancheckin": "clancheckin", "umi-checkin": "checkin", "umi-dailyclan": "dailyclan", "clancheckin": "clancheckin", "checkin": "checkin", "dailyclan": "dailyclan"}, "description": "Checkin harian untuk dapet XP clan", "usage": ".clancheckin", "example": ".clancheckin", "cooldown": 86400, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanceckin.js", metadata, m, extra)

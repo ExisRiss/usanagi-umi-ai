@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antitoxic", "category": "group", "aliasMap": {"umi-group-antitoxic": "antitoxic", "umi-antitoxic": "antitoxic", "umi-toxic": "toxic", "umi-antitoxik": "antitoxik", "toxic": "toxic", "antitoxik": "antitoxik"}, "description": "Mengatur antitoxic di grup", "usage": ".antitoxic <on/off/warn/metode>", "example": ".antitoxic on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antitoxic.js", metadata, m, extra)

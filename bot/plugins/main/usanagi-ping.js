@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import os from 'os'
 import { createCanvas } from '@napi-rs/canvas'

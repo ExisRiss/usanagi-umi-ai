@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "preset", "category": "tools", "aliasMap": {"umi-tools-preset": "preset", "umi-preset": "preset", "umi-prst": "prst", "preset": "preset", "prst": "prst"}, "description": "Generate teks preset auto copy 😈", "usage": ".preset linkVT|link916|link11|linkXML", "example": ".preset https://vt|https://916|https://11|https://xml", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/preset.js", metadata, m, extra)

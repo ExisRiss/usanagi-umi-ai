@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakechat", "category": "fun", "aliasMap": {"umi-fun-fakechat": "fakechat", "umi-fakechat": "fakechat", "umi-fc": "fc", "umi-fakemsg": "fakemsg"}, "description": "Generate fake WhatsApp chat", "usage": ".fakechat @user | pesan", "example": ".fakechat @user | Kamu ganteng banget!", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/fakechat.js", metadata, m, extra)

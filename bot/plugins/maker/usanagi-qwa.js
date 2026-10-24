@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import axios from 'axios'
 import { resolvePhoneNumber } from '../../lib/awang-cekakses.js'

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delantilink", "category": "group", "aliasMap": {"umi-group-delantilink": "delantilink", "umi-delantilink": "delantilink", "umi-delalink": "delalink", "umi-delblocklink": "delblocklink", "umi-remantilink": "remantilink", "delantilink": "delantilink", "delalink": "delalink", "delblocklink": "delblocklink", "remantilink": "remantilink"}, "description": "Menghapus link dari daftar antilink", "usage": ".delantilink <domain/pattern>", "example": ".delantilink tiktok.com", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/delantilink.js", metadata, m, extra)

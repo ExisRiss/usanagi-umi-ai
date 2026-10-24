@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "inventory", "category": "rpg", "aliasMap": {"umi-rpg-inventory": "inventory", "umi-inventory": "inventory", "umi-inv": "inv", "umi-tas": "tas", "umi-bag": "bag"}, "description": "Melihat isi inventory RPG", "usage": ".inventory", "example": ".inventory", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/inventory.js", metadata, m, extra)

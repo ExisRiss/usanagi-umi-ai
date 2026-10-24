@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * /trading1 — Simulator trading saham & kripto.
  *

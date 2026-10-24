@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ssweb", "category": "tools", "aliasMap": {"umi-tools-ssweb": "ssweb", "umi-ssweb": "ssweb", "umi-screenshot": "screenshot", "umi-ss": "ss", "umi-webss": "webss", "screenshot": "screenshot"}, "description": "Screenshot website", "usage": ".ssweb <url>", "example": ".ssweb https://google.com", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ssweb.js", metadata, m, extra)

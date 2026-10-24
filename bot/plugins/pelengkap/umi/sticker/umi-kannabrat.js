@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kannabrat", "category": "sticker", "aliasMap": {"umi-sticker-kannabrat": "kannabrat", "umi-kannabrat": "kannabrat", "umi-kanna": "kanna", "umi-kannagen": "kannagen", "kannabrat": "kannabrat", "kanna": "kanna", "kannagen": "kannagen"}, "description": "Membuat sticker Kanna dengan teks", "usage": ".kannabrat <teks>", "example": ".kannabrat Hello World", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/kannabrat.js", metadata, m, extra)

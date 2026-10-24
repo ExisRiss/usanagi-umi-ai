@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wwkill", "category": "game", "aliasMap": {"umi-game-wwkill": "wwkill", "umi-wwkill": "wwkill", "umi-wolfkill": "wolfkill", "umi-wk": "wk", "wwkill": "wwkill", "wolfkill": "wolfkill", "wk": "wk"}, "description": "Werewolf night action - Kill target", "usage": ".wwkill <nomor>", "example": ".wwkill 2", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/wwkill.js", metadata, m, extra)

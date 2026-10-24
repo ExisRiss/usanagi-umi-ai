@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getDb } from './awang-sqlite.js'
 import { isOwner, normalizeNumber, resolvePhoneNumber } from '../lib/awang-cekakses.js'

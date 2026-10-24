@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rednotedl", "category": "download", "aliasMap": {"umi-download-rednotedl": "rednotedl", "umi-rednotedl": "rednotedl", "umi-rednote": "rednote", "umi-xhsdl": "xhsdl", "umi-xiaohongshu": "xiaohongshu", "rednotedl": "rednotedl", "rednote": "rednote", "xhsdl": "xhsdl", "xiaohongshu": "xiaohongshu"}, "description": "Download video/foto dari RedNote (XiaoHongShu)", "usage": ".rednotedl <url>", "example": ".rednotedl https://www.xiaohongshu.com/xxx", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/rednotedl.js", metadata, m, extra)

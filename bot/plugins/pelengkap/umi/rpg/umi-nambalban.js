@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nambalban", "category": "rpg", "aliasMap": {"umi-rpg-nambalban": "nambalban", "umi-nambalban": "nambalban", "umi-tambal": "tambal", "umi-bengkel": "bengkel"}, "description": "Buka jasa tambal ban, awas ban meledak!", "usage": ".nambalban", "example": ".nambalban", "cooldown": 150, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/nambalban.js", metadata, m, extra)

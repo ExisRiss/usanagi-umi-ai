@@ -2,6 +2,7 @@
  * IQCV2 Fake Chat iPhone
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  * API    : https://brat.siputzx.my.id/
  */
 

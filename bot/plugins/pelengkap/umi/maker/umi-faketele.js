@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "faketg", "category": "maker", "aliasMap": {"umi-maker-faketg": "faketg", "umi-faketg": "faketg", "umi-faketele": "faketele", "umi-faketelegram": "faketelegram", "faketg": "faketg", "faketelegram": "faketelegram"}, "description": "Buat gambar tampilan profil Telegram palsu", "usage": ".faketg name|number|bio|username (sambil kirim/reply gambar)", "example": ".faketg Geto|6285135853836|Suguru|Geto suguru", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/faketele.js", metadata, m, extra)

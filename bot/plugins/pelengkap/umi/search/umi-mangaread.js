@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mangaread", "category": "search", "aliasMap": {"umi-search-mangaread": "mangaread", "umi-mangaread": "mangaread", "umi-mread": "mread", "umi-readmanga": "readmanga", "umi-bacamanga": "bacamanga", "mangaread": "mangaread", "mread": "mread", "readmanga": "readmanga", "bacamanga": "bacamanga"}, "description": "Membaca manga dari Shinigami", "usage": ".mangaread <url atau id>", "example": ".mangaread https://g.shinigami.asia/chapter/0a338442-9b00-4c4a-b80e-93ce34cd0cd0", "cooldown": 15, "energi": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/mangaread.js", metadata, m, extra)

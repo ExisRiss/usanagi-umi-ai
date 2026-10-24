@@ -1,5 +1,6 @@
 /**
  * Zhuxin MD — Showroom Live scraper
+  * By AlzRiss - Usanagi Umi AI
  * API: https://www.showroom-live.com
  */
 import axios from "axios";

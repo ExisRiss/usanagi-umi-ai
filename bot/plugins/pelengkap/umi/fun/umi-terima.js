@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "terima", "category": "fun", "aliasMap": {"umi-fun-terima": "terima", "umi-terima": "terima", "umi-accept": "accept", "umi-yes": "yes", "yes": "yes"}, "description": "Menerima tembakan dari seseorang", "usage": ".terima @tag", "example": ".terima @628xxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/terima.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekxl", "category": "tools", "aliasMap": {"umi-tools-cekxl": "cekxl", "umi-cekxl": "cekxl", "umi-checkxl": "checkxl", "umi-xlcheck": "xlcheck", "umi-xlcek": "xlcek", "cekxl": "cekxl", "checkxl": "checkxl", "xlcheck": "xlcheck", "xlcek": "xlcek"}, "description": "Cek informasi paket dan kuota nomor XL/Axis secara detail", "usage": ".cekxl <nomor>", "example": ".cekxl 083150850721", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/cekxl.js", metadata, m, extra)

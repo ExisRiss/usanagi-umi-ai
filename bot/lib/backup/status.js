@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Status nyata untuk dashboard & bot Telegram.
  * Semua angka diambil dari pemeriksaan langsung (berkas, SQLite, os), bukan

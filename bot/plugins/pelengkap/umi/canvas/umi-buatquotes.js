@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "buatquotes", "category": "canvas", "aliasMap": {"umi-canvas-buatquotes": "buatquotes", "umi-buatquotes": "buatquotes", "umi-bq": "bq", "umi-quoteanime": "quoteanime", "umi-animequote": "animequote", "buatquotes": "buatquotes", "bq": "bq", "animequote": "animequote"}, "description": "Membuat gambar quote bertema anime secara custom.", "usage": ".buatquotes [id background] | <teks> | [nama pembuat]", "example": ".buatquotes 2 | Tetaplah hidup walaupun tidak berguna | Maman", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/buatquotes.js", metadata, m, extra)

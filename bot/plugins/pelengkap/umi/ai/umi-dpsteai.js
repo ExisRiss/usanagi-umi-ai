@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dpsteai", "category": "ai", "aliasMap": {"umi-ai-dpsteai": "dpsteai", "umi-dpsteai": "dpsteai", "umi-dpste": "dpste", "umi-dipasteai": "dipasteai", "dpsteai": "dpsteai", "dpste": "dpste", "dipasteai": "dipasteai"}, "description": "Chat dengan AI dari dipastebin.web.id (mendukung session per-user)", "usage": ".dpsteai <pertanyaan> atau .dpsteai reset (untuk hapus sesi)", "example": ".dpsteai halo", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/dpsteai.js", metadata, m, extra)

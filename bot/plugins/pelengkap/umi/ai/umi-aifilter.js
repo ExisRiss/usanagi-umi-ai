@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "aifilter", "category": "ai", "aliasMap": {"umi-ai-aifilter": "aifilter", "umi-aifilter": "aifilter", "umi-filterai": "filterai", "umi-filterreaction": "filterreaction", "umi-filter-reaction": "filter-reaction", "umi-reactionfilter": "reactionfilter", "aifilter": "aifilter", "filterai": "filterai", "filterreaction": "filterreaction", "filter-reaction": "filter-reaction", "reactionfilter": "reactionfilter"}, "description": "AI image filter dan perubahan ekspresi wajah, diadaptasi dari CANTARELLA", "usage": ".aifilter <style> (reply gambar) / .filterreaction <expression> (reply gambar)", "example": ".aifilter anime", "cooldown": 30, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/aifilter.js", metadata, m, extra)

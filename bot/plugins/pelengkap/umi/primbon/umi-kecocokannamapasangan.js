@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kecocokannamapasangan", "category": "primbon", "aliasMap": {"umi-primbon-kecocokannamapasangan": "kecocokannamapasangan", "umi-kecocokannamapasangan": "kecocokannamapasangan", "umi-cocoknama": "cocoknama", "umi-matchname": "matchname", "kecocokannamapasangan": "kecocokannamapasangan", "cocoknama": "cocoknama", "matchname": "matchname"}, "description": "Cek kecocokan nama pasangan", "usage": ".kecocokannamapasangan <nama1> <nama2>", "example": ".kecocokannamapasangan putu keyla", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/kecocokannamapasangan.js", metadata, m, extra)

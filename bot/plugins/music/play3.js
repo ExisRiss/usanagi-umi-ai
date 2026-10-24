@@ -1,4 +1,6 @@
 import { searchYoutube, getYoutubeDirectUrl } from '../../lib/scrape/YouTube.js';
+import { proxyUrlFor } from '../../lib/media-proxy.js';
+import { extractVideoId } from '../../lib/youtube-media.js';
 import { randomUUID } from 'crypto';
 import axios from 'axios';
 
@@ -15,12 +17,13 @@ function escapeHtmlJs(value) {
         .replace(/</g, '\\x3C');
 }
 
-function buildPlayerHtml({ title, channel, duration, videoUrl, wsUrl, posterBase64 }) {
+function buildPlayerHtml({ title, channel, duration, videoUrl, proxyUrl, embedUrl, posterBase64 }) {
     const safeTitle = escapeHtmlJs(title);
     const safeChannel = escapeHtmlJs(channel);
     const safeDuration = escapeHtmlJs(duration);
     const safeVideoUrl = escapeHtmlJs(videoUrl);
-    const safeWsUrl = escapeHtmlJs(wsUrl);
+    const safeProxyUrl = escapeHtmlJs(proxyUrl || "");
+    const safeEmbedUrl = escapeHtmlJs(embedUrl || "");
 
     return `<style>
 *{
@@ -138,6 +141,13 @@ height:100%;
 display:block;
 background:#000;
 object-fit:contain
+}
+.video-frame iframe{
+width:100%;
+height:100%;
+border:0;
+display:block;
+background:#000
 }
 .big-play{
 position:absolute;
@@ -364,6 +374,7 @@ white-space:pre-wrap
 
 <div class="video-frame" id="videoFrame" onclick="toggleVideo()">
 <video id="videoPlayer" playsinline webkit-playsinline preload="none" poster="${posterBase64}"></video>
+<iframe id="embedPlayer" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="display:none;width:100%;height:100%;border:0;background:#000"></iframe>
 <div class="big-play" id="bigPlay">
 <button class="big-btn" type="button" onclick="event.stopPropagation();toggleVideo()">
 <svg id="playIcon" viewBox="0 0 24 24">
@@ -442,20 +453,15 @@ white-space:pre-wrap
 
 <div class="debug-wrap">
 <div class="debug-head">
-<div class="debug-title">WEBSOCKET VIDEO</div>
-<div class="debug-state" id="wsState">CONNECTING</div>
+<div class="debug-title">SUMBER VIDEO</div>
+<div class="debug-state" id="srcState">SIAP</div>
 </div>
-<div class="debug-server" id="wsServer">-</div>
+<div class="debug-server" id="srcServer">menunggu pemutaran</div>
 <div class="debug-grid">
-<div class="debug-cell"><span>MIME</span><b id="dbgMime">-</b></div>
-<div class="debug-cell"><span>Downloaded</span><b id="dbgDownloaded">0.00 MB</b></div>
-<div class="debug-cell"><span>Total</span><b id="dbgTotal">-</b></div>
-<div class="debug-cell"><span>Progress</span><b id="dbgProgress">0%</b></div>
-<div class="debug-cell"><span>Chunks</span><b id="dbgChunks">0</b></div>
+<div class="debug-cell"><span>Mode</span><b id="dbgMode">-</b></div>
+<div class="debug-cell"><span>Buffer</span><b id="dbgBuffered">0%</b></div>
+<div class="debug-cell"><span>Resolusi</span><b id="dbgRes">-</b></div>
 <div class="debug-cell"><span>Loop</span><b id="dbgLoop">OFF</b></div>
-</div>
-<div class="debug-bar">
-<div class="debug-bar-fill" id="dbgBarFill"></div>
 </div>
 <div class="debug-log" id="debugLog"></div>
 </div>
@@ -467,7 +473,8 @@ window.VIDEO_CONFIG = {
     channel: "${safeChannel}",
     duration: "${safeDuration}",
     videoUrl: "${safeVideoUrl}",
-    wsUrl: "${safeWsUrl}",
+    proxyUrl: "${safeProxyUrl}",
+    embedUrl: "${safeEmbedUrl}",
     autoplay: false,
     volume: 0.8,
     loop: false
@@ -607,24 +614,8 @@ video.addEventListener("ended", function() {
     updateUI();
 });
 
-var wsVideo = null;
-var wsChunks = [];
-var wsDownloaded = 0;
-var wsTotal = null;
-var wsMime = "video/mp4";
-var wsObjectUrl = null;
-var wsDone = false;
-var wsLastLog = 0;
-
-function fmtSize(bytes) {
-    if (!isFinite(bytes)) return "0 B";
-    if (bytes >= 1048576) return (bytes / 1048576).toFixed(2) + " MB";
-    if (bytes >= 1024) return (bytes / 1024).toFixed(2) + " KB";
-    return bytes + " B";
-}
-
-function setWsState(state) {
-    var el = document.getElementById("wsState");
+function setSrcState(state) {
+    var el = document.getElementById("srcState");
     if (el) el.textContent = state;
 }
 
@@ -635,175 +626,115 @@ function writeLog(line) {
     div.className = "log-line";
     div.textContent = line;
     box.appendChild(div);
-    while (box.childNodes.length > 80) {
+    while (box.childNodes.length > 12) {
         box.removeChild(box.firstChild);
     }
     box.scrollTop = box.scrollHeight;
 }
 
-function updateWsProgress() {
-    var el = document.getElementById("dbgDownloaded");
-    if (el) el.textContent = fmtSize(wsDownloaded);
-    
-    if (wsTotal !== null && wsTotal > 0) {
-        var pct = Math.min(100, (wsDownloaded / wsTotal) * 100);
-        el = document.getElementById("dbgTotal");
-        if (el) el.textContent = fmtSize(wsTotal);
-        
-        el = document.getElementById("dbgProgress");
-        if (el) el.textContent = pct.toFixed(1) + "%";
-        
-        el = document.getElementById("dbgBarFill");
-        if (el) el.style.width = pct.toFixed(1) + "%";
-    }
-    
-    el = document.getElementById("dbgChunks");
-    if (el) el.textContent = String(wsChunks.length);
+function setCell(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value;
 }
 
-function finishWsDownload(cfg) {
-    if (wsDone) return;
-    wsDone = true;
-    setWsState("COMPLETE");
-    writeLog("Download complete");
-    
-    var blob = new Blob(wsChunks, { type: wsMime || "video/mp4" });
-    writeLog("Blob created (" + fmtSize(blob.size) + ")");
-    
-    if (wsObjectUrl) URL.revokeObjectURL(wsObjectUrl);
-    wsObjectUrl = URL.createObjectURL(blob);
-    writeLog("Video source attached");
-    
-    video.src = wsObjectUrl;
-    video.load();
-    writeLog("Player ready");
-    
-    if (wsVideo) {
-        try { wsVideo.close(); } catch (e) {}
-    }
-    
-    wsChunks = [];
-    if (cfg.autoplay || userPressed) {
-        setTimeout(function() { playVideo(); }, 300);
-    }
+function updateLoopStatus() {
+    setCell("dbgLoop", isLoop ? "ON" : "OFF");
 }
 
-function startVideoStream(cfg) {
-    var videoUrl = cfg.videoUrl || "";
-    var wsUrl = cfg.wsUrl || "";
-    
-    if (!wsUrl && videoUrl) {
-        wsUrl = "wss://stream.kanara.my.id/?url=" + encodeURIComponent(videoUrl);
-    }
-    
-    var serverEl = document.getElementById("wsServer");
-    if (serverEl) {
-        var host = "-";
-        try { host = new URL(wsUrl).host; } catch (e) {}
-        serverEl.textContent = host || "-";
-    }
-    
-    if (!wsUrl) {
-        setWsState("ERROR");
-        writeLog("No video URL tersedia");
+function showEmbed(cfg, reason) {
+    var iframe = document.getElementById("embedPlayer");
+    var embed = cfg.embedUrl || "";
+    if (!iframe || !embed) {
+        setSrcState("TIDAK TERSEDIA");
+        writeLog(reason || "Video tidak bisa diputar di sini.");
+        setCell("dbgMode", "tidak ada");
         return;
     }
-    
-    if (typeof WebSocket === "undefined") {
-        setWsState("ERROR");
-        writeLog("WebSocket API tidak tersedia");
+    iframe.src = embed;
+    iframe.style.display = "block";
+    video.style.display = "none";
+    setSrcState("PEMUTAR YOUTUBE");
+    setCell("dbgMode", "embed youtube");
+    writeLog("Video dialihkan ke pemutar YouTube.");
+}
+
+/*
+ * Urutan sumber: proxy server bot -> link langsung -> embed YouTube.
+ * Proxy dipakai lebih dulu karena link googlevideo terikat ke IP server;
+ * tanpa proxy, HP pengguna sering ditolak (403) padahal server bisa akses.
+ * Semua kegagalan diteruskan ke sumber berikutnya tanpa menampilkan
+ * tulisan error mentah ke pengguna.
+ */
+function startPlayback(cfg) {
+    var mode = document.getElementById("dbgMode");
+    var server = document.getElementById("srcServer");
+    var sources = [];
+
+    if (cfg.proxyUrl) sources.push({ url: cfg.proxyUrl, kind: "proxy server" });
+    if (cfg.videoUrl) sources.push({ url: cfg.videoUrl, kind: "link langsung" });
+
+    if (server) {
+        try { server.textContent = new URL(sources.length ? sources[0].url : "https://youtube.com").host; }
+        catch (e) { server.textContent = "youtube"; }
+    }
+
+    if (!sources.length) {
+        showEmbed(cfg, "Sumber video tidak tersedia.");
         return;
     }
-    
-    writeLog("Connecting...");
-    setWsState("CONNECTING");
-    
-    wsVideo = new WebSocket(wsUrl);
-    wsVideo.binaryType = "arraybuffer";
-    
-    wsVideo.onopen = function() {
-        writeLog("WebSocket OPEN");
-        setWsState("CONNECTED");
-    };
-    
-    wsVideo.onmessage = function(event) {
-        if (typeof event.data === "string") {
-            var message = null;
-            try { message = JSON.parse(event.data); } catch (e) {}
-            if (!message) return;
-            
-            if (message.type === "start") {
-                wsMime = message.mime || "video/mp4";
-                if (message.contentLength !== undefined && message.contentLength !== null) {
-                    wsTotal = Number(message.contentLength);
-                } else if (message.length !== undefined && message.length !== null) {
-                    wsTotal = Number(message.length);
-                }
-                
-                var mimeEl = document.getElementById("dbgMime");
-                if (mimeEl) mimeEl.textContent = wsMime;
-                
-                writeLog("START | MIME: " + wsMime);
-                if (wsTotal !== null && wsTotal > 0) {
-                    writeLog("Size: " + fmtSize(wsTotal));
-                }
-                setWsState("DOWNLOADING");
-                updateWsProgress();
-                return;
-            }
-            
-            if (message.type === "end") {
-                writeLog("END");
-                finishWsDownload(config);
-                return;
-            }
-            
-            if (message.type === "error") {
-                writeLog("Server error: " + (message.message || "unknown"));
-                setWsState("ERROR");
-                return;
-            }
+
+    var index = 0;
+
+    function tryNext() {
+        if (index >= sources.length) {
+            showEmbed(cfg, "Tidak bisa memutar langsung.");
             return;
         }
-        
-        wsChunks.push(event.data);
-        var bytes = event.data.byteLength || 0;
-        wsDownloaded += bytes;
-        var now = Date.now();
-        
-        if (now - wsLastLog > 400) {
-            wsLastLog = now;
-            writeLog("Binary chunk: " + fmtSize(bytes));
+        var source = sources[index++];
+        if (mode) mode.textContent = source.kind;
+        setSrcState(index === 1 ? "MEMUAT" : "COBA SUMBER LAIN");
+        writeLog("Memuat " + source.kind + "...");
+        video.src = source.url;
+        video.load();
+        if (userPressed) {
+            var p = video.play();
+            if (p && p.catch) p.catch(function () {});
         }
-        updateWsProgress();
-    };
-    
-    wsVideo.onerror = function() {
-        writeLog("WebSocket error");
-        setWsState("ERROR");
-    };
-    
-    wsVideo.onclose = function(event) {
-        if (wsDone) {
-            setWsState("COMPLETE");
-            return;
-        }
-        writeLog("WebSocket closed unexpectedly");
-        writeLog("Code: " + event.code + " Reason: " + (event.reason || "-"));
-        setWsState("CLOSED");
-    };
-    
-    window.addEventListener("beforeunload", function() {
-        if (wsVideo) {
-            try { wsVideo.close(); } catch (e) {}
-        }
-        if (wsObjectUrl) {
-            URL.revokeObjectURL(wsObjectUrl);
-        }
+    }
+
+    video.addEventListener("error", function () {
+        if (video.style.display === "none") return;
+        writeLog("Sumber " + (sources[Math.max(0, index - 1)] || {}).kind + " gagal, mencoba berikutnya.");
+        tryNext();
     });
+
+    video.addEventListener("loadeddata", function () {
+        setSrcState("SIAP");
+        writeLog("Video siap diputar.");
+    });
+
+    video.addEventListener("loadedmetadata", function () {
+        var res = video.videoWidth > 0 ? video.videoWidth + "x" + video.videoHeight : "-";
+        setCell("dbgRes", res);
+    });
+
+    video.addEventListener("progress", function () {
+        try {
+            if (!video.buffered.length || !isFinite(video.duration) || video.duration <= 0) return;
+            var end = video.buffered.end(video.buffered.length - 1);
+            setCell("dbgBuffered", Math.min(100, Math.round((end / video.duration) * 100)) + "%");
+        } catch (e) {}
+    });
+
+    video.addEventListener("play", function () { setSrcState("DIPUTAR"); });
+    video.addEventListener("pause", function () {
+        if (video.style.display !== "none") setSrcState("DIJEDA");
+    });
+
+    tryNext();
 }
 
-startVideoStream(config);
+startPlayback(config);
 </script>`;
 }
 
@@ -884,14 +815,25 @@ let handler = async (m, { conn, text }) => {
             : "";
 
         const playerTitle = info.title || "YouTube Video";
-        const wsUrl = "wss://stream.kanara.my.id/?url=" + encodeURIComponent(info.url);
+
+        // Video id dipakai untuk embed YouTube (cadangan terakhir kalau link
+        // langsung tidak bisa diputar di HP pengguna).
+        const videoId = extractVideoId(youtubeUrl) || extractVideoId(info.url) || "";
+        const embedUrl = videoId
+            ? "https://www.youtube.com/embed/" + encodeURIComponent(videoId) + "?playsinline=1&rel=0"
+            : "";
+
+        // Proxy dimatikan otomatis kalau PLATFORM_PUBLIC_BASE_URL / global.media.proxyBase
+        // belum diisi: player langsung memakai link asli lalu jatuh ke embed.
+        const proxyUrl = proxyUrlFor(info.url);
 
         const htmlPayload = buildPlayerHtml({
             title: playerTitle,
             channel: channelName,
             duration,
             videoUrl: info.url,
-            wsUrl,
+            proxyUrl,
+            embedUrl,
             posterBase64
         });
 

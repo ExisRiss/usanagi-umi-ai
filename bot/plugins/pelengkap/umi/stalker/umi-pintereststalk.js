@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pintereststalk", "category": "stalker", "aliasMap": {"umi-stalker-pintereststalk": "pintereststalk", "umi-pintereststalk": "pintereststalk", "umi-pinterestid": "pinterestid", "umi-stalkpinterest": "stalkpinterest", "umi-stalkpin": "stalkpin", "pintereststalk": "pintereststalk", "pinterestid": "pinterestid", "stalkpinterest": "stalkpinterest", "stalkpin": "stalkpin"}, "description": "Melihat informasi lengkap akun Pinterest berdasarkan username.", "usage": ".pintereststalk <username>", "example": ".pintereststalk dims", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/pintereststalk.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekpartner", "category": "cek", "aliasMap": {"umi-cek-cekpartner": "cekpartner", "umi-cekpartner": "cekpartner", "umi-partnerinfo": "partnerinfo", "partnerinfo": "partnerinfo"}, "description": "Cek detail status partner user", "usage": ".cekpartner @user", "example": ".cekpartner", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cekpartner.js", metadata, m, extra)

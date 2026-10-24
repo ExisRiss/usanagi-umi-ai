@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekplat", "category": "tools", "aliasMap": {"umi-tools-cekplat": "cekplat", "umi-cekplat": "cekplat", "umi-plat": "plat", "umi-cekplatnomor": "cekplatnomor", "umi-platnomor": "platnomor", "cekplat": "cekplat", "plat": "plat", "cekplatnomor": "cekplatnomor", "platnomor": "platnomor"}, "description": "Cek informasi asal wilayah dan jenis kendaraan dari plat nomor", "usage": ".cekplat <plat_nomor>", "example": ".cekplat B 1234 XYZ", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/cekplat.js", metadata, m, extra)

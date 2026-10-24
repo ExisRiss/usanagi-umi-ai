@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addproduk", "category": "store", "aliasMap": {"umi-store-addproduk": "addproduk", "umi-addproduk": "addproduk", "umi-addproduct": "addproduct", "addproduk": "addproduk", "addproduct": "addproduct"}, "description": "➕ Tambah produk baru ke toko (hanya di private chat)", "usage": ".addproduk <nama>|<harga>|<tipe>|<stok>|<deskripsi>", "example": ".addproduk Spotify Premium|25000|digital|10|Akun Premium 1 Bulan", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/addproduk.js", metadata, m, extra)

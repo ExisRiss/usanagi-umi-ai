@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "streamer", "category": "rpg", "aliasMap": {"umi-rpg-streamer": "streamer", "umi-streamer": "streamer", "umi-live": "live", "umi-vtuber": "vtuber"}, "description": "Live streaming game dapet donasi besar tapi resiko dibanned platform!", "usage": ".streamer", "example": ".streamer", "cooldown": 180, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/streamer.js", metadata, m, extra)

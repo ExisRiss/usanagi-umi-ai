@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cinematic", "category": "maker", "aliasMap": {"umi-maker-cinematic": "cinematic", "umi-cinematic": "cinematic", "umi-moody": "moody", "umi-darktone": "darktone", "umi-nighttone": "nighttone", "umi-filterdark": "filterdark", "umi-flashmood": "flashmood", "cinematic": "cinematic", "moody": "moody", "darktone": "darktone", "nighttone": "nighttone", "filterdark": "filterdark", "flashmood": "flashmood"}, "description": "Mengubah foto biasa menjadi Cinematic Dark Retro Flash Tone presisi", "usage": ".cinematic (Kirim/Reply Foto)", "example": ".cinematic"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/cinematic.js", metadata, m, extra)

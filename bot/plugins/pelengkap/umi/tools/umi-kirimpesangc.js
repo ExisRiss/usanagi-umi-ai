@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kirimpesangc", "category": "tools", "aliasMap": {"umi-tools-kirimpesangc": "kirimpesangc", "umi-kirimpesangc": "kirimpesangc", "umi-sendgc": "sendgc", "umi-pesangc": "pesangc", "kirimpesangc": "kirimpesangc", "sendgc": "sendgc", "pesangc": "pesangc"}, "description": "Kirim pesan ke group tertentu", "usage": ".kirimpesangc pesan", "example": ".kirimpesangc ingat masa sewa kalian tinggal dikit", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/kirimpesangc.js", metadata, m, extra)

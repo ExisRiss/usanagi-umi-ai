@@ -1,6 +1,7 @@
 /* 
 Fitur : Tempmail 
 Type : Plugin ESM 
+ * By AlzRiss - Usanagi Umi AI
 Modified: Penggunaan Email & Ekstrak Link
 */
 import axios from 'axios'

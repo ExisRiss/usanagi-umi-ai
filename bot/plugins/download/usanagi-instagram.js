@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import fs from 'fs-extra'
 import path from 'node:path'

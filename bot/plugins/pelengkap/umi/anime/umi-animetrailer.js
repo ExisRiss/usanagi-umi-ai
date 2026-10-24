@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animetrailer", "category": "anime", "aliasMap": {"umi-anime-animetrailer": "animetrailer", "umi-animetrailer": "animetrailer", "umi-traileranime": "traileranime", "umi-animepv": "animepv", "umi-animepromo": "animepromo", "animetrailer": "animetrailer", "traileranime": "traileranime", "animepv": "animepv", "animepromo": "animepromo"}, "description": "Cari dan share trailer / PV anime terbaru dari YouTube", "usage": ".animetrailer <judul anime>", "example": ".animetrailer jujutsu kaisen\n.animetrailer chainsaw man\n.animetrailer one piece", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animetrailer.js", metadata, m, extra)

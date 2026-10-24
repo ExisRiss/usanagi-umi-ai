@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getUser, saveUser, checkCooldown, setCooldown } from './awang-db.js'
 import { addExpWithLevelCheck } from './awang-level.js'

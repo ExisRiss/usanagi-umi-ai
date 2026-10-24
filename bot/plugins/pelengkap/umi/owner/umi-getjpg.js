@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getjpg", "category": "owner", "aliasMap": {"umi-owner-getjpg": "getjpg", "umi-getjpg": "getjpg", "umi-lihatjpg": "lihatjpg", "umi-showjpg": "showjpg", "getjpg": "getjpg", "lihatjpg": "lihatjpg", "showjpg": "showjpg"}, "description": "Ambil gambar dari folder assets/images", "usage": ".getjpg <nama_file.jpg>", "example": ".getjpg zerotwo.jpg", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/getjpg.js", metadata, m, extra)

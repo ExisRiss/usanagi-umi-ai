@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fdroid", "category": "internet", "aliasMap": {"umi-internet-fdroid": "fdroid", "umi-fdroid": "fdroid", "umi-fdroidsearch": "fdroidsearch", "umi-fdroiddl": "fdroiddl", "umi-fdroidapp": "fdroidapp", "fdroid": "fdroid", "fdroidsearch": "fdroidsearch", "fdroiddl": "fdroiddl", "fdroidapp": "fdroidapp"}, "description": "Cari dan dapatkan link download aplikasi open-source dari F-Droid", "usage": ".fdroid <nama_aplikasi>", "example": ".fdroid termux", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/internet/fdroid.js", metadata, m, extra)

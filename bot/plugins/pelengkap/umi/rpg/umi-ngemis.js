@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ngemis", "category": "rpg", "aliasMap": {"umi-rpg-ngemis": "ngemis", "umi-gembel": "gembel"}, "description": "Ngemis di jalanan dengan peluang dapat Nasi Bungkus (Tambah stamina)", "usage": ".ngemis", "example": ".ngemis", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/ngemis.js", metadata, m, extra)

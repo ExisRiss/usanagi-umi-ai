@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const answers = [
   'Besok mungkin?', 'Tahun depan kayaknya.', '3 hari lagi!',

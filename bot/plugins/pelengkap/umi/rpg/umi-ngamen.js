@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ngamen", "category": "rpg", "aliasMap": {"umi-rpg-ngamen": "ngamen", "umi-ngamen": "ngamen", "umi-nyanyi": "nyanyi", "umi-konser": "konser"}, "description": "Ngamen di jalanan untuk mencari koin", "usage": ".ngamen", "example": ".ngamen", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/ngamen.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "halah", "category": "fun", "aliasMap": {"umi-fun-halah": "halah", "umi-halah": "halah", "umi-hilih": "hilih", "halah": "halah", "hilih": "hilih"}, "description": "Ubah teks ke gaya Halah/Hilih", "usage": ".halah <teks> / .hilih <teks>", "example": ".halah congratulations", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/halah.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tiktokstalk", "category": "stalker", "aliasMap": {"umi-stalker-tiktokstalk": "tiktokstalk", "umi-tiktokstalk": "tiktokstalk", "umi-ttstalk": "ttstalk", "umi-stalktt": "stalktt", "tiktokstalk": "tiktokstalk", "stalktt": "stalktt"}, "description": "Stalk akun TikTok", "usage": ".tiktokstalk <username>", "example": ".tiktokstalk mrbeast", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/tiktokstalk.js", metadata, m, extra)

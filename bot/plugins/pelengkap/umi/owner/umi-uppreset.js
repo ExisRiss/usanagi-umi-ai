@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "uppreset", "category": "owner", "aliasMap": {"umi-owner-uppreset": "uppreset", "umi-uppreset": "uppreset", "umi-uploadpreset": "uploadpreset", "umi-sendpreset": "sendpreset", "uppreset": "uppreset", "uploadpreset": "uploadpreset", "sendpreset": "sendpreset"}, "description": "Upload preset ke channel", "usage": ".uppreset link5mb | linkxml | caption", "example": ".uppreset https://5mb.link | https://xml.link | preset jj anime", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/uppreset.js", metadata, m, extra)

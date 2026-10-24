@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "donasi", "category": "main", "aliasMap": {"umi-main-donasi": "donasi", "umi-donasi": "donasi", "umi-donate": "donate", "umi-donation": "donation", "umi-support": "support", "umi-saweria": "saweria", "umi-trakteer": "trakteer", "donate": "donate", "donation": "donation", "support": "support", "saweria": "saweria", "trakteer": "trakteer"}, "description": "Informasi donasi untuk mendukung bot dengan QRIS", "usage": ".donasi", "example": ".donasi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/donasi.js", metadata, m, extra)

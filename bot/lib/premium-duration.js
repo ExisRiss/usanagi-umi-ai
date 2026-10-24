@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const HOUR_MS = 60 * 60 * 1000
 const UNIT_MILLISECONDS = Object.freeze({

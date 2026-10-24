@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "google", "category": "search", "aliasMap": {"umi-search-google": "google", "umi-google": "google", "umi-gsearch": "gsearch", "umi-googlenews": "googlenews", "google": "google", "gsearch": "gsearch", "googlenews": "googlenews"}, "description": "Cari berita di Google News", "usage": ".google <query>", "example": ".google gempa hari ini", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/google.js", metadata, m, extra)

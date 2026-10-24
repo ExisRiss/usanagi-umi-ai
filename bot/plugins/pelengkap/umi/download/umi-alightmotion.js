@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "alightmotiondl", "category": "downloader", "aliasMap": {"umi-downloader-alightmotiondl": "alightmotiondl", "umi-alightmotiondl": "alightmotiondl", "umi-alightmotion": "alightmotion", "umi-amdl": "amdl", "alightmotiondl": "alightmotiondl", "alightmotion": "alightmotion", "amdl": "amdl"}, "description": "Download project/preset Alight Motion", "usage": ".amdl <link>", "example": ".amdl https://alight.link/...", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/alightmotion.js", metadata, m, extra)

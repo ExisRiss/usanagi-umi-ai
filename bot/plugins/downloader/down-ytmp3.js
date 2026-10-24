@@ -1,6 +1,7 @@
 /**
  * YTMP3 & YTMP4 Downloader (ymcdn scraper)
  * Type : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  * YTMP4 : Auto Compress + WhatsApp Compatible
  */
 import { spawn } from 'node:child_process';

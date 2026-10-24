@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rob", "category": "rpg", "aliasMap": {"umi-rpg-rob": "rob", "umi-rob": "rob", "umi-rampok": "rampok", "umi-mug": "mug"}, "description": "Rampok uang player lain (berisiko)", "usage": ".rob @user", "example": ".rob @user", "cooldown": 600, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/rob.js", metadata, m, extra)

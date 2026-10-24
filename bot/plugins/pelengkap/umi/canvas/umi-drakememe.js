@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "drakememe", "category": "canvas", "aliasMap": {"umi-canvas-drakememe": "drakememe", "umi-drakememe": "drakememe", "umi-drake": "drake", "umi-drakedislike": "drakedislike", "drakememe": "drakememe", "drake": "drake", "drakedislike": "drakedislike"}, "description": "Membuat meme Drake Hotline Bling dengan dua teks kustom", "usage": ".drakememe teks1|teks2", "example": ".drakememe Femboy|Tomboy", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/drakememe.js", metadata, m, extra)

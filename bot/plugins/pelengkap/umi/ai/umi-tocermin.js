@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tocermin", "category": "ai", "aliasMap": {"umi-ai-tocermin": "tocermin", "umi-tocermin": "tocermin", "umi-mirror": "mirror", "umi-tomirror": "tomirror", "tocermin": "tocermin", "mirror": "mirror"}, "description": "Ubah foto menjadi efek cermin (mirror reflection)", "usage": ".tocermin (reply/kirim gambar)", "example": ".tocermin", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/tocermin.js", metadata, m, extra)

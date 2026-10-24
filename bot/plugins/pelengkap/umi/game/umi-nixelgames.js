@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nixelgames", "category": "game", "aliasMap": {"umi-game-nixelgames": "nixelgames", "umi-nixelgames": "nixelgames", "umi-nixel": "nixel", "umi-nixelgame": "nixelgame", "umi-minigames": "minigames", "nixelgames": "nixelgames", "nixel": "nixel", "nixelgame": "nixelgame", "minigames": "minigames"}, "description": "Kumpulan mini game AI Rich: Dino Runner, Tic Tac Toe, dan Doom", "usage": ".nixelgames", "example": ".nixelgames", "cooldown": 2, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/nixelgames.js", metadata, m, extra)

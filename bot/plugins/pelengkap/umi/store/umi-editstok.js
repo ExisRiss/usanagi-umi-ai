@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "editstok", "category": "store", "aliasMap": {"umi-store-editstok": "editstok", "umi-editstok": "editstok", "umi-editstock": "editstock", "editstok": "editstok", "editstock": "editstock"}, "description": "✏️ Edit stok item produk (hanya di private chat)", "usage": ".editstok <nomor_produk> <nomor_item>|<detail_baru>", "example": ".editstok 1 3|Email: baru@mail.com;;Password: newpass", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/editstok.js", metadata, m, extra)

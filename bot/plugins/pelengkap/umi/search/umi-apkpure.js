@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "apkpure", "category": "search", "aliasMap": {"umi-search-apkpure": "apkpure", "umi-apkpure": "apkpure", "umi-apkp": "apkp", "apkpure": "apkpure", "apkp": "apkp"}, "description": "Cari APK di ApkPure", "usage": ".apkpure <query>", "example": ".apkpure WhatsApp", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/apkpure.js", metadata, m, extra)

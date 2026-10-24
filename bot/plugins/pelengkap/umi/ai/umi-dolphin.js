@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dolphin", "category": "ai", "aliasMap": {"umi-ai-dolphin": "dolphin", "umi-dolphin": "dolphin", "umi-dolphinai": "dolphinai", "umi-dphn": "dphn", "dolphinai": "dolphinai", "dphn": "dphn"}, "description": "Chat dengan Dolphin AI (24B Model)", "usage": ".dolphin <pertanyaan> atau .dolphin --<template> <pertanyaan>", "example": ".dolphin jelaskan tentang AI", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/dolphin.js", metadata, m, extra)

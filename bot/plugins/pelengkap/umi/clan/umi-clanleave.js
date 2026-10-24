@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanleave", "category": "clan", "aliasMap": {"umi-clan-clanleave": "clanleave", "umi-clanleave": "clanleave", "umi-leaveclan": "leaveclan", "umi-guildleave": "guildleave", "clanleave": "clanleave", "leaveclan": "leaveclan", "guildleave": "guildleave"}, "description": "Keluar dari clan", "usage": ".clanleave", "example": ".clanleave", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanleave.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "profileff", "category": "canvas", "aliasMap": {"umi-canvas-profileff": "profileff", "umi-profileff": "profileff", "umi-profilff": "profilff", "umi-pff": "pff", "profileff": "profileff", "profilff": "profilff", "pff": "pff"}, "description": "Buat gambar profil FF keren", "usage": ".profileff <nama> | <guild> | <bg_index>", "example": ".profileff Fauzan | Umi | 1", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/profileff.js", metadata, m, extra)

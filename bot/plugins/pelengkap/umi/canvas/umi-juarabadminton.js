@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "juarabadminton", "category": "canvas", "aliasMap": {"umi-canvas-juarabadminton": "juarabadminton", "umi-juarabadminton": "juarabadminton", "umi-sertifikatbadminton": "sertifikatbadminton", "umi-badmintoncert": "badmintoncert", "umi-badminton": "badminton", "juarabadminton": "juarabadminton", "sertifikatbadminton": "sertifikatbadminton", "badmintoncert": "badmintoncert", "badminton": "badminton"}, "description": "Membuat sertifikat Juara Badminton kustom", "usage": ".juarabadminton <nama>", "example": ".juarabadminton Alex", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/juarabadminton.js", metadata, m, extra)

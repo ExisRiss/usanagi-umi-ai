@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bypass", "category": "tools", "aliasMap": {"umi-tools-bypass": "bypass", "umi-bypass": "bypass", "umi-linkbypass": "linkbypass", "umi-unlocklink": "unlocklink", "umi-bypasser": "bypasser", "linkbypass": "linkbypass", "unlocklink": "unlocklink", "bypasser": "bypasser"}, "description": "Bypass shortlink / locked URL", "usage": ".bypass <url>", "example": ".bypass sfl.gl/lqOU0", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/bypass.js", metadata, m, extra)

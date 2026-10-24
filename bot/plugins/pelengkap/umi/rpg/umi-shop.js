@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "shop", "category": "rpg", "aliasMap": {"umi-rpg-shop": "shop", "umi-shop": "shop", "umi-jual": "jual", "umi-store": "store", "umi-sell": "sell"}, "description": "Beli dan jual item RPG", "usage": ".shop <buy/sell> <item> <jumlah>", "example": ".shop buy potion 1", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/shop.js", metadata, m, extra)

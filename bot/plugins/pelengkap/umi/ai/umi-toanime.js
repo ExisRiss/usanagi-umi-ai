@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "toanime", "category": "ai", "aliasMap": {"umi-ai-toanime": "toanime", "umi-toanime": "toanime", "umi-anime": "anime", "umi-animefy": "animefy", "umi-ghibli": "ghibli", "toanime": "toanime", "animefy": "animefy"}, "description": "Ubah foto menjadi gaya anime/Ghibli Studio", "usage": ".toanime (reply/kirim gambar)", "example": ".toanime", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/toanime.js", metadata, m, extra)

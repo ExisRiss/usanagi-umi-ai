@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "readmore", "category": "tools", "aliasMap": {"umi-tools-readmore": "readmore", "umi-readmore": "readmore", "umi-selengkapnya": "selengkapnya", "umi-spoiler": "spoiler"}, "description": "Membuat teks baca selengkapnya (spoiler)", "usage": ".readmore <text_awal>|<text_akhir>", "example": ".readmore Hai|Ini adalah pesan rahasia", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/readmore.js", metadata, m, extra)

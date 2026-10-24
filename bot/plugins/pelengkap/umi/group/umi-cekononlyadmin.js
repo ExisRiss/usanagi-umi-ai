@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekonlyadmin", "category": "group", "aliasMap": {"umi-group-cekonlyadmin": "cekonlyadmin", "umi-cekonlyadmin": "cekonlyadmin", "umi-onlyadminstatus": "onlyadminstatus", "umi-statusadminonly": "statusadminonly", "cekonlyadmin": "cekonlyadmin", "onlyadminstatus": "onlyadminstatus", "statusadminonly": "statusadminonly"}, "description": "Cek status mode onlyadmin di grup", "usage": ".cekonlyadmin", "example": ".cekonlyadmin", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/cekononlyadmin.js", metadata, m, extra)

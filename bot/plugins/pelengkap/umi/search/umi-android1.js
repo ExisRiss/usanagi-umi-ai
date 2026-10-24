@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "android1", "category": "search", "aliasMap": {"umi-search-android1": "android1", "umi-android1": "android1", "umi-an1": "an1", "android1": "android1", "an1": "an1"}, "description": "Cari dan download APK MOD dari Android1", "usage": ".android1 <query>", "example": ".android1 Subway Surfer", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/android1.js", metadata, m, extra)

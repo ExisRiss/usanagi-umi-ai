@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anticall", "category": "owner", "aliasMap": {"umi-owner-anticall": "anticall", "umi-anticall": "anticall", "umi-antitelpon": "antitelpon", "umi-antitelp": "antitelp", "umi-rejectcall": "rejectcall", "antitelpon": "antitelpon", "antitelp": "antitelp", "rejectcall": "rejectcall"}, "description": "Auto tolak panggilan masuk", "usage": ".anticall on/off", "example": ".anticall on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/anticall.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "invoicemaker", "category": "tools", "aliasMap": {"umi-tools-invoicemaker": "invoicemaker", "umi-invoicemaker": "invoicemaker", "umi-invoice": "invoice", "umi-faktur": "faktur", "umi-nota": "nota", "invoicemaker": "invoicemaker", "invoice": "invoice", "faktur": "faktur", "nota": "nota"}, "description": "Membuat invoice/nota penjualan", "usage": ".invoicemaker <toko>|<invoice>|<tanggal>|<status>|<items>|<total>", "example": ".invoicemaker TokoKu|INV001|15/01/2026|paid|Nasi Goreng:1x:15000,Es Teh:2x:6000|21000", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/invoicemaker.js", metadata, m, extra)

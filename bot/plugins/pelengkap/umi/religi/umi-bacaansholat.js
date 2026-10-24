@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bacaansholat", "category": "religi", "aliasMap": {"umi-religi-bacaansholat": "bacaansholat", "umi-bacaansholat": "bacaansholat", "umi-bacaan": "bacaan", "bacaansholat": "bacaansholat", "bacaan": "bacaan"}, "description": "Bacaan sholat lengkap dari takbir sampai salam", "usage": ".bacaansholat", "example": ".bacaansholat", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/religi/bacaansholat.js", metadata, m, extra)

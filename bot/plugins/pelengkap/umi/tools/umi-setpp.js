@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setpp", "category": "tools", "aliasMap": {"umi-tools-setpp": "setpp", "umi-setpp": "setpp", "umi-setprofilebot": "setprofilebot", "umi-setppbot": "setppbot", "umi-setfotobot": "setfotobot", "setpp": "setpp", "setprofilebot": "setprofilebot", "setfotobot": "setfotobot"}, "description": "Mengubah foto profil bot", "usage": ".setpp (reply gambar)", "example": ".setpp", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/setpp.js", metadata, m, extra)

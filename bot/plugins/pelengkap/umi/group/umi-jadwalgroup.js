@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jadwalgroup", "category": "group", "aliasMap": {"umi-group-jadwalgroup": "jadwalgroup", "umi-jadwalgroup": "jadwalgroup", "umi-schedulegroup": "schedulegroup", "umi-jdwlgrup": "jdwlgrup", "umi-autoopenclose": "autoopenclose", "jadwalgroup": "jadwalgroup", "schedulegroup": "schedulegroup", "jdwlgrup": "jdwlgrup", "autoopenclose": "autoopenclose"}, "description": "Jadwal buka/tutup grup otomatis", "usage": ".jadwalgroup <open/close> <HH:MM>", "example": ".jadwalgroup open 06:00", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/jadwalgroup.js", metadata, m, extra)

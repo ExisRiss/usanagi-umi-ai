@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "arena", "category": "rpg", "aliasMap": {"umi-rpg-arena": "arena", "umi-arena": "arena", "umi-battle": "battle"}, "description": "Bertarung di arena PvP", "usage": ".arena <@user>", "example": ".arena @user", "cooldown": 180, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/arena.js", metadata, m, extra)

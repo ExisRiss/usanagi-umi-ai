@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gift", "category": "rpg", "aliasMap": {"umi-rpg-gift": "gift", "umi-gift": "gift", "umi-kasih": "kasih", "umi-hadiah": "hadiah"}, "description": "Beri hadiah ke pasangan untuk meningkatkan love", "usage": ".gift <item> <jumlah>", "example": ".gift diamond 1", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/gift.js", metadata, m, extra)

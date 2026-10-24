@@ -1,6 +1,8 @@
 /*─────────────────────────────────────────────
    📺 Fitur   : Bilibili Downloader
    📦 Tipe    : Plugin ESM
+    * By AlzRiss - Usanagi Umi AI
+    * By AlzRiss - Usanagi Umi AI
 ──────────────────────────────────────────────*/
 
 import axios from 'axios'

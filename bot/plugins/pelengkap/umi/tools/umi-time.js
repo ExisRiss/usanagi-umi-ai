@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "time", "category": "tools", "aliasMap": {"umi-tools-time": "time", "umi-time": "time", "umi-waktu": "waktu", "time": "time", "waktu": "waktu"}, "description": "Menampilkan waktu berdasarkan negara", "usage": ".time <negara>", "example": ".time Indonesia", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/time.js", metadata, m, extra)

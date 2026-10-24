@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const list = [
   'Hari ini aku bangun siang, terburu-buru ke kantor, ternyata libur.',

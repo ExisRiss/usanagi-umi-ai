@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { saveUser } from './awang-db.js'
 import { getBuffValue } from './awang-buff.js'

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "suitpvp", "category": "game", "aliasMap": {"umi-game-suitpvp": "suitpvp", "umi-suitpvp": "suitpvp", "umi-suit": "suit", "umi-rps": "rps", "umi-janken": "janken", "suit": "suit", "rps": "rps", "janken": "janken"}, "description": "Main suit (batu gunting kertas) dengan player lain", "usage": ".suit @tag", "example": ".suit @628xxx", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/suitpvp.js", metadata, m, extra)

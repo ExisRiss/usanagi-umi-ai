@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addkoin", "category": "owner", "aliasMap": {"umi-owner-addkoin": "addkoin", "umi-addkoin": "addkoin", "umi-tambahkoin": "tambahkoin", "umi-givekoin": "givekoin", "umi-addcoin": "addcoin", "umi-adddcoin": "adddcoin", "addkoin": "addkoin", "tambahkoin": "tambahkoin", "givekoin": "givekoin", "addcoin": "addcoin", "adddcoin": "adddcoin"}, "description": "Tambah koin user (max 9 Triliun)", "usage": ".addkoin <jumlah> @user", "example": ".addkoin 100000 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addkoin.js", metadata, m, extra)

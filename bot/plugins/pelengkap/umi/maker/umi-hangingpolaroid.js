@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hangingpolaroid", "category": "maker", "aliasMap": {"umi-maker-hangingpolaroid": "hangingpolaroid", "umi-hangingpolaroid": "hangingpolaroid", "umi-polaroid2": "polaroid2", "umi-pola": "pola", "umi-bingkai": "bingkai", "umi-frame": "frame", "hangingpolaroid": "hangingpolaroid", "polaroid2": "polaroid2", "pola": "pola", "bingkai": "bingkai", "frame": "frame"}, "description": "Membuat foto bingkai Polaroid gantung yang otomatis menyesuaikan ukuran foto asli (Responsive pure SVG)", "usage": ".pola (Kirim/Reply Foto)", "example": ".pola"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/hangingpolaroid.js", metadata, m, extra)

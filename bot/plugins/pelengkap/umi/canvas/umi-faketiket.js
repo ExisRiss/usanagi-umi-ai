@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "faketiket", "category": "canvas", "aliasMap": {"umi-canvas-faketiket": "faketiket", "umi-faketiket": "faketiket", "umi-tiketfake": "tiketfake", "umi-faketicket": "faketicket", "umi-fakepesawat": "fakepesawat", "faketiket": "faketiket", "tiketfake": "tiketfake", "faketicket": "faketicket", "fakepesawat": "fakepesawat"}, "description": "Bikin fake tiket pesawat (buat konten/gaguan doang)", "usage": ".faketiket <dari> | <tujuan> | <nama>", "example": ".faketiket Jakarta | Tokyo | Umi", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/faketiket.js", metadata, m, extra)

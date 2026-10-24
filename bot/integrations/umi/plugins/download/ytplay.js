@@ -1,5 +1,6 @@
 import axios from "axios";
 import { randomUUID } from "node:crypto";
+import { probeYoutube, saveTubeLink, extractVideoId } from "../../../../lib/youtube-media.js";
 
 const config = {
   name: "ytplay",
@@ -232,27 +233,71 @@ function qualityNumber(value) {
   return m ? Number(m[1]) : 0;
 }
 
+/**
+ * Ambil URL video yang bisa diputar langsung di <video>.
+ *
+ * Urutan (yang pertama berhasil dipakai):
+ *   1. yt-dlp (`-g`) — paling akurat, memakai cookies/proxy kalau ada.
+ *   2. SaveTube    — endpoint publik, berguna kalau yt-dlp kena bot-check.
+ *   3. Piped / Invidious — cadangan; sering mati, jadi paling belakang.
+ *
+ * Versi lama hanya memakai Piped & Invidious. Keduanya sekarang hampir selalu
+ * gagal (instance publik mati/diblokir), sehingga `.ytplay` selalu berakhir
+ * dengan pesan YT PLAY ERROR tanpa penjelasan.
+ */
 async function getPlayableStream(youtubeUrl) {
-  const id = youtubeId(youtubeUrl);
+  const id = extractVideoId(youtubeUrl) || youtubeId(youtubeUrl);
   if (!id) return null;
+  const watch = `https://www.youtube.com/watch?v=${id}`;
 
-  const pipedInstances = [
-    "https://pipedapi.kavin.rocks",
-    "https://pipedapi.adminforge.de",
-  ];
+  // 1. yt-dlp: minta URL langsung untuk mp4 (video+audio menyatu).
+  try {
+    const { resolveYtDlp } = await import("../../../../lib/youtube-media.js");
+    const bin = await resolveYtDlp();
+    if (bin) {
+      const { execFile } = await import("node:child_process");
+      const url = await new Promise((resolve, reject) => {
+        execFile(bin, [
+          "-f", "b[ext=mp4][vcodec^=avc1]/b[ext=mp4]/b",
+          "-g", "--no-warnings", "--no-playlist", "--socket-timeout", "20", watch,
+        ], { timeout: 45000, maxBuffer: 2 * 1024 * 1024 }, (error, stdout) => {
+          if (error) return reject(error);
+          const first = String(stdout).split(/\r?\n/).map(x => x.trim()).find(x => /^https?:\/\//.test(x));
+          first ? resolve(first) : reject(new Error("yt-dlp tidak memberi URL"));
+        });
+      });
+      return { url, mime: "video/mp4", duration: 0, server: new URL(url).hostname, source: "yt-dlp" };
+    }
+  } catch (e) {
+    console.warn("[YTPLAY] yt-dlp gagal:", e?.message || e);
+  }
 
-  for (const base of pipedInstances) {
+  // 2. SaveTube (video)
+  try {
+    const info = await saveTubeLink(id, "mp4");
+    if (info?.url) {
+      return {
+        url: info.url,
+        mime: "video/mp4",
+        duration: Number(info.duration) || 0,
+        server: (() => { try { return new URL(info.url).hostname } catch { return "savetube" } })(),
+        source: "SaveTube",
+      };
+    }
+  } catch (e) {
+    console.warn("[YTPLAY] SaveTube gagal:", e?.message || e);
+  }
+
+  // 3. Piped
+  for (const base of ["https://pipedapi.kavin.rocks", "https://pipedapi.adminforge.de"]) {
     try {
       const { data } = await axios.get(`${base}/streams/${encodeURIComponent(id)}`, {
-        timeout: 12000,
-        headers: { "user-agent": UA, accept: "application/json" },
+        timeout: 12000, headers: { "user-agent": UA, accept: "application/json" },
       });
-
       const streams = Array.isArray(data?.videoStreams) ? data.videoStreams : [];
       const candidates = streams
         .filter(x => x?.url && x?.videoOnly === false && /^video\/mp4(?:;|$)/i.test(String(x?.mimeType || "")))
         .sort((a, b) => qualityNumber(b.quality) - qualityNumber(a.quality));
-
       if (candidates[0]?.url) {
         return {
           url: candidates[0].url,
@@ -263,39 +308,31 @@ async function getPlayableStream(youtubeUrl) {
         };
       }
     } catch (e) {
-      console.warn(`[YTPLAY] Piped resolver failed (${base}):`, e?.message || e);
+      console.warn(`[YTPLAY] Piped gagal (${base}):`, e?.message || e);
     }
   }
 
-  const invidiousInstances = [
-    "https://inv.nadeko.net",
-    "https://invidious.nerdvpn.de",
-  ];
-
-  for (const base of invidiousInstances) {
+  // 4. Invidious
+  for (const base of ["https://inv.nadeko.net", "https://invidious.nerdvpn.de"]) {
     try {
       const { data } = await axios.get(`${base}/api/v1/videos/${encodeURIComponent(id)}`, {
-        params: { local: "true" },
-        timeout: 12000,
+        params: { local: "true" }, timeout: 12000,
         headers: { "user-agent": UA, accept: "application/json" },
       });
-
       const streams = Array.isArray(data?.formatStreams) ? data.formatStreams : [];
       const candidates = streams
         .filter(x => x?.url && /mp4/i.test(String(x?.type || "")))
         .sort((a, b) => qualityNumber(b.quality) - qualityNumber(a.quality));
-
       if (candidates[0]?.url) {
         return {
-          url: candidates[0].url,
-          mime: "video/mp4",
+          url: candidates[0].url, mime: "video/mp4",
           duration: Number(data?.lengthSeconds) > 0 ? Number(data.lengthSeconds) : 0,
           server: new URL(candidates[0].url).hostname,
           source: "Invidious",
         };
       }
     } catch (e) {
-      console.warn(`[YTPLAY] Invidious resolver failed (${base}):`, e?.message || e);
+      console.warn(`[YTPLAY] Invidious gagal (${base}):`, e?.message || e);
     }
   }
 
@@ -331,13 +368,37 @@ async function handler(m, { sock }) {
     if (isYoutubeUrl(query)) {
       const url = cleanYoutubeUrl(query);
       meta = { url, title: "YouTube Video", channel: "YouTube", thumb: "" };
-      const o = await getOembed(url);
-      if (o) Object.assign(meta, o);
+      // probeYoutube memakai yt-dlp (judul/durasi/thumbnail akurat) dengan
+      // fallback oEmbed. Kalau gagal, player tetap jalan lewat embed YouTube.
+      try {
+        const probe = await probeYoutube(url);
+        if (probe) {
+          meta = {
+            url,
+            title: probe.title || meta.title,
+            channel: probe.uploader || meta.channel,
+            thumb: probe.thumbnail || meta.thumb,
+            duration: probe.duration ? tmServer(probe.duration) : "",
+          };
+        }
+      } catch (e) {
+        console.warn("[YTPLAY] probeYoutube gagal:", e?.message || e);
+      }
+      if (!meta.title || meta.title === "YouTube Video") {
+        const o = await getOembed(url).catch(() => null);
+        if (o) Object.assign(meta, o);
+      }
+      if (!meta.thumb) {
+        const vid = extractVideoId(url);
+        if (vid) meta.thumb = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
+      }
     } else {
       meta = await searchYoutube(query);
     }
 
-    if (!meta?.url) throw new Error("Video YouTube tidak ditemukan");
+    if (!meta?.url) {
+      throw Object.assign(new Error("Video YouTube tidak ditemukan. Coba tulis judul yang lebih spesifik atau tempel link videonya."), { friendly: true });
+    }
 
     const stream = await getPlayableStream(meta.url);
     const poster = await posterData(meta.thumb);
@@ -359,7 +420,11 @@ async function handler(m, { sock }) {
   } catch (e) {
     console.error("[YTPLAY]", e?.stack || e?.message || e);
     await m.react("❌");
-    return m.reply(`〄 *YT PLAY ERROR*\n\n〄 ${e?.message || "Gagal memproses video."}`);
+    const reason = String(e?.message || "").trim() || "Gagal memproses video.";
+    const hint = /tidak ditemukan/i.test(reason)
+      ? "Coba judul lain atau tempel link videonya langsung."
+      : "Server sedang tidak bisa mengambil video ini. Coba lagi beberapa saat, atau pakai .ytmp4 untuk mengunduh.";
+    return m.reply(`〄 *YT PLAY*\n\n〄 ${reason}\n\n〄 ${hint}`);
   }
 }
 

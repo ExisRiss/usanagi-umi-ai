@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "primeff", "category": "economy", "aliasMap": {"umi-economy-primeff": "primeff", "umi-primeff": "primeff", "umi-prime": "prime", "umi-kalkulatorprime": "kalkulatorprime", "umi-primefreefire": "primefreefire", "umi-ffprime": "ffprime", "primeff": "primeff", "prime": "prime", "kalkulatorprime": "kalkulatorprime", "primefreefire": "primefreefire", "ffprime": "ffprime"}, "description": "Kalkulator Prime Free Fire untuk menghitung estimasi diamond dan harga rupiah", "usage": ".primeff <jumlah poin>", "example": ".primeff 12900", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/economy/primeff.js", metadata, m, extra)

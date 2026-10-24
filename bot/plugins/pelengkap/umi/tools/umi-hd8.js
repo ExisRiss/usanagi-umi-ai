@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hd8", "category": "tools", "aliasMap": {"umi-tools-hd8": "hd8", "umi-hd8": "hd8", "umi-remini8": "remini8", "umi-upscale1": "upscale1", "umi-enhance8": "enhance8", "hd8": "hd8", "remini8": "remini8", "upscale1": "upscale1", "enhance8": "enhance8"}, "description": "Meningkatkan resolusi gambar hingga 4x lipat (Upscale v1)", "usage": ".hd8 [resolusi 2|4] (balas/kirim gambar)", "example": ".hd8 4", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hd8.js", metadata, m, extra)

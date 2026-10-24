@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tembak2", "category": "rpg", "aliasMap": {"umi-rpg-tembak2": "tembak2", "umi-tembak2": "tembak2", "umi-terima2": "terima2", "umi-tolak2": "tolak2", "umi-putus2": "putus2", "umi-pasangan2": "pasangan2", "tembak2": "tembak2", "terima2": "terima2", "tolak2": "tolak2", "putus2": "putus2", "pasangan2": "pasangan2"}, "description": "Fitur hubungan: tembak, terima, tolak, putus, dan cek pasangan", "usage": ".tembak @tag\n.terima\n.tolak\n.putus\n.pasangan", "example": ".tembak @6281234567890", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/jadian2.js", metadata, m, extra)

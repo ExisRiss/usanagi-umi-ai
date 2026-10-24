@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "freelance", "category": "rpg", "aliasMap": {"umi-rpg-freelance": "freelance", "umi-freelance": "freelance", "umi-desain": "desain", "umi-koding": "koding"}, "description": "Mengerjakan project online klien bule", "usage": ".freelance", "example": ".freelance", "cooldown": 200, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/freelance.js", metadata, m, extra)

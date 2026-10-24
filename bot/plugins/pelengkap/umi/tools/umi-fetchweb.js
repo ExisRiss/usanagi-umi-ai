@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fetchweb", "category": "tools", "aliasMap": {"umi-tools-fetchweb": "fetchweb", "umi-fetchweb": "fetchweb", "umi-webget": "webget", "umi-getweb": "getweb", "umi-ambilweb": "ambilweb", "umi-downloadweb": "downloadweb", "fetchweb": "fetchweb", "webget": "webget", "getweb": "getweb", "ambilweb": "ambilweb", "downloadweb": "downloadweb"}, "description": "Fetch dan simpan halaman web", "usage": ".fetchweb <url>", "example": ".fetchweb https://ditzzx.my.id", "cooldown": 30, "energi": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fetchweb.js", metadata, m, extra)

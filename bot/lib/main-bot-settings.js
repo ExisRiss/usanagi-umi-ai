@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Setting lengkap BOT UTAMA (bukan Jadibot).
  *

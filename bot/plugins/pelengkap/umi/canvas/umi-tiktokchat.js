@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tiktokchat", "category": "canvas", "aliasMap": {"umi-canvas-tiktokchat": "tiktokchat", "umi-tiktokchat": "tiktokchat", "umi-tiktok-chat": "tiktok-chat", "umi-ttchat": "ttchat", "tiktokchat": "tiktokchat", "tiktok-chat": "tiktok-chat", "ttchat": "ttchat"}, "description": "Membuat fake chat TikTok dari avatar kamu", "usage": ".tiktokchat username | pesan (reply gambar)", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/tiktokchat.js", metadata, m, extra)

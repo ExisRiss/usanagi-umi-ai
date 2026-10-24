@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "myorder", "category": "store", "aliasMap": {"umi-store-myorder": "myorder", "umi-myorder": "myorder", "umi-orderku": "orderku", "umi-cekorder": "cekorder", "umi-pesananku": "pesananku", "myorder": "myorder", "orderku": "orderku", "cekorder": "cekorder", "pesananku": "pesananku"}, "description": "Lihat order kamu", "usage": ".myorder", "example": ".myorder", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/myorder.js", metadata, m, extra)

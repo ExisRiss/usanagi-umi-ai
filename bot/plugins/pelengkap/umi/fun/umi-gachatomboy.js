@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gachatomboy", "category": "fun", "aliasMap": {"umi-fun-gachatomboy": "gachatomboy", "umi-gachatomboy": "gachatomboy", "gachatomboy": "gachatomboy"}, "description": "Gacha char anime tomboy random 100+ karakter", "usage": ".gachatomboy"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/gachatomboy.js", metadata, m, extra)

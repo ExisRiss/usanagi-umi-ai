@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gachanasip", "category": "fun", "aliasMap": {"umi-fun-gachanasip": "gachanasip", "umi-gachanasip": "gachanasip", "gachanasip": "gachanasip"}, "description": "Random nasip / hoki / keberuntungan buat user", "usage": ".gachanasip"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/gachanasip.js", metadata, m, extra)

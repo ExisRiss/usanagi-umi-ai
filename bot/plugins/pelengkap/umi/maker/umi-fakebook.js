@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakebook", "category": "maker", "aliasMap": {"umi-maker-fakebook": "fakebook", "umi-fakebook": "fakebook", "umi-bookquote": "bookquote", "umi-quotebuku": "quotebuku", "umi-fakebuku": "fakebuku", "fakebook": "fakebook", "bookquote": "bookquote", "quotebuku": "quotebuku", "fakebuku": "fakebuku"}, "description": "Membuat gambar quote estetis gaya halaman buku", "usage": ".fakebook <teks>", "example": ".fakebook Mencintaimu adalah hal terindah yang pernah ada.", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakebook.js", metadata, m, extra)

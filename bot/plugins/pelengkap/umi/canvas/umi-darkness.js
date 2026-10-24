@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "darkness", "category": "canvas", "aliasMap": {"umi-canvas-darkness": "darkness", "umi-darkness": "darkness", "umi-drakness": "drakness", "darkness": "darkness", "drakness": "drakness"}, "description": "Beri efek gelap pada gambar", "usage": ".darkness [amount]", "example": ".darkness 100 (sambil reply gambar)", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/darkness.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "welcomeall", "category": "owner", "aliasMap": {"umi-owner-welcomeall": "welcomeall", "umi-welcomeall": "welcomeall", "umi-wcall": "wcall", "umi-globalwelcome": "globalwelcome", "welcomeall": "welcomeall", "wcall": "wcall", "globalwelcome": "globalwelcome"}, "description": "Aktifkan/nonaktifkan welcome di semua grup", "usage": ".welcomeall <on/off>", "example": ".welcomeall on", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/welcomeall.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "join", "category": "owner", "aliasMap": {"umi-owner-join": "join", "umi-join": "join", "umi-joingrup": "joingrup", "umi-joingroup": "joingroup", "umi-gabung": "gabung", "join": "join", "joingrup": "joingrup", "joingroup": "joingroup", "gabung": "gabung"}, "description": "Bot join ke grup via link invite, support reply pesan yang mengandung link", "usage": ".join <link> / .join (reply pesan berisi link)", "example": ".join https://chat.whatsapp.com/xxx", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/join.js", metadata, m, extra)

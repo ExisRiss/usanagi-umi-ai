@@ -1,54 +1,11 @@
-# ---- rahasia & sesi (JANGAN pernah di-commit) ----
+# kunci & kredensial lokal (jangan pernah di-commit)
 .env
 .env.*
 !.env.example
-!.env.*.example
-*.env
-!*.example.env
-.platform.env
-.backup-system.env
-.tunnel.env
-.game.env
-.owner-console-relay.env
-.webgame.json
-webgame.json
+.plateform.env
 config.js
-config/config.js
-credentials.json
-creds.json
 sessions/
-sessions-backup/
-tunnel-creds.json
-tunnel-games-creds.json
-*-creds.json
-service-token.txt
-game-token.txt
-data/cookies.txt
-data/database/
-data/auto-backups/
-data/backup-system/
-data/errors/
-data/platform/
-
-# ---- runtime ----
+data/
 node_modules/
-tmp/
-dist/
-build/
 *.log
-console.log
-*.sqlite
-*.sqlite3
-*.sqlite-wal
-*.sqlite-shm
-.DS_Store
-Thumbs.db
-
-# ---- panel/vercel ----
-.vercel/
-.netlify/
-
-# ---- arsip ----
-*.zip
-*.tar.gz
-!assets/**/*.zip
+!.env.*.example

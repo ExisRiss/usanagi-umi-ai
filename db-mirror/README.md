@@ -10,8 +10,8 @@
 >
 > | Bagian | Port internal | Alamat publik |
 > |---|---|---|
-> | Game web (`game.js`) | `127.0.0.1:3900` | `https://game.gwenna.my.id` |
-> | API bot & verifikasi token | `127.0.0.1:2176` | `https://api.gwenna.my.id` |
+> | Game web (`game.js`) | `127.0.0.1:3900` | `https://game.example.com` |
+> | API bot & verifikasi token | `127.0.0.1:2176` | `https://bot.example.com` |
 >
 > Deploy: `node tools/deploy-game.mjs` (unggah ke container lalu restart).
 > Tunnel: `tunnel-games.yml` (bukan lagi `tunnel-config.yml`).
@@ -29,7 +29,7 @@ yang mengerjakan tiga hal sekaligus:
 | Bagian | Port | Alamat |
 |---|---|---|
 | Penerima cadangan (`server.js`) | `SERVER_PORT` = 3348 | `http://192.241.149.63:3348` |
-| Server game multiplayer (`game.js`) | 127.0.0.1:3900 | `https://game.gwenna.my.id` |
+| Server game multiplayer (`game.js`) | 127.0.0.1:3900 | `https://game.example.com` |
 | Supervisor `cloudflared` (tunnel `umi-games-gwenna`) | — | meneruskan port 3900 ke publik |
 
 Produksi **tidak bergantung** pada layanan cadangan ini; kehilangannya tidak
@@ -122,7 +122,7 @@ Uji:
 Tunnel **`umi-games-gwenna`** (`6f82f294-ff18-4966-9b8e-38edd97f8359`),
 **lokal-managed**: dibuat lewat API dengan `tunnel_secret` buatan sendiri, jadi
 berkas `tunnel-creds.json` bisa direkonstruksi kapan pun. Ingress ada di
-`tunnel-config.yml`. DNS: CNAME `game.gwenna.my.id` →
+`tunnel-config.yml`. DNS: CNAME `game.example.com` →
 `6f82f294-….cfargotunnel.com` (proxied).
 
 `server.js` mengutamakan konfigurasi lokal: bila `tunnel-config.yml` **dan**

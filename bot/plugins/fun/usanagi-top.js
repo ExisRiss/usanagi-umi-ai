@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getParticipantJid } from '../../lib/awang-aksesgrub.js'
 

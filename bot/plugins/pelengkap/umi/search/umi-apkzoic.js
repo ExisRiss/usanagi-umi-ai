@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "apkzoic", "category": "search", "aliasMap": {"umi-search-apkzoic": "apkzoic", "umi-apkzoic": "apkzoic", "umi-apkz": "apkz", "apkzoic": "apkzoic", "apkz": "apkz"}, "description": "Cari APK MOD di ApkZoic", "usage": ".apkzoic <query>", "example": ".apkzoic Subway Surfer", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/apkzoic.js", metadata, m, extra)

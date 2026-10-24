@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const MONTHS_ID = [
   'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',

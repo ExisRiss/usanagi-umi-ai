@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nerdfont-ambil", "category": "search", "aliasMap": {"umi-search-nerdfont-ambil": "nerdfont-ambil", "umi-nerdfont-ambil": "nerdfont-ambil", "umi-dafont-ambil": "dafont-ambil", "umi-fontambil": "fontambil", "nerdfont-ambil": "nerdfont-ambil", "dafont-ambil": "dafont-ambil", "fontambil": "fontambil"}, "description": "Cari font di DaFont", "usage": ".nerdfont-ambil <query>", "example": ".nerdfont-ambil Coolvetica", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/nerdfont-ambil.js", metadata, m, extra)

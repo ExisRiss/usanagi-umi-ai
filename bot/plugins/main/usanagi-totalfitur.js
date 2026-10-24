@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { pluginStore } from '../../core/awang-loader.js'
 import { sendNativeRichTable } from '../../lib/awang-table.js'

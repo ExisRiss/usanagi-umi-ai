@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "inspect", "category": "utility", "aliasMap": {"umi-utility-inspect": "inspect", "umi-cekgrup": "cekgrup", "umi-ceksaluran": "ceksaluran", "cekgrup": "cekgrup", "ceksaluran": "ceksaluran"}, "description": "Inspect info grup atau saluran WhatsApp via link", "usage": ".inspect <link grup/saluran>", "example": ".inspect https://chat.whatsapp.com/xxx", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/utility/inspect.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "soundmeme2", "category": "search", "aliasMap": {"umi-search-soundmeme2": "soundmeme2", "umi-soundmeme2": "soundmeme2", "soundmeme2": "soundmeme2"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/soundmeme.js", metadata, m, extra)

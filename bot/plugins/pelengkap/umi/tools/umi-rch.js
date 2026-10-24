@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rch", "category": "tools", "aliasMap": {"umi-tools-rch": "rch", "umi-rch": "rch", "umi-frch": "frch", "umi-reactch": "reactch", "umi-fakereactch": "fakereactch", "umi-fakerch": "fakerch", "frch": "frch", "reactch": "reactch", "fakereactch": "fakereactch", "fakerch": "fakerch"}, "description": "Kirim react ke post channel WhatsApp", "usage": ".rch <link_post> <emoji>", "example": ".rch https://whatsapp.com/channel/RIMURU_CHANNEL 😂😍", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/rch.js", metadata, m, extra)

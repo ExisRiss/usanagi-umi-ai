@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanboss", "category": "clan", "aliasMap": {"umi-clan-clanboss": "clanboss", "umi-clanboss": "clanboss", "umi-bossclan": "bossclan", "umi-clanraidboss": "clanraidboss", "clanboss": "clanboss", "bossclan": "bossclan", "clanraidboss": "clanraidboss"}, "description": "Fight boss clan untuk dapet XP dan reward", "usage": ".clanboss", "example": ".clanboss", "cooldown": 300, "energi": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanboss.js", metadata, m, extra)

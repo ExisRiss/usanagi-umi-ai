@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tambahsaldo", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-tambahsaldo": "tambahsaldo", "umi-tambahsaldo": "tambahsaldo", "umi-addsaldo": "addsaldo", "tambahsaldo": "tambahsaldo", "addsaldo": "addsaldo"}, "description": "💰 Menambah saldo pengguna secara manual", "usage": ".tambahsaldo @user <nominal>", "example": ".tambahsaldo @user 10000", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/tambahsaldo.js", metadata, m, extra)

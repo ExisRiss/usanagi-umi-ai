@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addenergi", "category": "owner", "aliasMap": {"umi-owner-addenergi": "addenergi", "umi-addenergi": "addenergi", "umi-tambahenergi": "tambahenergi", "umi-giveenergi": "giveenergi", "umi-addenergy": "addenergy", "addenergi": "addenergi", "tambahenergi": "tambahenergi", "giveenergi": "giveenergi", "addenergy": "addenergy"}, "description": "Tambah energi user", "usage": ".addenergi <jumlah> @user", "example": ".addenergi 100 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addenergi.js", metadata, m, extra)

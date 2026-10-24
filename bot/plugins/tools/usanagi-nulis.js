@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import * as canvasLib from '@napi-rs/canvas'
 import path from 'node:path'

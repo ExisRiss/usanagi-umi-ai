@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sewa2", "category": "main", "aliasMap": {"umi-main-sewa2": "sewa2", "umi-sewa2": "sewa2", "umi-premium2": "premium2", "sewa2": "sewa2", "premium2": "premium2"}, "description": "Varian paket sewa/premium dari Tensura.", "usage": ".sewa2 <kode>", "example": ".sewa2 <kode>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/order2.js", metadata, m, extra)

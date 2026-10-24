@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "colongsw", "category": "tools", "aliasMap": {"umi-tools-colongsw": "colongsw", "umi-colongsw": "colongsw", "umi-ambilsw": "ambilsw", "colongsw": "colongsw", "ambilsw": "ambilsw"}, "description": "Ambil SW khusus yang mention grup", "usage": ".colongsw (reply sw mention)", "example": ".colongsw", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/colongsw.js", metadata, m, extra)

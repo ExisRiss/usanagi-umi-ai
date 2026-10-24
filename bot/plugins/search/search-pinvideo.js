@@ -2,6 +2,7 @@
  🍀 Plugins Pinterest Video
  
  * CR Ponta Sensei
+  * By AlzRiss - Usanagi Umi AI
  * WEB https://api.codeteam.web.id
  
 **/

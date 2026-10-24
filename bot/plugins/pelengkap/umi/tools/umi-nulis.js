@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nulis", "category": "tools", "aliasMap": {"umi-tools-nulis": "nulis", "umi-tulis": "tulis", "umi-write": "write"}, "description": "Generate tulisan tangan di kertas", "usage": ".nulis <teks>", "example": ".nulis Aku cinta kamu selamanya", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/nulis.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "putus", "category": "fun", "aliasMap": {"umi-fun-putus": "putus", "umi-putus": "putus", "umi-breakup": "breakup"}, "description": "Memutuskan hubungan dengan pasangan", "usage": ".putus", "example": ".putus", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/putus.js", metadata, m, extra)

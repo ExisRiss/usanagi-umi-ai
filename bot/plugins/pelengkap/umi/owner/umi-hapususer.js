@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hapususer", "category": "owner", "aliasMap": {"umi-owner-hapususer": "hapususer", "umi-hapususer": "hapususer", "umi-deluser": "deluser", "umi-deleteuser": "deleteuser", "hapususer": "hapususer", "deluser": "deluser", "deleteuser": "deleteuser"}, "description": "Hapus user dari database", "usage": ".hapususer", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/hapususer.js", metadata, m, extra)

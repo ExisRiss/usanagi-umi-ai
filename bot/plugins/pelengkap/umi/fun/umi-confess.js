@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "confess", "category": "fun", "aliasMap": {"umi-fun-confess": "confess", "umi-confess": "confess", "umi-confession": "confession", "umi-menfess": "menfess", "umi-anonim": "anonim", "confess": "confess", "confession": "confession", "menfess": "menfess", "anonim": "anonim"}, "description": "Kirim pesan anonim ke seseorang", "usage": ".confess nomor|pesan", "example": ".confess 6281234567890|Hai, aku suka kamu!", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/confess.js", metadata, m, extra)

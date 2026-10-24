@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetlinkgc", "category": "group", "aliasMap": {"umi-group-resetlinkgc": "resetlinkgc", "umi-resetlinkgc": "resetlinkgc", "umi-resetlink": "resetlink", "umi-revokelink": "revokelink", "umi-newlink": "newlink", "resetlinkgc": "resetlinkgc", "resetlink": "resetlink", "revokelink": "revokelink", "newlink": "newlink"}, "description": "Reset link invite grup", "usage": ".resetlinkgc", "example": ".resetlinkgc", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetlinkgc.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "playsoundcloud", "category": "search", "aliasMap": {"umi-search-playsoundcloud": "playsoundcloud", "umi-playsoundcloud": "playsoundcloud", "umi-playsc": "playsc", "playsoundcloud": "playsoundcloud", "playsc": "playsc"}, "description": "Cari dan download lagu dari SoundCloud", "usage": ".playsc judul", "example": ".playsc Only We Know", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/playsoundcloud.js", metadata, m, extra)

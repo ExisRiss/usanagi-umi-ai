@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "humanize", "category": "ai", "aliasMap": {"umi-ai-humanize": "humanize", "umi-humanize": "humanize", "umi-humanizer": "humanizer", "umi-aihumanize": "aihumanize", "umi-zerogpt": "zerogpt", "humanize": "humanize", "humanizer": "humanizer", "aihumanize": "aihumanize", "zerogpt": "zerogpt"}, "description": "Ubah teks AI-generated jadi lebih natural (Humanized)", "usage": ".humanize <teks> (atau reply teks)", "example": ".humanize Berdasarkan analisis yang mendalam...", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/humanizer.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 function getActiveBuffs(user) {
   if (!user.rpg) user.rpg = {}

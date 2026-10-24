@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanwaraccept", "category": "clan", "aliasMap": {"umi-clan-clanwaraccept": "clanwaraccept", "umi-clanwaraccept": "clanwaraccept", "umi-acceptwar": "acceptwar", "umi-waraccept": "waraccept", "umi-terimawar": "terimawar", "clanwaraccept": "clanwaraccept", "acceptwar": "acceptwar", "waraccept": "waraccept", "terimawar": "terimawar"}, "description": "Terima tantangan clan war", "usage": ".clanwaraccept", "example": ".clanwaraccept", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanwaraccept.js", metadata, m, extra)

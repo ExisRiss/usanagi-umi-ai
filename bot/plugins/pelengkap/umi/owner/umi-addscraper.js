@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addscraper", "category": "owner", "aliasMap": {"umi-owner-addscraper": "addscraper", "umi-addscraper": "addscraper", "umi-newscraper": "newscraper", "umi-createscraper": "createscraper", "umi-tambahscraper": "tambahscraper", "addscraper": "addscraper", "newscraper": "newscraper", "createscraper": "createscraper", "tambahscraper": "tambahscraper"}, "description": "Menambahkan scraper baru ke src/scraper/ (Owner only)", "usage": ".addscraper <nama>", "example": ".addscraper konchan\n\nReply pesan yang berisi kode scraper", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addscraper.js", metadata, m, extra)

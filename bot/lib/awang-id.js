@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 function cleanInput(value) {
   return String(value || '').trim()

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "colongpp", "category": "owner", "aliasMap": {"umi-owner-colongpp": "colongpp", "umi-colongpp": "colongpp", "umi-stealpp": "stealpp", "umi-malingpp": "malingpp", "umi-ambilpp": "ambilpp", "colongpp": "colongpp", "stealpp": "stealpp", "malingpp": "malingpp", "ambilpp": "ambilpp"}, "description": "Ambil & pakai foto profil target sebagai PP bot", "usage": ".colongpp (reply pesan target)", "example": ".colongpp", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/colongpp.js", metadata, m, extra)

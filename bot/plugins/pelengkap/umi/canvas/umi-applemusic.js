@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "applemusic-canvas", "category": "canvas", "aliasMap": {"umi-canvas-applemusic-canvas": "applemusic-canvas", "umi-applemusic-canvas": "applemusic-canvas", "umi-applecanvas": "applecanvas", "applemusic-canvas": "applemusic-canvas", "applemusic": "applemusic", "applecanvas": "applecanvas"}, "description": "Buat gambar pemutar Apple Music dari foto", "usage": ".applemusic-canvas judul | artis (reply gambar)", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/applemusic.js", metadata, m, extra)

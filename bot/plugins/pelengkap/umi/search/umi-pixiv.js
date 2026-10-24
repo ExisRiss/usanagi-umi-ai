@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pixiv", "category": "search", "aliasMap": {"umi-search-pixiv": "pixiv", "umi-pixiv": "pixiv", "umi-pixivsearch": "pixivsearch", "umi-caripixiv": "caripixiv", "pixiv": "pixiv", "pixivsearch": "pixivsearch", "caripixiv": "caripixiv"}, "description": "Cari artwork di Pixiv", "usage": ".pixiv <query>", "example": ".pixiv rem", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/pixiv.js", metadata, m, extra)

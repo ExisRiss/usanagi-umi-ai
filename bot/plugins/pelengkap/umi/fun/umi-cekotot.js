@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekotot", "category": "fun", "aliasMap": {"umi-fun-cekotot": "cekotot", "umi-cekotot": "cekotot", "umi-ototcheck": "ototcheck", "umi-cekmuscle": "cekmuscle", "cekotot": "cekotot", "ototcheck": "ototcheck", "cekmuscle": "cekmuscle"}, "description": "Cek seberapa berotot kamu (random)", "usage": ".cekotot <nama>", "example": ".cekotot Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/cekotot.js", metadata, m, extra)

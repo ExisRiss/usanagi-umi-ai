@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "myip", "category": "tools", "aliasMap": {"umi-tools-myip": "myip", "umi-myip": "myip", "umi-botip": "botip", "umi-publicip": "publicip", "myip": "myip", "botip": "botip", "publicip": "publicip"}, "description": "Cek IP publik server bot", "usage": ".myip", "example": ".myip", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/myip.js", metadata, m, extra)

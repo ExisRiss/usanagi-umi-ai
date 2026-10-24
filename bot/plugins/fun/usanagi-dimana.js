@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const answers = [
   'Di dekatmu!', 'Jauh di sana.', 'Di tempat yang tidak kamu duga.',

@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * State bot utama: aktif/nonaktif + nomor pairing.
  *

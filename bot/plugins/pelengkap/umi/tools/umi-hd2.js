@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hd2", "category": "tools", "aliasMap": {"umi-tools-hd2": "hd2", "umi-hd2": "hd2", "umi-enhance2": "enhance2", "umi-upscale2": "upscale2", "umi-aienhancer": "aienhancer"}, "description": "Enhance gambar menjadi HD dengan AI (V3)", "usage": ".hd2 (reply gambar)", "example": ".hd2", "cooldown": 30, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hd2.js", metadata, m, extra)

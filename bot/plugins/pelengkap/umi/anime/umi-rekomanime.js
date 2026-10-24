@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rekom-anime", "category": "anime", "aliasMap": {"umi-anime-rekom-anime": "rekom-anime", "umi-rekom-anime": "rekom-anime", "umi-anime-rekom": "anime-rekom", "umi-rekanime": "rekanime", "rekom-anime": "rekom-anime", "anime-rekom": "anime-rekom", "rekanime": "rekanime"}, "description": "Rekomendasi anime random", "usage": ".rekom-anime", "example": ".rekom-anime", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/rekomanime.js", metadata, m, extra)

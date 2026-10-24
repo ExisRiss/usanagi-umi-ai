@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hapusabsen", "category": "group", "aliasMap": {"umi-group-hapusabsen": "hapusabsen", "umi-hapusabsen": "hapusabsen", "umi-deleteabsen": "deleteabsen", "umi-tutupabsen": "tutupabsen", "umi-closeabsen": "closeabsen", "umi-resetabsen": "resetabsen", "hapusabsen": "hapusabsen", "deleteabsen": "deleteabsen", "tutupabsen": "tutupabsen", "closeabsen": "closeabsen"}, "description": "Hapus/tutup sesi absen (admin only)", "usage": ".hapusabsen", "example": ".hapusabsen", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/hapusabsen.js", metadata, m, extra)

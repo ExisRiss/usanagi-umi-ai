@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakefbkomen", "category": "canvas", "aliasMap": {"umi-canvas-fakefbkomen": "fakefbkomen", "umi-fakefbkomen": "fakefbkomen", "umi-fbkomen": "fbkomen", "umi-komenfb": "komenfb", "fakefbkomen": "fakefbkomen", "fbkomen": "fbkomen", "komenfb": "komenfb"}, "description": "Bikin gambar komentar palsu facebook", "usage": ".fakefbkomen <nama>|<komentar> (reply/kirim foto)", "example": ".fakefbkomen Fauzan|Ini komentar saya", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakefbkomen.js", metadata, m, extra)

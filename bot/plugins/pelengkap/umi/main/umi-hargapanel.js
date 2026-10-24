@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hargapanel", "category": "main", "aliasMap": {"umi-main-hargapanel": "hargapanel", "umi-hargapanel": "hargapanel", "umi-sethargapanel": "sethargapanel", "hargapanel": "hargapanel", "sethargapanel": "sethargapanel"}, "description": "Menampilkan dan mengatur daftar harga sewa/beli panel", "usage": ".hargapanel / .sethargapanel <teks>", "example": ".sethargapanel RAM 1GB = 1k", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/hargapanel.js", metadata, m, extra)

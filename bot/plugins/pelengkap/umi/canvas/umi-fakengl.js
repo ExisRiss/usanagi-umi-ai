@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakengl", "category": "canvas", "aliasMap": {"umi-canvas-fakengl": "fakengl", "umi-fakengl": "fakengl", "umi-fngl": "fngl", "umi-nglfake": "nglfake", "fakengl": "fakengl", "fngl": "fngl", "nglfake": "nglfake"}, "description": "Membuat screenshot pesan NGL palsu (have fun only)", "usage": ".fakengl <teks>", "example": ".fakengl Gw tuh sebenarnya ultramen", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakengl.js", metadata, m, extra)

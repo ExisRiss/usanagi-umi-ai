@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "colorblock", "category": "game", "aliasMap": {"umi-game-colorblock": "colorblock", "umi-colorblock": "colorblock", "umi-colorblockpuzzle": "colorblockpuzzle", "umi-cbp": "cbp", "colorblock": "colorblock", "colorblockpuzzle": "colorblockpuzzle", "cbp": "cbp"}, "description": "Puzzle kotak warna - geser balok kiri/kanan, samakan warna biar hancur!", "usage": "", "example": ".colorblock", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/color_block_puzzle.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "scanrepo", "category": "tools", "aliasMap": {"umi-tools-scanrepo": "scanrepo", "umi-scanrepo": "scanrepo", "umi-scanrepodev": "scanrepodev", "scanrepo": "scanrepo", "scanrepodev": "scanrepodev"}, "description": "Scan repository GitHub untuk security risk", "usage": ".scanrepo <github-url>", "example": ".scanrepo https://github.com/owner/repo", "cooldown": 30, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/scanrepo.js", metadata, m, extra)

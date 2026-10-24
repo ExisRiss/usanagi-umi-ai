@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "spotify", "category": "search", "aliasMap": {"umi-search-spotify": "spotify", "umi-spotify": "spotify", "umi-spotifysearch": "spotifysearch", "umi-spsearch": "spsearch", "spsearch": "spsearch"}, "description": "Mencari daftar lagu di Spotify berdasarkan judul atau artis", "usage": ".spotify <query>", "example": ".spotify neffex grateful", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/spotify.js", metadata, m, extra)

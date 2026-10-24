@@ -11,6 +11,7 @@
  * tersimpan di HP. Cara kirim sama dengan game trading offline / game-sonic.
  *
  * Catatan: berkas plugin dibatasi ES2020 — jangan pakai ||= atau ??=.
+ * By AlzRiss - Usanagi Umi AI
  */
 import { kirimForwardSigned } from '../../lib/awang-rich-forward.js'
 import { ULAR_TANGGA_HTML } from './ular-tangga-wa-html.js'

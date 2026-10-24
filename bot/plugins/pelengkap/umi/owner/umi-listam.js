@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listam", "category": "owner", "aliasMap": {"umi-owner-listam": "listam", "umi-listam": "listam", "umi-amlist": "amlist", "umi-listroleam": "listroleam", "listam": "listam", "amlist": "amlist", "listroleam": "listroleam"}, "description": "List user role Alight Motion", "usage": ".listam [role]", "example": ".listam partner", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/listam.js", metadata, m, extra)

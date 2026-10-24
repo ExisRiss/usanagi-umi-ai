@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tam", "category": "group", "aliasMap": {"umi-group-tam": "tam", "umi-tam": "tam", "umi-topactive": "topactive", "umi-topmember": "topmember", "tam": "tam", "topactive": "topactive", "topmember": "topmember"}, "description": "Lihat top member paling aktif di grup", "usage": ".tam <jumlah>", "example": ".tam 10", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/tam.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bitly", "category": "tools", "aliasMap": {"umi-tools-bitly": "bitly", "umi-bitly": "bitly", "umi-shortlink": "shortlink", "umi-shorturl": "shorturl", "bitly": "bitly", "shortlink": "shortlink", "shorturl": "shorturl"}, "description": "Shorten URL dengan Bitly", "usage": ".bitly <url>", "example": ".bitly https://google.com", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/bitly.js", metadata, m, extra)

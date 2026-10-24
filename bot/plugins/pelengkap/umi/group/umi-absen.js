@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "absen", "category": "group", "aliasMap": {"umi-group-absen": "absen", "umi-absen": "absen", "umi-hadir": "hadir", "umi-present": "present", "hadir": "hadir", "present": "present"}, "description": "Tandai kehadiran di sesi absen", "usage": ".absen", "example": ".absen", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/absen.js", metadata, m, extra)

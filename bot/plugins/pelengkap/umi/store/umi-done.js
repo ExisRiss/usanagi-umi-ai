@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "done", "category": "store", "aliasMap": {"umi-store-done": "done", "umi-done": "done", "umi-selesai": "selesai", "umi-confirm": "confirm", "done": "done", "selesai": "selesai", "confirm": "confirm"}, "description": "✅ Konfirmasi transaksi selesai dan kirim data ke pembeli (reply pesan pembeli)", "usage": ".done <nomor_trx> (reply pesan pembeli)", "example": ".done TRX-001", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/done.js", metadata, m, extra)

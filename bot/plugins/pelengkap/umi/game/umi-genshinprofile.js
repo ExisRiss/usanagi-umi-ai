@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "genshinprofile", "category": "game", "aliasMap": {"umi-game-genshinprofile": "genshinprofile", "umi-genshinprofile": "genshinprofile", "genshinprofile": "genshinprofile"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/genshinprofile.js", metadata, m, extra)

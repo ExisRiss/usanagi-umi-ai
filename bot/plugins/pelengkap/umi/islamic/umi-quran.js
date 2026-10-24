@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quran", "category": "islamic", "aliasMap": {"umi-islamic-quran": "quran", "umi-quran": "quran", "umi-alquran": "alquran", "umi-bacaquran": "bacaquran", "quran": "quran", "surah": "surah", "alquran": "alquran", "bacaquran": "bacaquran"}, "description": "Baca ayat Al-Quran berdasarkan nama surah", "usage": ".quran <nama surah>", "example": ".quran al fatihah", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/quran.js", metadata, m, extra)

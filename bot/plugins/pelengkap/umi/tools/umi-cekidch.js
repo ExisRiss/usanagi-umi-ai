@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekidch", "category": "tools", "aliasMap": {"umi-tools-cekidch": "cekidch", "umi-cekidch": "cekidch", "umi-idch": "idch", "umi-channelid": "channelid", "umi-infoch": "infoch", "idch": "idch", "channelid": "channelid", "infoch": "infoch", "channelinfo": "channelinfo"}, "description": "Cek ID dan info lengkap channel dari link", "usage": ".cekidch <link channel>", "example": ".cekidch https://whatsapp.com/channel/xxxxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/cekidch.js", metadata, m, extra)

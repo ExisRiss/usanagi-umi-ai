@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "swm", "category": "sticker", "aliasMap": {"umi-sticker-swm": "swm", "umi-swm": "swm", "umi-wm": "wm", "umi-stickerwm": "stickerwm", "umi-stickermark": "stickermark", "umi-colong": "colong", "swm": "swm", "stickerwm": "stickerwm", "stickermark": "stickermark", "colong": "colong"}, "description": "Mengganti packname dan author pada sticker", "usage": ".swm <packname> atau .swm <packname>|<author>", "example": ".swm BotName", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/swm.js", metadata, m, extra)

@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Pengirim pesan dan berkas ke Telegram Bot API tanpa dependensi tambahan.
  *

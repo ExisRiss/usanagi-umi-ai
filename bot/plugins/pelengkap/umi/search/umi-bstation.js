@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bstation", "category": "search", "aliasMap": {"umi-search-bstation": "bstation", "umi-bstation": "bstation", "umi-bili": "bili", "umi-bilibili": "bilibili", "bstation": "bstation"}, "description": "Cari video di Bilibili TV", "usage": ".bstation <query>", "example": ".bstation Oshi no ko", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/bstation.js", metadata, m, extra)

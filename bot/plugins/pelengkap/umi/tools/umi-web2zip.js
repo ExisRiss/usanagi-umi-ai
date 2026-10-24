@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "web2zip", "category": "tools", "aliasMap": {"umi-tools-web2zip": "web2zip", "umi-web2zip": "web2zip", "umi-saveweb2zip": "saveweb2zip", "web2zip": "web2zip", "saveweb2zip": "saveweb2zip"}, "description": "Salin website menjadi file ZIP", "usage": ".web2zip <url>", "example": ".web2zip https://example.com", "cooldown": 30, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/web2zip.js", metadata, m, extra)

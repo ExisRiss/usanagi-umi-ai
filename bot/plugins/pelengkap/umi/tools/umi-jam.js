@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "timeis", "category": "tools", "aliasMap": {"umi-tools-timeis": "timeis", "umi-timeis": "timeis", "umi-waktujakarta": "waktujakarta", "timeis": "timeis", "waktujakarta": "waktujakarta"}, "description": "Cek waktu Jakarta dari time.is", "usage": ".timeis", "example": ".timeis", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/jam.js", metadata, m, extra)

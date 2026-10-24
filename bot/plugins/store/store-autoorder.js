@@ -12,6 +12,7 @@
  *   .cekorder <id>                                - Cek status order
  *   .restock <nama>|<jumlah>                      - Cek stok produk
  * 
+ * By AlzRiss - Usanagi Umi AI (clean-room build)
  */
 
 import fs from 'node:fs'

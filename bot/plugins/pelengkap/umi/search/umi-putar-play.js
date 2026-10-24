@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "putar-play", "category": "search", "aliasMap": {"umi-search-putar-play": "putar-play", "umi-putar-play": "putar-play", "umi-putar": "putar", "putar-play": "putar-play", "putar": "putar"}, "description": "Putar musik dari YouTube (Faa API)", "usage": ".putar-play <url>", "example": ".putar-play https://youtube.com/watch?v=xxxxx", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/putar-play.js", metadata, m, extra)

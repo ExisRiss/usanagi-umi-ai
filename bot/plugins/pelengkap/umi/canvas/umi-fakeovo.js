@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeovo", "category": "canvas", "aliasMap": {"umi-canvas-fakeovo": "fakeovo", "umi-fakeovo": "fakeovo", "umi-fake-ovo": "fake-ovo", "fakeovo": "fakeovo", "fake-ovo": "fake-ovo"}, "description": "Membuat canvas fake ovo", "usage": ".fake-ovo <nama>", "example": ".fake-ovo Jokowi", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeovo.js", metadata, m, extra)

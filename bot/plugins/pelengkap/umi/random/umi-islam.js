@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "q-islam", "category": "random", "aliasMap": {"umi-random-q-islam": "q-islam", "umi-q-islam": "q-islam", "q-islam": "q-islam"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/islam.js", metadata, m, extra)

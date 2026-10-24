@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wasted", "category": "maker", "aliasMap": {"umi-maker-wasted": "wasted", "umi-wasted": "wasted", "umi-gta": "gta", "umi-gtawasted": "gtawasted", "wasted": "wasted", "gta": "gta", "gtawasted": "gtawasted"}, "description": "Efek wasted GTA pada foto", "usage": ".wasted (reply foto)", "example": ".wasted", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/wasted.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gbbot", "category": "main", "aliasMap": {"umi-main-gbbot": "gbbot", "umi-gbbot": "gbbot", "umi-botgb": "botgb", "umi-officialgb": "officialgb", "umi-grupbot": "grupbot", "umi-gcbot": "gcbot", "umi-setgbbot": "setgbbot", "gbbot": "gbbot", "botgb": "botgb", "officialgb": "officialgb", "grupbot": "grupbot", "gcbot": "gcbot", "setgbbot": "setgbbot"}, "description": "Menampilkan dan mengatur link Grup Official Bot", "usage": ".gbbot / .setgbbot <link>", "example": ".setgbbot https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxx", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/gbbot.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "age-detection", "category": "tools", "aliasMap": {"umi-tools-age-detection": "age-detection", "umi-age-detection": "age-detection", "umi-detectage": "detectage", "umi-age-detect": "age-detect", "age-detection": "age-detection", "detectage": "detectage", "age-detect": "age-detect"}, "description": "Deteksi perkiraan usia dari foto", "usage": ".age-detection (reply gambar)", "example": ".age-detection", "cooldown": 30, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/age-detection.js", metadata, m, extra)

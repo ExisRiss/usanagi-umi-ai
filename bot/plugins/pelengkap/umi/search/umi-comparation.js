@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "advance-comparation", "category": "search", "aliasMap": {"umi-search-advance-comparation": "advance-comparation", "umi-advance-comparation": "advance-comparation", "umi-bandingkan-device": "bandingkan-device", "umi-compare": "compare", "advance-comparation": "advance-comparation", "bandingkan-device": "bandingkan-device", "compare": "compare"}, "description": "Bandingkan dua perangkat (smartphone, tablet, laptop, dll)", "usage": ".bandingkan-device [type] <query>", "example": ".bandingkan-device phone samsung s24", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/comparation.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autoanimewinbu", "category": "anime", "aliasMap": {"umi-anime-autoanimewinbu": "autoanimewinbu", "umi-autoanimewinbu": "autoanimewinbu", "umi-aaw": "aaw", "umi-autoanime": "autoanime", "autoanimewinbu": "autoanimewinbu", "aaw": "aaw", "autoanime": "autoanime"}, "description": "Auto upload ongoing anime & donghua dari winbu.net (720p Pixeldrain)", "usage": ".autoanimewinbu <start|stop|status|cek|list|reset|addgrup|delgrup>", "example": ".autoanimewinbu start", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/autoanimewinbu.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rpg", "category": "group", "aliasMap": {"umi-group-rpg": "rpg", "umi-rpg": "rpg", "umi-togglerpg": "togglerpg", "rpg": "rpg", "togglerpg": "togglerpg"}, "description": "Mengaktifkan atau menonaktifkan fitur RPG di grup", "usage": ".rpg <on/off>", "example": ".rpg on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/rpg.js", metadata, m, extra)

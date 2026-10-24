@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bmkggempa", "category": "info", "aliasMap": {"umi-info-bmkggempa": "bmkggempa", "umi-bmkggempa": "bmkggempa", "bmkggempa": "bmkggempa"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/bmkggempa.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import path from 'node:path'
 import crypto from 'node:crypto'

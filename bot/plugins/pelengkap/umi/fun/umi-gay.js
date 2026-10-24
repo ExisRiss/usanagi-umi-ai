@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gay", "category": "fun", "aliasMap": {"umi-fun-gay": "gay", "umi-gay": "gay", "umi-howgay": "howgay"}, "description": "Menunjuk member paling gay di grup", "usage": ".gay", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/gay.js", metadata, m, extra)

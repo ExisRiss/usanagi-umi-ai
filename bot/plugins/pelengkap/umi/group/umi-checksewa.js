@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "checksewa", "category": "group", "aliasMap": {"umi-group-checksewa": "checksewa", "umi-checksewa": "checksewa", "umi-ceksewa": "ceksewa", "umi-sisasewa": "sisasewa", "checksewa": "checksewa", "ceksewa": "ceksewa", "sisasewa": "sisasewa"}, "description": "Cek sisa waktu sewa bot di grup ini", "usage": ".checksewa", "example": ".checksewa", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/checksewa.js", metadata, m, extra)

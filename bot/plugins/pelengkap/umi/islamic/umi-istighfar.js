@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "istighfar", "category": "religi", "aliasMap": {"umi-religi-istighfar": "istighfar", "umi-istighfar": "istighfar", "umi-sayyidulistighfar": "sayyidulistighfar", "umi-sayyidul": "sayyidul", "istighfar": "istighfar", "sayyidulistighfar": "sayyidulistighfar", "sayyidul": "sayyidul"}, "description": "Sayyidul Istighfar (Doa Istighfar Terbaik) lengkap Arab, Latin, Arti, dan Keutamaan", "usage": ".istighfar", "example": ".istighfar", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/istighfar.js", metadata, m, extra)

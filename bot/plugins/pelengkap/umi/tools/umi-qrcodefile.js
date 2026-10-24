@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "qrcodefile", "category": "tools", "aliasMap": {"umi-tools-qrcodefile": "qrcodefile", "umi-qrcodefile": "qrcodefile", "umi-qrfile": "qrfile", "umi-fileqr": "fileqr", "umi-filetoqr": "filetoqr", "umi-qruguu": "qruguu", "qrcodefile": "qrcodefile", "qrfile": "qrfile", "fileqr": "fileqr", "filetoqr": "filetoqr", "qruguu": "qruguu"}, "description": "Mengupload media/file ke Uguu.se dan membuat QR Code berisi URL file tersebut", "usage": ".qrcodefile (kirim dengan caption atau reply media/file/viewonce/dokumen)", "example": ".qrcodefile", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/qrcodefile.js", metadata, m, extra)

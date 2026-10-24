@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "custompayment", "category": "owner", "aliasMap": {"umi-owner-custompayment": "custompayment", "umi-custompayment": "custompayment", "umi-setpayment": "setpayment", "umi-setpaytext": "setpaytext", "custompayment": "custompayment", "setpayment": "setpayment", "setpaytext": "setpaytext"}, "description": "Atur teks custom untuk .payment dengan placeholder", "usage": ".custompayment <teks> / .custompayment reset", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/custompayment.js", metadata, m, extra)

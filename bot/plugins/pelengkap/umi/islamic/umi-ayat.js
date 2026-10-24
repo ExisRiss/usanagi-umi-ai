@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ayat", "category": "religi", "aliasMap": {"umi-religi-ayat": "ayat", "umi-ayat": "ayat", "umi-ayatpilihan": "ayatpilihan", "umi-suratpilihan": "suratpilihan", "ayat": "ayat", "ayatpilihan": "ayatpilihan", "suratpilihan": "suratpilihan"}, "description": "Kumpulan Ayat Pilihan Al-Quran (Arsy, Kursi, Ruqyah, dll)", "usage": ".ayat <nama ayat>", "example": ".ayat kursi", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/ayat.js", metadata, m, extra)

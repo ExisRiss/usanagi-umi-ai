@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 /**
  * Mengambil command ID dari balasan tombol, list, template, atau native flow.

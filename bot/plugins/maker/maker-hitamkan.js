@@ -2,6 +2,7 @@
  * to hitam dan lain lain
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  Api : https://api-faa.my.id
  */
 import axios from "axios"

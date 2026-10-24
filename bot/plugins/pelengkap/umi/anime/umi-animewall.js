@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animewall", "category": "anime", "aliasMap": {"umi-anime-animewall": "animewall", "umi-animewall": "animewall", "umi-animewallpaper": "animewallpaper", "umi-wallanime": "wallanime", "umi-wpanime": "wpanime", "animewall": "animewall", "animewallpaper": "animewallpaper", "wallanime": "wallanime", "wpanime": "wpanime"}, "description": "Dapatkan random wallpaper anime HD dari berbagai series", "usage": ".animewall [series]", "example": ".animewall\n.animewall naruto\n.animewall zero two", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animewall.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mangatoon", "category": "search", "aliasMap": {"umi-search-mangatoon": "mangatoon", "umi-mangatoon": "mangatoon", "umi-mtoon": "mtoon", "umi-mangatoonsearch": "mangatoonsearch", "umi-searchmangatoon": "searchmangatoon", "mangatoon": "mangatoon", "mtoon": "mtoon", "mangatoonsearch": "mangatoonsearch", "searchmangatoon": "searchmangatoon"}, "description": "Cari komik di Mangatoon", "usage": ".mangatoon <query>", "example": ".mangatoon love", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/mangatoon.js", metadata, m, extra)

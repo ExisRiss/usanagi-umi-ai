@@ -23,6 +23,15 @@ Panduan lengkap, Bahasa Indonesia. Semua perintah dijalankan di terminal Linux
 
 ---
 
+## 0.1 Kredit
+
+Repo ini memuat kembali kredit penulis asli: `By AlzRiss`, `CREDITS.md`,
+`CREDITS_PELENGKAP.md`, serta kredit pihak ketiga di dalam plugin
+(contoh: `YouTube Player • Fitur By: Anita Putri Azzahra`).
+**Jangan hapus atau ganti kredit itu** saat memakai ulang kode ini.
+
+---
+
 ## 0. Gambaran besar
 
 Ada tiga bagian yang bisa jalan sendiri-sendiri:
@@ -506,6 +515,8 @@ Kalau nama perintah bentrok, versi integrasi memakai awalan `.usanagi-<perintah>
 | Downloader YouTube gagal | IP server diblokir YouTube. Perlu cookies (`data/cookies.txt`) atau proxy |
 | Plugin tidak muncul di menu | Nama berkas harus unik; cek log `Successfully Loaded N Plugins` |
 | Game trading mati | `bot/lib/webgame.json` belum ada / token beda dengan `game-token.txt` |
+| Kartu `.ytplay` tidak mau memutar video | Isi `PLATFORM_PUBLIC_BASE_URL` (atau `global.media.proxyBase`) dengan domain publik bot, lalu buka ulang kartunya. Tanpa itu player hanya memakai embed YouTube. Detail di [bagian 17](#17-memutar-video-youtube-ytplay--proxy-media) |
+| Fitur membalas "belum dikonfigurasi" | Kunci API fitur itu belum diisi. Isi di `global.apiKeys` / halaman Setting / `.env.apikeys`. Lihat [bagian 16](#16-kunci-api-pihak-ketiga-satu-tempat-settingsjs) |
 
 Cek log:
 
@@ -520,7 +531,102 @@ cat data/errors/$(date +%F).jsonl
 
 ---
 
-## 16. Daftar rahasia yang wajib kamu isi sendiri
+## 16. Kunci API pihak ketiga (satu tempat: `settings.js`)
+
+Semua fitur yang butuh API/token **tidak lagi** menyimpan kunci di dalam plugin.
+Pusatnya ada di `bot/config/settings.js` (implementasinya `bot/config/api-keys.js`).
+
+Ada tiga cara mengisi, dipilih otomatis dengan urutan prioritas:
+
+1. `config.js` — cara paling jelas:
+   ```js
+   global.apiKeys = {
+     tenor: 'KUNCI-TENOR',
+     pastebin: 'KUNCI-PASTEBIN',
+     neuralFrames: 'TOKEN-NEURALFRAMES',
+     gemini: 'KUNCI-GEMINI',
+     groq: 'KUNCI-GROQ',
+     openai: 'KUNCI-OPENAI',
+   }
+   ```
+2. Halaman **Setting** di website jadibot (menu `Penyedia` → pilih Tenor /
+   Pastebin / NeuralFrames → tempel key → **SIMPAN KEY**). Nilainya disimpan di
+   `bot/.env.apikeys` mode `600`, di luar repo.
+3. Environment / `.platform.env`:
+   `UMI_TENOR_KEY`, `UMI_PASTEBIN_KEY`, `UMI_NEURALFRAMES_TOKEN`,
+   `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY`.
+
+Yang penting: **kunci kosong bukan error.** Fitur yang membutuhkannya membalas
+pesan singkat, contoh:
+
+```
+📋 ᴘᴀsᴛᴇʙɪɴ
+
+Fitur Upload Pastebin belum dikonfigurasi. Isi global.apiKeys.pastebin di
+config.js atau UMI_PASTEBIN_KEY di .platform.env.
+```
+
+Fitur lain tetap jalan normal, dan log tidak dipenuhi stack trace.
+
+| Fitur | Kunci | Env |
+|---|---|---|
+| Pencarian GIF | `tenor` | `UMI_TENOR_KEY` |
+| Upload teks | `pastebin` | `UMI_PASTEBIN_KEY` |
+| Image to prompt | `neuralFrames` | `UMI_NEURALFRAMES_TOKEN` |
+| Auto-AI / AI Agent | `gemini`, `groq`, `openai` | `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY` |
+
+Mau pakai kunci sendiri tanpa bot? Cukup tambahkan di `API_KEY_ENV` pada
+`bot/config/api-keys.js`, lalu panggil `requireApiKey('namaKunci', 'Label Fitur')`
+di plugin. Tidak perlu menyentuh plugin lain.
+
+---
+
+## 17. Memutar video YouTube (`.ytplay`) — proxy media
+
+`.ytplay` mengirim kartu pemutar HTML ke WhatsApp. Versi lama memakai
+`wss://stream.kanara.my.id` sebagai pengalir video; server itu sudah mati, jadi
+kartu menampilkan **"WebSocket error"** dan videonya tidak pernah diputar.
+Sekarang WebSocket dihapus total dan diganti proxy HTTP milik bot sendiri.
+
+Cara kerjanya:
+
+1. Bot mencari video, lalu mengambil URL media (yt-dlp → SaveTube → Piped/Invidious).
+2. URL media dibungkus lewat `https://<domain-publik-bot>/media/yt?u=<url>`.
+3. Server bot yang meneruskan byte video (Range tetap didukung → geser progres bar jalan).
+4. Kalau proxy belum diatur atau gagal, pemutar mencoba URL langsung; kalau itu juga
+   gagal, kartu berpindah ke pemutar embed YouTube resmi — tanpa tulisan error.
+
+Supaya proxy aktif, isi alamat publik bot (yang bisa dibuka dari HP):
+
+```bash
+# .platform.env
+PLATFORM_PUBLIC_BASE_URL=https://bot.domainkamu.com
+```
+
+atau di `config.js`:
+
+```js
+global.media = {
+  proxyBase: 'https://bot.domainkamu.com',
+  proxyEnabled: true,
+  proxyHosts: [], // tambahan host yang boleh di-proxy
+}
+```
+
+Kalau dibiarkan kosong, bot tetap menjawab `.ytplay` — hanya memakai URL langsung
+dan embed YouTube. Ada juga endpoint manual untuk mengetes:
+
+```bash
+curl -I "https://bot.domainkamu.com/media/yt?u=$(node -e "console.log(encodeURIComponent('https://cdn.contoh.com/video.mp4'))")"
+# HTTP/1.1 206 Partial Content, content-type: video/mp4
+```
+
+Host yang boleh di-proxy dibatasi (googlevideo, youtube, ytimg, savetube, plus
+`global.media.proxyHosts`) supaya endpoint ini tidak jadi open proxy.
+
+---
+
+## 18. Daftar rahasia yang wajib kamu isi sendiri
 
 Repo ini sengaja **tidak** memuat satu pun nilai di bawah. Semua sudah diganti
 placeholder.
@@ -531,6 +637,7 @@ placeholder.
 | `bot/.platform.env` | `PLATFORM_SECRET_KEY`, `PLATFORM_API_SECRET`, `PLATFORM_MEDIA_SIGNING_KEY`, `UMI_DATA_SUPABASE_URL`, `UMI_DATA_SERVICE_ROLE_KEY`, `UMI_DATA_ANON_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_OWNER_IDS`, `TELEGRAM_BACKUP_CHAT_ID`, `GEMINI_API_KEY`, `UMI_CONSOLE_RELAY_SECRET`, `UMI_ERROR_REPORT_SECRET`, `BACKUP_CRON_SECRET`, `BOT_BACKUP_EXPORT_SECRET`, `UMI_UPLOAD_API_TOKEN`, `BLOB_READ_WRITE_TOKEN`, `OWNER_PASSWORD`, `AUTH_SECRET` |
 | `bot/.tunnel.env` | `CLOUDFLARE_TUNNEL_TOKEN` |
 | `bot/lib/webgame.json` | `token` (harus sama dengan `game-token.txt` di server game) |
+| `bot/.env.apikeys` | `UMI_TENOR_KEY`, `UMI_PASTEBIN_KEY`, `UMI_NEURALFRAMES_TOKEN` (dibuat otomatis saat menyimpan key dari halaman Setting website) |
 | Vercel | daftar di [bagian 9.3](#93-environment-variables-di-vercel) |
 
 Cara cepat membuat rahasia acak:

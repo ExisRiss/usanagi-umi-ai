@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "botmode", "category": "group", "aliasMap": {"umi-group-botmode": "botmode", "botmode": "botmode", "setmode": "setmode", "mode": "mode"}, "description": "Atur mode bot untuk grup ini", "usage": ".botmode <md/cpanel/pushkontak/store/otp/all>", "example": ".botmode store", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/botmode.js", metadata, m, extra)

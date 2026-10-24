@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sellall", "category": "rpg", "aliasMap": {"umi-rpg-sellall": "sellall", "umi-sellall": "sellall", "umi-jualsemua": "jualsemua", "umi-quicksell": "quicksell"}, "description": "Jual semua item yang bisa dijual sekaligus", "usage": ".sellall", "example": ".sellall", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/sellall.js", metadata, m, extra)

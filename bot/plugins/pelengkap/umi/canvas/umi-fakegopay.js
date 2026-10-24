@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakegopay", "category": "canvas", "aliasMap": {"umi-canvas-fakegopay": "fakegopay", "umi-fakegopay": "fakegopay", "fakegopay": "fakegopay"}, "description": "Membuat canvas fake gopay", "usage": ".fakegopay <saldo>|<coin>|<terpakai>|<bulan>", "example": ".fakegopay 100000|500|20000|Januari", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakegopay.js", metadata, m, extra)

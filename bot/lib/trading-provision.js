@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Auto-provision akun UMI TRADE ($AS) untuk pemain WhatsApp.
  *
@@ -24,7 +24,7 @@ export function gameConfig() {
     let parsed = {}
     try { parsed = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')) } catch { }
     const token = String(parsed.token || process.env.UMI_GAME_TOKEN || process.env.GAME_TOKEN || '').trim()
-    const baseUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.gwenna.my.id').replace(/\/+$/, '')
+    const baseUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.example.com').replace(/\/+$/, '')
     cache = { at: Date.now(), value: { enabled: parsed.enabled !== false, baseUrl, token } }
     return cache.value
 }

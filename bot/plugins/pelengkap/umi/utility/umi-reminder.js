@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "remind", "category": "utility", "aliasMap": {"umi-utility-remind": "remind", "umi-remind": "remind", "umi-reminder": "reminder", "umi-ingatkan": "ingatkan", "remind": "remind", "reminder": "reminder", "ingatkan": "ingatkan"}, "description": "Membuat pengingat otomatis dengan durasi waktu tertentu", "usage": ".remind <waktu> <pesan>", "example": ".remind 30m Meeting dengan klien", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/utility/reminder.js", metadata, m, extra)

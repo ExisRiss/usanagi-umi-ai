@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "caribug", "category": "tools", "aliasMap": {"umi-tools-caribug": "caribug", "umi-caribug": "caribug", "umi-debug": "debug", "umi-findbug": "findbug", "caribug": "caribug", "debug": "debug", "findbug": "findbug"}, "description": "Cari bug di kode pemrograman", "usage": ".caribug [kode] atau reply kode", "example": ".caribug function test() {}", "cooldown": 20, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/caribug.js", metadata, m, extra)

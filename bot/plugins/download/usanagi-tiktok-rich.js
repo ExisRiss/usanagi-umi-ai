@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { AIRich } from '../../lib/ui/MessageBuilder.js'
 import { resolveTikTokUrl } from './usanagi-tiktok.js'

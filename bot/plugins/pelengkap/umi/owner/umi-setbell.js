@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setbell", "category": "owner", "aliasMap": {"umi-owner-setbell": "setbell", "umi-setbell": "setbell", "umi-set": "set", "setbell": "setbell", "set": "set"}, "description": "Aktif/nonaktifkan AutoAI Bell berbasis Termai/XTerm", "usage": ".set bell on|off", "example": ".set bell on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setbell.js", metadata, m, extra)

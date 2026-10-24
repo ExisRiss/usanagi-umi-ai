@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "genshinstalk", "category": "stalker", "aliasMap": {"umi-stalker-genshinstalk": "genshinstalk", "umi-genshinstalk": "genshinstalk", "umi-genshin": "genshin", "umi-stalkgenshin": "stalkgenshin", "umi-gi": "gi", "genshinstalk": "genshinstalk", "genshin": "genshin", "stalkgenshin": "stalkgenshin", "gi": "gi"}, "description": "Melihat informasi akun Genshin Impact berdasarkan UID.", "usage": ".genshinstalk <uid>", "example": ".genshinstalk 856012067", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/genshinstalk.js", metadata, m, extra)

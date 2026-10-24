@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "disableplugin", "category": "owner", "aliasMap": {"umi-owner-disableplugin": "disableplugin", "umi-disableplugin": "disableplugin", "umi-dplugin": "dplugin", "umi-plugindisable": "plugindisable", "umi-offplugin": "offplugin", "disableplugin": "disableplugin", "dplugin": "dplugin", "plugindisable": "plugindisable", "offplugin": "offplugin"}, "description": "Menonaktifkan plugin tertentu", "usage": ".disableplugin <nama_plugin>", "example": ".disableplugin sticker", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/disableplugin.js", metadata, m, extra)

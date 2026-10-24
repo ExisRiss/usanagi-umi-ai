@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { setAfk, persistAfk } from '../../core/awang-afk.js'
 

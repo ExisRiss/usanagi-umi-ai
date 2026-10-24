@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import fs from 'fs-extra'
 import { ButtonV2 } from '../../lib/awang-tombol.js'

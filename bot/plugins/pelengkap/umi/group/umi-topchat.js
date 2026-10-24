@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "topchat", "category": "group", "aliasMap": {"umi-group-topchat": "topchat", "umi-topchat": "topchat", "umi-chatstat": "chatstat", "umi-chatstats": "chatstats", "umi-totalchat": "totalchat", "topchat": "topchat", "chatstat": "chatstat", "chatstats": "chatstats"}, "description": "Lihat statistik chat member di grup", "usage": ".topchat", "example": ".topchat", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/topchat.js", metadata, m, extra)

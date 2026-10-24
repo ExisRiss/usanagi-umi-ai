@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifclosegroup", "category": "group", "aliasMap": {"umi-group-notifclosegroup": "notifclosegroup", "umi-notifclosegroup": "notifclosegroup", "umi-notifclose": "notifclose", "notifclosegroup": "notifclosegroup", "notifclose": "notifclose"}, "description": "Toggle notifikasi saat grup ditutup", "usage": ".notifclosegroup on/off", "example": ".notifclosegroup on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/notifclosegroup.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakestory4", "category": "canvas", "aliasMap": {"umi-canvas-fakestory4": "fakestory4", "umi-fakestory4": "fakestory4", "umi-fstory4": "fstory4", "umi-igstory4": "igstory4", "umi-albumstory": "albumstory", "fakestory4": "fakestory4", "fstory4": "fstory4", "igstory4": "igstory4", "albumstory": "albumstory"}, "description": "Fake Instagram story dengan 2 gambar berbeda", "usage": ".fakestory4 <nama>", "example": ".fakestory4 Misaki (reply album/2 gambar)", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakestory4.js", metadata, m, extra)

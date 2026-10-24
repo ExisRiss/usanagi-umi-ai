@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "automedia", "category": "group", "aliasMap": {"umi-group-automedia": "automedia", "umi-automedia": "automedia", "umi-automedi": "automedi", "automedia": "automedia", "automedi": "automedi"}, "description": "Toggle auto media - otomatis jadikan sticker jadi gambar/video", "usage": ".automedia on/off", "example": ".automedia on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/automedia.js", metadata, m, extra)

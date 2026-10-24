@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "casino", "category": "rpg", "aliasMap": {"umi-rpg-casino": "casino", "umi-casino": "casino", "umi-judi": "judi", "umi-gamble": "gamble"}, "description": "Bermain casino untuk judi", "usage": ".casino <jumlah>", "example": ".casino 10000", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/casino.js", metadata, m, extra)

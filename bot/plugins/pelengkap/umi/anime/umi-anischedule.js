@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anischedule", "category": "anime", "aliasMap": {"umi-anime-anischedule": "anischedule", "umi-anischedule": "anischedule", "umi-animejadwal": "animejadwal", "umi-jadwalanime": "jadwalanime", "umi-animeday": "animeday", "anischedule": "anischedule", "animejadwal": "animejadwal", "jadwalanime": "jadwalanime", "animeday": "animeday"}, "description": "Menampilkan jadwal tayang anime musim ini (ambil dari API livechart)", "usage": ".anischedule [hari] [musim]", "example": ".anischedule\n.anischedule senin\n.anischedule spring-2025", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/anischedule.js", metadata, m, extra)

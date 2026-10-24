@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "slot2", "category": "game", "aliasMap": {"umi-game-slot2": "slot2", "umi-slot2": "slot2", "umi-slots2": "slots2", "umi-mesin2": "mesin2", "umi-mesinslot2": "mesinslot2", "slots2": "slots2", "mesin2": "mesin2", "mesinslot2": "mesinslot2"}, "description": "Inline Fruit Bonanza slot game", "usage": ".slot2", "example": ".slot2", "cooldown": 1, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/slot2.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fagsocial", "category": "tools", "aliasMap": {"umi-tools-fagsocial": "fagsocial", "umi-fagsocial": "fagsocial", "umi-fag": "fag", "umi-ftt": "ftt", "fagsocial": "fagsocial", "fag": "fag", "ftt": "ftt"}, "description": "Mengubah Foto menjadi Overlay IG Reels (.fag) atau TikTok FYP (.ftt) dengan responsif penuh", "usage": ".fag username | caption  ATAU  .ftt username | caption", "example": ".fag dj_sagara | Chill vibes 🌲✨\n.ftt sagara_tt | FYP Hari Ini 🔥"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fagsocial.js", metadata, m, extra)

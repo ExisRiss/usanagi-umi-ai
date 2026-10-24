@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ptv", "category": "tools", "aliasMap": {"umi-tools-ptv": "ptv", "umi-ptv": "ptv", "umi-pvideo": "pvideo", "umi-circlevideo": "circlevideo", "ptv": "ptv", "pvideo": "pvideo", "circlevideo": "circlevideo"}, "description": "Kirim video sebagai PTV (circle video)", "usage": ".ptv (reply video)", "example": ".ptv", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ptv.js", metadata, m, extra)

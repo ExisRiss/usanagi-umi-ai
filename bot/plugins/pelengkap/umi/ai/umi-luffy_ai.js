@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "luffyai", "category": "ai", "aliasMap": {"umi-ai-luffyai": "luffyai", "umi-luffyai": "luffyai", "umi-luffy": "luffy", "umi-monkeydluffy": "monkeydluffy", "umi-mugiwara": "mugiwara", "luffyai": "luffyai", "luffy": "luffy", "monkeydluffy": "monkeydluffy", "mugiwara": "mugiwara"}, "description": "Chat dengan Monkey D. Luffy — Calon Raja Bajak Laut dari Topi Jerami! 🏴‍☠️", "usage": ".luffyai <pertanyaan>", "example": ".luffyai Halo Luffy!", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/luffy_ai.js", metadata, m, extra)

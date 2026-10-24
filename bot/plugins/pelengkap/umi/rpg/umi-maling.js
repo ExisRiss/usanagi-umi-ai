@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "maling", "category": "rpg", "aliasMap": {"umi-rpg-maling": "maling", "umi-maling": "maling", "umi-copet": "copet", "umi-pickpocket": "pickpocket", "pickpocket": "pickpocket"}, "description": "Mencopet orang di pasar (lebih berisiko dari crime)", "usage": ".maling", "example": ".maling", "cooldown": 180, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/maling.js", metadata, m, extra)

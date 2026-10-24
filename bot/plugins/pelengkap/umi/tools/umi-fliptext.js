@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fliptext", "category": "tools", "aliasMap": {"umi-tools-fliptext": "fliptext", "umi-fliptext": "fliptext", "umi-baliktext": "baliktext", "fliptext": "fliptext", "baliktext": "baliktext"}, "description": "Membalik susunan teks", "usage": ".fliptext <teks>", "example": ".fliptext Umi MD", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fliptext.js", metadata, m, extra)

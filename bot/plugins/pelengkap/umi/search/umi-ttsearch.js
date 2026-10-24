@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ttsearch", "category": "search", "aliasMap": {"umi-search-ttsearch": "ttsearch", "umi-ttsearch": "ttsearch", "umi-tiktoksearch": "tiktoksearch", "umi-tts": "tts", "umi-searchtiktok": "searchtiktok", "searchtiktok": "searchtiktok"}, "description": "Cari video TikTok", "usage": ".ttsearch <query>", "example": ".ttsearch jj epep", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/ttsearch.js", metadata, m, extra)

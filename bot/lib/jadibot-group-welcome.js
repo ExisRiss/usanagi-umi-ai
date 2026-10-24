@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { saveJadibotConfig } from './bot-config.js'
 

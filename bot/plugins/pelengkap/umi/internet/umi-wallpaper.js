@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wallcraft", "category": "internet", "aliasMap": {"umi-internet-wallcraft": "wallcraft", "umi-wallcraft": "wallcraft", "umi-wallcraftsearch": "wallcraftsearch", "umi-walcraft": "walcraft", "umi-wallpaperscraft": "wallpaperscraft", "wallcraft": "wallcraft", "wallcraftsearch": "wallcraftsearch", "walcraft": "walcraft", "wallpaperscraft": "wallpaperscraft"}, "description": "Mencari dan mengunduh wallpaper HD dari Wallcraft", "usage": ".wallcraft <query>", "example": ".wallcraft cyber city", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/internet/wallpaper.js", metadata, m, extra)

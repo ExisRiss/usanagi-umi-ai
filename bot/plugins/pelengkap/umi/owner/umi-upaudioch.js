@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "upaudioch", "category": "owner", "aliasMap": {"umi-owner-upaudioch": "upaudioch", "umi-upaudioch": "upaudioch", "umi-tovnsaluran": "tovnsaluran", "umi-uploadaudioch": "uploadaudioch", "umi-upaudiosaluran": "upaudiosaluran", "upaudioch": "upaudioch", "tovnsaluran": "tovnsaluran", "uploadaudioch": "uploadaudioch", "upaudiosaluran": "upaudiosaluran"}, "description": "Upload audio ke saluran (channel) WhatsApp", "usage": ".upaudioch (reply audio) <teks>", "example": ".upaudioch Pesan dari owner", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/upaudioch.js", metadata, m, extra)

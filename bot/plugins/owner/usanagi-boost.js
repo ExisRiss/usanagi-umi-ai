@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * BOOST EMITEN — nyalakan "harga naik terus" untuk satu saham di game trading.
  *
@@ -37,7 +37,7 @@ function gameConfig() {
   const baseUrl = String(
     process.env.UMI_GAME_INTERNAL_URL || 'http://127.0.0.1:3900',
   ).replace(/\/+$/, '')
-  const publicUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.gwenna.my.id').replace(/\/+$/, '')
+  const publicUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.example.com').replace(/\/+$/, '')
   return { token, baseUrl, publicUrl }
 }
 
@@ -160,7 +160,7 @@ let handler = async (m, { text, command, usedPrefix, isOwner }) => {
       `Selesai  : ${rupiahTime(b.end)}`,
       `Mendarat : ${b.decayMin} menit sesudahnya`,
       '',
-      `Harga ${symbol} akan naik terus selama ${minutes} menit — buka game.gwenna.my.id/trading`,
+      `Harga ${symbol} akan naik terus selama ${minutes} menit — buka game.example.com/trading`,
       '',
       BRAND,
     ].join('\n'))

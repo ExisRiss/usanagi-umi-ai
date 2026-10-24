@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "burik", "category": "fun", "aliasMap": {"umi-fun-burik": "burik", "umi-burik": "burik", "umi-rusak": "rusak", "umi-jelek": "jelek", "burik": "burik", "rusak": "rusak"}, "description": "Membuat foto menjadi burik/rusak", "usage": ".burik (reply foto)", "example": ".burik (reply foto)", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/burik.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cektiktok", "category": "stalker", "aliasMap": {"umi-stalker-cektiktok": "cektiktok", "umi-cektiktok": "cektiktok", "umi-cekakuntt": "cekakuntt", "umi-cektt": "cektt", "cektiktok": "cektiktok", "cekakuntt": "cekakuntt"}, "description": "Cek informasi akun TikTok (terdaftar atau manual)", "usage": ".cektt <username>", "example": ".cektt faizprst7", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/cekakuntt.js", metadata, m, extra)

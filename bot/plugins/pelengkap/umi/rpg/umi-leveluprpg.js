@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "leveluprpg", "category": "rpg", "aliasMap": {"umi-rpg-leveluprpg": "leveluprpg", "umi-leveluprpg": "leveluprpg", "umi-lvluprpg": "lvluprpg", "umi-rpglevelup": "rpglevelup"}, "description": "Toggle notifikasi level up RPG", "usage": ".leveluprpg <on/off>", "example": ".leveluprpg on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/leveluprpg.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ipwho", "category": "tools", "aliasMap": {"umi-tools-ipwho": "ipwho", "umi-ipwho": "ipwho", "umi-ip": "ip", "umi-iplookup": "iplookup", "umi-ipinfo": "ipinfo", "ipwho": "ipwho", "ip": "ip", "iplookup": "iplookup", "ipinfo": "ipinfo"}, "description": "Lookup informasi IP address", "usage": ".ipwho <ip>", "example": ".ipwho 8.8.8.8", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ipwho.js", metadata, m, extra)

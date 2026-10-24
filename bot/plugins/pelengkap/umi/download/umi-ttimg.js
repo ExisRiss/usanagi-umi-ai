@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ttimg", "category": "download", "aliasMap": {"umi-download-ttimg": "ttimg", "umi-ttimg": "ttimg", "umi-tiktokimg": "tiktokimg", "ttimg": "ttimg", "tiktokimg": "tiktokimg"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/ttimg.js", metadata, m, extra)

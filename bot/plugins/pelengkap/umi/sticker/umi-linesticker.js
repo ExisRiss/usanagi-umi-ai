@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "linesticker", "category": "sticker", "aliasMap": {"umi-sticker-linesticker": "linesticker", "umi-linesticker": "linesticker", "umi-linepack": "linepack", "umi-line": "line", "linesticker": "linesticker", "linepack": "linepack", "line": "line"}, "description": "Download sticker pack LINE", "usage": ".linesticker <url>", "example": ".linesticker https://store.line.me/stickershop/product/9801/en", "cooldown": 25, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/linesticker.js", metadata, m, extra)

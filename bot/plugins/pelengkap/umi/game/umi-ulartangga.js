@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ulartangga", "category": "game", "aliasMap": {"umi-game-ulartangga": "ulartangga", "umi-ulartangga": "ulartangga", "umi-ut": "ut", "umi-snakeladder": "snakeladder", "umi-sl": "sl", "ulartangga": "ulartangga", "ut": "ut", "snakeladder": "snakeladder", "sl": "sl"}, "description": "Main ular tangga bersama player lain dengan visual board", "usage": ".ulartangga <create|join|start|info|exit|delete>", "example": ".ulartangga create", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/ulartangga.js", metadata, m, extra)

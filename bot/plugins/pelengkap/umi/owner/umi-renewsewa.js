@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "renewsewa", "category": "owner", "aliasMap": {"umi-owner-renewsewa": "renewsewa", "umi-renewsewa": "renewsewa", "umi-perpanjangsewa": "perpanjangsewa", "umi-extendsewa": "extendsewa", "renewsewa": "renewsewa", "perpanjangsewa": "perpanjangsewa", "extendsewa": "extendsewa"}, "description": "Perpanjang durasi sewa grup", "usage": ".renewsewa <link/id grup> <durasi>", "example": ".renewsewa https://chat.whatsapp.com/xxx 30d", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/renewsewa.js", metadata, m, extra)

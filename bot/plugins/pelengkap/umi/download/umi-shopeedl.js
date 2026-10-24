@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "shopeedl", "category": "download", "aliasMap": {"umi-download-shopeedl": "shopeedl", "umi-shopeedl": "shopeedl", "umi-shopeevideo": "shopeevideo", "umi-shopeevid": "shopeevid", "shopeedl": "shopeedl", "shopeevideo": "shopeevideo", "shopeevid": "shopeevid"}, "description": "Download video dari Shopee", "usage": ".shopeedl <url>", "example": ".shopeedl https://shopee.co.id/universal-link/video/...", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/shopeedl.js", metadata, m, extra)

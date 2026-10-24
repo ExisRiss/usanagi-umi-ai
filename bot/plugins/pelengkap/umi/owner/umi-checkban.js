@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "checkban", "category": "owner", "aliasMap": {"umi-owner-checkban": "checkban", "umi-checkban": "checkban", "checkban": "checkban"}, "description": "Check actual ban state", "usage": ".checkban"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/checkban.js", metadata, m, extra)

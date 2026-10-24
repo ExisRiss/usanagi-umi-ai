@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quotephoto", "category": "maker", "aliasMap": {"umi-maker-quotephoto": "quotephoto", "umi-quotephoto": "quotephoto", "umi-qphoto": "qphoto", "umi-quotepic": "quotepic", "umi-katatutur": "katatutur", "umi-picturequote": "picturequote", "quotephoto": "quotephoto", "qphoto": "qphoto", "quotepic": "quotepic", "katatutur": "katatutur", "picturequote": "picturequote"}, "description": "Buat gambar kata-kata quote estetik di atas kertas", "usage": ".quotephoto teks|author", "example": ".quotephoto Jangan ragu untuk memulai hal baru|Geto", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/quotephoto.js", metadata, m, extra)

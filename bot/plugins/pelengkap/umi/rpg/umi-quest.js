@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quest", "category": "rpg", "aliasMap": {"umi-rpg-quest": "quest", "umi-quest": "quest", "umi-misi": "misi", "umi-mission": "mission", "umi-bounty": "bounty"}, "description": "Ambil quest harian untuk reward bonus", "usage": ".quest", "example": ".quest", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/quest.js", metadata, m, extra)

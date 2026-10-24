@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fishing", "category": "rpg", "aliasMap": {"umi-rpg-fishing": "fishing", "umi-fishing": "fishing", "umi-rpgfish": "rpgfish", "umi-mancing": "mancing"}, "description": "Memancing untuk mendapatkan ikan (RPG)", "usage": ".fishing", "example": ".fishing", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/fishing.js", metadata, m, extra)

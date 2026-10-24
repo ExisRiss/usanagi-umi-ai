@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakekarcis", "category": "canvas", "aliasMap": {"umi-canvas-fakekarcis": "fakekarcis", "umi-fakekarcis": "fakekarcis", "umi-karcisfake": "karcisfake", "umi-tiketbioskop": "tiketbioskop", "umi-faketiketfilm": "faketiketfilm", "fakekarcis": "fakekarcis", "karcisfake": "karcisfake", "tiketbioskop": "tiketbioskop", "faketiketfilm": "faketiketfilm"}, "description": "Bikin fake karcis bioskop (buat konten/gaguan doang)", "usage": ".fakekarcis <nama> | <film> | <jam>", "example": ".fakekarcis Umi | DITF The Movie | 21:00", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakekarcis.js", metadata, m, extra)

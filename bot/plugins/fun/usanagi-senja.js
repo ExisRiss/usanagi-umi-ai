@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const list = [
   'Senja mengajarkan bahwa keindahan bisa datang di akhir hari.',

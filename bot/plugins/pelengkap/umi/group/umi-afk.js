@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "afk", "category": "group", "aliasMap": {"umi-group-afk": "afk", "umi-afk": "afk", "umi-away": "away", "umi-brb": "brb"}, "description": "Set status AFK dengan alasan", "usage": ".afk <alasan>", "example": ".afk lagi makan", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/afk.js", metadata, m, extra)

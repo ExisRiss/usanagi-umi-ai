@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stickerpack", "category": "sticker", "aliasMap": {"umi-sticker-stickerpack": "stickerpack", "umi-stickerpack": "stickerpack", "umi-stickersearch": "stickersearch", "umi-searchsticker": "searchsticker", "stickerpack": "stickerpack", "searchsticker": "searchsticker"}, "description": "Cari dan kirim sticker pack", "usage": ".stickerpack <query>", "example": ".stickerpack anime", "cooldown": 20, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/stickerpack.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "susutaro", "category": "canvas", "aliasMap": {"umi-canvas-susutaro": "susutaro", "umi-susutaro": "susutaro", "umi-taro": "taro", "susutaro": "susutaro", "taro": "taro"}, "description": "Memberikan efek Susu Taro pada gambar", "usage": ".susutaro <reply image>", "example": ".susutaro", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/susutaro.js", metadata, m, extra)

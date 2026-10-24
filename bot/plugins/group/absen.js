@@ -1,6 +1,7 @@
 // group/absen.js
 // Fitur : Mulai Absen + Absen + List Absen + Reset Absen
 // Type  : Plugin ESM
+// By    : AlzRiss
 
 const getData = () => {
     if (!global.db.data.absen) {

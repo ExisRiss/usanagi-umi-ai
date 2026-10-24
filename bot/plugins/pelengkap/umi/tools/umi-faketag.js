@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "faketag", "category": "tools", "aliasMap": {"umi-tools-faketag": "faketag", "umi-faketag": "faketag", "umi-ftag": "ftag", "umi-fake": "fake", "faketag": "faketag", "ftag": "ftag", "fake": "fake"}, "description": "Fake tag ala Umi", "usage": ".faketag @user|pesan tag|pesan", "example": ".faketag 628xxx|Darling...|Kamu dimana? 💕", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/faketag.js", metadata, m, extra)

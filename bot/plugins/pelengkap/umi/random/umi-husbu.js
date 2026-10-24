@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "husbu", "category": "random", "aliasMap": {"umi-random-husbu": "husbu", "umi-husbu": "husbu", "umi-husbando": "husbando", "husbu": "husbu", "husbando": "husbando"}, "description": "Random gambar husbu/husbando anime", "usage": ".husbu", "example": ".husbu", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/husbu.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cancelorder", "category": "store", "aliasMap": {"umi-store-cancelorder": "cancelorder", "umi-cancelorder": "cancelorder", "umi-batalorder": "batalorder", "umi-batalkanorder": "batalkanorder", "cancelorder": "cancelorder", "batalorder": "batalorder", "batalkanorder": "batalkanorder"}, "description": "Batalkan order", "usage": ".cancelorder <order_id>", "example": ".cancelorder ORD20260111ABC123", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/cancelorder.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tocartoon", "category": "ai", "aliasMap": {"umi-ai-tocartoon": "tocartoon", "umi-tocartoon": "tocartoon", "umi-cartoon": "cartoon", "umi-cartoonify": "cartoonify", "umi-tooncartoon": "tooncartoon", "tocartoon": "tocartoon", "cartoon": "cartoon", "cartoonify": "cartoonify", "tooncartoon": "tooncartoon"}, "description": "Ubah foto menjadi gaya kartun", "usage": ".tocartoon (reply/kirim gambar)", "example": ".tocartoon", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/tocartoon.js", metadata, m, extra)

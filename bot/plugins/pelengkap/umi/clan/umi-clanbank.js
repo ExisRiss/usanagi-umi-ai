@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanbank", "category": "clan", "aliasMap": {"umi-clan-clanbank": "clanbank", "umi-clanbank": "clanbank", "umi-kasclan": "kasclan", "umi-clanbalance": "clanbalance", "clanbank": "clanbank", "kasclan": "kasclan", "clanbalance": "clanbalance"}, "description": "Cek saldo kas clan", "usage": ".clanbank", "example": ".clanbank", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanbank.js", metadata, m, extra)

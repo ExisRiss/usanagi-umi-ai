@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anime-waifu, Waifu-anime", "category": "anime", "aliasMap": {"umi-anime-anime-waifu, waifu-anime": "anime-waifu, waifu-anime", "umi-randomwaifu": "randomwaifu", "umi-waifurandom": "waifurandom", "umi-waifupic": "waifupic", "randomwaifu": "randomwaifu", "waifurandom": "waifurandom", "waifupic": "waifupic"}, "description": "Random gambar waifu dari berbagai sumber", "usage": ".waifu", "example": ".waifu", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/waifu_anime.js", metadata, m, extra)

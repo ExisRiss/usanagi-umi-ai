@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "grammarly", "category": "tools", "aliasMap": {"umi-tools-grammarly": "grammarly", "umi-grammarly": "grammarly", "umi-aidetector": "aidetector", "umi-checkai": "checkai", "umi-grammarlyai": "grammarlyai", "grammarly": "grammarly", "aidetector": "aidetector", "checkai": "checkai", "grammarlyai": "grammarlyai"}, "description": "Mengecek persentase teks AI menggunakan Grammarly AI Detector", "usage": ".grammarly <teks yang ingin dicek>", "example": ".grammarly Hello world, this is a test text to check AI score.", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/grammary.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import pino from 'pino'
 import { downloadMediaMessage } from '@rexxhayanasi/elaina-baileys'

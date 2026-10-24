@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "public", "category": "owner", "aliasMap": {"umi-owner-public": "public", "umi-public": "public", "umi-publicmode": "publicmode", "publicmode": "publicmode"}, "description": "Mengaktifkan mode public (semua user bisa akses)", "usage": ".public", "example": ".public", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/public.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const list = [
   'Jangan biarkan kegagalan menghentikan langkahmu. Gagal adalah guru terbaik.',

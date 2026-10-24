@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "spotifydl", "category": "download", "aliasMap": {"umi-download-spotifydl": "spotifydl", "umi-spotifydl": "spotifydl", "umi-spdl": "spdl", "umi-spotify-dl": "spotify-dl", "umi-spotdl": "spotdl", "spotifydl": "spotifydl", "spotify-dl": "spotify-dl"}, "description": "Unduh lagu favoritmu langsung dari Spotify tanpa ribet!", "usage": ".spdl <link>", "example": ".spdl https://open.spotify.com/track/...", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/spotifydl.js", metadata, m, extra)

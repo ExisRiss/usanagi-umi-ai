@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "speedydash", "category": "game", "aliasMap": {"umi-game-speedydash": "speedydash", "umi-speedydash": "speedydash", "umi-speedydashgame": "speedydashgame", "speedydash": "speedydash", "speedydashgame": "speedydashgame"}, "description": "Main game endless runner Speedy Dash langsung di chat, kumpulin ring dan hindari musuh", "usage": "", "example": ".dash", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/speedydash.js", metadata, m, extra)

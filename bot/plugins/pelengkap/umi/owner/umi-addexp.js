@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addexp", "category": "owner", "aliasMap": {"umi-owner-addexp": "addexp", "umi-addexp": "addexp", "umi-tambahexp": "tambahexp", "umi-giveexp": "giveexp", "umi-addxp": "addxp", "tambahexp": "tambahexp", "giveexp": "giveexp", "addxp": "addxp"}, "description": "Tambah exp user (max 9 Miliar)", "usage": ".addexp <jumlah> @user", "example": ".addexp 10000 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addexp.js", metadata, m, extra)

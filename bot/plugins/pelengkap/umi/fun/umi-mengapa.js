@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mengapa", "category": "fun", "aliasMap": {"umi-fun-mengapa": "mengapa", "umi-mengapa": "mengapa", "umi-kenapa": "kenapa", "umi-why": "why"}, "description": "Tanya bot mengapa sesuatu", "usage": ".mengapa <pertanyaan>", "example": ".mengapa langit biru?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/mengapa.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekpacar", "category": "fun", "aliasMap": {"umi-fun-cekpacar": "cekpacar", "umi-cekpacar": "cekpacar", "umi-pacar": "pacar", "umi-pasangan": "pasangan", "umi-gebetan": "gebetan", "pasangan": "pasangan", "gebetan": "gebetan"}, "description": "Cek status hubungan seseorang", "usage": ".cekpacar atau .cekpacar @tag", "example": ".cekpacar", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/cekpacar.js", metadata, m, extra)

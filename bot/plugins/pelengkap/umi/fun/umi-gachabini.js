@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gachabini", "category": "fun", "aliasMap": {"umi-fun-gachabini": "gachabini", "umi-gachabini": "gachabini", "gachabini": "gachabini"}, "description": "Gacha bini waifu random 300+ karakter", "usage": ".gachabini"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/gachabini.js", metadata, m, extra)

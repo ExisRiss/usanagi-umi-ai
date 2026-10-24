@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mining", "category": "rpg", "aliasMap": {"umi-rpg-mining": "mining", "umi-mining": "mining", "umi-mine": "mine", "umi-tambang": "tambang"}, "description": "Menambang untuk mendapatkan ores dan gems", "usage": ".mining", "example": ".mining", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/mining.js", metadata, m, extra)

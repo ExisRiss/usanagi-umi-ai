@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "logo-gold", "category": "maker", "aliasMap": {"umi-maker-logo-gold": "logo-gold", "umi-logo-gold": "logo-gold", "umi-logogold": "logogold", "umi-goldlogo": "goldlogo", "umi-goldtext": "goldtext", "umi-emastulisan": "emastulisan", "logo-gold": "logo-gold", "logogold": "logogold", "goldlogo": "goldlogo", "goldtext": "goldtext", "emastulisan": "emastulisan"}, "description": "Buat logo dengan efek emas mewah (gold premium)", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/logogold.js", metadata, m, extra)

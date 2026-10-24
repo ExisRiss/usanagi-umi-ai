@@ -6,6 +6,7 @@
  *   .gamehub / .games / .richgame - Tampilkan menu game interaktif
  *   .playgame <nama>              - Mainkan game dari hub
  * 
+ * By AlzRiss - Usanagi Umi AI (clean-room build)
  */
 
 import { proto, generateWAMessageFromContent, prepareWAMessageMedia } from '@rexxhayanasi/elaina-baileys'

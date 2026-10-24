@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sholawat", "category": "religi", "aliasMap": {"umi-religi-sholawat": "sholawat", "umi-sholawat": "sholawat", "umi-shalawat": "shalawat", "umi-selawat": "selawat", "umi-sholawatnabi": "sholawatnabi", "sholawat": "sholawat", "shalawat": "shalawat", "selawat": "selawat", "sholawatnabi": "sholawatnabi"}, "description": "Kumpulan Sholawat Nabi lengkap dengan Arab, Latin, Arti, dan Keutamaan", "usage": ".sholawat <nama sholawat>", "example": ".sholawat nariyah", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/sholawat.js", metadata, m, extra)

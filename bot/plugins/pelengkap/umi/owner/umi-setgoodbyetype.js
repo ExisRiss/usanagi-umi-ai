@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setgoodbyetype", "category": "owner", "aliasMap": {"umi-owner-setgoodbyetype": "setgoodbyetype", "umi-setgoodbyetype": "setgoodbyetype", "umi-goodbyetype": "goodbyetype", "umi-goodbyevariant": "goodbyevariant", "umi-goodbyestyle": "goodbyestyle", "setgoodbyetype": "setgoodbyetype", "goodbyetype": "goodbyetype", "goodbyevariant": "goodbyevariant", "goodbyestyle": "goodbyestyle"}, "description": "Mengatur variant tampilan goodbye message", "usage": ".setgoodbyetype", "example": ".setgoodbyetype", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setgoodbyetype.js", metadata, m, extra)

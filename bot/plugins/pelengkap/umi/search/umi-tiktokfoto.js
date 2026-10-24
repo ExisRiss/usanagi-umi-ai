@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tiktokfoto", "category": "search", "aliasMap": {"umi-search-tiktokfoto": "tiktokfoto", "umi-tiktokfoto": "tiktokfoto", "umi-ttfoto": "ttfoto", "umi-ttphotosearch": "ttphotosearch", "umi-searchtiktokfoto": "searchtiktokfoto", "tiktokfoto": "tiktokfoto", "ttfoto": "ttfoto", "ttphotosearch": "ttphotosearch", "searchtiktokfoto": "searchtiktokfoto"}, "description": "Cari foto TikTok dan kirim album gambar", "usage": ".tiktokfoto <query>", "example": ".tiktokfoto cosplay", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/tiktokfoto.js", metadata, m, extra)

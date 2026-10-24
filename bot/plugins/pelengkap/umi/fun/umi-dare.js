@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dare", "category": "fun", "aliasMap": {"umi-fun-dare": "dare", "umi-dare": "dare", "umi-dareq": "dareq", "umi-tantang": "tantang", "dareq": "dareq"}, "description": "Random tantangan dare", "usage": ".dare", "example": ".dare", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/dare.js", metadata, m, extra)

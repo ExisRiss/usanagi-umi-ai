@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gura", "category": "canvas", "aliasMap": {"umi-canvas-gura": "gura", "umi-gura": "gura", "umi-guracanvas": "guracanvas", "gura": "gura", "guracanvas": "guracanvas"}, "description": "Bikin efek canvas gura dari fotomu", "usage": ".gura (reply/kirim foto)", "example": ".gura", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/gura.js", metadata, m, extra)

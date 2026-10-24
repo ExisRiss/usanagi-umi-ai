@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * HTML game ULAR TANGGA untuk WhatsApp (rich message).
  * Mandiri: tanpa aset eksternal, tanpa internet. Papan digambar dengan CSS grid,

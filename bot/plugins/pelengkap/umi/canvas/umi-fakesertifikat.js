@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakesertifikat", "category": "canvas", "aliasMap": {"umi-canvas-fakesertifikat": "fakesertifikat", "umi-fakesertifikat": "fakesertifikat", "umi-sertifikatfake": "sertifikatfake", "umi-fakecert": "fakecert", "fakesertifikat": "fakesertifikat", "sertifikatfake": "sertifikatfake", "fakecert": "fakecert"}, "description": "Bikin fake sertifikat penghargaan (buat konten/gaguan doang)", "usage": ".fakesertifikat <nama> | <penghargaan>", "example": ".fakesertifikat Umi | Best Darling Award", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakesertifikat.js", metadata, m, extra)

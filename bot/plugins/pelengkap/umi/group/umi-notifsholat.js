@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifsholat", "category": "group", "aliasMap": {"umi-group-notifsholat": "notifsholat", "umi-notifsholat": "notifsholat", "umi-notifsolat": "notifsolat", "notifsholat": "notifsholat", "notifsolat": "notifsolat"}, "description": "Toggle notifikasi sholat untuk grup ini", "usage": ".notifsholat on/off", "example": ".notifsholat on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/notifsholat.js", metadata, m, extra)

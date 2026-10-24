@@ -2,6 +2,7 @@
  * TO URL - PONE.RS
  * Type    : Plugin ESM
  * Support : All Media
+  * By AlzRiss - Usanagi Umi AI
  */
 
 import path from 'node:path'

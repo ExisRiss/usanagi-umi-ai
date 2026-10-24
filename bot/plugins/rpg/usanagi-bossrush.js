@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { buildRpgContext } from '../../lib/rpg/awang-context.js'
 import { runWorldFeature } from '../../lib/rpg/awang-world.js'

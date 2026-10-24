@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "zikir", "category": "religi", "aliasMap": {"umi-religi-zikir": "zikir", "umi-zikir": "zikir", "umi-dzikir": "dzikir", "umi-wirid": "wirid", "umi-zikirpagi": "zikirpagi", "umi-zikirpetang": "zikirpetang", "zikir": "zikir", "dzikir": "dzikir", "wirid": "wirid", "zikirpagi": "zikirpagi", "zikirpetang": "zikirpetang"}, "description": "Kumpulan Zikir Harian (Pagi, Petang, Setelah Sholat, dan Lainnya)", "usage": ".zikir <pagi/petang/sholat>", "example": ".zikir pagi", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/zikir.js", metadata, m, extra)

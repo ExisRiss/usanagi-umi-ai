@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "izen", "category": "tools", "aliasMap": {"umi-tools-izen": "izen", "umi-izen": "izen", "umi-skiplink": "skiplink", "izen": "izen"}, "description": "Bypass shortlink / skiplink menggunakan izen", "usage": ".izen link", "example": ".izen https://sfl.gl/xxxxx", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/izen.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sstablet", "category": "tools", "aliasMap": {"umi-tools-sstablet": "sstablet", "umi-sstablet": "sstablet", "umi-sstab": "sstab", "umi-sweb": "sweb", "sstablet": "sstablet", "sstab": "sstab", "sweb": "sweb"}, "description": "Mengambil screenshot website tampilan tablet", "usage": ".sstablet <url>", "example": ".sstablet https://google.com", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/sstablet.js", metadata, m, extra)

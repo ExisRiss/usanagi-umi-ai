@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delpp", "category": "tools", "aliasMap": {"umi-tools-delpp": "delpp", "umi-delpp": "delpp", "umi-delprofilebot": "delprofilebot", "umi-delppbot": "delppbot", "umi-hapusppbot": "hapusppbot", "delpp": "delpp", "delprofilebot": "delprofilebot", "delppbot": "delppbot", "hapusppbot": "hapusppbot"}, "description": "Menghapus foto profil bot", "usage": ".delpp", "example": ".delpp", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/delpp.js", metadata, m, extra)

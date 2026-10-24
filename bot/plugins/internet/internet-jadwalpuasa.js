@@ -2,6 +2,7 @@
  *  jadwal puasa 
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  Api : https://api.myquran.com
  */
 import axios from 'axios'

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tembak", "category": "fun", "aliasMap": {"umi-fun-tembak": "tembak", "umi-tembak": "tembak", "umi-nembak": "nembak"}, "description": "Menembak seseorang untuk pacaran", "usage": ".tembak @tag", "example": ".tembak @628xxx", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/tembak.js", metadata, m, extra)

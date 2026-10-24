@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 /**
  * .premium — atur mode premium bot.
  *

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const localTruth = [
   'Acara tv apa yang paling memuakkan? Berikan alasannya!',

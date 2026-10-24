@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "aisantai", "category": "ai", "aliasMap": {"umi-ai-aisantai": "aisantai", "umi-aisantai": "aisantai", "umi-ceai": "ceai", "umi-chateverywhere": "chateverywhere", "umi-ce": "ce", "umi-chatgpt": "chatgpt", "aisantai": "aisantai", "ceai": "ceai", "chateverywhere": "chateverywhere", "ce": "ce", "chatgpt": "chatgpt"}, "description": "Chat dengan AI santai (ChatEverywhere)", "usage": ".aisantai <pesan>", "example": ".aisantai Halo bro", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/aisantai.js", metadata, m, extra)

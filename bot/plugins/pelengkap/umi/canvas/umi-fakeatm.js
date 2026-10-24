@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeatm", "category": "canvas", "aliasMap": {"umi-canvas-fakeatm": "fakeatm", "umi-fakeatm": "fakeatm", "umi-atmfake": "atmfake", "umi-kartuatm": "kartuatm", "umi-fakecardatm": "fakecardatm", "fakeatm": "fakeatm", "atmfake": "atmfake", "kartuatm": "kartuatm", "fakecardatm": "fakecardatm"}, "description": "Bikin fake kartu ATM (buat konten/gaguan doang)", "usage": ".fakeatm <nama> | <bank>", "example": ".fakeatm Umi | BCA", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeatm.js", metadata, m, extra)

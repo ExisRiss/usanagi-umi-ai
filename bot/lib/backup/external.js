@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Salinan backup ke storage eksternal (bukan disk yang sama dengan database).
  *

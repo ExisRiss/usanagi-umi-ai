@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "levelup", "category": "user", "aliasMap": {"umi-user-levelup": "levelup", "umi-levelup": "levelup", "umi-lvlup": "lvlup", "umi-levelnotif": "levelnotif", "lvlup": "lvlup", "levelnotif": "levelnotif"}, "description": "Toggle notifikasi level up", "usage": ".levelup <on/off>", "example": ".levelup on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/levelup.js", metadata, m, extra)

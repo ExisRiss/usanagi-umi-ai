@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wwchar", "category": "info", "aliasMap": {"umi-info-wwchar": "wwchar", "umi-wwchar": "wwchar", "wwchar": "wwchar"}, "description": "Informasi karakter Wuthering Waves", "usage": ".wwchar <nama karakter>", "example": ".wwchar Chisa", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/wwchar.js", metadata, m, extra)

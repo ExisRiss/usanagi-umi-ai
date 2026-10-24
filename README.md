@@ -3,8 +3,10 @@
 Bot WhatsApp multi-device (Baileys, ESM) lengkap dengan platform jadibot berbasis website,
 server game web (multiplayer + trading + RPG), dan skrip deploy untuk panel Pterodactyl / VPS.
 
-Repo ini berisi **source code apa adanya** dari versi yang berjalan di produksi, sudah
-dibersihkan: tidak ada API key, token, nomor telepon, email, atau kredensial server.
+Repo ini berisi **source code apa adanya** dari versi yang berjalan di produksi. Kredensial
+(API key, token, nomor owner, email, rahasia server) sudah diganti placeholder, sedangkan
+**kredit penulis dipertahankan utuh** — lihat [`bot/CREDITS.md`](bot/CREDITS.md) dan
+[`bot/CREDITS_PELENGKAP.md`](bot/CREDITS_PELENGKAP.md).
 
 > **Baru pertama kali?** Baca **[TUTORIAL.md](TUTORIAL.md)** — panduan langkah demi langkah
 > dari nol sampai bot online, termasuk cara mengisi kredensial sendiri.
@@ -66,9 +68,19 @@ website, game server, deploy panel).
 | `bot/.backup-system.env` | opsional | jadwal & retensi backup |
 | `bot/.tunnel.env` | opsional | token Cloudflare Tunnel (akses publik API) |
 | `bot/lib/webgame.json` | untuk trading | alamat + token server game |
+| `bot/.env.apikeys` | opsional | kunci API pihak ketiga (dibuat dari halaman Setting website) |
 
 Semua berkas di atas **sudah di-`.gitignore`**. Contoh bentuknya ada di
 `*.example.env` / `*.example.json` / `config.example.js`.
+
+### Kunci API pihak ketiga
+
+Semua fitur yang butuh API/token membaca kuncinya dari satu tempat:
+`bot/config/settings.js` (`global.apiKeys`), berkas `.env.apikeys` yang diisi dari
+halaman Setting website, atau environment (`UMI_TENOR_KEY`, `UMI_PASTEBIN_KEY`,
+`UMI_NEURALFRAMES_TOKEN`, `GEMINI_API_KEY`, …). Kalau kosong, fitur terkait hanya
+membalas "belum dikonfigurasi" — tidak crash dan tidak mengganggu fitur lain.
+Panduan lengkap: [TUTORIAL bagian 16](TUTORIAL.md#16-kunci-api-pihak-ketiga-satu-tempat-settingsjs).
 
 ## Catatan keamanan
 
@@ -80,5 +92,7 @@ Semua berkas di atas **sudah di-`.gitignore`**. Contoh bentuknya ada di
 
 ## Lisensi
 
-MIT — lihat [LICENSE](LICENSE). Sebagian plugin berasal dari proyek komunitas terbuka;
-berkas kredit tidak disertakan dalam repo ini.
+MIT — lihat [LICENSE](LICENSE). Sebagian plugin berasal dari proyek komunitas terbuka.
+Kredit penulis asli dipertahankan: `By AlzRiss` pada banyak berkas, `CREDITS.md`,
+`CREDITS_PELENGKAP.md`, plugin kredit (`umi-credit.js`, `credit.js`), dan kredit
+pihak ketiga di dalam plugin. **Mohon jangan hapus atau ganti kredit tersebut.**

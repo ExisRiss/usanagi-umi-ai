@@ -2,6 +2,7 @@
 TikTok Downloader
 Base : https://www.tiktok.com
 Support Image slide dan video
+ * By AlzRiss - Usanagi Umi AI
 ESM Plugin Version
 */
 

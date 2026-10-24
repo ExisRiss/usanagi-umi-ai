@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "catur", "category": "game", "aliasMap": {"umi-game-catur": "catur", "umi-catur": "catur", "umi-chess": "chess", "umi-caturn": "caturn", "umi-rcatur": "rcatur", "caturn": "caturn", "rcatur": "rcatur"}, "description": "Inline Chess game", "usage": ".catur", "example": ".catur", "cooldown": 1, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/catur.js", metadata, m, extra)

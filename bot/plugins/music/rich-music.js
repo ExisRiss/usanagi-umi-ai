@@ -7,6 +7,7 @@
  *   .richplay <judul>    - Rich card version (alias)
  *   .song <judul>        - Search lagu
  * 
+ * By AlzRiss - Usanagi Umi AI (clean-room build)
  */
 
 import yts from 'yt-search'

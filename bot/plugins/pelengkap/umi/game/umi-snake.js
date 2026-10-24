@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "snake", "category": "game", "aliasMap": {"umi-game-snake": "snake", "umi-snake": "snake", "umi-ular": "ular", "umi-ularrimba": "ularrimba", "umi-snakegame": "snakegame"}, "description": "Game Snake inline HTML dengan kontrol sentuh dan keyboard", "usage": ".snake", "example": ".snake", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/snake.js", metadata, m, extra)

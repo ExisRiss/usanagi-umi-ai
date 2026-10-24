@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "shinigami", "category": "search", "aliasMap": {"umi-search-shinigami": "shinigami", "umi-shini": "shini", "umi-shinigamisearch": "shinigamisearch", "shini": "shini", "shinigamisearch": "shinigamisearch"}, "description": "Mencari manga/manhwa di Shinigami", "usage": ".shinigami <judul/genre>", "example": ".shinigami solo leveling", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/shinigami.js", metadata, m, extra)

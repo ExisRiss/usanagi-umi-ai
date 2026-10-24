@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "level", "category": "user", "aliasMap": {"umi-user-level": "level", "umi-level": "level", "umi-lvl": "lvl", "umi-ceklevel": "ceklevel", "level": "level", "lvl": "lvl", "ceklevel": "ceklevel"}, "description": "Cek level user", "usage": ".level [@user]", "example": ".level", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/level.js", metadata, m, extra)

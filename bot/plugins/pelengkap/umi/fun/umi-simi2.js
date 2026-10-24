@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "simi2", "category": "fun", "aliasMap": {"umi-fun-simi2": "simi2", "umi-simi2": "simi2", "umi-simisimi2": "simisimi2", "simi2": "simi2", "simisimi2": "simisimi2"}, "description": "Simi chat variant dari Tensura.", "usage": ".simi2 <teks>", "example": ".simi2 <teks>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/simi2.js", metadata, m, extra)

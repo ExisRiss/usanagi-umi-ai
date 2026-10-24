@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hourly", "category": "rpg", "aliasMap": {"umi-rpg-hourly": "hourly", "umi-hourly": "hourly", "umi-jam": "jam", "umi-perjam": "perjam"}, "description": "Klaim hadiah per jam", "usage": ".hourly", "example": ".hourly", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/hourly.js", metadata, m, extra)

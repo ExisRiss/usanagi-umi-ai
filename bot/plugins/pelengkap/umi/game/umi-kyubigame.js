@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kyubigame", "category": "game", "aliasMap": {"umi-game-kyubigame": "kyubigame", "umi-kyubigame": "kyubigame", "umi-kyubi": "kyubi", "umi-naruto": "naruto", "umi-shinobi": "shinobi", "kyubigame": "kyubigame", "kyubi": "kyubi", "naruto": "naruto", "shinobi": "shinobi"}, "description": "Jelajahi dunia shinobi dan hadapi musuh Ninja terkuat", "usage": ".kyubigame", "example": ".kyubigame", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/kyubigame.js", metadata, m, extra)

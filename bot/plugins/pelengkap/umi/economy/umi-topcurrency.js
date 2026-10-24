@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "topcurrency", "category": "economy", "aliasMap": {"umi-economy-topcurrency": "topcurrency", "umi-topcurrency": "topcurrency", "umi-topmatauang": "topmatauang", "umi-rankcurrency": "rankcurrency", "topcurrency": "topcurrency", "topmatauang": "topmatauang", "rankcurrency": "rankcurrency"}, "description": "Lihat leaderboard per mata uang", "usage": ".topcurrency <matauang>", "example": ".topcurrency idr", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/economy/topcurrency.js", metadata, m, extra)

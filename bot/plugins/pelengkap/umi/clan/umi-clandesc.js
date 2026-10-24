@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clandesc", "category": "clan", "aliasMap": {"umi-clan-clandesc": "clandesc", "umi-clandesc": "clandesc", "umi-editdesc": "editdesc", "umi-clandescription": "clandescription", "clandesc": "clandesc", "editdesc": "editdesc", "clandescription": "clandescription"}, "description": "Edit deskripsi clan", "usage": ".clandesc <deskripsi>", "example": ".clandesc Clan pejuang sejati", "cooldown": 15, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clandesc.js", metadata, m, extra)

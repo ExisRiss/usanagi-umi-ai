@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wuwa", "category": "anime", "aliasMap": {"umi-anime-wuwa": "wuwa", "umi-wuwa": "wuwa", "umi-wuwasheet": "wuwasheet", "umi-wutheringwaves": "wutheringwaves", "umi-wuwa-sheets": "wuwa-sheets", "wuwa": "wuwa", "wuwasheet": "wuwasheet", "wutheringwaves": "wutheringwaves", "wuwa-sheets": "wuwa-sheets"}, "description": "Menampilkan sheet material karakter Wuthering Waves", "usage": ".wuwa <nama karakter>", "example": ".wuwa sanhua", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/wuwa.js", metadata, m, extra)

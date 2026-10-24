@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "p302", "category": "canvas", "aliasMap": {"umi-canvas-p302": "p302", "umi-p302": "p302", "p302": "p302"}, "description": "Buat logo 3D metal (p302)", "usage": ".p302 <teks>", "example": ".p302 Fauzan", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/p302.js", metadata, m, extra)

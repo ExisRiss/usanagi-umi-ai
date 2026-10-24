@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakegroupv2", "category": "maker", "aliasMap": {"umi-maker-fakegroupv2": "fakegroupv2", "umi-fakegroupv2": "fakegroupv2", "fakegroupv2": "fakegroupv2"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakegroupv2.js", metadata, m, extra)

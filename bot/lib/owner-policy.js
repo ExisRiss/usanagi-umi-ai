@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Kebijakan akses owner untuk sesi Jadibot (bot milik user).
  *

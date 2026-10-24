@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delsewa", "category": "owner", "aliasMap": {"umi-owner-delsewa": "delsewa", "umi-delsewa": "delsewa", "umi-sewadel": "sewadel", "umi-hapussewa": "hapussewa", "umi-removesewa": "removesewa", "delsewa": "delsewa", "sewadel": "sewadel", "hapussewa": "hapussewa", "removesewa": "removesewa"}, "description": "Hapus grup dari whitelist sewa", "usage": ".delsewa <link/id grup>", "example": ".delsewa https://chat.whatsapp.com/xxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/delsewa.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekoverpower", "category": "cek", "aliasMap": {"umi-cek-cekoverpower": "cekoverpower", "umi-cekoverpower": "cekoverpower", "umi-overpower": "overpower", "umi-op": "op"}, "description": "Cek tingkat overpower kamu", "usage": ".cekoverpower <nama>", "example": ".cekoverpower Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cekoverpower.js", metadata, m, extra)

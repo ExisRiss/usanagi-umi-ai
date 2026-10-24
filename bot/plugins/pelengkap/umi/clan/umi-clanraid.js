@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanraid", "category": "clan", "aliasMap": {"umi-clan-clanraid": "clanraid", "umi-clanraid": "clanraid", "umi-raid": "raid", "umi-clanevent": "clanevent", "clanraid": "clanraid", "raid": "raid", "clanevent": "clanevent"}, "description": "Mulai raid event clan", "usage": ".clanraid", "example": ".clanraid", "cooldown": 3600, "energi": 10}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanraid.js", metadata, m, extra)

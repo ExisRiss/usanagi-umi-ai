@@ -2,6 +2,7 @@
 ❀ fitur : payment 
 ❀ cara pakai : .addpay nama payment trus reply foto atau url image contoh .addpay dana|085523568687, buat tampilkan payment comand nya .pay, buat liat list paymen .listpay , buat delete payment .delpay nama payment contoh .delpay dana 
 ❀ note : sesuain sama SC kalian
+ * By AlzRiss - Usanagi Umi AI
 */
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs'

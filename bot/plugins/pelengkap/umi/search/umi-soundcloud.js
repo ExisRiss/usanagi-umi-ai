@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "soundcloud", "category": "search", "aliasMap": {"umi-search-soundcloud": "soundcloud", "umi-soundcloud": "soundcloud", "umi-scsearch": "scsearch", "umi-scs": "scs", "scsearch": "scsearch", "scs": "scs"}, "description": "Cari lagu di SoundCloud", "usage": ".soundcloud judul", "example": ".soundcloud Only We Know", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/soundcloud.js", metadata, m, extra)

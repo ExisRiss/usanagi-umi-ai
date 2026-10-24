@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jpmslide", "category": "owner", "aliasMap": {"umi-owner-jpmslide": "jpmslide", "umi-jpmslide": "jpmslide", "jpmslide": "jpmslide"}, "description": "JPM carousel/slide ke semua grup yang diikuti bot", "usage": ".jpmslide", "example": ".jpmslide", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/jpmslide.js", metadata, m, extra)

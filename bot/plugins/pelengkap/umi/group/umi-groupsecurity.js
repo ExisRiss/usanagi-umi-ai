@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "groupsecurity", "category": "group", "aliasMap": {"umi-group-groupsecurity": "groupsecurity", "umi-groupsecurity": "groupsecurity", "umi-grupsecurity": "grupsecurity", "umi-groupsec": "groupsec", "umi-grupsec": "grupsec", "umi-securitygrup": "securitygrup", "groupsecurity": "groupsecurity", "grupsecurity": "grupsecurity", "groupsec": "groupsec", "grupsec": "grupsec", "securitygrup": "securitygrup"}, "description": "Preset keamanan grup ketat untuk berbagai proteksi Umi", "usage": ".groupsecurity <on/off/status>", "example": ".groupsecurity on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/groupsecurity.js", metadata, m, extra)

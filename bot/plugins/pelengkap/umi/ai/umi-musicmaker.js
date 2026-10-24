@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "musicmaker", "category": "ai", "aliasMap": {"umi-ai-musicmaker": "musicmaker", "umi-musicmaker": "musicmaker", "umi-bikinlagu": "bikinlagu", "umi-suno": "suno", "musicmaker": "musicmaker", "bikinlagu": "bikinlagu", "suno": "suno"}, "description": "Membuat musik atau lagu menggunakan AI dari teks (prompt)", "usage": ".musicmaker <prompt>", "example": ".musicmaker Lagu sedih tentang perpisahan dengan musik piano", "cooldown": 30, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/musicmaker.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "creator2", "category": "main", "aliasMap": {"umi-main-creator2": "creator2", "umi-creator2": "creator2", "umi-owner2": "owner2", "creator2": "creator2", "owner2": "owner2"}, "description": "Varian kontak owner dari Tensura.", "usage": ".creator2", "example": ".creator2", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/creator2.js", metadata, m, extra)

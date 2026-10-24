@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Log sistem backup: JSON Lines per bulan + buffer memori untuk dashboard.
  * Semua pesan disanitasi sebelum ditulis supaya token/kredensial tidak pernah

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 /*
   Fitur tambahan hasil audit FURINA V17 → Usanagi Umi AI.
 */

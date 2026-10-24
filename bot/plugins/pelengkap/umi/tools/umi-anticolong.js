@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anticolong", "category": "sticker", "aliasMap": {"umi-sticker-anticolong": "anticolong", "umi-anticolong": "anticolong", "umi-ac": "ac", "umi-anticolongsticker": "anticolongsticker", "umi-acsticker": "acsticker", "ac": "ac", "anticolongsticker": "anticolongsticker", "acsticker": "acsticker"}, "description": "Mengubah stiker biasa menjadi anti-colong (tidak bisa diforward/save)", "usage": ".anticolong (reply pesan stiker)", "example": ".anticolong", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/anticolong.js", metadata, m, extra)

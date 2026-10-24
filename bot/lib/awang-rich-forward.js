@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Pengirim "rich message" WhatsApp: HTML di dalam chat, langsung bisa dimainkan.
  *

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 function getContextInfo(m) {
   const content = m.raw?.message?.ephemeralMessage?.message || m.raw?.message

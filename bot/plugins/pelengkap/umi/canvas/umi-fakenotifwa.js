@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakenotifwa", "category": "maker", "aliasMap": {"umi-maker-fakenotifwa": "fakenotifwa", "umi-fakenotifwa": "fakenotifwa", "umi-fakenotif": "fakenotif", "umi-notifwa": "notifwa", "fakenotifwa": "fakenotifwa", "fakenotif": "fakenotif", "notifwa": "notifwa"}, "description": "Membuat gambar tampilan fake notifikasi WhatsApp iOS via AlwaysCodex API", "usage": ".fakenotifwa nama|pesan|jam|tanggal (atau reply gambar untuk PP)", "example": ".fakenotifwa ZennzXD 💫|Haii sayangg udah makan belumm? 🥺|6.39|Senin, 6 Maret", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakenotifwa.js", metadata, m, extra)

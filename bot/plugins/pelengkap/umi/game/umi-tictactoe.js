@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tictactoe", "category": "game", "aliasMap": {"umi-game-tictactoe": "tictactoe", "umi-tictactoe": "tictactoe", "umi-ttt": "ttt", "umi-xo": "xo", "xo": "xo"}, "description": "Main TicTacToe dengan player lain", "usage": ".tictactoe [room name] atau .ttt", "example": ".tictactoe", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/tictactoe.js", metadata, m, extra)

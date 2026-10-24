@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "berapa", "category": "fun", "aliasMap": {"umi-fun-berapa": "berapa", "umi-berapa": "berapa", "umi-howmuch": "howmuch", "umi-howmany": "howmany"}, "description": "Tanya bot berapa sesuatu", "usage": ".berapa <pertanyaan>", "example": ".berapa umur jodohku?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/berapa.js", metadata, m, extra)

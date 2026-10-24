@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "slot", "category": "rpg", "aliasMap": {"umi-rpg-slot": "slot", "umi-slot": "slot", "umi-slots": "slots", "umi-mesin": "mesin"}, "description": "Main slot machine gambling", "usage": ".slot <bet>", "example": ".slot 5000", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/slot.js", metadata, m, extra)

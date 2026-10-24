@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "proxy", "category": "tools", "aliasMap": {"umi-tools-proxy": "proxy", "umi-proxy": "proxy", "proxy": "proxy"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/proxy.js", metadata, m, extra)

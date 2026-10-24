@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "poll", "category": "group", "aliasMap": {"umi-group-poll": "poll", "umi-voting": "voting", "umi-vote": "vote", "poll": "poll", "voting": "voting"}, "description": "Buat polling/voting di grup", "usage": ".poll <pertanyaan> | <opsi1>, <opsi2>, ...", "example": ".poll Makan apa? | Nasi Goreng, Mie Ayam, Bakso", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/poll.js", metadata, m, extra)

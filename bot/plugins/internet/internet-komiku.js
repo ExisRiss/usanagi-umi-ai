@@ -2,6 +2,7 @@
  * Komiku
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  * API : https://api.nexray.web.id
  * Note : Install dulu npm install pdfkit
  */

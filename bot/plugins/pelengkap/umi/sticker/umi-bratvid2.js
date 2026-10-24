@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bratvid2", "category": "sticker", "aliasMap": {"umi-sticker-bratvid2": "bratvid2", "umi-bratvid2": "bratvid2", "umi-bratv2": "bratv2", "bratv2": "bratv2"}, "description": "Generate brat video v2", "usage": ".bratvid2 <text>", "example": ".bratvid2 hello world", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/bratvid2.js", metadata, m, extra)

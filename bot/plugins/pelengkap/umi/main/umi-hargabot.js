@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hargabot", "category": "main", "aliasMap": {"umi-main-hargabot": "hargabot", "umi-hargabot": "hargabot", "umi-sethargabot": "sethargabot", "hargabot": "hargabot", "sethargabot": "sethargabot"}, "description": "Menampilkan dan mengatur daftar harga sewa bot", "usage": ".hargabot / .sethargabot <teks>", "example": ".sethargabot 1 Hari = 1k", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/hargabot.js", metadata, m, extra)

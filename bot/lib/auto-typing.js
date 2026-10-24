@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const INSTALLED = Symbol.for('usanagi.autoTyping.installed')
 const ORIGINAL = Symbol.for('usanagi.autoTyping.originalSendMessage')

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mute", "category": "group", "aliasMap": {"umi-group-mute": "mute", "umi-mute": "mute", "umi-bisukan": "bisukan", "mute": "mute", "bisukan": "bisukan"}, "description": "Bisukan seluruh grup (hanya admin yang bisa kirim pesan)", "usage": ".mute", "example": ".mute", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/mute.js", metadata, m, extra)

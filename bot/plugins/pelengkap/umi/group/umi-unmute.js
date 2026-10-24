@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "unmute", "category": "group", "aliasMap": {"umi-group-unmute": "unmute", "umi-unmute": "unmute", "umi-unbisukan": "unbisukan", "unmute": "unmute", "unbisukan": "unbisukan"}, "description": "Membuka mute grup", "usage": ".unmute", "example": ".unmute", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/unmute.js", metadata, m, extra)

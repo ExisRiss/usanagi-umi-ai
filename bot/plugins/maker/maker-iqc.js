@@ -2,6 +2,7 @@
  ✧ FakeIphoneChat - maker ✧
  ───────────────────────────────
  𖣔 Type   : Plugin ESM
+  * By AlzRiss - Usanagi Umi AI
  𖣔 Create by : Lznycx
  𖣔 Edit   : ChatGPT
 */

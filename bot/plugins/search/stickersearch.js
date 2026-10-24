@@ -2,6 +2,7 @@
  * Name : Sticker Telegram Search
  * Type : ESM
  * Url : https://www.sigstick.com
+  * By AlzRiss - Usanagi Umi AI
  */
 import axios from 'axios'
 

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { isOwner } from '../../lib/awang-cekakses.js'
 import { isGroupAdmin } from '../../lib/awang-aksesgrub.js'

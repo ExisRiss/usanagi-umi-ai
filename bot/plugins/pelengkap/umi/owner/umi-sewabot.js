@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sewabot", "category": "owner", "aliasMap": {"umi-owner-sewabot": "sewabot", "umi-sewabot": "sewabot", "umi-sewa": "sewa", "sewabot": "sewabot", "sewa": "sewa"}, "description": "Toggle dan kelola sistem sewa bot", "usage": ".sewabot <on/off/leave/status>", "example": ".sewabot on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/sewabot.js", metadata, m, extra)

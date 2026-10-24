@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tesautopostch", "category": "tools", "aliasMap": {"umi-tools-tesautopostch": "tesautopostch", "umi-tesautopostch": "tesautopostch", "umi-testch": "testch", "umi-testautopost": "testautopost", "tesautopostch": "tesautopostch", "testch": "testch", "testautopost": "testautopost"}, "description": "Test autopost ke channel sekarang", "usage": ".tesautopostch [pagi/siang/sore/malam]", "example": ".tesautopostch pagi", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/tesautopostch.js", metadata, m, extra)

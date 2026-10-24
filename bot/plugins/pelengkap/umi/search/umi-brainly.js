@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "brainly", "category": "search", "aliasMap": {"umi-search-brainly": "brainly", "umi-brainly": "brainly", "umi-brain": "brain", "umi-jawab": "jawab", "brainly": "brainly", "brain": "brain", "jawab": "jawab"}, "description": "Cari jawaban di Brainly", "usage": ".brainly <pertanyaan>", "example": ".brainly 1+1", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/brainly.js", metadata, m, extra)

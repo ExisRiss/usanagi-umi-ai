@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const answers = [
   '1', '7', '12', '21', '99', '69', '100', '50', '25', '1000',

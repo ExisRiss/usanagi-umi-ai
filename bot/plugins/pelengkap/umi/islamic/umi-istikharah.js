@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "istikharah", "category": "religi", "aliasMap": {"umi-religi-istikharah": "istikharah", "umi-istikharah": "istikharah", "umi-sholatistikharah": "sholatistikharah", "umi-istikhoroh": "istikhoroh", "umi-istikharoh": "istikharoh", "istikharah": "istikharah", "sholatistikharah": "sholatistikharah", "istikhoroh": "istikhoroh", "istikharoh": "istikharoh"}, "description": "Panduan Sholat Istikharah lengkap (tata cara, doa, waktu, dan keutamaan)", "usage": ".istikharah", "example": ".istikharah", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/istikharah.js", metadata, m, extra)

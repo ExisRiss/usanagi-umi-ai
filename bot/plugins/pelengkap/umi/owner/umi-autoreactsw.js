@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autoreactsw", "category": "owner", "aliasMap": {"umi-owner-autoreactsw": "autoreactsw", "umi-autoreactsw": "autoreactsw", "umi-autoreaksi": "autoreaksi", "umi-reactsw": "reactsw", "umi-autoreactstory": "autoreactstory", "autoreactsw": "autoreactsw", "autoreaksi": "autoreaksi", "reactsw": "reactsw", "autoreactstory": "autoreactstory"}, "description": "Auto react semua status/story WA", "usage": ".autoreactsw on/off [emoji]", "example": ".autoreactsw on 🔥", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/autoreactsw.js", metadata, m, extra)

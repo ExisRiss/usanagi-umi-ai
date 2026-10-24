@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "artinama", "category": "primbon", "aliasMap": {"umi-primbon-artinama": "artinama", "umi-artinama": "artinama", "umi-namameaning": "namameaning", "umi-artinamaku": "artinamaku", "artinama": "artinama", "namameaning": "namameaning", "artinamaku": "artinamaku"}, "description": "Cek arti nama menurut primbon", "usage": ".artinama <nama>", "example": ".artinama putu", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/artinama.js", metadata, m, extra)

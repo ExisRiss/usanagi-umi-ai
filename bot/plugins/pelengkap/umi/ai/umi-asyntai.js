@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "asyntai", "category": "ai", "aliasMap": {"umi-ai-asyntai": "asyntai", "umi-asyntai": "asyntai", "umi-asynt": "asynt", "umi-asyntai-chat": "asyntai-chat", "asyntai": "asyntai", "asynt": "asynt", "asyntai-chat": "asyntai-chat"}, "description": "Bercakap-cakap dengan AI dari Asynt AI", "usage": ".asyntai <pesan>", "example": ".asyntai Halo, siapa kamu?", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/asyntai.js", metadata, m, extra)

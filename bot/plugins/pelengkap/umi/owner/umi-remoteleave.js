@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "remoteleave", "category": "owner", "aliasMap": {"umi-owner-remoteleave": "remoteleave", "umi-remoteleave": "remoteleave", "umi-leavegroupbot": "leavegroupbot", "remoteleave": "remoteleave", "leavegroupbot": "leavegroupbot"}, "description": "Memilih grup tertentu untuk bot tinggalkan dari satu menu", "usage": ".remoteleave", "example": ".remoteleave", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/remoteleave.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "suppbypass", "category": "tools", "aliasMap": {"umi-tools-suppbypass": "suppbypass", "umi-suppbypass": "suppbypass", "umi-supportbypass": "supportbypass", "umi-bypasslist": "bypasslist", "umi-listbypass": "listbypass", "suppbypass": "suppbypass", "supportbypass": "supportbypass", "bypasslist": "bypasslist", "listbypass": "listbypass"}, "description": "List shortlink yang bisa di-bypass", "usage": ".suppbypass", "example": ".suppbypass", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/suppbypass.js", metadata, m, extra)

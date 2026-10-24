@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "slowmode", "category": "group", "aliasMap": {"umi-group-slowmode": "slowmode", "umi-slowmode": "slowmode", "umi-slow": "slow", "umi-setslowmode": "setslowmode", "slowmode": "slowmode", "slow": "slow", "setslowmode": "setslowmode"}, "description": "Slowmode grup — batasi kecepatan pesan member", "usage": ".slowmode <on/off/onlycommand> [detik]", "example": ".slowmode on 30", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/slowmode.js", metadata, m, extra)

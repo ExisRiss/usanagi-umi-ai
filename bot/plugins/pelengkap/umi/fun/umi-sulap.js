@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sulap", "category": "fun", "aliasMap": {"umi-fun-sulap": "sulap", "umi-sulap": "sulap", "umi-magic": "magic", "umi-magictrick": "magictrick", "magictrick": "magictrick"}, "description": "Pertunjukan sulap - kick member secara dramatis", "usage": ".sulap", "example": ".sulap", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/sulap.js", metadata, m, extra)

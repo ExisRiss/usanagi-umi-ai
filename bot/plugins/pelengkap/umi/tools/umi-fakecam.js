@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakecam", "category": "tools", "aliasMap": {"umi-tools-fakecam": "fakecam", "umi-fakecam": "fakecam", "umi-paplive": "paplive", "umi-fakekamera": "fakekamera", "umi-iphonecam": "iphonecam", "fakecam": "fakecam", "paplive": "paplive", "fakekamera": "fakekamera", "iphonecam": "iphonecam"}, "description": "Menimpa UI Kamera iOS iPhone Klasik Presisi", "usage": ".fakecam (reply/kirim foto)", "example": ".fakecam"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fakecam.js", metadata, m, extra)

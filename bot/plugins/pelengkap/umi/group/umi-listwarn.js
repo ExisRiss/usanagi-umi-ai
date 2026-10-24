@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listwarn", "category": "group", "aliasMap": {"umi-group-listwarn": "listwarn", "umi-listwarn": "listwarn", "umi-warnings": "warnings", "umi-cekwarn": "cekwarn", "umi-warnlist": "warnlist", "listwarn": "listwarn", "warnings": "warnings", "cekwarn": "cekwarn", "warnlist": "warnlist"}, "description": "Melihat daftar warning member", "usage": ".listwarn atau .listwarn @user", "example": ".listwarn @user", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/listwarn.js", metadata, m, extra)

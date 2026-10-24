@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mulung", "category": "rpg", "aliasMap": {"umi-rpg-mulung": "mulung", "umi-mulung": "mulung", "umi-scavenge": "scavenge", "umi-kumpulsampah": "kumpulsampah"}, "description": "Memulung untuk mengumpulkan barang", "usage": ".mulung", "example": ".mulung", "cooldown": 300, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/mulung.js", metadata, m, extra)

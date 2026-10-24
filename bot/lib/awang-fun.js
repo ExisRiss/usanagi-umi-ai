@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const TARGET_PROMPT = 'Masukkan nama atau tag orangnya.'
 

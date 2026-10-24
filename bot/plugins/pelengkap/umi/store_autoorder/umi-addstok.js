@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autoaddstok", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-autoaddstok": "autoaddstok", "umi-autoaddstok": "autoaddstok", "umi-autotambahstok": "autotambahstok", "autoaddstok": "autoaddstok", "autotambahstok": "autotambahstok"}, "description": "📦 Menambah stok digital ke produk", "usage": ".autoaddstok <id_produk/nomor> | <data_stok>", "example": ".autoaddstok 1 | email:pass:profile", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/addstok.js", metadata, m, extra)

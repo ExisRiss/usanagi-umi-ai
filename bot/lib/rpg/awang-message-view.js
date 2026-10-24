@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 /**
  * Membuat lapisan mutable di atas message Baileys tanpa memodifikasi

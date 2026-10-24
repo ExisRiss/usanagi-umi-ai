@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gsmarena2", "category": "tools", "aliasMap": {"umi-tools-gsmarena2": "gsmarena2", "umi-gsmarena2": "gsmarena2", "umi-gsmspek2": "gsmspek2", "umi-hpspek2": "hpspek2", "gsmarena2": "gsmarena2", "gsmspek2": "gsmspek2", "hpspek2": "hpspek2"}, "description": "Pencarian spesifikasi HP GSM Arena (varian Tensura).", "usage": ".gsmarena2 <nama hp>", "example": ".gsmarena2 <nama hp>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/gsmarena2.js", metadata, m, extra)

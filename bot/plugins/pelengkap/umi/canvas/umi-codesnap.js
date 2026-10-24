@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "codesnap", "category": "canvas", "aliasMap": {"umi-canvas-codesnap": "codesnap", "umi-codesnap": "codesnap"}, "description": "Bikin gambar cuplikan code", "usage": ".codesnap <code>", "example": ".codesnap console.log('hello')", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/codesnap.js", metadata, m, extra)

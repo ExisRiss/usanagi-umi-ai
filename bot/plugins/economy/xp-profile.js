@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { profilePhoto } from '../../lib/profile-photo.js'
 import PhoneNumber from 'awesome-phonenumber'

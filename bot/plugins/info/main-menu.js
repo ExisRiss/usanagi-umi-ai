@@ -1,6 +1,7 @@
 /*
  * USANAGI UMI AI — Main Menu
  * Type: Plugin ESM
+  * By AlzRiss - Usanagi Umi AI
  */
 
 import moment from 'moment-timezone'

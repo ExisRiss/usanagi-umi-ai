@@ -1,6 +1,7 @@
 /*
 By Alecia Md
 wa.me/628xxxxxxxxxx
+ * By AlzRiss - Usanagi Umi AI
 */
 const Fruatre = async (m, { conn, usedPrefix, args, command }) => {
   // Inisialisasi objek jbRooms dan jbVotes jika belum ada

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "marry", "category": "rpg", "aliasMap": {"umi-rpg-marry": "marry", "umi-marry": "marry", "umi-nikah": "nikah", "umi-wedding": "wedding"}, "description": "Menikahi player lain", "usage": ".marry @user", "example": ".marry @user", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/marry.js", metadata, m, extra)

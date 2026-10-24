@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ganti-zann.jpg", "category": "owner", "aliasMap": {"umi-owner-ganti-zann.jpg": "ganti-zann.jpg", "umi-ganzann": "ganzann", "umi-setzann": "setzann", "ganzann": "ganzann", "setzann": "setzann"}, "description": "Ganti gambar Zann.jpg (thumbnail menu)", "usage": ".ganti-zann.jpg (reply/kirim gambar)", "example": ".ganti-zann.jpg", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/gantizannjpg.js", metadata, m, extra)

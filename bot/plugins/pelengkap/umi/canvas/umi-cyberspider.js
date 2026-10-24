@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cyberspider", "category": "canvas", "aliasMap": {"umi-canvas-cyberspider": "cyberspider", "umi-cyberspider": "cyberspider", "cyberspider": "cyberspider"}, "description": "Bikin card cyber spider dari fotomu", "usage": ".cyberspider <teks> (reply/kirim foto)", "example": ".cyberspider Cyber", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/cyberspider.js", metadata, m, extra)

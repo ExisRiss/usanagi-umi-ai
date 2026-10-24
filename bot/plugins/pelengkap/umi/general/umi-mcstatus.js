@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mcstatus", "category": "general", "aliasMap": {"umi-general-mcstatus": "mcstatus", "umi-mcstatus": "mcstatus", "umi-mcstat": "mcstat", "mcstatus": "mcstatus", "mcstat": "mcstat"}, "description": "Mengecek status server Minecraft Java", "usage": ".mcstatus <ip/domain[:port]>", "example": ".mcstatus play.example.net", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/general/mcstatus.js", metadata, m, extra)

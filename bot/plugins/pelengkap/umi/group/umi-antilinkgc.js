@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antilinkgc", "category": "group", "aliasMap": {"umi-group-antilinkgc": "antilinkgc", "umi-antilinkgc": "antilinkgc", "umi-algc": "algc", "umi-antilinkgrup": "antilinkgrup", "algc": "algc", "antilinkgrup": "antilinkgrup"}, "description": "Anti link WhatsApp (grup, saluran, wa.me)", "usage": ".antilinkgc <on/off/metode> [kick/remove]", "example": ".antilinkgc on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antilinkgc.js", metadata, m, extra)

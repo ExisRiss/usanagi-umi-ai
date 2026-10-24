@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kapankah", "category": "fun", "aliasMap": {"umi-fun-kapankah": "kapankah", "umi-kapankah": "kapankah", "kapankah": "kapankah"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/kapankah.js", metadata, m, extra)

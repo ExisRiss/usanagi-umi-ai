@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hastag", "category": "user", "aliasMap": {"umi-user-hastag": "hastag", "umi-hastag": "hastag", "umi-sethastag": "sethastag", "umi-formathastag": "formathastag", "hastag": "hastag", "sethastag": "sethastag", "formathastag": "formathastag"}, "description": "Menampilkan template hastag KGR dengan tombol copy otomatis", "usage": ".hastag", "example": ".hastag", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/hastag.js", metadata, m, extra)

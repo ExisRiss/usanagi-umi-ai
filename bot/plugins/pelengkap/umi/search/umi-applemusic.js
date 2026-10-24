@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "applemusic", "category": "search", "aliasMap": {"umi-search-applemusic": "applemusic", "umi-amusic": "amusic", "amusic": "amusic"}, "description": "Cari lagu di Apple Music", "usage": ".applemusic <query>", "example": ".applemusic Best Friend", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/applemusic.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetwarn", "category": "group", "aliasMap": {"umi-group-resetwarn": "resetwarn", "umi-resetwarn": "resetwarn", "umi-clearwarn": "clearwarn", "umi-hapuswarn": "hapuswarn", "umi-delwarn": "delwarn", "resetwarn": "resetwarn", "clearwarn": "clearwarn", "hapuswarn": "hapuswarn", "delwarn": "delwarn"}, "description": "Reset warning member", "usage": ".resetwarn @user", "example": ".resetwarn @user", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetwarn.js", metadata, m, extra)

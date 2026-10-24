@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "taubat", "category": "religi", "aliasMap": {"umi-religi-taubat": "taubat", "umi-taubat": "taubat", "umi-taubatnasuha": "taubatnasuha", "umi-taubat-nasuha": "taubat-nasuha", "umi-doataubat": "doataubat", "taubat": "taubat", "taubatnasuha": "taubatnasuha", "taubat-nasuha": "taubat-nasuha", "doataubat": "doataubat"}, "description": "Panduan taubat nasuha lengkap dengan doa, latin, arti, dan tata caranya", "usage": ".taubat", "example": ".taubat", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/taubat.js", metadata, m, extra)

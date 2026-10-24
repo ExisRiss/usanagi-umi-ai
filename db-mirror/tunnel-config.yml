@@ -12,6 +12,6 @@
 tunnel: 6f82f294-ff18-4966-9b8e-38edd97f8359
 credentials-file: /home/container/tunnel-creds.json
 ingress:
-  - hostname: game.gwenna.my.id
+  - hostname: game.example.com
     service: http://localhost:3900
   - service: http_status:404

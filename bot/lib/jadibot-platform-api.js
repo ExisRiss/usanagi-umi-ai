@@ -12,8 +12,11 @@ import { getGeminiSettings, isValidGeminiKey, persistGeminiRuntimeConfig, clearG
 import { applyMainBotSettingsInput, mainBotSettingsView, resetMainBotSettings } from './main-bot-settings.js'
 import { getMenuStyle, setMenuStyle } from '../core/awang-menu-config.js'
 const realmHttp = createRealmHttp(realmService)
+/* By AlzRiss - Usanagi Umi AI */
 
 import http from 'node:http'
+import { handleMediaProxy } from './media-proxy.js'
+import { apiKey, saveApiKey, removeApiKey } from '../config/api-keys.js'
 import https from 'node:https'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -237,6 +240,31 @@ function apiKeyState() {
       file: 'AI Agent (terenkripsi)',
       role: 'AI Agent / AI Owner bila provider OpenRouter dipilih',
     },
+    // Kunci pihak ketiga dipusatkan di config/settings.js (lihat config/api-keys.js).
+    tenor: {
+      provider: 'tenor',
+      configured: Boolean(apiKey('tenor')),
+      model: '',
+      masked: maskApiKey(apiKey('tenor')),
+      file: '.env.apikeys',
+      role: 'Pencarian GIF (Tenor)',
+    },
+    pastebin: {
+      provider: 'pastebin',
+      configured: Boolean(apiKey('pastebin')),
+      model: '',
+      masked: maskApiKey(apiKey('pastebin')),
+      file: '.env.apikeys',
+      role: 'Upload teks ke Pastebin',
+    },
+    neuralframes: {
+      provider: 'neuralframes',
+      configured: Boolean(apiKey('neuralFrames')),
+      model: '',
+      masked: maskApiKey(apiKey('neuralFrames')),
+      file: '.env.apikeys',
+      role: 'Image to Prompt (NeuralFrames)',
+    },
   }
 }
 
@@ -435,7 +463,7 @@ async function routeOwnerConsole(req, res, pathname) {
   if (pathname === '/api/owner-console/apikey' && req.method === 'POST') {
     const input = await bodyJson(req)
     const provider = String(input.provider || '').toLowerCase()
-    if (!['gemini', 'groq', 'openrouter'].includes(provider)) {
+    if (!['gemini', 'groq', 'openrouter', 'tenor', 'pastebin', 'neuralframes'].includes(provider)) {
       throw Object.assign(new Error('Provider API key tidak dikenal.'), { status: 400 })
     }
     const remove = input.delete === true
@@ -459,6 +487,11 @@ async function routeOwnerConsole(req, res, pathname) {
         }
         persistGroqRuntimeConfig({ apiKey: key, model: getGroqSettings().model })
       }
+    } else if (['tenor', 'pastebin', 'neuralframes'].includes(provider)) {
+      // Kunci pihak ketiga: semua fitur membacanya lewat config/settings.js.
+      const name = provider === 'neuralframes' ? 'neuralFrames' : provider
+      if (remove) removeApiKey(name)
+      else saveApiKey(name, String(input.api_key || ''))
     } else if (remove) {
       throw Object.assign(new Error('Key OpenRouter belum bisa dihapus dari sini. Isi key baru untuk menggantinya, atau kelola lewat AI Owner.'), { status: 400 })
     } else {
@@ -1866,6 +1899,11 @@ async function route(req, res) {
     await conn.sendMessage(jid, { text: safeText(input.message || 'Tes notifikasi Usanagi Umi Jadibot', 2000) })
     return send(res, 200, { ok: true })
   }
+
+  // Proxy media YouTube (pengganti wss://stream.kanara.my.id yang sudah mati).
+  // Dipakai player .ytplay / .play3 supaya video tetap bisa diputar di HP
+  // walau link googlevideo terikat ke IP server.
+  if (pathname === '/media/yt') return handleMediaProxy(req, res, url)
 
   return send(res, 404, { error: 'Endpoint tidak ditemukan.' })
 }

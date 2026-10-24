@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "meme3", "category": "canvas", "aliasMap": {"umi-canvas-meme3": "meme3", "umi-meme3": "meme3", "umi-3panel": "3panel", "meme3": "meme3", "3panel": "3panel"}, "description": "Membuat meme 3 panel", "usage": ".meme3 <text1>|<text2>|<text3>", "example": ".meme3 Kemarin ada apa?|Gak tau mau tidur|Kemaren kan lu belom beli", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/meme3.js", metadata, m, extra)

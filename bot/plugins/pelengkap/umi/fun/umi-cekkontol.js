@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekkontol", "category": "fun", "aliasMap": {"umi-fun-cekkontol": "cekkontol", "umi-cekkontol": "cekkontol", "umi-kontolcheck": "kontolcheck", "cekkontol": "cekkontol", "kontolcheck": "kontolcheck"}, "description": "Cek ukuran random (bercanda doang)", "usage": ".cekkontol <nama>", "example": ".cekkontol Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/cekkontol.js", metadata, m, extra)

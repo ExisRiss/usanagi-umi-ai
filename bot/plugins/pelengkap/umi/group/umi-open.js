@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "open", "category": "group", "aliasMap": {"umi-group-open": "open", "umi-buka": "buka", "umi-opengroup": "opengroup", "umi-bukagroup": "bukagroup", "opengroup": "opengroup", "bukagroup": "bukagroup"}, "description": "Membuka grup agar semua member bisa chat", "usage": ".open", "example": ".open", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/open.js", metadata, m, extra)

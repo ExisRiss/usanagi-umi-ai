@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stalkml", "category": "stalker", "aliasMap": {"umi-stalker-stalkml": "stalkml", "umi-stalkml": "stalkml", "umi-mlstalk": "mlstalk", "umi-ceknickml": "ceknickml", "umi-nickml": "nickml", "stalkml": "stalkml", "mlstalk": "mlstalk", "ceknickml": "ceknickml", "nickml": "nickml"}, "description": "Mengetahui nama/nickname akun Mobile Legends berdasarkan ID dan Server.", "usage": ".stalkml <id> | <server>", "example": ".stalkml 1264042367 | 15139", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/stalkml.js", metadata, m, extra)

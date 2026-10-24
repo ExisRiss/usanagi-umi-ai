@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mahjong", "category": "game", "aliasMap": {"umi-game-mahjong": "mahjong", "umi-mahjong": "mahjong", "umi-mjong": "mjong", "umi-kyoko": "kyoko", "mahjong": "mahjong", "mjong": "mjong", "mj": "mj", "kyoko": "kyoko"}, "description": "Kyoko Mahjong v6.2 dengan HTML AI Rich Message.", "usage": ".mahjong", "example": ".mahjong", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/mahjong-shinobu.js", metadata, m, extra)

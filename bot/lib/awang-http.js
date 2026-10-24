@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 export async function fetchBuffer(url, {
   timeout = 60000,

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "iqc5", "category": "canvas", "aliasMap": {"umi-canvas-iqc5": "iqc5", "umi-iqc5": "iqc5", "umi-qc5": "qc5", "iqc5": "iqc5", "qc5": "qc5"}, "description": "Membuat Fake Quote iOS style tanpa API eksternal.", "usage": ".iqc5 [text/reply]", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/iqc5.js", metadata, m, extra)

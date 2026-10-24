@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listmember", "category": "group", "aliasMap": {"umi-group-listmember": "listmember", "umi-listmember": "listmember", "umi-memberlist": "memberlist", "umi-daftarmember": "daftarmember", "umi-listanggota": "listanggota", "listmember": "listmember", "memberlist": "memberlist", "daftarmember": "daftarmember", "listanggota": "listanggota"}, "description": "Menampilkan daftar anggota grup", "usage": ".listmember", "example": ".listmember", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/listmember.js", metadata, m, extra)

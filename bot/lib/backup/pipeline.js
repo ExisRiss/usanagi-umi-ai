@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Inti proses backup:
  *   siapkan -> snapshot data -> manifest + checksum -> tar.gz -> (enkripsi)

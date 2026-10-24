@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "linkgc", "category": "group", "aliasMap": {"umi-group-linkgc": "linkgc", "umi-linkgc": "linkgc", "umi-linkgrup": "linkgrup", "umi-getlink": "getlink", "umi-gclink": "gclink", "getlink": "getlink", "gclink": "gclink"}, "description": "Dapatkan link invite grup", "usage": ".linkgc", "example": ".linkgc", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/linkgc.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "supermario", "category": "game", "aliasMap": {"umi-game-supermario": "supermario", "umi-supermario": "supermario", "umi-mario": "mario", "supermario": "supermario", "mario": "mario"}, "description": "Super Mario Bros mini - lompatin musuh & kumpulin koin!", "usage": "", "example": ".mario", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/supermario.js", metadata, m, extra)

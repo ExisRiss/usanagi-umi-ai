@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ffstalk", "category": "stalker", "aliasMap": {"umi-stalker-ffstalk": "ffstalk", "umi-ffstalk": "ffstalk", "umi-freefireid": "freefireid", "umi-stalkff": "stalkff", "umi-ff": "ff", "ffstalk": "ffstalk", "freefireid": "freefireid", "stalkff": "stalkff", "ff": "ff"}, "description": "Melihat informasi lengkap akun Free Fire berdasarkan ID.", "usage": ".ffstalk <id>", "example": ".ffstalk 470699855", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/ffstalk.js", metadata, m, extra)

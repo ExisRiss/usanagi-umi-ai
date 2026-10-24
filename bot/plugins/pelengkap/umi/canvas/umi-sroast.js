@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sroast", "category": "canvas", "aliasMap": {"umi-canvas-sroast": "sroast", "umi-sroast": "sroast", "umi-stickerroast": "stickerroast", "sroast": "sroast", "stickerroast": "stickerroast"}, "description": "Buat stiker roast", "usage": ".sroast <teks1> | <teks2> | <teks3>", "example": ".sroast kamu | JELEK | banget", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/sroast.js", metadata, m, extra)

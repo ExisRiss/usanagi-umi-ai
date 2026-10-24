@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ttp", "category": "maker", "aliasMap": {"umi-maker-ttp": "ttp", "umi-ttp": "ttp", "umi-texttopicture": "texttopicture", "ttp": "ttp", "texttopicture": "texttopicture"}, "description": "Membuat stiker keren dari teks", "usage": ".ttp <teks>", "example": ".ttp Hai Cantik", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/ttp.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cmdvn", "category": "owner", "aliasMap": {"umi-owner-cmdvn": "cmdvn", "umi-cmdvn": "cmdvn", "umi-voicecommand": "voicecommand", "umi-vncmd": "vncmd", "cmdvn": "cmdvn", "voicecommand": "voicecommand", "vncmd": "vncmd"}, "description": "Aktifkan command via voice note", "usage": ".cmdvn <on/off>", "example": ".cmdvn on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/cmdvn.js", metadata, m, extra)

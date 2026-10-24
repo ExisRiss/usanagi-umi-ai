@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "subs4unlock", "category": "tools", "aliasMap": {"umi-tools-subs4unlock": "subs4unlock", "umi-subs4unlock": "subs4unlock", "umi-sub4unlock": "sub4unlock", "umi-bypasssub": "bypasssub", "umi-unlocksub": "unlocksub", "subs4unlock": "subs4unlock", "sub4unlock": "sub4unlock", "bypasssub": "bypasssub", "unlocksub": "unlocksub"}, "description": "Melakukan bypass link subs4unlock secara otomatis", "usage": ".subs4unlock <link>", "example": ".subs4unlock https://subs4unlock.id/VjeQWY", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/subs4unlock.js", metadata, m, extra)

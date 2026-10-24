@@ -1,5 +1,6 @@
 /**
 ‎✧ Name   : foto live
+ * By AlzRiss - Usanagi Umi AI
 ‎✧ Category : tools
 ‎✧ *Note* : foto live guna nya ya ga guna 👍
 ‎**/

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ship", "category": "canvas", "aliasMap": {"umi-canvas-ship": "ship"}, "description": "Buat gambar persentase jodoh", "usage": ".ship @tag1 @tag2", "example": ".ship @tag1 @tag2", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/ship.js", metadata, m, extra)

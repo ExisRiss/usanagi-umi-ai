@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "blacksmith", "category": "rpg", "aliasMap": {"umi-rpg-blacksmith": "blacksmith", "umi-blacksmith": "blacksmith", "umi-tempa": "tempa", "umi-forge": "forge", "umi-pandai": "pandai"}, "description": "Tempa senjata dan armor dari material", "usage": ".blacksmith <item>", "example": ".blacksmith sword", "cooldown": 120, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/blacksmith.js", metadata, m, extra)

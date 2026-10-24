@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hok", "category": "info", "aliasMap": {"umi-info-hok": "hok", "umi-hok": "hok", "umi-hokinfo": "hokinfo", "umi-honorofkings": "honorofkings", "hok": "hok", "hokinfo": "hokinfo", "honorofkings": "honorofkings"}, "description": "Informasi karakter Honor of Kings", "usage": ".hok <nama karakter>", "example": ".hok Dyadia", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/hok.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "treasure", "category": "rpg", "aliasMap": {"umi-rpg-treasure": "treasure", "umi-treasure": "treasure", "umi-chest": "chest", "umi-peti": "peti", "umi-openbox": "openbox"}, "description": "Buka treasure chest untuk hadiah random", "usage": ".treasure", "example": ".treasure", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/treasure.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ttslide", "category": "download", "aliasMap": {"umi-download-ttslide": "ttslide", "umi-ttslide": "ttslide", "umi-tiktokslide": "tiktokslide", "ttslide": "ttslide", "tiktokslide": "tiktokslide"}, "description": "Mengambil semua gambar dari TikTok photo/slideshow", "usage": ".ttslide <url>", "example": ".ttslide https://vt.tiktok.com/xxxx/", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/ttslide.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "meditation", "category": "rpg", "aliasMap": {"umi-rpg-meditation": "meditation", "umi-meditation": "meditation", "umi-rest": "rest", "umi-istirahat": "istirahat", "umi-tidur": "tidur", "umi-sleep": "sleep"}, "description": "Istirahat untuk pulihkan HP dan stamina", "usage": ".meditation", "example": ".meditation", "cooldown": 600, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/meditation.js", metadata, m, extra)

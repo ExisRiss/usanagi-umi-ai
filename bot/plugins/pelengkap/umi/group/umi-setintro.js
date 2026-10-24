@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setintro", "category": "group", "aliasMap": {"umi-group-setintro": "setintro", "umi-setintro": "setintro", "umi-setperkenalan": "setperkenalan", "umi-introset": "introset", "setperkenalan": "setperkenalan", "introset": "introset"}, "description": "Set pesan intro grup (admin only)", "usage": ".setintro <pesan>", "example": ".setintro Selamat datang @user di @group!", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setintro.js", metadata, m, extra)

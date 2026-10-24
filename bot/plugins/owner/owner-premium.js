@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { parsePremiumDuration, premiumDurationHelp } from '../../lib/premium-duration.js'
 

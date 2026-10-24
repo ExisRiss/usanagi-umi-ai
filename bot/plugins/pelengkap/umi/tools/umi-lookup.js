@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lookup", "category": "tools", "aliasMap": {"umi-tools-lookup": "lookup", "umi-lookup": "lookup", "umi-dnslookup": "dnslookup", "umi-dns": "dns", "umi-whois": "whois", "lookup": "lookup", "dnslookup": "dnslookup", "dns": "dns", "whois": "whois"}, "description": "DNS Lookup untuk domain", "usage": ".lookup <domain>", "example": ".lookup google.com", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/lookup.js", metadata, m, extra)

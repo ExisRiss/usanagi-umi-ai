@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hd5", "category": "tools", "aliasMap": {"umi-tools-hd5": "hd5", "umi-hd5": "hd5", "umi-upscale5": "upscale5", "umi-hdlocal": "hdlocal", "hd5": "hd5", "upscale5": "upscale5", "hdlocal": "hdlocal"}, "description": "Memperjelas resolusi gambar (Local Sharp Engine)", "usage": ".hd5 <reply/kirim gambar atau dokumen foto>", "example": ".hd5", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hd5.js", metadata, m, extra)

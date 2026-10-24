@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pinchat", "category": "group", "aliasMap": {"umi-group-pinchat": "pinchat", "umi-pinchat": "pinchat", "umi-pinmsg": "pinmsg", "umi-pinpesan": "pinpesan", "pinmsg": "pinmsg"}, "description": "Pin pesan penting di grup", "usage": ".pinchat (reply pesan)", "example": ".pinchat", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/pinchat.js", metadata, m, extra)

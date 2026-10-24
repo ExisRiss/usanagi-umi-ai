@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gdrive", "category": "download", "aliasMap": {"umi-download-gdrive": "gdrive", "umi-gdrive": "gdrive", "umi-drive": "drive", "umi-drivedl": "drivedl", "umi-driveurl": "driveurl", "drive": "drive", "drivedl": "drivedl", "driveurl": "driveurl"}, "description": "Download file dari Google Drive", "usage": ".gdrive <url>", "example": ".gdrive https://drive.google.com/file/d/xxx/view", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/gdrive.js", metadata, m, extra)

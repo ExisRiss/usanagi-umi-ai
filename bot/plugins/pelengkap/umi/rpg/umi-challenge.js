@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "challenge", "category": "rpg", "aliasMap": {"umi-rpg-challenge": "challenge", "umi-challenge": "challenge", "umi-dailychallenge": "dailychallenge", "umi-tantangan": "tantangan"}, "description": "Daily challenge untuk hadiah spesial", "usage": ".challenge", "example": ".challenge", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/challenge.js", metadata, m, extra)

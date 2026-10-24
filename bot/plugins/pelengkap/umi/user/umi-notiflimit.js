@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notiflimit", "category": "owner", "aliasMap": {"umi-owner-notiflimit": "notiflimit", "umi-notiflimit": "notiflimit", "umi-notifenergi": "notifenergi", "notiflimit": "notiflimit", "notifenergi": "notifenergi"}, "description": "Mengaktifkan atau mematikan notifikasi potong limit secara global.", "usage": ".notiflimit", "example": ".notiflimit", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/notiflimit.js", metadata, m, extra)

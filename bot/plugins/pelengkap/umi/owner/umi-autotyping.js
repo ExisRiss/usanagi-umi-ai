@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autotyping", "category": "owner", "aliasMap": {"umi-owner-autotyping": "autotyping", "umi-autotyping": "autotyping", "umi-typing": "typing", "umi-autoketik": "autoketik", "autotyping": "autotyping", "typing": "typing", "autoketik": "autoketik"}, "description": "Auto typing indicator saat menerima pesan", "usage": ".autotyping on/off", "example": ".autotyping on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/autotyping.js", metadata, m, extra)

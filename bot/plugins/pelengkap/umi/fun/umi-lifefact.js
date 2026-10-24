@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lifefact", "category": "fun", "aliasMap": {"umi-fun-lifefact": "lifefact", "umi-lifefact": "lifefact", "umi-funfacthidup": "funfacthidup", "umi-livefunfact": "livefunfact", "lifefact": "lifefact", "funfacthidup": "funfacthidup", "livefunfact": "livefunfact"}, "description": "Fakta statistik kehidupan berdasarkan tanggal lahir", "usage": ".lifefact YYYY-MM-DD", "example": ".lifefact 2002-01-11", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/lifefact.js", metadata, m, extra)

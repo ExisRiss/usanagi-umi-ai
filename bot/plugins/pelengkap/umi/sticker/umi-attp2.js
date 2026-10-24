@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "attp2", "category": "sticker", "aliasMap": {"umi-sticker-attp2": "attp2", "umi-attp2": "attp2", "attp2": "attp2"}, "description": "Buat sticker animasi teks", "usage": ".attp2 <teks>", "example": ".attp2 Halo dunia", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/attp2.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { isChatBanned, setChatBanned } from '../../core/awang-banchat.js'
 

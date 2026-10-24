@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "igqc", "category": "maker", "aliasMap": {"umi-maker-igqc": "igqc", "umi-igqc": "igqc", "umi-igquote": "igquote", "umi-qcinstagram": "qcinstagram", "igqc": "igqc", "igquote": "igquote", "qcinstagram": "qcinstagram"}, "description": "Membuat gambar Instagram Quote Chat / IGQC", "usage": ".igqc <teks> (opsional reply/kirim foto)", "example": ".igqc Ini tuh namanya pap dari my mbg yh 🌹🌹", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/igqc.js", metadata, m, extra)

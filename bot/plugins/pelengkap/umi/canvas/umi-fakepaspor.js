@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakepaspor", "category": "canvas", "aliasMap": {"umi-canvas-fakepaspor": "fakepaspor", "umi-fakepaspor": "fakepaspor", "umi-pasporfake": "pasporfake", "umi-fakepassport": "fakepassport", "fakepaspor": "fakepaspor", "pasporfake": "pasporfake", "fakepassport": "fakepassport"}, "description": "Bikin fake paspor (buat konten/gaguan doang)", "usage": ".fakepaspor <nama> | <umur> | <negara>", "example": ".fakepaspor Umi | 20 | Jepang", "cooldown": 8, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakepaspor.js", metadata, m, extra)

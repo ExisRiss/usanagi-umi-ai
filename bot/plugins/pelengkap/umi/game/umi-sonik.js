@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sonik", "category": "game", "aliasMap": {"umi-game-sonik": "sonik", "umi-sonik": "sonik", "umi-dash": "dash", "umi-speedy": "speedy", "umi-speeddash": "speeddash"}, "description": "Inline Speedy Dash game", "usage": ".sonik", "example": ".sonik", "cooldown": 1, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/sonik.js", metadata, m, extra)

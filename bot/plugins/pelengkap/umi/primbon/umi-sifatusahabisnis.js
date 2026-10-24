@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sifatusahabisnis", "category": "primbon", "aliasMap": {"umi-primbon-sifatusahabisnis": "sifatusahabisnis", "umi-sifatusahabisnis": "sifatusahabisnis", "umi-usahabisnis": "usahabisnis", "umi-sifatbisnis": "sifatbisnis", "sifatusahabisnis": "sifatusahabisnis", "usahabisnis": "usahabisnis", "sifatbisnis": "sifatbisnis"}, "description": "Cek sifat usaha/bisnis berdasarkan tanggal lahir", "usage": ".sifatusahabisnis <tgl> <bln> <thn>", "example": ".sifatusahabisnis 1 1 2000", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/sifatusahabisnis.js", metadata, m, extra)

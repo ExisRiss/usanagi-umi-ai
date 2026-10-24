@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tofigure3", "category": "ai", "aliasMap": {"umi-ai-tofigure3": "tofigure3", "umi-tofigure3": "tofigure3", "umi-figurine3": "figurine3", "umi-bandai3": "bandai3", "umi-actionfigure3": "actionfigure3", "tofigure3": "tofigure3", "figurine3": "figurine3", "bandai3": "bandai3", "actionfigure3": "actionfigure3"}, "description": "Ubah foto menjadi action figure/figurine koleksi", "usage": ".tofigure3 (reply/kirim gambar)", "example": ".tofigure3", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/tofigurine.js", metadata, m, extra)

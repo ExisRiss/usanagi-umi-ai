@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setbio", "category": "tools", "aliasMap": {"umi-tools-setbio": "setbio", "umi-setbio": "setbio", "umi-setbiobot": "setbiobot", "umi-setstatus": "setstatus", "umi-setabout": "setabout", "setbio": "setbio", "setbiobot": "setbiobot", "setstatus": "setstatus", "setabout": "setabout"}, "description": "Mengubah bio/status bot", "usage": ".setbio <bio baru>", "example": ".setbio Bot WhatsApp by Lucky Archz", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/setbio.js", metadata, m, extra)

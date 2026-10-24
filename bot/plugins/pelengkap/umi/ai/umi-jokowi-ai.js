@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jokowi-ai", "category": "ai", "aliasMap": {"umi-ai-jokowi-ai": "jokowi-ai", "umi-jokowi-ai": "jokowi-ai", "umi-jokowiai": "jokowiai", "umi-jokowi": "jokowi", "umi-pakjokowi": "pakjokowi", "jokowi-ai": "jokowi-ai", "jokowiai": "jokowiai", "jokowi": "jokowi", "pakjokowi": "pakjokowi"}, "description": "Chat dengan Pak Jokowi — Pria Solo", "usage": ".jokowi-ai <pertanyaan>", "example": ".jokowi-ai Pak, gimana kabar?", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/jokowi-ai.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pddikti", "category": "search", "aliasMap": {"umi-search-pddikti": "pddikti", "umi-pddikti": "pddikti", "umi-dikti": "dikti", "umi-carimahasiswa": "carimahasiswa", "pddikti": "pddikti", "dikti": "dikti", "carimahasiswa": "carimahasiswa"}, "description": "Cari data Mahasiswa, Dosen, PT, dan Prodi dari PDDIKTI", "usage": ".pddikti <mode> <query>", "example": ".pddikti all Gibran Khalil\n.pddikti detail <id_mahasiswa>", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/pddikti.js", metadata, m, extra)

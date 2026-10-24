@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gag2", "category": "info", "aliasMap": {"umi-info-gag2": "gag2", "umi-gag2": "gag2", "umi-growagarden2": "growagarden2", "gag2": "gag2", "growagarden2": "growagarden2"}, "description": "Cek stock Grow a Garden dengan fitur watch", "usage": ".gag2 [watch] [item]", "example": ".gag2 watch seed", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/gag2.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { delay } from '@rexxhayanasi/elaina-baileys';
 

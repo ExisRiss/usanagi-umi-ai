@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 import { getUser, saveUser } from '../../lib/rpg/awang-db.js'
 import { buildRpgContext } from '../../lib/rpg/awang-context.js'
 import { addExpWithLevelCheck } from '../../lib/rpg/awang-level.js'

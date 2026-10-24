@@ -1,6 +1,7 @@
 /*
 • Nama Fitur : Text2Pet AI (Image & Video Generator)
 • Type       : Plugin ESM
+ * By AlzRiss - Usanagi Umi AI
 */
 
 import axios from "axios"

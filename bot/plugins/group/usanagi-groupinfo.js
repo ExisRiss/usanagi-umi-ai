@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 import { groupInfoHtml, sendRichInfo } from '../../lib/rich-info-cards.js'
 
 const handler = async (m, { conn, usedPrefix = '.' }) => {

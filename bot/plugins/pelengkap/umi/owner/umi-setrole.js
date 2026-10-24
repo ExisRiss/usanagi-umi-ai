@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setrole", "category": "owner", "aliasMap": {"umi-owner-setrole": "setrole", "umi-setrole": "setrole", "umi-setroleuser": "setroleuser", "setrole": "setrole", "setroleuser": "setroleuser"}, "description": "Mengatur role/karakter hubungan user yang dipakai AutoAI", "usage": ".setrole @user|role atau reply pesan", "example": ".setrole @628xxx|teman", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setrole.js", metadata, m, extra)

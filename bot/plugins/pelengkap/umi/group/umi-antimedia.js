@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antimedia", "category": "group", "aliasMap": {"umi-group-antimedia": "antimedia", "umi-antimedia": "antimedia", "umi-nomedia": "nomedia", "antimedia": "antimedia", "am": "am", "nomedia": "nomedia"}, "description": "Mengatur antimedia di grup (blokir gambar/video/audio/dokumen)", "usage": ".antimedia <on/off>", "example": ".antimedia on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antimedia.js", metadata, m, extra)

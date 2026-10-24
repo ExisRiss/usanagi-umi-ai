@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "to3d", "category": "ai", "aliasMap": {"umi-ai-to3d": "to3d", "umi-to3d": "to3d", "umi-3d": "3d", "umi-3dfy": "3dfy", "umi-to3dmodel": "to3dmodel", "to3d": "to3d", "3d": "3d", "3dfy": "3dfy", "to3dmodel": "to3dmodel"}, "description": "Ubah foto menjadi gaya 3D render", "usage": ".to3d (reply/kirim gambar)", "example": ".to3d", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/to3d.js", metadata, m, extra)

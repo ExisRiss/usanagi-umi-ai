@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "android1-get", "category": "search", "aliasMap": {"umi-search-android1-get": "android1-get", "umi-android1-get": "android1-get", "umi-an1get": "an1get", "umi-an1dl": "an1dl", "android1-get": "android1-get", "an1get": "an1get", "an1dl": "an1dl"}, "description": "Download APK dari Android1", "usage": ".android1-get <url>", "example": ".android1-get https://an1.com/xxx", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/android1-get.js", metadata, m, extra)

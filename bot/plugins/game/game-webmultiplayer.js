@@ -1,7 +1,7 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Umi Web Games — jembatan WhatsApp ke server game multiplayer web
- * (db-mirror/game.js, game.gwenna.my.id). Tujuh meja: UNO, UNO Flip, Catur,
+ * (db-mirror/game.js, game.example.com). Tujuh meja: UNO, UNO Flip, Catur,
  * Ular Tangga, Monopoli, Property Empire, Werewolf.
  *
  * Alur pemain:
@@ -46,7 +46,7 @@ function loadConfig() {
   let parsed = {}
   try { parsed = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')) } catch {}
   const token = String(parsed.token || process.env.UMI_GAME_TOKEN || '').trim()
-  const baseUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.gwenna.my.id').replace(/\/+$/, '')
+  const baseUrl = String(parsed.baseUrl || process.env.UMI_GAME_BASE || 'https://game.example.com').replace(/\/+$/, '')
   configCache = { at: Date.now(), value: { enabled: parsed.enabled !== false, baseUrl, token } }
   return configCache.value
 }

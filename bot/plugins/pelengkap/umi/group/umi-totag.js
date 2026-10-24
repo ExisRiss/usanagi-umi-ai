@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "totag", "category": "group", "aliasMap": {"umi-group-totag": "totag", "umi-totag": "totag", "umi-tagall2": "tagall2", "umi-mentionall": "mentionall", "tagall2": "tagall2", "mentionall": "mentionall"}, "description": "Tag semua member dengan reply pesan", "usage": ".totag (reply pesan)", "example": ".totag", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/totag.js", metadata, m, extra)

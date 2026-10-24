@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "oh-no", "category": "canvas", "aliasMap": {"umi-canvas-oh-no": "oh-no", "umi-oh-no": "oh-no", "umi-ohno": "ohno", "umi-ohnomeme": "ohnomeme", "oh-no": "oh-no", "ohno": "ohno", "ohnomeme": "ohnomeme"}, "description": "Membuat meme oh no", "usage": ".oh-no <teks>", "example": ".oh-no Aku lupa ngerjain PR", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/oh-no.js", metadata, m, extra)

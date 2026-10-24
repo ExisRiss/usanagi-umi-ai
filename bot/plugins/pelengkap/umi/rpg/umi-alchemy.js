@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "alchemy", "category": "rpg", "aliasMap": {"umi-rpg-alchemy": "alchemy", "umi-alchemy": "alchemy", "umi-potion": "potion", "umi-brew": "brew", "umi-ramuan": "ramuan"}, "description": "Buat potion dan ramuan dari herba", "usage": ".alchemy <potion>", "example": ".alchemy healthpotion", "cooldown": 60, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/alchemy.js", metadata, m, extra)

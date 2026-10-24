@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetwelcome", "category": "group", "aliasMap": {"umi-group-resetwelcome": "resetwelcome", "umi-resetwelcome": "resetwelcome", "umi-delwelcome": "delwelcome", "umi-clearwelcome": "clearwelcome", "delwelcome": "delwelcome", "clearwelcome": "clearwelcome"}, "description": "Reset welcome message ke default", "usage": ".resetwelcome", "example": ".resetwelcome", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetwelcome.js", metadata, m, extra)

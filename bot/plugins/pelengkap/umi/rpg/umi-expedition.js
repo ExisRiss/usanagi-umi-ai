@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "expedition", "category": "rpg", "aliasMap": {"umi-rpg-expedition": "expedition", "umi-expedition": "expedition", "umi-ekspedisi": "ekspedisi", "exp": "exp"}, "description": "Kirim ekspedisi otomatis untuk item", "usage": ".expedition <start/claim/status>", "example": ".expedition start forest", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/expedition.js", metadata, m, extra)

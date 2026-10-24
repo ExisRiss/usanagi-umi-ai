@@ -1,5 +1,6 @@
 /*
 # Fitur : Bungkam Target
+# By AlzRiss - Usanagi Umi AI
 # Type : ESM Plugin
 */
 

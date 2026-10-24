@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rules", "category": "main", "aliasMap": {"umi-main-rules": "rules", "umi-rules": "rules", "umi-aturanbot": "aturanbot", "umi-botrules": "botrules", "umi-peraturanbot": "peraturanbot", "aturanbot": "aturanbot", "botrules": "botrules", "peraturanbot": "peraturanbot"}, "description": "Menampilkan rules dan aturan penggunaan bot secara lengkap", "usage": ".rules", "example": ".rules", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/rules.js", metadata, m, extra)

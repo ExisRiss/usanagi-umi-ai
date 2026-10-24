@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "shinigamidetail", "category": "anime", "aliasMap": {"umi-anime-shinigamidetail": "shinigamidetail", "umi-shinigamidetail": "shinigamidetail", "umi-shngm": "shngm", "umi-detailmanga": "detailmanga", "umi-komikshinigami": "komikshinigami", "shinigamidetail": "shinigamidetail", "shngm": "shngm", "detailmanga": "detailmanga", "komikshinigami": "komikshinigami", "shinigami": "shinigami"}, "description": "Melihat detail manga dan daftar 24 chapter terbaru dari Shinigami", "usage": ".shinigamidetail <url/manga_id>", "example": ".shinigamidetail https://g.shinigami.asia/series/fc727dec-d1f5-43e8-a77d-37382f636659", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/shinigamidetail.js", metadata, m, extra)

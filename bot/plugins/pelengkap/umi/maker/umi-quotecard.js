@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "quotecard", "category": "maker", "aliasMap": {"umi-maker-quotecard": "quotecard", "umi-quotecard": "quotecard", "umi-qcard": "qcard", "umi-cardquote": "cardquote", "umi-makerquote": "makerquote", "quotecard": "quotecard", "qcard": "qcard", "cardquote": "cardquote", "makerquote": "makerquote"}, "description": "Generate quote card dengan background gradient dan tipografi elegan", "usage": ".quotecard teks|author", "example": ".quotecard Jangan ragu menggapai bintang|@AlwaysCodex", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/quotecard.js", metadata, m, extra)

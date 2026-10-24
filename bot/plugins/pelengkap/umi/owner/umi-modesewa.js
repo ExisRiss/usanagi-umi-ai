@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "modesewa", "category": "owner", "aliasMap": {"umi-owner-modesewa": "modesewa", "umi-modesewa": "modesewa", "umi-ms": "ms", "umi-sewamode": "sewamode", "modesewa": "modesewa", "ms": "ms", "sewamode": "sewamode"}, "description": "Mode sewa bot - aktifkan/nonaktifkan sistem sewa", "usage": ".modesewa <on/off/check>", "example": ".modesewa on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/modesewa.js", metadata, m, extra)

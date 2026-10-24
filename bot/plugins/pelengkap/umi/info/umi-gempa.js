@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gempa", "category": "info", "aliasMap": {"umi-info-gempa": "gempa", "umi-gempa": "gempa", "umi-bmkg": "bmkg", "umi-infogempa": "infogempa", "umi-earthquake": "earthquake", "bmkg": "bmkg", "infogempa": "infogempa", "earthquake": "earthquake"}, "description": "Info gempa terkini dari BMKG", "usage": ".gempa", "example": ".gempa", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/gempa.js", metadata, m, extra)

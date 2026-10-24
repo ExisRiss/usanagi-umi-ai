@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autocekstok", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-autocekstok": "autocekstok", "umi-autocekstok": "autocekstok", "umi-autoliststok": "autoliststok", "umi-autostok": "autostok", "autocekstok": "autocekstok", "autoliststok": "autoliststok", "autostok": "autostok"}, "description": "📦 Melihat daftar stok digital suatu produk", "usage": ".autocekstok <id_produk/nomor>", "example": ".autocekstok 1", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/cekstok.js", metadata, m, extra)

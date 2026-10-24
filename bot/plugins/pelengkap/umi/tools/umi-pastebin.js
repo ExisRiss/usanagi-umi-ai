@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pastebin", "category": "tools", "aliasMap": {"umi-tools-pastebin": "pastebin", "umi-paste": "paste", "umi-pb": "pb", "paste": "paste", "pb": "pb"}, "description": "Upload teks ke Pastebin", "usage": ".pastebin <text>", "example": ".pastebin console.log(\"Hello World\")", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/pastebin.js", metadata, m, extra)

@@ -1,5 +1,6 @@
 /**
  * Zhuxin MD — Showroom live watcher (auto notif)
+  * By AlzRiss - Usanagi Umi AI
  */
 import fs from "fs";
 import path from "path";

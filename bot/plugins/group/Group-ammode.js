@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 let handler = async (m, { args, isAdmin, isOwner }) => {
   // Pengecekan manual seperti di code antitagsw

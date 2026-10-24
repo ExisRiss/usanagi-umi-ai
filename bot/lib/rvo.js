@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const VIEW_ONCE_KEYS = [
   'viewOnceMessage',

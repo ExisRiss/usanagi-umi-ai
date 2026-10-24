@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "seleksif02", "category": "main", "aliasMap": {"umi-main-seleksif02": "seleksif02", "umi-seleksif02": "seleksif02", "umi-f02": "f02", "umi-joinf02": "joinf02", "seleksif02": "seleksif02", "f02": "f02", "joinf02": "joinf02"}, "description": "Seleksi masuk F02", "usage": ".seleksif02", "example": ".seleksif02", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/seleksi.js", metadata, m, extra)

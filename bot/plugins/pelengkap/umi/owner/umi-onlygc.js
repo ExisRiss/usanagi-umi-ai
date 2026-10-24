@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "onlygc", "category": "owner", "aliasMap": {"umi-owner-onlygc": "onlygc", "umi-onlygc": "onlygc", "umi-onlygroup": "onlygroup", "umi-grouponly": "grouponly", "onlygroup": "onlygroup", "grouponly": "grouponly"}, "description": "Toggle mode bot hanya di grup", "usage": ".onlygc on/off", "example": ".onlygc on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/onlygc.js", metadata, m, extra)

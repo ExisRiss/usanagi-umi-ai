@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ceksocmed", "category": "cek", "aliasMap": {"umi-cek-ceksocmed": "ceksocmed", "umi-ceksocmed": "ceksocmed", "umi-sosmed": "sosmed", "umi-medsos": "medsos", "sosmed": "sosmed", "medsos": "medsos"}, "description": "Cek tingkat kecanduan sosmed", "usage": ".ceksocmed <nama>", "example": ".ceksocmed Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/ceksocmed.js", metadata, m, extra)

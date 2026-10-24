@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "text2img4", "category": "ai", "aliasMap": {"umi-ai-text2img4": "text2img4", "umi-text2img4": "text2img4", "umi-imggen2": "imggen2", "umi-flux": "flux", "text2img4": "text2img4", "imggen2": "imggen2"}, "description": "Buat gambar dari teks pakai Flux Klein 4B", "usage": ".txt2img2 <deskripsi gambar>", "example": ".txt2img2 Mobil Lamborghini revuelto", "cooldown": 30, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/txt2img2.js", metadata, m, extra)

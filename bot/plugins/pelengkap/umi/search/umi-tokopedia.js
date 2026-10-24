@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tokopedia", "category": "search", "aliasMap": {"umi-search-tokopedia": "tokopedia", "umi-tokopedia": "tokopedia", "umi-tokped": "tokped", "umi-toped": "toped", "umi-tokpedsearch": "tokpedsearch", "tokopedia": "tokopedia", "tokped": "tokped", "toped": "toped", "tokpedsearch": "tokpedsearch"}, "description": "Mencari produk di Tokopedia", "usage": ".tokopedia <kata kunci>", "example": ".tokopedia vivo x300", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/tokopedia.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antilinkall", "category": "group", "aliasMap": {"umi-group-antilinkall": "antilinkall", "umi-antilinkall": "antilinkall", "umi-alall": "alall", "umi-antialllink": "antialllink", "antilinkall": "antilinkall", "alall": "alall", "antialllink": "antialllink"}, "description": "Anti semua jenis link (deteksi domain extension)", "usage": ".antilinkall <on/off/metode> [kick/remove]", "example": ".antilinkall on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antilinkall.js", metadata, m, extra)

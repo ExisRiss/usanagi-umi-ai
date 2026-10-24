@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "benaratausalah", "category": "game", "aliasMap": {"umi-game-benaratausalah": "benaratausalah", "umi-benaratausalah": "benaratausalah", "umi-bata": "bata", "umi-benarsalah": "benarsalah", "umi-bors": "bors", "benaratausalah": "benaratausalah", "bata": "bata", "benarsalah": "benarsalah", "bors": "bors"}, "description": "Game benar atau salah — jawab pertanyaan dengan 'benar' / 'salah'", "usage": ".benaratausalah", "example": ".benaratausalah", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/bns.js", metadata, m, extra)

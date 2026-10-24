@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bluearchive-char", "category": "info", "aliasMap": {"umi-info-bluearchive-char": "bluearchive-char", "umi-bluearchive-char": "bluearchive-char", "umi-bachar": "bachar", "bluearchive-char": "bluearchive-char", "bachar": "bachar"}, "description": "Lihat info character Blue Archive", "usage": ".bluearchive-char <nama>", "example": ".bluearchive-char shiroko", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/bluearchive-char.js", metadata, m, extra)

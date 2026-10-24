@@ -1,5 +1,6 @@
 /*
 get pp wa 
+ * By AlzRiss - Usanagi Umi AI
 */
 import axios from "axios"
 

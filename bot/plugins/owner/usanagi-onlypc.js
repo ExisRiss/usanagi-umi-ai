@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getAccessModeState } from '../../core/awang-mode.js'
 import { setOnlyPcActive } from '../../core/awang-pc.js'

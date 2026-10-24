@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "topixel", "category": "canvas", "aliasMap": {"umi-canvas-topixel": "topixel", "umi-topixel": "topixel", "umi-pixelate": "pixelate", "umi-pixelart": "pixelart", "topixel": "topixel", "pixelate": "pixelate", "pixelart": "pixelart"}, "description": "Ubah foto kamu jadi gambar pixel art yang keren", "usage": ".topixel [level] (reply/kirim foto)", "example": ".topixel 30", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/topixel.js", metadata, m, extra)

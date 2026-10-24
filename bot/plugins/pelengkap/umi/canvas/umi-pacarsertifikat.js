@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pacarsertifikat", "category": "canvas", "aliasMap": {"umi-canvas-pacarsertifikat": "pacarsertifikat", "umi-pacarsertifikat": "pacarsertifikat", "umi-sertifikatpacar": "sertifikatpacar", "umi-certpacar": "certpacar", "umi-pacarcert": "pacarcert", "pacarsertifikat": "pacarsertifikat", "sertifikatpacar": "sertifikatpacar", "certpacar": "certpacar", "pacarcert": "pacarcert"}, "description": "Membuat sertifikat pacar", "usage": ".pacarsertifikat <nama1> <nama2>", "example": ".pacarsertifikat Budi Ani", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/pacarsertifikat.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hangman", "category": "game", "aliasMap": {"umi-game-hangman": "hangman", "umi-hangman": "hangman", "umi-tebakkata2": "tebakkata2", "tebakkata2": "tebakkata2"}, "description": "Tebak kata (huruf per huruf)", "usage": ".hangman", "example": ".hangman", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/hangman.js", metadata, m, extra)

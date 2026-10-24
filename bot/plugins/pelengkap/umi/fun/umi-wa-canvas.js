@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wa-canvas", "category": "fun", "aliasMap": {"umi-fun-wa-canvas": "wa-canvas", "umi-wa-canvas": "wa-canvas", "umi-fakewaprofile": "fakewaprofile", "wa-canvas": "wa-canvas", "fakewaprofile": "fakewaprofile"}, "description": "Buat fake WhatsApp profile card", "usage": ".wa-canvas <nama> | <nomor> | [status]", "example": ".wa-canvas John Doe | 6281234567890 | Available", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/wa-canvas.js", metadata, m, extra)

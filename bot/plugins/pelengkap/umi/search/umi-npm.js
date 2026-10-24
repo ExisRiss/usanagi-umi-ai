@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "npm", "category": "search", "aliasMap": {"umi-search-npm": "npm", "umi-npm": "npm", "umi-npmsearch": "npmsearch", "umi-npmjs": "npmjs", "umi-npmfind": "npmfind", "npm": "npm", "npmsearch": "npmsearch", "npmjs": "npmjs", "npmfind": "npmfind"}, "description": "Search package di NPM registry", "usage": ".npm <query>", "example": ".npm axios", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/npm.js", metadata, m, extra)

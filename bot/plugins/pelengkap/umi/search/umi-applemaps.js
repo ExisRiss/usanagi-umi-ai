@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "applemaps", "category": "search", "aliasMap": {"umi-search-applemaps": "applemaps", "umi-applemaps": "applemaps", "umi-maps": "maps", "umi-applemap": "applemap", "umi-carilokasi": "carilokasi", "applemaps": "applemaps", "maps": "maps", "applemap": "applemap", "carilokasi": "carilokasi"}, "description": "Cari lokasi dan detail tempat menggunakan Apple Maps", "usage": ".applemaps <nama_tempat/lokasi>", "example": ".applemaps Indonesia", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/applemaps.js", metadata, m, extra)

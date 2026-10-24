@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { ensureGroupManager, getCommandArgumentText, getConfigSummary, queueGroupEventMedia, updateGroupEventConfig } from '../../core/awang-welcome-config.js'
 import { getCommandMediaSource, validateGroupEventMediaSource } from '../../core/awang-welcome-media.js'

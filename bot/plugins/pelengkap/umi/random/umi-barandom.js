@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "barandom", "category": "random", "aliasMap": {"umi-random-barandom": "barandom", "umi-barandom": "barandom", "umi-bluearchive": "bluearchive", "umi-ba": "ba", "barandom": "barandom", "ba": "ba"}, "description": "Random gambar Blue Archive", "usage": ".barandom", "example": ".barandom", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/barandom.js", metadata, m, extra)

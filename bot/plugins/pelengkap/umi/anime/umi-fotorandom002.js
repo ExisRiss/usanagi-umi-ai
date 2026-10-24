@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fotorandom002", "category": "anime", "aliasMap": {"umi-anime-fotorandom002": "fotorandom002", "umi-fotorandom002": "fotorandom002", "umi-fotoumi": "fotoumi", "umi-randomfotozero": "randomfotozero", "fotorandom002": "fotorandom002", "fotoumi": "fotoumi", "randomfotozero": "randomfotozero"}, "description": "Umi random image 💗", "usage": ".foto-randomumi", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/fotorandom002.js", metadata, m, extra)

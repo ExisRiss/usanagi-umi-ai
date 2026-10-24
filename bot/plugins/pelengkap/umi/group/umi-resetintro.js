@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetintro", "category": "group", "aliasMap": {"umi-group-resetintro": "resetintro", "umi-resetintro": "resetintro", "umi-introdel": "introdel", "umi-delintro": "delintro", "umi-deleteintro": "deleteintro", "resetintro": "resetintro", "introdel": "introdel", "deleteintro": "deleteintro"}, "description": "Reset intro grup ke default (admin only)", "usage": ".resetintro", "example": ".resetintro", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetintro.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     try {

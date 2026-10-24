@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "taksi", "category": "rpg", "aliasMap": {"umi-rpg-taksi": "taksi", "umi-taksi": "taksi", "umi-grab": "grab", "umi-megrab": "megrab", "taksi": "taksi", "grab": "grab", "megrab": "megrab"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/grab.js", metadata, m, extra)

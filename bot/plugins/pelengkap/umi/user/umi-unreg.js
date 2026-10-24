@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "unreg", "category": "user", "aliasMap": {"umi-user-unreg": "unreg", "umi-unreg": "unreg", "umi-unregister": "unregister", "umi-hapusdaftar": "hapusdaftar", "unregister": "unregister", "hapusdaftar": "hapusdaftar"}, "description": "Hapus data pendaftaran kamu dari bot", "usage": ".unreg", "example": ".unreg", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/unreg.js", metadata, m, extra)

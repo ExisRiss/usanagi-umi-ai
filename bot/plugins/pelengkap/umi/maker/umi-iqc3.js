@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "iqc3", "category": "maker", "aliasMap": {"umi-maker-iqc3": "iqc3", "umi-iqc3": "iqc3", "umi-canvasiqc3": "canvasiqc3", "umi-iqc3maker": "iqc3maker", "iqc3": "iqc3", "canvasiqc3": "canvasiqc3", "iqc3maker": "iqc3maker"}, "description": "Membuat gambar Canvas IQC dari teks", "usage": ".iqc3 <teks>", "example": ".iqc3 Tes1", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/iqc3.js", metadata, m, extra)

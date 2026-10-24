@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "carigrup", "category": "search", "aliasMap": {"umi-search-carigrup": "carigrup", "umi-carigrup": "carigrup", "umi-searchgrup": "searchgrup", "umi-findgrup": "findgrup", "umi-grupwa": "grupwa", "carigrup": "carigrup", "searchgrup": "searchgrup", "findgrup": "findgrup", "grupwa": "grupwa"}, "description": "Cari grup WhatsApp berdasarkan keyword", "usage": ".carigrup <keyword>", "example": ".carigrup gb isian", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/carigrup.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mcaddons", "category": "general", "aliasMap": {"umi-general-mcaddons": "mcaddons", "umi-mcaddons": "mcaddons", "umi-mcmap": "mcmap", "mcaddons": "mcaddons", "mcmap": "mcmap"}, "description": "Mencari Minecraft Bedrock addon dan map terbaru", "usage": ".mcaddons [atau .mcmap]", "example": ".mcaddons", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/general/mcaddons.js", metadata, m, extra)

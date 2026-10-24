@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anticulik", "category": "group", "aliasMap": {"umi-group-anticulik": "anticulik", "umi-anticulik": "anticulik", "umi-antikidnap": "antikidnap", "umi-antiileng": "antiileng", "umi-anticulikgc": "anticulikgc", "anticulik": "anticulik", "antikidnap": "antikidnap", "antiileng": "antiileng", "anticulikgc": "anticulikgc"}, "description": "Bot otomatis keluar grup jika ditambah tanpa izin", "usage": ".anticulik on/off", "example": ".anticulik on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/anticulik.js", metadata, m, extra)

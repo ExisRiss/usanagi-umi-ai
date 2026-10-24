@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "stamina", "category": "rpg", "aliasMap": {"umi-rpg-stamina": "stamina", "umi-stamina": "stamina", "umi-cekstamina": "cekstamina"}, "description": "Cek dan pulihkan stamina", "usage": ".stamina / .stamina isi", "example": ".stamina", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/stamina.js", metadata, m, extra)

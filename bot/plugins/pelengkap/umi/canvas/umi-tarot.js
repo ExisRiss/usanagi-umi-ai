@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tarot", "category": "fun", "aliasMap": {"umi-fun-tarot": "tarot", "umi-tarot": "tarot", "umi-karturama": "karturama", "umi-tarotcard": "tarotcard", "tarotcard": "tarotcard"}, "description": "Generate kartu tarot harian lengkap dengan visual card", "usage": ".tarot [nomor/nama] [terbalik|upright]", "example": ".tarot 10 terbalik", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/tarot.js", metadata, m, extra)

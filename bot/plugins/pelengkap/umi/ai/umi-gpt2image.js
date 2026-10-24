@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gpt2image", "category": "ai", "aliasMap": {"umi-ai-gpt2image": "gpt2image", "umi-gpt2image": "gpt2image", "umi-gptimg2img": "gptimg2img", "umi-image2image": "image2image", "gpt2image": "gpt2image", "gptimg2img": "gptimg2img", "image2image": "image2image"}, "description": "Image-to-image memakai GPT2Image", "usage": ".gpt2image <prompt> (reply gambar)", "example": ".gpt2image ubah jadi style anime", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/gpt2image.js", metadata, m, extra)

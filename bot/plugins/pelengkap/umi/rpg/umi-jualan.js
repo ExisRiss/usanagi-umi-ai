@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jualan", "category": "rpg", "aliasMap": {"umi-rpg-jualan": "jualan", "umi-jualan": "jualan", "umi-dagang": "dagang", "umi-pedagang": "pedagang"}, "description": "Dagang asongan keliling", "usage": ".jualan", "example": ".jualan", "cooldown": 180, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/jualan.js", metadata, m, extra)

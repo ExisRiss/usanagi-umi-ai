@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addmp4", "category": "owner", "aliasMap": {"umi-owner-addmp4": "addmp4", "umi-addmp4": "addmp4", "umi-addvideo": "addvideo", "umi-tambahmp4": "tambahmp4", "umi-setmp4": "setmp4", "umi-addvid": "addvid", "addmp4": "addmp4", "addvideo": "addvideo", "tambahmp4": "tambahmp4", "setmp4": "setmp4", "addvid": "addvid"}, "description": "Tambah video baru ke folder assets/video", "usage": ".addmp4 <nama_file.mp4> (reply video)", "example": ".addmp4 opening.mp4", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addmp4.js", metadata, m, extra)

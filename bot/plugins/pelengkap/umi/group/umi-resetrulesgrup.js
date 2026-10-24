@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetrulesgrup", "category": "group", "aliasMap": {"umi-group-resetrulesgrup": "resetrulesgrup", "umi-resetrulesgrup": "resetrulesgrup", "umi-resetgrouprules": "resetgrouprules", "resetrulesgrup": "resetrulesgrup", "resetgrouprules": "resetgrouprules"}, "description": "Reset rules grup ke default (admin only)", "usage": ".resetrulesgrup", "example": ".resetrulesgrup", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetrulesgrup.js", metadata, m, extra)

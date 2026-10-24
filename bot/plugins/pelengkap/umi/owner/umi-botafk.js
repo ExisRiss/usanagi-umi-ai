@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "botafk", "category": "owner", "aliasMap": {"umi-owner-botafk": "botafk", "umi-botafk": "botafk", "umi-afkbot": "afkbot", "umi-afkmode": "afkmode", "botafk": "botafk", "afkbot": "afkbot", "afkmode": "afkmode"}, "description": "Mode AFK untuk bot - bot tidak merespon command, hanya reply pesan AFK", "usage": ".botafk <alasan>", "example": ".botafk Lagi istirahat", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/botafk.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tolak", "category": "fun", "aliasMap": {"umi-fun-tolak": "tolak", "umi-tolak": "tolak", "umi-reject": "reject", "umi-no": "no", "umi-gaktau": "gaktau", "no": "no", "gaktau": "gaktau"}, "description": "Menolak tembakan dari seseorang", "usage": ".tolak @tag", "example": ".tolak @628xxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/tolak.js", metadata, m, extra)

@@ -1,5 +1,6 @@
 /*
 wa.me/628xxxxxxxxxx
+ * By AlzRiss - Usanagi Umi AI
 Instagram: https://instagram.com/tulisan.ku.id
 ini wm gw cok jan di hapus
 */

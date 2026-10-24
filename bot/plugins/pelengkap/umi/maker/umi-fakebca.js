@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakebca", "category": "maker", "aliasMap": {"umi-maker-fakebca": "fakebca", "umi-fakebca": "fakebca", "umi-fbca": "fbca", "umi-bca": "bca", "fakebca": "fakebca", "fbca": "fbca", "bca": "bca"}, "description": "Buat tampilan saldo Fake BCA menggunakan Canvas", "usage": ".fakebca NAMA|NO_REK|SALDO", "example": ".fakebca RIN IMUP|111 - 222 - 3333|1,000,000", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakebca.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antiphising", "category": "group", "aliasMap": {"umi-group-antiphising": "antiphising", "umi-antiphising": "antiphising", "umi-antiphishing": "antiphishing", "umi-antiscamlink": "antiscamlink", "umi-nophising": "nophising", "antiphishing": "antiphishing", "antiscamlink": "antiscamlink", "nophising": "nophising"}, "description": "Deteksi konten phising di grup", "usage": ".antiphising <on/off/metode> [kick/remove]", "example": ".antiphising on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antiphising.js", metadata, m, extra)

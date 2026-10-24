@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dungeon", "category": "game", "aliasMap": {"umi-game-dungeon": "dungeon", "umi-dungeon": "dungeon", "umi-dg": "dg", "umi-labirin": "labirin", "dg": "dg", "labirin": "labirin"}, "description": "Jelajahi dungeon dan lawan monster secara interaktif", "usage": ".dungeon", "example": ".dungeon", "cooldown": 60, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/dungeon.js", metadata, m, extra)

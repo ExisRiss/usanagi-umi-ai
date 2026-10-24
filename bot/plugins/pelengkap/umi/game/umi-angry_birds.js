@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "angrybirds", "category": "game", "aliasMap": {"umi-game-angrybirds": "angrybirds", "umi-angrybirds": "angrybirds", "umi-angrybird": "angrybird", "umi-abirds": "abirds", "angrybirds": "angrybirds", "angrybird": "angrybird", "abirds": "abirds"}, "description": "Angry Birds mini - tembak burung ke target!", "usage": "", "example": ".angrybird", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/angry_birds.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { chat, clearSession } from '../../lib/usanagi-ai-gemini.js'
 import { UsanagiAIRich } from '../../lib/usanagi-ai-rich.js'

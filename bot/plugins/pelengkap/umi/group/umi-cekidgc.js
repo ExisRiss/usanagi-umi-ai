@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekidgc", "category": "group", "aliasMap": {"umi-group-cekidgc": "cekidgc", "umi-cekidgc": "cekidgc", "umi-idgc": "idgc", "umi-idgrup": "idgrup", "umi-groupid": "groupid", "umi-infogc": "infogc", "idgrup": "idgrup", "groupid": "groupid", "infogc": "infogc"}, "description": "Cek ID dan info lengkap grup", "usage": ".cekidgc [link grup]", "example": ".cekidgc https://chat.whatsapp.com/xxxxx", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/cekidgc.js", metadata, m, extra)

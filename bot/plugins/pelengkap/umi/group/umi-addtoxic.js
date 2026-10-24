@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addtoxic", "category": "group", "aliasMap": {"umi-group-addtoxic": "addtoxic", "umi-addtoxic": "addtoxic", "umi-tambahtoxic": "tambahtoxic", "umi-addkata": "addkata", "addtoxic": "addtoxic", "tambahtoxic": "tambahtoxic", "addkata": "addkata"}, "description": "Tambah kata toxic ke daftar", "usage": ".addtoxic <kata>", "example": ".addtoxic kata_kasar", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/addtoxic.js", metadata, m, extra)

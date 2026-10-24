@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "banana", "category": "ai", "aliasMap": {"umi-ai-banana": "banana", "umibanana": "banana", "banana": "banana"}, "description": "Edit gambar dengan AI menggunakan prompt", "usage": ".banana <prompt>", "example": ".banana make it anime style", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/rimurubanana.js", metadata, m, extra)

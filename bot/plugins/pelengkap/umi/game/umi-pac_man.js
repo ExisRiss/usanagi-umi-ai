@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "pacman", "category": "game", "aliasMap": {"umi-game-pacman": "pacman", "umi-pacman": "pacman", "umi-pac": "pac", "pacman": "pacman", "pac": "pac"}, "description": "Pac-Man classic - makan titik & hindari hantu!", "usage": "", "example": ".pacman", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/pac_man.js", metadata, m, extra)

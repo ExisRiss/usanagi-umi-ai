@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { calculateAge, formatBirthday, parseBirthday, serializeBirthday } from '../../lib/profile-data.js'
 

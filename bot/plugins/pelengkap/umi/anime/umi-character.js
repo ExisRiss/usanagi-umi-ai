@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "character", "category": "anime", "aliasMap": {"umi-anime-character": "character", "umi-character": "character", "umi-karakter": "karakter", "umi-animechar": "animechar", "umi-char": "char", "character": "character", "karakter": "karakter", "animechar": "animechar", "char": "char"}, "description": "Cari profil karakter anime dari MyAnimeList", "usage": ".character <nama karakter>", "example": ".character zero two\n.character gojo\n.character luffy", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/character.js", metadata, m, extra)

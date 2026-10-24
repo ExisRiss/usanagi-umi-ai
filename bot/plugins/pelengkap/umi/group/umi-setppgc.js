@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setppgc", "category": "group", "aliasMap": {"umi-group-setppgc": "setppgc", "umi-setppgc": "setppgc", "umi-setprofilegc": "setprofilegc", "umi-setppgroup": "setppgroup", "umi-setppgrup": "setppgrup", "setppgc": "setppgc", "setprofilegc": "setprofilegc", "setppgroup": "setppgroup", "setppgrup": "setppgrup"}, "description": "Mengubah foto profil grup", "usage": ".setppgc (reply gambar)", "example": ".setppgc", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setppgc.js", metadata, m, extra)

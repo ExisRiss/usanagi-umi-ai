@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "merchant", "category": "rpg", "aliasMap": {"umi-rpg-merchant": "merchant", "umi-merchant": "merchant", "umi-npc": "npc", "umi-tokoku": "tokoku", "tokoku": "tokoku"}, "description": "Jual beli item ke NPC merchant", "usage": ".merchant <buy/sell> <item> <qty>", "example": ".merchant buy potion 5", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/merchant.js", metadata, m, extra)

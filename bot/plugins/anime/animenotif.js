@@ -1,5 +1,6 @@
 /*
  * USANAGI UMI AI — ALQANIME AUTO NOTIF
+  * By AlzRiss - Usanagi Umi AI
  * Check: 15 minutes
  */
 

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setallmenu", "category": "owner", "aliasMap": {"umi-owner-setallmenu": "setallmenu", "umi-setallmenu": "setallmenu", "umi-allmenuvariant": "allmenuvariant", "umi-allmenustyle": "allmenustyle", "setallmenu": "setallmenu", "allmenuvariant": "allmenuvariant", "allmenustyle": "allmenustyle"}, "description": "Mengatur variant tampilan allmenu", "usage": ".setallmenu <v1-v9>", "example": ".setallmenu v2", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/setallmenu.js", metadata, m, extra)

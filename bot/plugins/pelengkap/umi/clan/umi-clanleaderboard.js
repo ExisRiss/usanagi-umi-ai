@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanleaderboard", "category": "clan", "aliasMap": {"umi-clan-clanleaderboard": "clanleaderboard", "umi-clanleaderboard": "clanleaderboard", "umi-clanlb": "clanlb", "umi-topclan": "topclan", "umi-guildrank": "guildrank", "clanleaderboard": "clanleaderboard", "clanlb": "clanlb", "topclan": "topclan", "guildrank": "guildrank"}, "description": "Lihat ranking clan", "usage": ".clanleaderboard", "example": ".clanleaderboard", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanleaderboard.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "goodbyeall", "category": "owner", "aliasMap": {"umi-owner-goodbyeall": "goodbyeall", "umi-goodbyeall": "goodbyeall", "umi-gball": "gball", "umi-globalgoodbye": "globalgoodbye", "umi-leaveall": "leaveall", "goodbyeall": "goodbyeall", "gball": "gball", "globalgoodbye": "globalgoodbye", "leaveall": "leaveall"}, "description": "Aktifkan/nonaktifkan goodbye di semua grup", "usage": ".goodbyeall <on/off>", "example": ".goodbyeall on", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/goodbyeall.js", metadata, m, extra)

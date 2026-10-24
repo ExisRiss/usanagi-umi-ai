@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifdemote", "category": "group", "aliasMap": {"umi-group-notifdemote": "notifdemote", "umi-notifdemote": "notifdemote", "notifdemote": "notifdemote"}, "description": "Toggle notifikasi saat ada yang dicopot dari admin", "usage": ".notifdemote on/off", "example": ".notifdemote on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/notifdemote.js", metadata, m, extra)

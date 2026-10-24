@@ -1,4 +1,5 @@
 import { unifiedRpg } from './rpg/unified-store.js'
+/* By AlzRiss - Usanagi Umi AI */
 
 function isUserJid(value) {
   return /@(s\.whatsapp\.net|lid)$/.test(String(value || ''))

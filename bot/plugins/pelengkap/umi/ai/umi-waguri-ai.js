@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "waguri-ai", "category": "ai", "aliasMap": {"umi-ai-waguri-ai": "waguri-ai", "umi-waguri-ai": "waguri-ai", "umi-waguriai": "waguriai", "umi-waguri": "waguri", "waguri-ai": "waguri-ai", "waguriai": "waguriai", "waguri": "waguri"}, "description": "Chat dengan Waguri-san — Gadis pemalu yang lupa kacamata", "usage": ".waguri-ai <pertanyaan>", "example": ".waguri-ai Waguri-san, halo!", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/waguri-ai.js", metadata, m, extra)

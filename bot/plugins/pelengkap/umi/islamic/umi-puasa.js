@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "puasa", "category": "religi", "aliasMap": {"umi-religi-puasa": "puasa", "umi-puasa": "puasa", "umi-puasasunnah": "puasasunnah", "umi-puasasenin": "puasasenin", "umi-puasakamis": "puasakamis", "umi-puasadawud": "puasadawud", "puasa": "puasa", "puasasunnah": "puasasunnah", "puasasenin": "puasasenin", "puasakamis": "puasakamis", "puasadawud": "puasadawud"}, "description": "Panduan Puasa Sunnah Lengkap (Senin-Kamis, Dawud, Arafah, Asyura, dll)", "usage": ".puasa <nama puasa>", "example": ".puasa senin", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/puasa.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { unifiedRpg } from './unified-store.js'
 const versions = new WeakMap()

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "templateplugin", "category": "owner", "aliasMap": {"umi-owner-templateplugin": "templateplugin", "umi-templateplugin": "templateplugin", "umi-tplplugin": "tplplugin", "umi-plugin-template": "plugin-template", "templateplugin": "templateplugin", "tplplugin": "tplplugin", "plugin-template": "plugin-template"}, "description": "Generate plugin template (Owner Only)", "usage": ".templateplugin", "example": ".templateplugin", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/templateplugin.js", metadata, m, extra)

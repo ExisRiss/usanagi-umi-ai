@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antidocument", "category": "group", "aliasMap": {"umi-group-antidocument": "antidocument", "umi-antidocument": "antidocument", "umi-antidoc": "antidoc", "umi-nodocument": "nodocument", "umi-nodoc": "nodoc", "antidocument": "antidocument", "antidoc": "antidoc", "nodocument": "nodocument", "nodoc": "nodoc"}, "description": "Mengatur antidocument di grup", "usage": ".antidocument <on/off>", "example": ".antidocument on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antidocument.js", metadata, m, extra)

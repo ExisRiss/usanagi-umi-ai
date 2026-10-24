@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Titik masuk sistem backup untuk proses bot.
  * Dipanggil dari main.js: scheduler + bot Telegram + notifier.

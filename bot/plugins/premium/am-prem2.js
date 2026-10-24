@@ -2,6 +2,7 @@
  * Name   : Alight Motion Prem V2 
  * Type   : ESM 
  * Url    : https://am.neonode.my.id 
+  * By AlzRiss - Usanagi Umi AI
  */ 
 
 import axios from 'axios';

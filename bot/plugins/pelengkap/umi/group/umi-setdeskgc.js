@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setdeskgc", "category": "group", "aliasMap": {"umi-group-setdeskgc": "setdeskgc", "umi-setdeskgc": "setdeskgc", "umi-setdesc": "setdesc", "umi-setdescgc": "setdescgc", "umi-setdeskripsi": "setdeskripsi", "umi-setdesk": "setdesk", "setdeskgc": "setdeskgc", "setdesc": "setdesc", "setdescgc": "setdescgc", "setdeskripsi": "setdeskripsi", "setdesk": "setdesk"}, "description": "Mengubah deskripsi grup", "usage": ".setdeskgc <deskripsi baru>", "example": ".setdeskgc Grup untuk diskusi", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setdeskgc.js", metadata, m, extra)

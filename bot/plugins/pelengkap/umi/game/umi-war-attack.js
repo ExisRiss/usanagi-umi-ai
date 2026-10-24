@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "attack", "category": "game", "aliasMap": {"umi-game-attack": "attack", "umi-attack": "attack", "umi-atk": "atk", "attack": "attack", "atk": "atk"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/war-attack.js", metadata, m, extra)

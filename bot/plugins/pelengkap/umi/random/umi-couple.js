@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ppcouple", "category": "random", "aliasMap": {"umi-random-ppcouple": "ppcouple", "umi-ppcouple": "ppcouple", "umi-cp": "cp", "umi-ppcp": "ppcp"}, "description": "Random gambar pp couple", "usage": ".ppcouple", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/couple.js", metadata, m, extra)

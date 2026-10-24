@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "movieku", "category": "search", "aliasMap": {"umi-search-movieku": "movieku", "umi-movieku": "movieku", "umi-carifilm": "carifilm", "umi-carimovie": "carimovie", "movieku": "movieku", "carifilm": "carifilm", "carimovie": "carimovie"}, "description": "Cari dan tampilkan informasi film lengkap dari Movieku beserta link download dalam berbagai kualitas", "usage": ".movieku <judul film>", "example": ".movieku avengers", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/movieku.js", metadata, m, extra)

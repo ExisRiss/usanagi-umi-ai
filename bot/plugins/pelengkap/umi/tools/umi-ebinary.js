@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ebinary", "category": "tools", "aliasMap": {"umi-tools-ebinary": "ebinary", "umi-ebinary": "ebinary", "umi-encodebinary": "encodebinary", "umi-text2binary": "text2binary", "ebinary": "ebinary", "encodebinary": "encodebinary", "text2binary": "text2binary"}, "description": "Encode teks menjadi binary", "usage": ".ebinary <teks>", "example": ".ebinary Umi", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ebinary.js", metadata, m, extra)

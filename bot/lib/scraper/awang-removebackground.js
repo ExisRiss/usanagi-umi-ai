@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 export async function removeBackground(buffer, mime = 'image/jpeg', filename = 'image.jpg', options = {}) {
   if (!Buffer.isBuffer(buffer) || !buffer.length) throw new Error('Buffer gambar kosong')

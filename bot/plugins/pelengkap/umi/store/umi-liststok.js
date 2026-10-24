@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "liststok", "category": "store", "aliasMap": {"umi-store-liststok": "liststok", "umi-liststok": "liststok", "umi-liststock": "liststock", "umi-stok": "stok", "umi-stock": "stock", "liststok": "liststok", "liststock": "liststock", "stok": "stok", "stock": "stock"}, "description": "📋 Lihat daftar stok item produk", "usage": ".liststok <nomor_produk>", "example": ".liststok 1", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/liststok.js", metadata, m, extra)

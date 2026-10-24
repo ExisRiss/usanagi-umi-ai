@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "acc", "category": "group", "aliasMap": {"umi-group-acc": "acc", "umi-acc": "acc", "umi-accall": "accall", "umi-joinrequest": "joinrequest", "umi-reqjoin": "reqjoin", "acc": "acc", "accall": "accall", "joinrequest": "joinrequest", "reqjoin": "reqjoin"}, "description": "Kelola permintaan masuk grup (accept/reject)", "usage": ".acc <list|approve|reject> [all|nomor]", "example": ".acc approve all", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/acc.js", metadata, m, extra)

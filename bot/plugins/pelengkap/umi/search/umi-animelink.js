@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animelink", "category": "search", "aliasMap": {"umi-search-animelink": "animelink", "umi-animelink": "animelink", "animelink": "animelink"}, "description": "Handler untuk link download anime", "usage": "Internal command", "example": "", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/animelink.js", metadata, m, extra)

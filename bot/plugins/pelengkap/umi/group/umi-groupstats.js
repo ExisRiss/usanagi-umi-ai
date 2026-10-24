@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "groupstats", "category": "group", "aliasMap": {"umi-group-groupstats": "groupstats", "umi-groupstats": "groupstats", "umi-statsgrup": "statsgrup", "umi-statsgroup": "statsgroup", "groupstats": "groupstats", "statsgrup": "statsgrup", "statsgroup": "statsgroup"}, "description": "Menampilkan statistik dasar grup saat ini", "usage": ".groupstats", "example": ".groupstats", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/groupstats.js", metadata, m, extra)

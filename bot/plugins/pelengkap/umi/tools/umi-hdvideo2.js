@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hdvideo2", "category": "tools", "aliasMap": {"umi-tools-hdvideo2": "hdvideo2", "umi-hdvideo2": "hdvideo2", "umi-enhancevideo2": "enhancevideo2", "umi-videohd2": "videohd2", "umi-videoenhance2": "videoenhance2", "umi-video2k2": "video2k2", "hdvideo2": "hdvideo2", "enhancevideo2": "enhancevideo2", "videohd2": "videohd2", "videoenhance2": "videoenhance2", "video2k2": "video2k2"}, "description": "Enhance/upscale video ke kualitas 2K dengan AI", "usage": ".hdvideo (reply video)", "example": ".hdvideo", "cooldown": 180, "energi": 10}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/hdvideo2.js", metadata, m, extra)

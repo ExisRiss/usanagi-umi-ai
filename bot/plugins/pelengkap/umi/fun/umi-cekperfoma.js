@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekperforma", "category": "fun", "aliasMap": {"umi-fun-cekperforma": "cekperforma", "umi-cekperforma": "cekperforma", "umi-performa": "performa", "umi-cekperf": "cekperf", "cekperforma": "cekperforma", "performa": "performa", "cekperf": "cekperf"}, "description": "Cek performa secara random (bercanda)", "usage": ".cekperforma <nama>", "example": ".cekperforma Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/cekperfoma.js", metadata, m, extra)

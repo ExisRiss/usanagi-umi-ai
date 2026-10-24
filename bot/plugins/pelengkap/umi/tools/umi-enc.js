@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "encrypt", "category": "tools", "aliasMap": {"umi-tools-encrypt": "encrypt", "umi-encrypt": "encrypt", "umi-enc": "enc", "umi-obfuscate": "obfuscate", "umi-enccode": "enccode", "obfuscate": "obfuscate", "enccode": "enccode"}, "description": "Enkripsi / Obfuscate kode JavaScript", "usage": ".encrypt (reply file/code)", "example": ".encrypt", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/enc.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mangalist", "category": "general", "aliasMap": {"umi-general-mangalist": "mangalist", "umi-mangalist": "mangalist", "mangalist": "mangalist"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/general/mangga-pop.js", metadata, m, extra)

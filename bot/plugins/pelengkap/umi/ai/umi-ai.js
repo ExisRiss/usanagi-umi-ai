@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "umi-ai", "category": "ai", "aliasMap": {"umi-ai": "umi-ai", "umi-ai": "umi-ai", "umiai": "umiai", "umi": "umi", "umi-ai": "ai", "umiai": "umiai", "umi": "umi"}, "description": "Chat dengan Umi AI — Asisten bot cerdas", "usage": ".umi-ai <pertanyaan>", "example": ".umi-ai Apa itu Node.js?", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/rimuru-ai.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeml", "category": "canvas", "aliasMap": {"umi-canvas-fakeml": "fakeml", "umi-fakeml": "fakeml", "umi-mlbbfake": "mlbbfake", "umi-mlcard": "mlcard", "umi-mlfake": "mlfake", "mlbbfake": "mlbbfake", "mlcard": "mlcard", "mlfake": "mlfake"}, "description": "Membuat fake ML profile card", "usage": ".fakeml <nama> (reply/kirim foto)", "example": ".fakeml Misaki", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeml.js", metadata, m, extra)

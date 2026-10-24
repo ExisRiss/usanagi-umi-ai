@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "self", "category": "owner", "aliasMap": {"umi-owner-self": "self", "umi-self": "self", "umi-selfmode": "selfmode", "umi-private-mode": "private-mode", "selfmode": "selfmode", "private-mode": "private-mode"}, "description": "Mengaktifkan mode self (hanya owner & bot yang bisa akses)", "usage": ".self", "example": ".self", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/self.js", metadata, m, extra)

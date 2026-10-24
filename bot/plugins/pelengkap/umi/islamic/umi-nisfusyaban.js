@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nisfusyaban", "category": "religi", "aliasMap": {"umi-religi-nisfusyaban": "nisfusyaban", "umi-nisfusyaban": "nisfusyaban", "umi-nisfu": "nisfu", "umi-malamnisfu": "malamnisfu", "umi-syaban": "syaban", "nisfusyaban": "nisfusyaban", "nisfu": "nisfu", "malamnisfu": "malamnisfu", "syaban": "syaban"}, "description": "Informasi lengkap tentang Malam Nisfu Syaban (doa, amalan, keutamaan)", "usage": ".nisfusyaban", "example": ".nisfusyaban", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/nisfusyaban.js", metadata, m, extra)

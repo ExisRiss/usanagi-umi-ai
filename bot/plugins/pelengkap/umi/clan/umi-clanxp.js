@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanxp", "category": "clan", "aliasMap": {"umi-clan-clanxp": "clanxp", "umi-clanxp": "clanxp", "umi-xpclan": "xpclan", "umi-clanexp": "clanexp", "clanxp": "clanxp", "xpclan": "xpclan", "clanexp": "clanexp"}, "description": "Lihat XP clan dan kontribusi member", "usage": ".clanxp", "example": ".clanxp", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanxp.js", metadata, m, extra)

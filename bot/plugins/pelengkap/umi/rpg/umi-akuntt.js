@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "akuntiktok", "category": "rpg", "aliasMap": {"umi-rpg-akuntiktok": "akuntiktok", "umi-akuntiktok": "akuntiktok", "umi-akuntiktokprofile": "akuntiktokprofile", "umi-akuntt": "akuntt", "akuntiktok": "akuntiktok", "akuntiktokprofile": "akuntiktokprofile", "akuntt": "akuntt"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/akuntt.js", metadata, m, extra)

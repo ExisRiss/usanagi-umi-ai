@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "claudehaiku", "category": "ai", "aliasMap": {"umi-ai-claudehaiku": "claudehaiku", "umi-claudehaiku": "claudehaiku", "umi-claude": "claude", "umi-haiku": "haiku", "umi-chiku": "chiku", "claudehaiku": "claudehaiku", "claude": "claude", "haiku": "haiku", "chiku": "chiku"}, "description": "Chat dengan Claude Haiku 4.5 via OverChat", "usage": ".claudehaiku <pertanyaan>", "example": ".claudehaiku Jelaskan teori relativitas", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/claudehaiku.js", metadata, m, extra)

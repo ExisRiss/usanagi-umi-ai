@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "enlargerai", "category": "tools", "aliasMap": {"umi-tools-enlargerai": "enlargerai", "umi-enlargerai": "enlargerai", "umi-enlargeraiphotos": "enlargeraiphotos", "umi-enlarger": "enlarger", "enlargerai": "enlargerai", "enlargeraiphotos": "enlargeraiphotos", "enlarger": "enlarger"}, "description": "Meningkatkan kualitas gambar (HD, Retouch, Sharpen) dengan Enlargerai", "usage": ".enlargerai [mode] [reply/kirim gambar]", "example": ".enlargerai upscale", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/enlargerai.js", metadata, m, extra)

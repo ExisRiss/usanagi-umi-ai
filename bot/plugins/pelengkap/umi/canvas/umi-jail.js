@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jail", "category": "maker", "aliasMap": {"umi-maker-jail": "jail", "umi-jail": "jail", "umi-penjara": "penjara", "umi-prison": "prison", "jail": "jail", "penjara": "penjara", "prison": "prison"}, "description": "Efek penjara pada foto", "usage": ".jail (reply foto)", "example": ".jail", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/jail.js", metadata, m, extra)

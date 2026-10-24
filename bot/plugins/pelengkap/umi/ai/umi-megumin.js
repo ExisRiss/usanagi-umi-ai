@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "meguminai", "category": "ai", "aliasMap": {"umi-ai-meguminai": "meguminai", "umi-meguminai": "meguminai", "umi-megu": "megu", "meguminai": "meguminai", "megu": "megu"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/megumin.js", metadata, m, extra)

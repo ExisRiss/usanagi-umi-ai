@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setwelcome", "category": "group", "aliasMap": {"umi-group-setwelcome": "setwelcome", "umi-setwelcome": "setwelcome", "umi-customwelcome": "customwelcome", "customwelcome": "customwelcome"}, "description": "Set custom welcome message", "usage": ".setwelcome <pesan>", "example": ".setwelcome Halo {user}, selamat datang di {group}!", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setwelcome.js", metadata, m, extra)

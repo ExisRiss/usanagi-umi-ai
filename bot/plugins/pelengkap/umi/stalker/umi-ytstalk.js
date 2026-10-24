@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ytstalk", "category": "stalker", "aliasMap": {"umi-stalker-ytstalk": "ytstalk", "umi-ytstalk": "ytstalk", "umi-youtubestalk": "youtubestalk", "umi-stalkyt": "stalkyt", "ytstalk": "ytstalk", "youtubestalk": "youtubestalk", "stalkyt": "stalkyt"}, "description": "Stalk channel YouTube", "usage": ".ytstalk <username>", "example": ".ytstalk mrbeast", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/ytstalk.js", metadata, m, extra)

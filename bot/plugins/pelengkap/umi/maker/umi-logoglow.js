@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "logo-glow", "category": "maker", "aliasMap": {"umi-maker-logo-glow": "logo-glow", "umi-logo-glow": "logo-glow", "umi-logoglow": "logoglow", "umi-neonlogo": "neonlogo", "umi-glowlogo": "glowlogo", "logo-glow": "logo-glow", "logoglow": "logoglow", "neonlogo": "neonlogo", "glowlogo": "glowlogo"}, "description": "Buat logo dengan efek neon glow", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/logoglow.js", metadata, m, extra)

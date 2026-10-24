@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakedev2", "category": "canvas", "aliasMap": {"umi-canvas-fakedev2": "fakedev2", "umi-fakedev2": "fakedev2", "fakedev2": "fakedev2"}, "description": "Bikin gambar fakedev 2 dari fotomu", "usage": ".fakedev2 <teks> (reply/kirim foto)", "example": ".fakedev2 developer", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakedev2.js", metadata, m, extra)

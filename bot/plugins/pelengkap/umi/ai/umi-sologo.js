@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sologo", "category": "ai", "aliasMap": {"umi-ai-sologo": "sologo", "umi-sologo": "sologo", "umi-ailogo": "ailogo", "umi-bikinlogo": "bikinlogo", "sologo": "sologo", "ailogo": "ailogo", "bikinlogo": "bikinlogo"}, "description": "Membuat logo menggunakan AI dari teks (prompt)", "usage": ".sologo <prompt>", "example": ".sologo Kucing lucu warna biru", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/sologo.js", metadata, m, extra)

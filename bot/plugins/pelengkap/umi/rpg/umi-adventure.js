@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "adventure", "category": "rpg", "aliasMap": {"umi-rpg-adventure": "adventure", "umi-adventure": "adventure", "umi-adv": "adv", "umi-petualangan": "petualangan"}, "description": "Berpetualang untuk mendapat Exp dan hadiah", "usage": ".adventure", "example": ".adventure", "cooldown": 120, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/adventure.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "amverif", "category": "tools", "aliasMap": {"umi-tools-amverif": "amverif", "umi-amverif": "amverif", "umi-ampverif": "ampverif", "umi-verifyam": "verifyam", "umi-amverify": "amverify", "amverif": "amverif", "ampverif": "ampverif", "verifyam": "verifyam", "amverify": "amverify"}, "description": "Alias: verifikasi AM (pakai .amprem)", "usage": ".amverif → gunakan .amprem", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/amverif.js", metadata, m, extra)

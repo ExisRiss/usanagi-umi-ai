@@ -1,5 +1,6 @@
 /**
  * Zhuxin MD — Showroom Live cek + notif
+  * By AlzRiss - Usanagi Umi AI
  * Adapted for Bochiteam ESM Standard
  */
 import {

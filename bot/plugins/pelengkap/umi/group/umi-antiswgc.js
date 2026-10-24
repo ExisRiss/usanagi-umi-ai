@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antiswgc", "category": "group", "aliasMap": {"umi-group-antiswgc": "antiswgc", "umi-antiswgc": "antiswgc", "umi-antiswgroup": "antiswgroup", "umi-antiswmentiongc": "antiswmentiongc", "umi-antiswtaggc": "antiswtaggc"}, "description": "Deteksi tipe SW group mention atau status mention yang masuk ke grup", "usage": ".antiswgc <on/off>", "example": ".antiswgc on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antiswgc.js", metadata, m, extra)

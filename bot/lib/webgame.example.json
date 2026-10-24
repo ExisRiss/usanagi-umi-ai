@@ -1,5 +1,5 @@
 {
   "enabled": true,
-  "baseUrl": "https://game.gwenna.my.id",
+  "baseUrl": "https://game.example.com",
   "token": "ISI-DENGAN-TOKEN-GAME-DARI-SERVER"
 }

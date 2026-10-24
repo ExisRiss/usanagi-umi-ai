@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "dbmeme", "category": "canvas", "aliasMap": {"umi-canvas-dbmeme": "dbmeme", "umi-dbmeme": "dbmeme", "umi-distractedboy": "distractedboy", "umi-dbm": "dbm", "umi-memedb": "memedb", "dbmeme": "dbmeme", "distractedboy": "distractedboy", "dbm": "dbm", "memedb": "memedb"}, "description": "Membuat meme 'Distracted Boyfriend' dengan 3 teks custom", "usage": ".dbmeme <text1> | <text2> | <text3>", "example": ".dbmeme Ah tu cewe cakep | Hei kamu ngeliatin kemana | tu cowo ngeliatin gw", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/dbmeme.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cektinggi", "category": "cek", "aliasMap": {"umi-cek-cektinggi": "cektinggi", "umi-cektinggi": "cektinggi", "umi-tinggi": "tinggi", "umi-tall": "tall", "tall": "tall"}, "description": "Cek tinggi badan random", "usage": ".cektinggi <nama>", "example": ".cektinggi Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cektinggi.js", metadata, m, extra)

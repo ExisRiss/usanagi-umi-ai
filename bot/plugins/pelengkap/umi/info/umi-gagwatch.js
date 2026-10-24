@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gag2watch", "category": "info", "aliasMap": {"umi-info-gag2watch": "gag2watch", "umi-gag2watch": "gag2watch", "umi-gag2-watch": "gag2-watch", "gag2watch": "gag2watch", "gag2-watch": "gag2-watch"}, "description": "Cek informasi stok GAG2 Watch", "usage": ".gag2-watch", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/gagwatch.js", metadata, m, extra)

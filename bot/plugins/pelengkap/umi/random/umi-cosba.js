@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cosba", "category": "random", "aliasMap": {"umi-random-cosba": "cosba", "umi-cosba": "cosba", "umi-cosplayba": "cosplayba", "cosba": "cosba", "cosplayba": "cosplayba"}, "description": "Random gambar cosplay Blue Archive", "usage": ".cosba", "example": ".cosba", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/cosba.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addjpg", "category": "owner", "aliasMap": {"umi-owner-addjpg": "addjpg", "umi-addjpg": "addjpg", "umi-addimage": "addimage", "umi-tambahjpg": "tambahjpg", "umi-setjpg": "setjpg", "addjpg": "addjpg", "addimage": "addimage", "tambahjpg": "tambahjpg", "setjpg": "setjpg"}, "description": "Tambah gambar baru ke folder assets/images", "usage": ".addjpg <nama_file.jpg> (reply gambar)", "example": ".addjpg zerotwo.jpg", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/addjpg.js", metadata, m, extra)

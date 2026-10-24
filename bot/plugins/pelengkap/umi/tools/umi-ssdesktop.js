@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ssdesktop", "category": "tools", "aliasMap": {"umi-tools-ssdesktop": "ssdesktop", "umi-ssdesktop": "ssdesktop", "umi-sspc": "sspc", "umi-sspcweb": "sspcweb", "umi-ssd": "ssd", "ssdesktop": "ssdesktop", "sspc": "sspc", "sspcweb": "sspcweb", "ssd": "ssd"}, "description": "Mengambil screenshot website tampilan PC/Desktop", "usage": ".ssdesktop <url>", "example": ".ssdesktop https://google.com", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ssdesktop.js", metadata, m, extra)

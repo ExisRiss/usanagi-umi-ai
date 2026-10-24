@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autobeli", "category": "store_autoorder", "aliasMap": {"umi-store_autoorder-autobeli": "autobeli", "umi-autobeli": "autobeli", "umi-autoorder": "autoorder", "umi-autobuy": "autobuy", "autobeli": "autobeli", "autoorder": "autoorder", "autobuy": "autobuy"}, "description": "🛒 Membeli produk autoorder secara otomatis pakai saldo", "usage": ".autobeli <nomor/id_produk>", "example": ".autobeli 1", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store_autoorder/beli.js", metadata, m, extra)

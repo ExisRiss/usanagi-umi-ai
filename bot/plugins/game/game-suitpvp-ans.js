@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 let handler = m => m
 handler.before = async function (m) {

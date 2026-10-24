@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekowner", "category": "cek", "aliasMap": {"umi-cek-cekowner": "cekowner", "umi-cekowner": "cekowner", "umi-ownerinfo": "ownerinfo", "cekowner": "cekowner", "ownerinfo": "ownerinfo"}, "description": "Cek apakah user adalah owner bot", "usage": ".cekowner @user", "example": ".cekowner", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cekowner.js", metadata, m, extra)

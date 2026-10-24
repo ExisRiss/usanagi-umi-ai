@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "countrystalk", "category": "stalker  ", "aliasMap": {"umi-stalker---countrystalk": "countrystalk", "umi-countrystalk": "countrystalk", "umi-stalknegara": "stalknegara", "umi-infonegara": "infonegara", "countrystalk": "countrystalk", "stalknegara": "stalknegara", "infonegara": "infonegara"}, "description": "Mencari informasi detail tentang suatu negara", "usage": ".country <nama negara>", "example": ".country indonesia", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/countrystalk.js", metadata, m, extra)

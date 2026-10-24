@@ -2,6 +2,7 @@
  *  songfinder
  * -----------------------------
  * Type   : Plugins ESM
+  * By AlzRiss - Usanagi Umi AI
  * API : https://audd.io
  */
  

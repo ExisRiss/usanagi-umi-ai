@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "biner", "category": "tools", "aliasMap": {"umi-tools-biner": "biner", "umi-biner": "biner", "umi-texttobin": "texttobin", "umi-teks2bin": "teks2bin", "umi-encodebiner": "encodebiner", "biner": "biner", "texttobin": "texttobin", "teks2bin": "teks2bin", "encodebiner": "encodebiner"}, "description": "Mengubah teks menjadi kode binary", "usage": ".biner <teks>", "example": ".biner Hello", "cooldown": 2, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/binary.js", metadata, m, extra)

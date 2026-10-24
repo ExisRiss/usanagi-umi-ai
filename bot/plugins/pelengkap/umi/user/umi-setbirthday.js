@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setbirthday", "category": "user", "aliasMap": {"umi-user-setbirthday": "setbirthday", "umi-setbirthday": "setbirthday", "umi-setbday": "setbday", "umi-setultah": "setultah", "umi-settgl": "settgl", "setbday": "setbday", "settgl": "settgl"}, "description": "Set tanggal ulang tahun", "usage": ".setbirthday <DD-MM>", "example": ".setbirthday 25-12", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/setbirthday.js", metadata, m, extra)

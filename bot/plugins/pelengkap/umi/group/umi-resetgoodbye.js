@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetgoodbye", "category": "group", "aliasMap": {"umi-group-resetgoodbye": "resetgoodbye", "umi-resetgoodbye": "resetgoodbye", "umi-delgoodbye": "delgoodbye", "umi-cleargoodbye": "cleargoodbye", "delgoodbye": "delgoodbye", "cleargoodbye": "cleargoodbye"}, "description": "Reset goodbye message ke default", "usage": ".resetgoodbye", "example": ".resetgoodbye", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/resetgoodbye.js", metadata, m, extra)

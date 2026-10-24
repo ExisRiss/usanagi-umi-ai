@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "benefitpartner", "category": "info", "aliasMap": {"umi-info-benefitpartner": "benefitpartner", "umi-benefitpartner": "benefitpartner", "umi-partnerbenefits": "partnerbenefits", "umi-keuntunganpartner": "keuntunganpartner", "benefitpartner": "benefitpartner", "partnerbenefits": "partnerbenefits", "keuntunganpartner": "keuntunganpartner"}, "description": "Lihat keuntungan menjadi partner bot", "usage": ".benefitpartner", "example": ".benefitpartner", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/benefitpartner.js", metadata, m, extra)

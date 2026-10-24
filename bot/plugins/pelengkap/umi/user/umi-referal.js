@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "referal", "category": "user", "aliasMap": {"umi-user-referal": "referal", "umi-referal": "referal", "umi-referral": "referral", "umi-refer": "refer", "umi-ref": "ref", "referal": "referal", "referral": "referral", "refer": "refer", "ref": "ref"}, "description": "Sistem kode referral untuk mendapatkan EXP", "usage": ".referal [kode]", "example": ".referal atau .referal ABC123XYZ", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/referal.js", metadata, m, extra)

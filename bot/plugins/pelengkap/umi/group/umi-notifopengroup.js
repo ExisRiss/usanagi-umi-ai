@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "notifopengroup", "category": "group", "aliasMap": {"umi-group-notifopengroup": "notifopengroup", "umi-notifopengroup": "notifopengroup", "umi-notifopen": "notifopen", "notifopengroup": "notifopengroup", "notifopen": "notifopen"}, "description": "Toggle notifikasi saat grup dibuka", "usage": ".notifopengroup on/off", "example": ".notifopengroup on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/notifopengroup.js", metadata, m, extra)

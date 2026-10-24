@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ektp", "category": "canvas", "aliasMap": {"umi-canvas-ektp": "ektp", "umi-ektp": "ektp", "umi-ktp": "ktp", "ektp": "ektp", "ktp": "ktp"}, "description": "Bikin gambar e-KTP palsu", "usage": ".ektp <nik>|<nama>|<tanggalLahir> (reply/kirim foto)", "example": ".ektp 123456789|Fauzan|01-01-2000", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/ektp.js", metadata, m, extra)

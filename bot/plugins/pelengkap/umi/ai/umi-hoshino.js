@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "hoshino", "category": "ai", "aliasMap": {"umi-ai-hoshino": "hoshino", "umi-hoshino": "hoshino", "umi-hoshinoba": "hoshinoba", "hoshino": "hoshino", "hoshinoba": "hoshinoba"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/hoshino.js", metadata, m, extra)

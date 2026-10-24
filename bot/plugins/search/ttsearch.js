@@ -1,6 +1,8 @@
 /*
+ * By AlzRiss - Usanagi Umi AI
 # Type : ESM Plugin
 # Url : https://www.revid.ai
+# By AlzRiss - Usanagi Umi AI
 */
 
 import axios from 'axios'

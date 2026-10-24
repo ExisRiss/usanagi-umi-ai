@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "basket", "category": "canvas", "aliasMap": {"umi-canvas-basket": "basket", "umi-basket": "basket", "basket": "basket"}, "description": "Buat gambar basket dengan nama custom", "usage": ".basket <nama>", "example": ".basket Fauzan", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/basket.js", metadata, m, extra)

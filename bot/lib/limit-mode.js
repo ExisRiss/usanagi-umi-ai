@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Satu sumber kebenaran untuk "apakah limit diberlakukan?".
  *

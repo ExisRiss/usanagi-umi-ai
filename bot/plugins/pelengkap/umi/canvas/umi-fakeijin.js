@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeijin", "category": "canvas", "aliasMap": {"umi-canvas-fakeijin": "fakeijin", "umi-fakeijin": "fakeijin", "umi-ijinfake": "ijinfake", "umi-suratijin": "suratijin", "umi-fakeizin": "fakeizin", "fakeijin": "fakeijin", "ijinfake": "ijinfake", "suratijin": "suratijin", "fakeizin": "fakeizin"}, "description": "Bikin fake surat ijin (buat konten/gaguan doang)", "usage": ".fakeijin <nama> | <alasan>", "example": ".fakeijin Umi | Sakit", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/fakeijin.js", metadata, m, extra)

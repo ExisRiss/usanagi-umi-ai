@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setrulesgrup", "category": "group", "aliasMap": {"umi-group-setrulesgrup": "setrulesgrup", "umi-setrulesgrup": "setrulesgrup", "umi-setgrouprules": "setgrouprules", "umi-setaturangrup": "setaturangrup", "setrulesgrup": "setrulesgrup", "setgrouprules": "setgrouprules", "setaturangrup": "setaturangrup"}, "description": "Set rules/aturan grup custom (admin only)", "usage": ".setrulesgrup <text>", "example": ".setrulesgrup 1. Jangan spam\n2. Hormati sesama", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/setrulesgrup.js", metadata, m, extra)

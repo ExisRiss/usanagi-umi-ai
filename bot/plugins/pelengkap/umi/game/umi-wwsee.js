@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "wwsee", "category": "game", "aliasMap": {"umi-game-wwsee": "wwsee", "umi-wwsee": "wwsee", "umi-seer": "seer", "umi-vision": "vision", "umi-wse": "wse", "wwsee": "wwsee", "seer": "seer", "vision": "vision", "wse": "wse"}, "description": "Seer night action - See target role", "usage": ".wwsee <nomor>", "example": ".wwsee 1", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/wwsee.js", metadata, m, extra)

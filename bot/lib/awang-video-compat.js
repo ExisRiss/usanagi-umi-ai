@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import fs from 'node:fs/promises'
 import os from 'node:os'

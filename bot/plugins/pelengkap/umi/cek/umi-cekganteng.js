@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "cekganteng", "category": "cek", "aliasMap": {"umi-cek-cekganteng": "cekganteng", "umi-cekganteng": "cekganteng", "umi-ganteng": "ganteng", "umi-handsome": "handsome", "handsome": "handsome"}, "description": "Cek seberapa ganteng kamu", "usage": ".cekganteng <nama>", "example": ".cekganteng Budi", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/cek/cekganteng.js", metadata, m, extra)

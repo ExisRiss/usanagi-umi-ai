@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "styleteks", "category": "tools", "aliasMap": {"umi-tools-styleteks": "styleteks", "umi-styleteks": "styleteks", "umi-fancytext": "fancytext", "umi-gaya": "gaya", "umi-tulisan": "tulisan", "umi-fontstyle": "fontstyle", "styleteks": "styleteks", "fancytext": "fancytext", "gaya": "gaya", "tulisan": "tulisan", "fontstyle": "fontstyle"}, "description": "Mengubah teks biasa menjadi berbagai gaya tulisan keren (fancy text).", "usage": ".styleteks <teks>", "example": ".styleteks Halo Dunia", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/styleteks.js", metadata, m, extra)

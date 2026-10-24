@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sistemenergi", "category": "owner", "aliasMap": {"umi-owner-sistemenergi": "sistemenergi", "umi-sistemenergi": "sistemenergi", "umi-sistemlimit": "sistemlimit", "umi-energimode": "energimode", "umi-limitmode": "limitmode", "sistemenergi": "sistemenergi", "sistemlimit": "sistemlimit", "energimode": "energimode", "limitmode": "limitmode"}, "description": "Mengecek, menghidupkan, atau mematikan sistem energi secara global", "usage": ".sistemenergi [on / off]", "example": ".sistemenergi on", "cooldown": 0, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/sistemenergi.js", metadata, m, extra)

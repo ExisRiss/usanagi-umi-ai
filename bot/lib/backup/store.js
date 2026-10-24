@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Penyimpanan status sistem backup:
  *   index.json   daftar backup (sumber kebenaran metadata arsip)

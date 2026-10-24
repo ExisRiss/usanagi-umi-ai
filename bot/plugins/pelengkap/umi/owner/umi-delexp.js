@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delexp", "category": "owner", "aliasMap": {"umi-owner-delexp": "delexp", "umi-delexp": "delexp", "umi-kurangexp": "kurangexp", "umi-removeexp": "removeexp", "umi-delxp": "delxp", "delexp": "delexp", "kurangexp": "kurangexp", "removeexp": "removeexp", "delxp": "delxp"}, "description": "Kurangi exp user", "usage": ".delexp <jumlah> @user", "example": ".delexp 5000 @user", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/delexp.js", metadata, m, extra)

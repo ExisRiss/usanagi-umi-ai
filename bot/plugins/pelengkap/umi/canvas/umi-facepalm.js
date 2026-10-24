@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "facepalm", "category": "canvas", "aliasMap": {"umi-canvas-facepalm": "facepalm", "umi-facepalm": "facepalm", "facepalm": "facepalm"}, "description": "Bikin gambar facepalm dari fotomu", "usage": ".facepalm (reply/kirim foto)", "example": ".facepalm", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/facepalm.js", metadata, m, extra)

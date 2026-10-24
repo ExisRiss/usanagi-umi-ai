@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kapan", "category": "fun", "aliasMap": {"umi-fun-kapan": "kapan", "umi-kapan": "kapan", "umi-when": "when"}, "description": "Tanya bot kapan sesuatu", "usage": ".kapan <pertanyaan>", "example": ".kapan aku nikah?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/kapan.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "haruskah", "category": "fun", "aliasMap": {"umi-fun-haruskah": "haruskah", "umi-haruskah": "haruskah", "umi-harus": "harus", "umi-should": "should", "should": "should"}, "description": "Tanya bot haruskah sesuatu", "usage": ".haruskah <pertanyaan>", "example": ".haruskah aku menyatakan cinta?", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/haruskah.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "searchthatsong", "category": "search", "aliasMap": {"umi-search-searchthatsong": "searchthatsong", "umi-searchthatsong": "searchthatsong", "umi-sts": "sts", "umi-carilagu": "carilagu", "searchthatsong": "searchthatsong", "sts": "sts", "carilagu": "carilagu"}, "description": "Mencari detail sebuah lagu dari lirik atau potongan kata", "usage": ".searchthatsong <potongan lirik>", "example": ".searchthatsong ku menangis membayangkan", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/searchthatsong.js", metadata, m, extra)

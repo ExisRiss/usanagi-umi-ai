@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { transcodeBuffer } from '../../lib/awang-ffmpeg.js'
 import { downloadMediaBuffer, getMediaSource, react } from '../../lib/awang-media.js'

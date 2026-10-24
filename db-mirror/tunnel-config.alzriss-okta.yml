@@ -1,7 +1,7 @@
 tunnel: 88438bb0-2a14-4e71-a85c-94ebe2dc494f
 credentials-file: /home/container/tunnel-creds.json
 ingress:
-  - hostname: game.gwenna.my.id
+  - hostname: game.example.com
     service: http://localhost:3900
   - hostname: sewa-bot-by-okta-alzriss.gwenna.my.id
     service: http://localhost:3200

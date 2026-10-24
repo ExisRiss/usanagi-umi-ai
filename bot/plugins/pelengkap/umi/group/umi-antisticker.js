@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antisticker", "category": "group", "aliasMap": {"umi-group-antisticker": "antisticker", "umi-antisticker": "antisticker", "umi-nosticker": "nosticker", "antisticker": "antisticker", "as": "as", "nosticker": "nosticker"}, "description": "Mengatur antisticker di grup", "usage": ".antisticker <on/off>", "example": ".antisticker on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antisticker.js", metadata, m, extra)

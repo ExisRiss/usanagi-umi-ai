@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "potensipenyakit", "category": "primbon", "aliasMap": {"umi-primbon-potensipenyakit": "potensipenyakit", "umi-potensipenyakit": "potensipenyakit", "umi-cekpenyakit": "cekpenyakit", "umi-penyakit": "penyakit", "potensipenyakit": "potensipenyakit", "cekpenyakit": "cekpenyakit", "penyakit": "penyakit"}, "description": "Cek potensi penyakit berdasarkan tanggal lahir", "usage": ".potensipenyakit <tgl> <bln> <thn>", "example": ".potensipenyakit 12 05 1998", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/primbon/potensipenyakit.js", metadata, m, extra)

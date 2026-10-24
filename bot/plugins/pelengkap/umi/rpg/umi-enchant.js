@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "enchant", "category": "rpg", "aliasMap": {"umi-rpg-enchant": "enchant", "umi-enchant": "enchant", "umi-upgrade": "upgrade", "umi-tingkatkan": "tingkatkan"}, "description": "Upgrade equipment dengan enchantment", "usage": ".enchant <item>", "example": ".enchant sword", "cooldown": 120, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/enchant.js", metadata, m, extra)

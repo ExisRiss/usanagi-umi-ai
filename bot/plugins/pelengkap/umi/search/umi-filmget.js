@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "filmget", "category": "search", "aliasMap": {"umi-search-filmget": "filmget", "umi-filmget": "filmget", "umi-getfilm": "getfilm", "umi-filmdetail": "filmdetail", "umi-filminfo": "filminfo", "filmget": "filmget", "getfilm": "getfilm", "filmdetail": "filmdetail", "filminfo": "filminfo"}, "description": "Ambil detail film", "usage": ".filmget <url>", "example": ".filmget https://tv.neoxr.eu/film/civil-war-2024", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/filmget.js", metadata, m, extra)

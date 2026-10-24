@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tebakanime", "category": "game", "aliasMap": {"umi-game-tebakanime": "tebakanime", "umi-tebakanime": "tebakanime", "umi-tebaknime": "tebaknime", "umi-guessanime": "guessanime", "tebakanime": "tebakanime", "tebaknime": "tebaknime", "guessanime": "guessanime"}, "description": "Tebak anime dari deskripsi (dapat limit)", "usage": ".tebakanime", "example": ".tebakanime", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/tebakanime.js", metadata, m, extra)

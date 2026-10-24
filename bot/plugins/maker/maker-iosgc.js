@@ -1,5 +1,6 @@
 /**
 ‎✧ Name   : fake gc ios
+ * By AlzRiss - Usanagi Umi AI
 ‎✧ Category : Canvas
 ‎✧ *Note* : Jangan hapus wm ya ,btw ini simpel banget ya jadi ga ada bahan lagi 🗿
 ‎**/

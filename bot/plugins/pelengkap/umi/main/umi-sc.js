@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sc", "category": "main", "aliasMap": {"umi-main-sc": "sc", "umi-sc": "sc", "umi-script": "script"}, "description": "Link script bot wa terbaru", "usage": ".sc", "example": ".sc", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/main/sc.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "web2apk", "category": "maker", "aliasMap": {"umi-maker-web2apk": "web2apk", "umi-web2apk": "web2apk", "umi-appmaker": "appmaker", "umi-makeapk": "makeapk", "umi-tobuildapk": "tobuildapk", "web2apk": "web2apk", "appmaker": "appmaker", "makeapk": "makeapk", "tobuildapk": "tobuildapk"}, "description": "Mengubah URL Website menjadi Aplikasi Android (.apk)", "usage": ".web2apk NamaApp | URL | Email (balas foto untuk icon/splash)", "example": ".web2apk KitsuLabs | https://www.kitsulabs.xyz | user@gmail.com", "cooldown": 30, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/appmaker.js", metadata, m, extra)

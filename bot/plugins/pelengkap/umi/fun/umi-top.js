@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "top", "category": "fun", "aliasMap": {"umi-fun-top": "top", "umi-top5": "top5", "umi-toplist": "toplist"}, "description": "Random top 5 member untuk kategori tertentu", "usage": ".top <kategori>", "example": ".top orang pintar", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/top.js", metadata, m, extra)

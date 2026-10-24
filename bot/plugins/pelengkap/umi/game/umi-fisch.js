@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fisht", "category": "game", "aliasMap": {"umi-game-fisht": "fisht", "umi-fisht": "fisht", "umi-fishit": "fishit", "fisht": "fisht", "fishit": "fishit"}, "description": "Fishit - Fishing Rod Game", "usage": ".fisht <command>", "example": ".fisht help", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/fisch.js", metadata, m, extra)

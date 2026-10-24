@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "setdone", "category": "store", "aliasMap": {"umi-store-setdone": "setdone", "umi-setdone": "setdone", "umi-doneconfig": "doneconfig", "umi-configdone": "configdone", "setdone": "setdone", "doneconfig": "doneconfig", "configdone": "configdone"}, "description": "Set template untuk .done", "usage": ".setdone template <full text>", "example": ".setdone template 「 *TRANSAKSI BERHASIL* 」\\n\\n⌚️ JAM : {jam}", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/setdone.js", metadata, m, extra)

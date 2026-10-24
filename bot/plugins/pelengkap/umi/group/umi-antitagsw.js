@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antitagsw", "category": "group", "aliasMap": {"umi-group-antitagsw": "antitagsw", "umi-antitagsw": "antitagsw", "umi-antitag": "antitag", "umi-antistatustag": "antistatustag"}, "description": "Mengaktifkan/menonaktifkan anti tag status di grup", "usage": ".antitagsw <on/off>", "example": ".antitagsw on", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antitagsw.js", metadata, m, extra)

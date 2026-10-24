@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "addstok", "category": "store", "aliasMap": {"umi-store-addstok": "addstok", "umi-addstok": "addstok", "umi-addstock": "addstock", "umi-importstok": "importstok", "umi-importstock": "importstock", "addstok": "addstok", "addstock": "addstock", "importstok": "importstok", "importstock": "importstock"}, "description": "📦 Tambah stok item ke produk (hanya di private chat)", "usage": ".addstok <nomor_produk>|<detail> atau .addstok <nomor> <jumlah> (fisik)", "example": ".addstok 1|Email: user@mail.com;;Password: pass123", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/addstok.js", metadata, m, extra)

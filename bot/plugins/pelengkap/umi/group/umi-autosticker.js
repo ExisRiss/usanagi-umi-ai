@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "autosticker", "category": "group", "aliasMap": {"umi-group-autosticker": "autosticker", "umi-autosticker": "autosticker", "umi-autostiker": "autostiker", "autosticker": "autosticker", "autostiker": "autostiker"}, "description": "Toggle auto sticker - otomatis jadikan gambar/video jadi sticker", "usage": ".autosticker on/off", "example": ".autosticker on", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/autosticker.js", metadata, m, extra)

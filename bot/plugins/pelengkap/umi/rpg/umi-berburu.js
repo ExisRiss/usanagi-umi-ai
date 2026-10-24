@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "berburu", "category": "rpg", "aliasMap": {"umi-rpg-berburu": "berburu", "umi-huntanimal": "huntanimal", "umi-buru": "buru"}, "description": "Berburu hewan untuk mendapat item", "usage": ".berburu", "example": ".berburu", "cooldown": 120, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/berburu.js", metadata, m, extra)

@@ -1,5 +1,6 @@
 /**
 ✧ Name   : quotes kata"
+ * By AlzRiss - Usanagi Umi AI
 ✧ Category : Canvas
 ✧ *Note* : Jangan hapus wm dan jika ada yang kurang sesuai aja ya
 **/

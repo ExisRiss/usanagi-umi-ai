@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { settings } from '../../config/settings.js'
 import { buildCategoryText, getGreeting, resolveMenuMention } from '../../lib/awang-menu.js'

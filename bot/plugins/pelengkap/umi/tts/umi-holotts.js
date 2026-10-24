@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "holotts", "category": "tts", "aliasMap": {"umi-tts-holotts": "holotts", "umi-holotts": "holotts", "umi-hololive": "hololive", "umi-hololivetts": "hololivetts", "umi-vnholo": "vnholo", "holotts": "holotts", "hololive": "hololive", "hololivetts": "hololivetts", "vnholo": "vnholo"}, "description": "TTS suara karakter Hololive via RVC Hugging Face", "usage": ".holotts <karakter>|<teks>", "example": ".holotts roboco|Hello Umi!", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tts/holotts.js", metadata, m, extra)

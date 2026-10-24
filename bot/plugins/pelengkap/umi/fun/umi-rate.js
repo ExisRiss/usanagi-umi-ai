@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rate", "category": "fun", "aliasMap": {"umi-fun-rate": "rate", "umi-rate": "rate", "umi-nilai": "nilai", "umi-rating": "rating"}, "description": "Minta bot memberi rating sesuatu", "usage": ".rate <sesuatu>", "example": ".rate wajahku", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/rate.js", metadata, m, extra)

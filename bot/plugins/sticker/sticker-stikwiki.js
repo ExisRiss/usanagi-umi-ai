@@ -1,5 +1,6 @@
 // STICKER WIKI ( search pack sticker)
 // type : Plugin ESM 
+// By AlzRiss - Usanagi Umi AI
 import axios from 'axios'
 import cheerio from 'cheerio'
 import { sticker } from '../../lib/sticker.js'

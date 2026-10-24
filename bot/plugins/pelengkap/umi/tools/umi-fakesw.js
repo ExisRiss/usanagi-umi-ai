@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakesw", "category": "tools", "aliasMap": {"umi-tools-fakesw": "fakesw", "umi-fakesw": "fakesw", "umi-fsw": "fsw", "umi-swfake": "swfake", "fakesw": "fakesw", "fsw": "fsw", "swfake": "swfake"}, "description": "Generate gambar Fake Status WhatsApp", "usage": ".fakesw sw|views|caption (Reply Gambar)", "example": ".fakesw My Contact|1250|Lagi santai nih (dengan reply gambar)", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/fakesw.js", metadata, m, extra)

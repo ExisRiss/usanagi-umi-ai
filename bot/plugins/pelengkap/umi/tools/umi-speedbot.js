@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "speedbot", "category": "tools", "aliasMap": {"umi-tools-speedbot": "speedbot", "umi-speedbot": "speedbot", "umi-speed-bot": "speed-bot", "umi-serverinfo": "serverinfo", "speedbot": "speedbot", "speed-bot": "speed-bot", "serverinfo": "serverinfo"}, "description": "Menampilkan statistik performa server bot", "usage": ".speedbot", "example": ".speedbot", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/speedbot.js", metadata, m, extra)

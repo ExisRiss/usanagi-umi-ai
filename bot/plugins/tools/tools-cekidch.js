@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const handler = async (m, { text }) => {
     if (!text) return m.reply("🍌 Harap masukkan link channel WhatsApp!");

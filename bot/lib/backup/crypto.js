@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Enkripsi arsip backup: AES-256-GCM streaming.
  *

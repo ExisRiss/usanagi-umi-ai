@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animeseason", "category": "anime", "aliasMap": {"umi-anime-animeseason": "animeseason", "umi-animeseason": "animeseason", "umi-season": "season", "umi-musimanime": "musimanime", "umi-animemusim": "animemusim", "animeseason": "animeseason", "musimanime": "musimanime", "animemusim": "animemusim"}, "description": "Info lengkap anime musim ini (Spring/Summer/Fall/Winter) + statistik", "usage": ".animeseason [season]", "example": ".animeseason\n.animeseason spring\n.animeseason summer\n.animeseason fall\n.animeseason winter\n.animeseason 2024", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animeseason.js", metadata, m, extra)

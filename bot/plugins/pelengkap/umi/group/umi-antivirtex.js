@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "antivirtex", "category": "group", "aliasMap": {"umi-group-antivirtex": "antivirtex", "umi-antivirtex": "antivirtex", "umi-antivirtexgc": "antivirtexgc", "umi-antivtxt": "antivtxt", "umi-antitxtv": "antitxtv", "antivirtexgc": "antivirtexgc", "antivtxt": "antivtxt", "antitxtv": "antitxtv"}, "description": "Hapus otomatis pesan yang mengandung karakter aneh/virtex di grup", "usage": ".antivirtex on/off", "example": ".antivirtex on", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/antivirtex.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "claninvite", "category": "clan", "aliasMap": {"umi-clan-claninvite": "claninvite", "umi-claninvite": "claninvite", "umi-inviteclan": "inviteclan", "claninvite": "claninvite", "inviteclan": "inviteclan"}, "description": "Invite & langsung tambahkan user ke clan", "usage": ".claninvite @user", "example": ".claninvite @user", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/claninvite.js", metadata, m, extra)

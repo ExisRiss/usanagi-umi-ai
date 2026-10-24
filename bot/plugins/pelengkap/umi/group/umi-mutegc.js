@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mutegc", "category": "group", "aliasMap": {"umi-group-mutegc": "mutegc", "umi-mutegc": "mutegc", "umi-mutegrup": "mutegrup", "umi-mutebot": "mutebot", "umi-blockbot": "blockbot", "umi-lockbot": "lockbot", "mutegc": "mutegc", "mutegrup": "mutegrup", "mutebot": "mutebot", "blockbot": "blockbot", "lockbot": "lockbot"}, "description": "Blokir command bot untuk member, hanya admin/owner yang bisa pakai", "usage": ".mutegc", "example": ".mutegc", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/mutegc.js", metadata, m, extra)

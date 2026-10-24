@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "banchat", "category": "group", "aliasMap": {"umi-group-banchat": "banchat", "umi-banchat": "banchat", "umi-bangroup": "bangroup", "umi-bangrup": "bangrup", "umi-unbanchat": "unbanchat", "umi-unbangroup": "unbangroup"}, "description": "Ban grup dari penggunaan bot (hanya owner yang bisa akses)", "usage": ".banchat", "example": ".banchat", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/banchat.js", metadata, m, extra)

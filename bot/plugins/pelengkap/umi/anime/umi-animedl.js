@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "animedl", "category": "anime", "aliasMap": {"umi-anime-animedl": "animedl", "umi-animedl": "animedl", "umi-anime-download": "anime-download", "umi-animedownload": "animedownload", "umi-dlanime": "dlanime", "animedl": "animedl", "anime-download": "anime-download", "animedownload": "animedownload", "dlanime": "dlanime"}, "description": "Download anime batch/single episode dari Kusonime", "usage": ".animedl <judul | eps>", "example": ".animedl jujutsu kaisen season 2 | 1", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/anime/animedl.js", metadata, m, extra)

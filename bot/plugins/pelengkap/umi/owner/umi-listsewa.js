@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "listsewa", "category": "owner", "aliasMap": {"umi-owner-listsewa": "listsewa", "umi-listsewa": "listsewa", "umi-sewalist": "sewalist", "umi-daftarsewa": "daftarsewa", "listsewa": "listsewa", "sewalist": "sewalist", "daftarsewa": "daftarsewa"}, "description": "Lihat daftar grup yang terdaftar sewa", "usage": ".listsewa", "example": ".listsewa", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/listsewa.js", metadata, m, extra)

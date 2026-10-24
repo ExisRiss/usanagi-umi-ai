@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nanobanana", "category": "ai", "aliasMap": {"umi-ai-nanobanana": "nanobanana", "umi-nanobanana": "nanobanana", "umi-nano": "nano", "umi-imgedit": "imgedit", "nano": "nano", "imgedit": "imgedit"}, "description": "Edit gambar dengan AI menggunakan prompt", "usage": ".nanobanana <prompt>", "example": ".nanobanana make it anime style", "cooldown": 30, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/nanobanana.js", metadata, m, extra)

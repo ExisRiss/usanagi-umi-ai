@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "delam", "category": "owner", "aliasMap": {"umi-owner-delam": "delam", "umi-delam": "delam", "umi-delamrole": "delamrole", "umi-unam": "unam", "umi-removeam": "removeam", "delam": "delam", "delamrole": "delamrole", "unam": "unam", "removeam": "removeam"}, "description": "Hapus role AM (jadi free)", "usage": ".delam <@tag|reply|628xxx>", "example": ".delam 6283xxx", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/delam.js", metadata, m, extra)

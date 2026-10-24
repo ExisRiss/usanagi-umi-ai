@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 function rupiah(amount) {
   return `${Math.max(0, Math.floor(amount)).toLocaleString('id-ID')} koin`

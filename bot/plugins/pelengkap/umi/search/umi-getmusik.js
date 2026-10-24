@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getmusik", "category": "search", "aliasMap": {"umi-search-getmusik": "getmusik", "umi-getmusik": "getmusik", "umi-dlmusik": "dlmusik", "umi-downloadmusik": "downloadmusik", "getmusik": "getmusik", "dlmusik": "dlmusik", "downloadmusik": "downloadmusik"}, "description": "Download lagu dari hasil carimusik", "usage": ".getmusik <nomor>", "example": ".getmusik 1", "cooldown": 15, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/getmusik.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "amsend", "category": "tools", "aliasMap": {"umi-tools-amsend": "amsend", "umi-amsend": "amsend", "umi-sendam": "sendam", "umi-amremlink": "amremlink", "amsend": "amsend", "sendam": "sendam", "amremlink": "amremlink"}, "description": "Alias: kirim link AM (pakai .amprem)", "usage": ".amsend <email>  (redirect ke alur .amprem)", "example": ".amsend email@gmail.com", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/amsend.js", metadata, m, extra)

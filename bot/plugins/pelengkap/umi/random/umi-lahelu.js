@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "lahelu", "category": "random", "aliasMap": {"umi-random-lahelu": "lahelu", "umi-lahelu": "lahelu", "umi-randommeme": "randommeme", "lahelu": "lahelu", "randommeme": "randommeme"}, "description": "Random gambar lahelu", "usage": ".lahelu", "example": ".lahelu", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/lahelu.js", metadata, m, extra)

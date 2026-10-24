@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "sider", "category": "group", "aliasMap": {"umi-group-sider": "sider", "umi-sider": "sider", "umi-silentreader": "silentreader", "umi-deteksisider": "deteksisider", "umi-srdetector": "srdetector", "silentreader": "silentreader", "deteksisider": "deteksisider", "srdetector": "srdetector"}, "description": "Mendeteksi member yang tidak pernah chat dalam periode tertentu", "usage": ".sider <on/off/cek/set>", "example": ".sider cek", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/sider.js", metadata, m, extra)

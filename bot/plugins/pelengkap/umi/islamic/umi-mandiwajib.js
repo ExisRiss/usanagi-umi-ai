@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "mandiwajib", "category": "religi", "aliasMap": {"umi-religi-mandiwajib": "mandiwajib", "umi-mandiwajib": "mandiwajib", "umi-caramandiwajib": "caramandiwajib", "umi-mandi-wajib": "mandi-wajib", "mandiwajib": "mandiwajib", "caramandiwajib": "caramandiwajib", "mandi-wajib": "mandi-wajib"}, "description": "Panduan cara mandi wajib beserta doa", "usage": ".mandiwajib", "example": ".mandiwajib", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/mandiwajib.js", metadata, m, extra)

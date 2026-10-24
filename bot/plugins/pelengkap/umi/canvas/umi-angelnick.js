@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "angelnick", "category": "canvas", "aliasMap": {"umi-canvas-angelnick": "angelnick", "umi-angelnick": "angelnick", "angelnick": "angelnick"}, "description": "Bikin card angel nick dari fotomu", "usage": ".angelnick <teks> (reply/kirim foto)", "example": ".angelnick Fauzan", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/angelnick.js", metadata, m, extra)

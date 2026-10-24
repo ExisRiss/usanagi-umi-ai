@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanwar", "category": "clan", "aliasMap": {"umi-clan-clanwar": "clanwar", "umi-clanwar": "clanwar", "umi-war": "war", "umi-guildwar": "guildwar", "clanwar": "clanwar", "war": "war", "guildwar": "guildwar"}, "description": "War melawan clan lain", "usage": ".clanwar <clan_id>", "example": ".clanwar clan_123456", "cooldown": 3600, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanwar.js", metadata, m, extra)

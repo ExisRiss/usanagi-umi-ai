@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "callingcode", "category": "info", "aliasMap": {"umi-info-callingcode": "callingcode", "umi-callingcode": "callingcode", "callingcode": "callingcode"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/callingcode.js", metadata, m, extra)

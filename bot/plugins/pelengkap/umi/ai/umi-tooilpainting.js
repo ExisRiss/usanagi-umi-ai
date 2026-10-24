@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tooilpainting", "category": "ai", "aliasMap": {"umi-ai-tooilpainting": "tooilpainting", "umi-tooilpainting": "tooilpainting", "umi-oilpainting": "oilpainting", "umi-tooil": "tooil", "umi-oil": "oil", "tooilpainting": "tooilpainting", "oilpainting": "oilpainting", "tooil": "tooil", "oil": "oil"}, "description": "Ubah foto menjadi gaya lukisan minyak (oil painting)", "usage": ".tooilpainting (reply/kirim gambar)", "example": ".tooilpainting", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/tooilpainting.js", metadata, m, extra)

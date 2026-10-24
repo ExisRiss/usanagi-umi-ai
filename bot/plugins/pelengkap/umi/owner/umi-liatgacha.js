@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "liatgacha", "category": "owner", "aliasMap": {"umi-owner-liatgacha": "liatgacha", "umi-liatgacha": "liatgacha", "umi-lihat-gacha": "lihat-gacha", "umi-listgacha": "listgacha", "umi-daftargacha": "daftargacha", "umi-lg": "lg", "liatgacha": "liatgacha", "lihat-gacha": "lihat-gacha", "listgacha": "listgacha", "daftargacha": "daftargacha", "lg": "lg"}, "description": "Melihat semua karakter yang tersedia di database gacha", "usage": ".liat-gacha", "example": ".liat-gacha", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/liatgacha.js", metadata, m, extra)

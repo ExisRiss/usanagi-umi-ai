@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bossbattle", "category": "rpg", "aliasMap": {"umi-rpg-bossbattle": "bossbattle", "umi-bossbattle": "bossbattle", "bossbattle": "bossbattle"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/bossbattle.js", metadata, m, extra)

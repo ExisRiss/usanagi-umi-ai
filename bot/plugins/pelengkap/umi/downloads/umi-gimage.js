@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "gimage", "category": "downloads", "aliasMap": {"umi-downloads-gimage": "gimage", "umi-gimage": "gimage", "umi-googleimage": "googleimage", "umi-image": "image", "gimage": "gimage", "googleimage": "googleimage", "image": "image"}, "description": "Mencari dan mendownload gambar dari Google", "usage": ".gimage [nama gambar]", "example": ".gimage pemandangan aesthetic", "cooldown": 5, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/downloads/gimage.js", metadata, m, extra)

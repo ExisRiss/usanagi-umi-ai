@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "struk", "category": "tools", "aliasMap": {"umi-tools-struk": "struk", "umi-struk": "struk", "umi-printstruk": "printstruk", "umi-buatstruk": "buatstruk", "umi-pdfstruk": "pdfstruk", "struk": "struk", "printstruk": "printstruk", "buatstruk": "buatstruk", "pdfstruk": "pdfstruk"}, "description": "Membuat struk belanja simpel (Nama Store, No Telp, Produk, Jumlah, Harga, Tanggal)", "usage": ".struk <Nama Store> | <No Telp> | <Produk> | <Jumlah> | <Harga>", "example": ".struk Toko Berkah | 08123456789 | Kopi Susu | 2 | 5000", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/struk.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "selfthisgc", "category": "group", "aliasMap": {"umi-group-selfthisgc": "selfthisgc", "umi-selfthisgc": "selfthisgc", "umi-selfgc": "selfgc", "umi-selfgroup": "selfgroup", "umi-selfthisgroup": "selfthisgroup", "selfthisgc": "selfthisgc", "selfgc": "selfgc", "selfgroup": "selfgroup", "selfthisgroup": "selfthisgroup"}, "description": "Aktifkan mode self hanya di grup ini", "usage": ".selfthisgc", "example": ".selfthisgc", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/selfthisgc.js", metadata, m, extra)

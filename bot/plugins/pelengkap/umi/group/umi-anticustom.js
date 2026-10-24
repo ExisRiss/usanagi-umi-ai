@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "anticustom", "category": "group", "aliasMap": {"umi-group-anticustom": "anticustom", "umi-anticustom": "anticustom", "umi-antiaddcustom": "antiaddcustom", "umi-customanti": "customanti", "anticustom": "anticustom", "antiaddcustom": "antiaddcustom", "customanti": "customanti"}, "description": "Bikin AntiCustom lewat sesi tanya jawab per langkah", "usage": ".anticustom <on/off/list/add/del/metode/cancel>", "example": ".anticustom", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/anticustom.js", metadata, m, extra)

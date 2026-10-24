@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ytplay", "category": "download", "aliasMap": {"umi-download-ytplay": "ytplay", "umi-ytplay": "ytplay", "umi-ytp": "ytp"}, "description": "Putar video YouTube dengan HTML AI Rich + Direct Player", "usage": ".ytplay <judul/link>", "example": ".ytplay Alan Walker Faded", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/ytplay.js", metadata, m, extra)

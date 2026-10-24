@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const list = [
   'Aku ingin mencintaimu dengan sederhana\nDengan kata yang tak sempat diucapkan\nKayu kepada api yang menjadikannya abu',

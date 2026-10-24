@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "rajab", "category": "religi", "aliasMap": {"umi-religi-rajab": "rajab", "umi-rajab": "rajab", "umi-bulanrajab": "bulanrajab", "rajab": "rajab", "bulanrajab": "bulanrajab"}, "description": "Informasi lengkap tentang Bulan Rajab (doa, amalan, keutamaan, dan peristiwa penting)", "usage": ".rajab", "example": ".rajab", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/rajab.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "superhero", "category": "random", "aliasMap": {"umi-random-superhero": "superhero", "umi-superhero": "superhero", "umi-hero": "hero", "umi-pahlawan": "pahlawan", "superhero": "superhero", "hero": "hero", "pahlawan": "pahlawan"}, "description": "Cari informasi superhero", "usage": ".superhero <nama>", "example": ".superhero batman", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/random/superhero.js", metadata, m, extra)

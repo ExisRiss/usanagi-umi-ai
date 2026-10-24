@@ -1,4 +1,5 @@
 import { unifiedRpg } from './unified-store.js'
+/* By AlzRiss - Usanagi Umi AI */
 
 import { settings } from '../../config/settings.js'
 import { getUser, recordRpgActivity } from './awang-db.js'

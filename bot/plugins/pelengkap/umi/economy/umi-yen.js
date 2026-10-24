@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "yen", "category": "economy", "aliasMap": {"umi-economy-yen": "yen", "umi-yen": "yen", "umi-jpy": "jpy", "umi-kursyen": "kursyen", "umi-jepang": "jepang", "umi-konversiyen": "konversiyen", "yen": "yen", "jpy": "jpy", "kursyen": "kursyen", "jepang": "jepang", "konversiyen": "konversiyen"}, "description": "Konversi mata uang Rupiah ke Yen Jepang / sebaliknya", "usage": ".yen <nominal> <idr/jpy>", "example": ".yen 100000 idr\n.yen 5000 jpy", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/economy/yen.js", metadata, m, extra)

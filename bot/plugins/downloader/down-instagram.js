@@ -3,6 +3,7 @@
 # Type : ESM
 # API : SaveFromIns
 # Url : https://savefromins.com
+# By AlzRiss - Usanagi Umi AI
 */
 
 import axios from 'axios'

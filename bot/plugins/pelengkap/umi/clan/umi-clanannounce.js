@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "clanannounce", "category": "clan", "aliasMap": {"umi-clan-clanannounce": "clanannounce", "umi-clanannounce": "clanannounce", "umi-announce": "announce", "umi-clanbroadcast": "clanbroadcast", "umi-pengumuman": "pengumuman", "clanannounce": "clanannounce", "announce": "announce", "clanbroadcast": "clanbroadcast", "pengumuman": "pengumuman"}, "description": "Kirim pengumuman ke semua member clan", "usage": ".clanannounce <pesan>", "example": ".clanannounce Besok ada event war!", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/clan/clanannounce.js", metadata, m, extra)

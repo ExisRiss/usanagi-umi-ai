@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetrules", "category": "owner", "aliasMap": {"umi-owner-resetrules": "resetrules", "umi-resetrules": "resetrules", "umi-resetbotrules": "resetbotrules", "resetrules": "resetrules", "resetbotrules": "resetbotrules"}, "description": "Reset rules bot ke default", "usage": ".resetrules", "example": ".resetrules", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/resetrules.js", metadata, m, extra)

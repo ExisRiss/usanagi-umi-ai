@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "close", "category": "group", "aliasMap": {"umi-group-close": "close", "umi-close": "close", "umi-tutup": "tutup", "umi-closegroup": "closegroup", "umi-tutupgroup": "tutupgroup", "close": "close", "tutup": "tutup", "closegroup": "closegroup", "tutupgroup": "tutupgroup"}, "description": "Menutup grup agar hanya admin yang bisa chat", "usage": ".close", "example": ".close", "cooldown": 10, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/close.js", metadata, m, extra)

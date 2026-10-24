@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { sendRemoteMediaFast } from '../../lib/awang-media-transfer.js'
 

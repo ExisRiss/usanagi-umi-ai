@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "robloxplayer", "category": "stalker", "aliasMap": {"umi-stalker-robloxplayer": "robloxplayer", "umi-robloxplayer": "robloxplayer", "umi-robloxsearch": "robloxsearch", "umi-searchroblox": "searchroblox", "umi-robloxfind": "robloxfind", "robloxplayer": "robloxplayer", "robloxsearch": "robloxsearch", "searchroblox": "searchroblox", "robloxfind": "robloxfind"}, "description": "Search Roblox player by username", "usage": ".robloxplayer <username>", "example": ".robloxplayer linkmon", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/stalker/robloxplayer.js", metadata, m, extra)

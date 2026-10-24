@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "matematika", "category": "ai", "aliasMap": {"umi-ai-matematika": "matematika", "umi-matematika": "matematika", "umi-mathgpt": "mathgpt", "umi-math": "math", "umi-mathsolver": "mathsolver", "matematika": "matematika", "mathgpt": "mathgpt", "math": "math", "mathsolver": "mathsolver"}, "description": "AI untuk menyelesaikan soal matematika", "usage": ".matematika <soal>", "example": ".matematika 2+2 berapa?", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/matematika.js", metadata, m, extra)

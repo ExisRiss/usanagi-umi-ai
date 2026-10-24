@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ambilfile", "category": "owner", "aliasMap": {"umi-owner-ambilfile": "ambilfile", "umi-ambilfile": "ambilfile", "umi-getfile": "getfile", "umi-downloadfile": "downloadfile", "ambilfile": "ambilfile", "getfile": "getfile", "downloadfile": "downloadfile"}, "description": "Ambil file dari project bot tanpa perlu .js", "usage": ".ambilfile <nama file>", "example": ".ambilfile config", "cooldown": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/ambilfile.js", metadata, m, extra)

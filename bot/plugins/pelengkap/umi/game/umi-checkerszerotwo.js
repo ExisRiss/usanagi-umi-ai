@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "checkers", "category": "game", "aliasMap": {"umi-game-checkers": "checkers", "umi-checkers": "checkers", "umi-dam": "dam", "umi-caturdam": "caturdam", "umi-zerocheckers": "zerocheckers", "checkers": "checkers", "dam": "dam", "caturdam": "caturdam", "zerocheckers": "zerocheckers"}, "description": "Game catur dam / checkers Umi! Makan semua pion lawan untuk menang.", "usage": ".checkers [@lawan]", "example": ".checkers @user", "cooldown": 10, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/checkerszerotwo.js", metadata, m, extra)

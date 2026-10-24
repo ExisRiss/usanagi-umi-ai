@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const handler = async (m, { conn, command }) => {
   if (m.isGroup) return m.reply('Command ini hanya dapat digunakan di chat pribadi.')

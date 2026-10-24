@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "work", "category": "rpg", "aliasMap": {"umi-rpg-work": "work", "umi-work": "work", "umi-kerja": "kerja", "umi-job": "job"}, "description": "Bekerja untuk mendapatkan uang", "usage": ".work", "example": ".work", "cooldown": 180, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/work.js", metadata, m, extra)

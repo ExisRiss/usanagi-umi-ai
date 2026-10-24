@@ -1,6 +1,7 @@
 /**
 NOTE:JANGAN HAPUS WM HARGAIN DEV
 DEV:RIKI
+ * By AlzRiss - Usanagi Umi AI
 sesuai in sama bot mu
  */
 

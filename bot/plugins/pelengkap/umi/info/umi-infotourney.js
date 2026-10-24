@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "infotourney", "category": "info", "aliasMap": {"umi-info-infotourney": "infotourney", "umi-infotourney": "infotourney", "umi-tourney": "tourney", "umi-turnamen": "turnamen", "umi-mltourney": "mltourney", "infotourney": "infotourney", "tourney": "tourney", "turnamen": "turnamen", "mltourney": "mltourney"}, "description": "Info turnamen Mobile Legends terbaru", "usage": ".infotourney", "example": ".infotourney", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/info/infotourney.js", metadata, m, extra)

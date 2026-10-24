@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tomanga", "category": "ai", "aliasMap": {"umi-ai-tomanga": "tomanga", "umi-tomanga": "tomanga", "umi-manga": "manga", "umi-mangafy": "mangafy", "umi-mangastyle": "mangastyle", "mangafy": "mangafy", "mangastyle": "mangastyle"}, "description": "Ubah foto menjadi gaya manga Jepang", "usage": ".tomanga (reply/kirim gambar)", "example": ".tomanga", "cooldown": 60, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/tomanga.js", metadata, m, extra)

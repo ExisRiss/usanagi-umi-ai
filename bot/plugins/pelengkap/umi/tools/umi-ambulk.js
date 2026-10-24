@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ambulk", "category": "tools", "aliasMap": {"umi-tools-ambulk": "ambulk", "umi-ambulk": "ambulk", "umi-amremlist": "amremlist", "umi-bulkam": "bulkam", "umi-ambulkgen": "ambulkgen", "ambulk": "ambulk", "amremlist": "amremlist", "bulkam": "bulkam", "ambulkgen": "ambulkgen"}, "description": "Membuat beberapa akun Alight Motion Premium sekaligus (bulk)", "usage": ".ambulk <jumlah> <prefix>", "example": ".ambulk 3 umi", "cooldown": 15, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/ambulk.js", metadata, m, extra)

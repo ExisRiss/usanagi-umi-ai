@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nijika", "category": "ai", "aliasMap": {"umi-ai-nijika": "nijika", "umi-nijika": "nijika", "umi-nijikaai": "nijikaai", "nijika": "nijika", "nijikaai": "nijikaai"}, "description": "Imported from Umi MD V4.6", "usage": "", "example": "", "cooldown": 3, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/ai/nijika.js", metadata, m, extra)

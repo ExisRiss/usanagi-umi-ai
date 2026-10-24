@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "getppgc", "category": "group", "aliasMap": {"umi-group-getppgc": "getppgc", "umi-getppgc": "getppgc", "umi-ppgc": "ppgc", "getppgc": "getppgc", "ppgc": "ppgc"}, "description": "Mengambil foto profile group", "usage": ".getppgc", "example": ".getppgc", "cooldown": 10, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/group/getppgc.js", metadata, m, extra)

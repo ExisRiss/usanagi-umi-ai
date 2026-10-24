@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "resetlimitdefault", "category": "owner", "aliasMap": {"umi-owner-resetlimitdefault": "resetlimitdefault", "umi-resetlimitdefault": "resetlimitdefault", "umi-defaultlimitreset": "defaultlimitreset", "resetlimitdefault": "resetlimitdefault", "defaultlimitreset": "defaultlimitreset"}, "description": "Reset default limit ke config asli", "usage": ".resetlimitdefault", "example": ".resetlimitdefault", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/resetlimitdefault.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 const QUEST_MAP = {
   mining: 'mining5',

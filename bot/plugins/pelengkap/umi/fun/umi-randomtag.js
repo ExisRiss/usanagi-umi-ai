@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "randomtag", "category": "group", "aliasMap": {"umi-group-randomtag": "randomtag", "umi-randomtag": "randomtag", "umi-rtag": "rtag", "randomtag": "randomtag", "rtag": "rtag"}, "description": "Tag member random di group", "usage": ".randomtag", "example": ".randomtag", "cooldown": 10, "energi": 5}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/fun/randomtag.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "fakeff3", "category": "maker", "aliasMap": {"umi-maker-fakeff3": "fakeff3", "umi-fakeff3": "fakeff3", "umi-fffake3": "fffake3", "umi-fakecardff3": "fakecardff3", "umi-profileff3": "profileff3", "fakeff3": "fakeff3", "fffake3": "fffake3", "fakecardff3": "fakecardff3", "profileff3": "profileff3"}, "description": "Membuat kartu profil/lobby Free Fire palsu (v3)", "usage": ".fakeff3 username|lobby", "example": ".fakeff3 AlwaysCodex|1", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/maker/fakeff3.js", metadata, m, extra)

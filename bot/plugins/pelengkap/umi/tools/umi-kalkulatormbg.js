@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "kalkulatormbg", "category": "tools", "aliasMap": {"umi-tools-kalkulatormbg": "kalkulatormbg", "umi-kalkulatormbg": "kalkulatormbg", "umi-kkmbg": "kkmbg"}, "description": "Hitung durasi dan perbandingan dana Makan Bergizi Gratis (MBG)", "usage": ".kkmbg <jumlah_uang>", "example": ".kkmbg 1000000000", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/kalkulatormbg.js", metadata, m, extra)

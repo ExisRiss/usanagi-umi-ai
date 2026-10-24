@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Task83 — auto-backup dikirim ke group Telegram bot utama.
  *

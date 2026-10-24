@@ -1,3 +1,4 @@
+/* By AlzRiss - Usanagi Umi AI */
 
 import { getAccessModeState } from '../../core/awang-mode.js'
 import { setOnlyGcActive } from '../../core/awang-gc.js'

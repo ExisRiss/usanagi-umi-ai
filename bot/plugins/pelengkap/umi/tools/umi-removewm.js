@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "removewm", "category": "tools", "aliasMap": {"umi-tools-removewm": "removewm", "umi-removewm": "removewm", "umi-ezremove": "ezremove", "umi-nobgwm": "nobgwm", "umi-delwm": "delwm", "umi-unwatermark": "unwatermark", "removewm": "removewm", "ezremove": "ezremove", "nobgwm": "nobgwm", "delwm": "delwm", "unwatermark": "unwatermark"}, "description": "Menghapus watermark dari gambar (foto biasa maupun dokumen)", "usage": ".removewm (kirim/reply gambar)", "example": ".removewm (reply gambar berwatermark)", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/removewm.js", metadata, m, extra)

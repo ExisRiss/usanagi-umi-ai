@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "bcpcjeda", "category": "owner", "aliasMap": {"umi-owner-bcpcjeda": "bcpcjeda", "umi-bcpcjeda": "bcpcjeda", "umi-delaybcpc": "delaybcpc", "umi-jedabcpc": "jedabcpc", "umi-setjedabcpc": "setjedabcpc", "bcpcjeda": "bcpcjeda", "delaybcpc": "delaybcpc", "jedabcpc": "jedabcpc", "setjedabcpc": "setjedabcpc"}, "description": "Atur jeda broadcast private chat", "usage": ".bcpcjeda <waktu> (contoh: 5s, 2m, 1h)", "cooldown": 5, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/owner/bcpcjeda.js", metadata, m, extra)

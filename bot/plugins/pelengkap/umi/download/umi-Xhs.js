@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "xhs", "category": "download", "aliasMap": {"umi-download-xhs": "xhs", "umi-xhs": "xhs", "xhs": "xhs"}, "description": "Downloader XHS/RedNote untuk video atau gambar.", "usage": ".xhs <url>", "example": ".xhs <url>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/download/Xhs.js", metadata, m, extra)

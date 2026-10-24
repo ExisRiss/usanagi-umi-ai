@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "play", "category": "search", "aliasMap": {"umi-search-play": "play", "umi-play": "play", "umi-playaudio": "playaudio"}, "description": "Putar musik dari YouTube", "usage": ".play <query>", "example": ".play komang", "cooldown": 15, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/search/play.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nulis", "category": "rpg", "aliasMap": {"umi-rpg-nulis": "nulis", "umi-author": "author", "wattpad": "wattpad"}, "description": "Nulis cerpen atau artikel untuk dapet royalti", "usage": ".nulis", "example": ".nulis", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/nulis.js", metadata, m, extra)

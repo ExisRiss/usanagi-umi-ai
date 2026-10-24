@@ -1,4 +1,4 @@
-/*
+/* By AlzRiss - Usanagi Umi AI
  *
  * Kebijakan retensi:
  *   recent   144 snapshot terakhir (10 menit x 24 jam)

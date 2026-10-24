@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "jmk48", "category": "canvas", "aliasMap": {"umi-canvas-jmk48": "jmk48", "umi-jmk48": "jmk48", "jmk48": "jmk48"}, "description": "Bikin gambarmu jadi member JMK48", "usage": ".jmk48 (reply/kirim foto)", "example": ".jmk48", "cooldown": 5, "energi": 2}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/canvas/jmk48.js", metadata, m, extra)

@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "koin", "category": "user", "aliasMap": {"umi-user-koin": "koin", "umi-koin": "koin", "umi-saldo": "saldo", "umi-money": "money", "umi-cash": "cash", "umi-coin": "coin", "umi-coins": "coins", "koin": "koin", "saldo": "saldo", "money": "money", "cash": "cash", "coin": "coin", "coins": "coins"}, "description": "Cek koin user", "usage": ".koin [@user]", "example": ".koin", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/user/koin.js", metadata, m, extra)

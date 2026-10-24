@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "survival", "category": "game", "aliasMap": {"umi-game-survival": "survival", "umi-survival": "survival", "umi-sv2": "sv2", "survival": "survival", "sv2": "sv2"}, "description": "Game survival lengkap dari Tensura.", "usage": ".survival <start|...>", "example": ".survival <start|...>", "cooldown": 5, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/game/survival.js", metadata, m, extra)

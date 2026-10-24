@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "craft", "category": "rpg", "aliasMap": {"umi-rpg-craft": "craft", "umi-craft": "craft", "umi-buat": "buat", "umi-create": "create"}, "description": "Craft item dari materials", "usage": ".craft <item>", "example": ".craft sword", "cooldown": 30, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/craft.js", metadata, m, extra)

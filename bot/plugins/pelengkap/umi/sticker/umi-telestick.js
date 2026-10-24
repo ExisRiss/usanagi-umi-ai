@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "telestick", "category": "sticker", "aliasMap": {"umi-sticker-telestick": "telestick", "umi-telestick": "telestick", "umi-tgsticker": "tgsticker", "umi-telegramsticker": "telegramsticker", "telestick": "telestick", "tgsticker": "tgsticker", "telegramsticker": "telegramsticker"}, "description": "Ambil sticker pack dari Telegram dan kirim sebagai sticker pack WhatsApp", "usage": ".telestick <url>", "example": ".telestick https://t.me/addstickers/AnimeSticker", "cooldown": 30, "energi": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/sticker/telestick.js", metadata, m, extra)

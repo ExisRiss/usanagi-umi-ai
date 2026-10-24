@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "nyapu", "category": "rpg", "aliasMap": {"umi-rpg-nyapu": "nyapu", "umi-nyapu": "nyapu", "umi-cleaning": "cleaning", "umi-bersih": "bersih"}, "description": "Nyapu jalan, siapa tau nemu barang jatuh!", "usage": ".nyapu", "example": ".nyapu", "cooldown": 120, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/rpg/nyapu.js", metadata, m, extra)

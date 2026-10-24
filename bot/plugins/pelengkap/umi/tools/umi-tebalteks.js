@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "tebalteks", "category": "tools", "aliasMap": {"umi-tools-tebalteks": "tebalteks", "umi-tebalteks": "tebalteks", "umi-boldtext": "boldtext", "tebalteks": "tebalteks", "boldtext": "boldtext"}, "description": "Teks tebal ala Umi 😈💗 (4 style)", "usage": ".tebalteks <teks>", "example": ".tebalteks umiWangy", "cooldown": 3}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/tools/tebalteks.js", metadata, m, extra)

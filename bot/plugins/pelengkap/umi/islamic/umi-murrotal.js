@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "murrotal", "category": "islamic", "aliasMap": {"umi-islamic-murrotal": "murrotal", "umi-murrotal": "murrotal", "umi-quraudio": "quraudio", "murrotal": "murrotal", "murottal": "murottal", "audioquran": "audioquran", "quraudio": "quraudio"}, "description": "Dengarkan audio murottal Al-Quran berdasarkan surah", "usage": ".murrotal <nama surah>", "example": ".murrotal al fatihah", "cooldown": 10, "energi": 1}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/murrotal.js", metadata, m, extra)

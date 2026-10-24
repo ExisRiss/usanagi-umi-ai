@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "proses", "category": "store", "aliasMap": {"umi-store-proses": "proses", "umi-proses": "proses", "umi-prs": "prs", "umi-process": "process", "proses": "proses", "prs": "prs", "process": "process"}, "description": "Mulai proses transaksi dengan buyer", "usage": ".prs", "example": ".prs", "cooldown": 3, "energi": 0}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/store/proses.js", metadata, m, extra)

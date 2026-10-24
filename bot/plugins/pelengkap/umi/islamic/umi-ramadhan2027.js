@@ -1,3 +1,4 @@
+/* Ported from Umi upstream — kredit penulis asli ada di CREDITS.md. */
 import { runImportedFeature } from '../../../../lib/imported-compat.js'
 const metadata = {"name": "ramadhan2027", "category": "religi", "aliasMap": {"umi-religi-ramadhan2027": "ramadhan2027", "umi-ramadhan2027": "ramadhan2027", "umi-ramadan2027": "ramadan2027", "umi-hitungramadhan2027": "hitungramadhan2027", "ramadhan2027": "ramadhan2027", "ramadan2027": "ramadan2027", "hitungramadhan2027": "hitungramadhan2027"}, "description": "Menghitung mundur waktu menuju bulan suci Ramadhan 2027 ala Zero Two", "usage": ".ramadhan2027", "example": ".ramadhan2027"}
 const handler = (m, extra) => runImportedFeature("umi", "plugins/islamic/ramadhan2027.js", metadata, m, extra)
