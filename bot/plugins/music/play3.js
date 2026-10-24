@@ -653,80 +653,186 @@ function showEmbed(cfg, reason) {
     writeLog("Video dialihkan ke pemutar YouTube.");
 }
 
-/*
- * Urutan sumber: proxy server bot -> link langsung -> embed YouTube.
- * Proxy dipakai lebih dulu karena link googlevideo terikat ke IP server;
- * tanpa proxy, HP pengguna sering ditolak (403) padahal server bisa akses.
- * Semua kegagalan diteruskan ke sumber berikutnya tanpa menampilkan
- * tulisan error mentah ke pengguna.
- */
 function startPlayback(cfg) {
-    var mode = document.getElementById("dbgMode");
-    var server = document.getElementById("srcServer");
-    var sources = [];
-
-    if (cfg.proxyUrl) sources.push({ url: cfg.proxyUrl, kind: "proxy server" });
-    if (cfg.videoUrl) sources.push({ url: cfg.videoUrl, kind: "link langsung" });
-
-    if (server) {
-        try { server.textContent = new URL(sources.length ? sources[0].url : "https://youtube.com").host; }
-        catch (e) { server.textContent = "youtube"; }
+    var serverEl = document.getElementById("srcServer");
+    if (serverEl) {
+        try {
+            var probe = cfg.proxyUrl || cfg.videoUrl || "https://youtube.com";
+            serverEl.textContent = new URL(probe).host;
+        } catch (e) {
+            serverEl.textContent = "youtube";
+        }
     }
 
-    if (!sources.length) {
-        showEmbed(cfg, "Sumber video tidak tersedia.");
+    /*
+     * Empat cara, dicoba berurutan sampai ada yang berhasil:
+     *   1. proxy server · diputar langsung   (paling cepat)
+     *   2. proxy server · diunduh jadi Blob  (kalau webview memblokir media jarak jauh)
+     *   3. link asli    · diputar langsung   (kalau proxy tidak tersedia)
+     *   4. embed YouTube                     (selalu tersedia)
+     *
+     * Cara 2 penting: webview WhatsApp sering menolak <video src="https://…">
+     * tetapi masih mengizinkan XHR — byte video diambil lewat XHR lalu diputar
+     * dari blob: URL, seperti trik WebSocket yang dulu dipakai plugin ini.
+     */
+    var plan = [];
+    if (cfg.proxyUrl) {
+        plan.push({ kind: "proxy server", mode: "langsung", url: cfg.proxyUrl });
+        plan.push({ kind: "proxy server", mode: "unduh", url: cfg.proxyUrl });
+    }
+    if (cfg.videoUrl && cfg.videoUrl !== cfg.proxyUrl) {
+        plan.push({ kind: "link langsung", mode: "langsung", url: cfg.videoUrl });
+        plan.push({ kind: "link langsung", mode: "unduh", url: cfg.videoUrl });
+    }
+    plan.push({ kind: "embed youtube", mode: "embed", url: cfg.embedUrl || "" });
+
+    if (!plan.length) {
+        setSrcState("TIDAK TERSEDIA");
+        writeLog("Tautan video tidak tersedia.");
         return;
     }
 
-    var index = 0;
+    writeLog(cfg.proxyUrl
+        ? "Sumber: proxy " + (function () { try { return new URL(cfg.proxyUrl).host; } catch (e) { return "server"; } })()
+        : "Sumber: link langsung (proxy belum diatur)");
 
-    function tryNext() {
-        if (index >= sources.length) {
-            showEmbed(cfg, "Tidak bisa memutar langsung.");
+    var index = 0;
+    var done = false;
+    var attempt = 0;
+    var objectUrl = null;
+    var current = { kind: "", mode: "" };
+
+    function describeError() {
+        var err = video.error;
+        if (!err) return "tidak merespons";
+        var map = { 1: "dibatalkan", 2: "jaringan", 3: "dekode", 4: "format tidak didukung" };
+        return map[err.code] || ("kode " + err.code);
+    }
+
+    function markReady() {
+        if (done) return;
+        done = true;
+        setSrcState("SIAP");
+        writeLog("Video siap diputar.");
+    }
+
+    video.addEventListener("loadeddata", markReady);
+    video.addEventListener("canplay", markReady);
+
+    function runNext() {
+        if (done) return;
+        if (index >= plan.length) {
+            setSrcState("TIDAK TERSEDIA");
+            writeLog("Semua cara gagal. Coba .ytmp4 untuk mengunduh videonya.");
             return;
         }
-        var source = sources[index++];
-        if (mode) mode.textContent = source.kind;
-        setSrcState(index === 1 ? "MEMUAT" : "COBA SUMBER LAIN");
-        writeLog("Memuat " + source.kind + "...");
-        video.src = source.url;
+        var step = plan[index];
+        index += 1;
+        current = step;
+        attempt += 1;
+        setCell("dbgMode", step.kind + " · " + step.mode);
+        setSrcState(step.mode === "unduh" ? "MENGUNDUH" : "MEMUAT");
+
+        if (step.mode === "embed") {
+            done = true;
+            showEmbed(cfg, "Memakai pemutar YouTube.");
+            return;
+        }
+        if (step.mode === "unduh") return download(step);
+        play(step);
+    }
+
+    function watch(step, id) {
+        // Gagal = event error ATAU tidak ada kemajuan dalam 12 detik.
+        var onError = function () {
+            if (done || id !== attempt) return;
+            writeLog("Cara " + id + " (" + step.kind + " · " + step.mode + ") gagal: " + describeError() + ".");
+            runNext();
+        };
+        video.addEventListener("error", onError, { once: true });
+        setTimeout(function () {
+            if (done || id !== attempt || video.readyState >= 2) return;
+            video.removeEventListener("error", onError);
+            writeLog("Cara " + id + " (" + step.kind + " · " + step.mode + ") tidak merespons.");
+            runNext();
+        }, 12000);
+    }
+
+    function play(step) {
+        writeLog("Cara " + attempt + ": " + step.kind + " (putar langsung)...");
+        if (objectUrl) {
+            try { URL.revokeObjectURL(objectUrl); } catch (e) {}
+            objectUrl = null;
+        }
+        video.style.display = "";
+        video.src = step.url;
         video.load();
         if (userPressed) {
             var p = video.play();
             if (p && p.catch) p.catch(function () {});
         }
+        watch(step, attempt);
     }
 
-    video.addEventListener("error", function () {
-        if (video.style.display === "none") return;
-        writeLog("Sumber " + (sources[Math.max(0, index - 1)] || {}).kind + " gagal, mencoba berikutnya.");
-        tryNext();
-    });
+    function download(step) {
+        var id = attempt;
+        var started = Date.now();
+        writeLog("Cara " + id + ": " + step.kind + " (unduh ke perangkat)...");
+        setCell("dbgBuffered", "0%");
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", step.url, true);
+        xhr.responseType = "arraybuffer";
+        xhr.timeout = 90000;
+        xhr.onprogress = function (event) {
+            if (!event.lengthComputable) return;
+            if (event.total > 80 * 1024 * 1024) {
+                xhr.abort();
+                writeLog("Berkas terlalu besar untuk diunduh (" + Math.round(event.total / 1048576) + " MB).");
+                if (id === attempt) runNext();
+                return;
+            }
+            setCell("dbgBuffered", Math.round((event.loaded / event.total) * 100) + "%");
+        };
+        xhr.onload = function () {
+            if (id !== attempt || done) return;
+            if (xhr.status < 200 || xhr.status >= 300 || !xhr.response || !xhr.response.byteLength) {
+                writeLog("Unduhan gagal (HTTP " + xhr.status + ").");
+                return runNext();
+            }
+            var blob;
+            try {
+                blob = new Blob([xhr.response], { type: "video/mp4" });
+            } catch (e) {
+                writeLog("Perangkat ini tidak mendukung blob.");
+                return runNext();
+            }
+            objectUrl = URL.createObjectURL(blob);
+            writeLog("Unduhan selesai (" + (blob.size / 1048576).toFixed(1) + " MB dalam " +
+                ((Date.now() - started) / 1000).toFixed(1) + " detik).");
+            setCell("dbgBuffered", "100%");
+            video.style.display = "";
+            video.src = objectUrl;
+            video.load();
+            if (userPressed) {
+                var p = video.play();
+                if (p && p.catch) p.catch(function () {});
+            }
+            watch(step, attempt);
+        };
+        xhr.onerror = function () {
+            if (id !== attempt || done) return;
+            writeLog("Unduhan gagal (jaringan/CORS).");
+            runNext();
+        };
+        xhr.ontimeout = function () {
+            if (id !== attempt || done) return;
+            writeLog("Unduhan melewati batas waktu.");
+            runNext();
+        };
+        xhr.send();
+    }
 
-    video.addEventListener("loadeddata", function () {
-        setSrcState("SIAP");
-        writeLog("Video siap diputar.");
-    });
-
-    video.addEventListener("loadedmetadata", function () {
-        var res = video.videoWidth > 0 ? video.videoWidth + "x" + video.videoHeight : "-";
-        setCell("dbgRes", res);
-    });
-
-    video.addEventListener("progress", function () {
-        try {
-            if (!video.buffered.length || !isFinite(video.duration) || video.duration <= 0) return;
-            var end = video.buffered.end(video.buffered.length - 1);
-            setCell("dbgBuffered", Math.min(100, Math.round((end / video.duration) * 100)) + "%");
-        } catch (e) {}
-    });
-
-    video.addEventListener("play", function () { setSrcState("DIPUTAR"); });
-    video.addEventListener("pause", function () {
-        if (video.style.display !== "none") setSrcState("DIJEDA");
-    });
-
-    tryNext();
+    runNext();
 }
 
 startPlayback(config);
@@ -821,6 +927,10 @@ let handler = async (m, { conn, text }) => {
         // Proxy dimatikan otomatis kalau PLATFORM_PUBLIC_BASE_URL / global.media.proxyBase
         // belum diisi: player langsung memakai link asli lalu jatuh ke embed.
         const proxyUrl = proxyUrlFor(info.url);
+        try {
+            console.log("[YTPLAY] sumber=%s host=%s", proxyUrl === info.url ? "langsung" : "proxy",
+                (() => { try { return new URL(proxyUrl).host; } catch { return "-"; } })());
+        } catch {}
 
         const htmlPayload = buildPlayerHtml({
             title: playerTitle,

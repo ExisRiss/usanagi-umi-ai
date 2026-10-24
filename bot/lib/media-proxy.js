@@ -55,6 +55,7 @@ export function mediaProxyBase() {
     global.media?.proxyBase ||
       process.env.UMI_MEDIA_PROXY_BASE ||
       process.env.PLATFORM_PUBLIC_BASE_URL ||
+      globalThis.__umiPlatformPublicBase ||
       '',
   ).trim()
   return raw.replace(/\/+$/, '')
