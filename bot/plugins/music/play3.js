@@ -586,11 +586,6 @@ function toggleRepeat() {
     updateLoopStatus();
 }
 
-function updateLoopStatus() {
-    var el = document.getElementById("dbgLoop");
-    if (el) el.textContent = isLoop ? "ON" : "OFF";
-}
-
 video.addEventListener("loadedmetadata", function() {
     durationLabel.textContent = formatTime(video.duration);
 });
