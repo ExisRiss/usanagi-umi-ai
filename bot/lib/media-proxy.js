@@ -22,6 +22,7 @@
 
 import https from 'node:https'
 import http from 'node:http'
+import crypto from 'node:crypto'
 
 const DEFAULT_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
@@ -59,12 +60,46 @@ export function mediaProxyBase() {
   return raw.replace(/\/+$/, '')
 }
 
-/** Bungkus URL media jadi URL proxy kalau base tersedia. */
-export function proxyUrlFor(url) {
+function signingKey() {
+  return String(
+    process.env.PLATFORM_MEDIA_SIGNING_KEY ||
+      process.env.PLATFORM_SECRET_KEY ||
+      global.media?.signingKey ||
+      '',
+  ).trim()
+}
+
+/** Tanda tangan pendek supaya endpoint tidak bisa dipakai orang luar. */
+export function signProxy(target, expiresAt) {
+  const key = signingKey()
+  if (!key) return ''
+  return crypto.createHmac('sha256', key).update(`${target}|${expiresAt}`).digest('base64url').slice(0, 32)
+}
+
+function verifyProxy(target, expiresAt, signature) {
+  const key = signingKey()
+  if (!key) return true // belum ada kunci: andalkan daftar host saja
+  const exp = Number(expiresAt) || 0
+  if (!exp || exp < Date.now()) return false
+  const expected = signProxy(target, exp)
+  const given = String(signature || '')
+  if (given.length !== expected.length) return false
+  try {
+    return crypto.timingSafeEqual(Buffer.from(given), Buffer.from(expected))
+  } catch {
+    return false
+  }
+}
+
+/** Bungkus URL media jadi URL proxy bertanda tangan kalau base tersedia. */
+export function proxyUrlFor(url, ttlMs = 12 * 60 * 60 * 1000) {
   const base = mediaProxyBase()
   const target = String(url || '').trim()
   if (!base || !/^https?:\/\//i.test(target)) return target
-  return `${base}/media/yt?u=${encodeURIComponent(target)}`
+  const expiresAt = Date.now() + ttlMs
+  const signature = signProxy(target, expiresAt)
+  const tail = signature ? `&e=${expiresAt}&s=${signature}` : ''
+  return `${base}/media/yt?u=${encodeURIComponent(target)}${tail}`
 }
 
 function sendError(res, status, message) {
@@ -94,6 +129,9 @@ export function handleMediaProxy(req, res, url) {
   }
   if (target.protocol !== 'https:') return sendError(res, 400, 'Hanya URL https yang diizinkan.')
   if (!hostAllowed(target.hostname)) return sendError(res, 403, 'Host media tidak diizinkan.')
+  if (!verifyProxy(raw, url.searchParams.get('e'), url.searchParams.get('s'))) {
+    return sendError(res, 403, 'Tautan media tidak valid atau kedaluwarsa.')
+  }
 
   const headers = {
     'user-agent': DEFAULT_UA,
@@ -136,4 +174,4 @@ export function handleMediaProxy(req, res, url) {
   upstream.end()
 }
 
-export default { handleMediaProxy, mediaProxyBase, proxyUrlFor }
+export default { handleMediaProxy, mediaProxyBase, proxyUrlFor, signProxy }

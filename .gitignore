@@ -8,4 +8,3 @@ sessions/
 data/
 node_modules/
 *.log
-!.env.*.example

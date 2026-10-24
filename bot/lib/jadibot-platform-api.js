@@ -1508,6 +1508,12 @@ async function route(req, res) {
 
   if (pathname.startsWith('/api/internal/backup/')) return routeInternalBackup(req, res, pathname)
 
+  // Proxy media YouTube (pengganti wss://stream.kanara.my.id yang sudah mati).
+  // Dipakai kartu .ytplay supaya video bisa diputar di HP walau tautan
+  // googlevideo terikat ke IP server. Publik, tetapi URL wajib bertanda
+  // tangan HMAC dan host dibatasi (lihat lib/media-proxy.js).
+  if (pathname === '/media/yt') return handleMediaProxy(req, res, url)
+
   const user = await authenticate(req)
   if (limited(`${user.id}:${pathname}`, pathname.includes('pairing') ? 4 : 60)) throw Object.assign(new Error('Terlalu banyak permintaan.'), { status: 429 })
 
@@ -1899,11 +1905,6 @@ async function route(req, res) {
     await conn.sendMessage(jid, { text: safeText(input.message || 'Tes notifikasi Usanagi Umi Jadibot', 2000) })
     return send(res, 200, { ok: true })
   }
-
-  // Proxy media YouTube (pengganti wss://stream.kanara.my.id yang sudah mati).
-  // Dipakai player .ytplay / .play3 supaya video tetap bisa diputar di HP
-  // walau link googlevideo terikat ke IP server.
-  if (pathname === '/media/yt') return handleMediaProxy(req, res, url)
 
   return send(res, 404, { error: 'Endpoint tidak ditemukan.' })
 }
