@@ -41,6 +41,10 @@ Repo ini berisi **source code apa adanya** dari versi yang berjalan di produksi.
   tools, game) bisa dipanggil langsung dari WhatsApp: `.xai`, `.ximg`, `.xdl`,
   `.xcari`, `.xstalk`, `.xfun`, `.xcv`, `.xmk`, `.xgame`, `.xberita`, `.xkomik`,
   `.xanime`, `.xtool`, `.xprem`, `.xsys`, `.xapi`, `.xrina`.
+- **Game HTML** — 21 game interaktif AI Rich (`.htmlgames`, `.htmlflappy`,
+  `.htmlsnake`, `.htmltetris`, `.htmlpacman`, `.htmlcatur`, dan lainnya).
+- **Pemutar YouTube** — `.ytplay` (pemutar HTML 3 lapis) dan `.ytvideo`
+  (kirim berkas video) dengan resolver SaveTube.
 
 ## Persyaratan
 
