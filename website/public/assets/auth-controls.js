@@ -28,12 +28,15 @@
             if(client && client.auth && client.auth.signInWithOAuth){
               /* Simpan halaman tujuan supaya balik dari Google tidak selalu ke dashboard */
               try {
+                /* Simpan rute tujuan. redirectTo sengaja TANPA hash: Supabase menaruh
+                   #access_token=... di situ dan akan menimpa rute kalau digabung. */
                 var h = window.location.hash;
                 if(h && h !== '#auth' && /^#[a-z-]+$/.test(h)) localStorage.setItem('umi_return_to', h);
+                else localStorage.setItem('umi_return_to', '#dashboard');
               } catch(e){}
               var result = await client.auth.signInWithOAuth({
                 provider: 'google',
-                options: { redirectTo: window.location.origin + '/#dashboard' }
+                options: { redirectTo: window.location.origin + '/' }
               });
               if(result.error) throw result.error;
               return;

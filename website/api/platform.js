@@ -376,7 +376,8 @@ export default async function handler(req, res) {
       try {
         const supabaseUrl = AUTH_URL()
         const anonKey = AUTH_ANON()
-        const redirectTo = `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/#dashboard`
+        // Tanpa hash: Supabase menambahkan #access_token=... sendiri di URL balik.
+        const redirectTo = `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/`
         const oauthUrl = `${supabaseUrl}/auth/v1/authorize?provider=google&redirect_to=${encodeURIComponent(redirectTo)}`
         return send(res, 200, { url: oauthUrl })
       } catch (e) {
