@@ -73,7 +73,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['twitter'];
 handler.tags = ['downloader'];
-handler.command = /^(twitter|tw|xdl)$/i;
+handler.command = /^(twitter|tw)$/i;
 handler.limit = true;
 handler.register = false; // true kan jika ada fitur register atau daftar di bot mu.
 

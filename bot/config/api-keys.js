@@ -38,6 +38,7 @@ export const API_KEY_ENV = {
   groq: 'GROQ_API_KEY',
   openai: 'OPENAI_API_KEY',
   saveTubeQuality: 'UMI_SAVETUBE_VIDEO_QUALITY',
+  xrina: 'UMI_XRINA_KEY',
 }
 
 import fs from 'node:fs'

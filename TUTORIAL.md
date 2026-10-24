@@ -531,6 +531,52 @@ cat data/errors/$(date +%F).jsonl
 
 ---
 
+## 15b. Rin API (`.xai`, `.ximg`, `.xdl`, ...)
+
+`bot/plugins/xrina/xrina.js` + `bot/lib/xrina-api.js` menghubungkan bot ke
+[Rin API](https://apiii-xrina.my.id). Katalog 284 endpoint (18 kategori) disimpan
+di `bot/lib/xrina-catalog.json`, jadi daftar perintah dan parameter terbaca
+tanpa memanggil server.
+
+| Perintah | Kategori | Jumlah |
+|---|---|---|
+| `.xai` | ai | 22 |
+| `.ximg` | ai image | 45 |
+| `.xdl` | download | 22 |
+| `.xcari` | search | 14 |
+| `.xstalk` | stalker | 11 |
+| `.xfun` | fun | 14 |
+| `.xcv` | canvas | 29 |
+| `.xmk` | maker | 14 |
+| `.xgame` | game | 13 |
+| `.xberita` | info | 10 |
+| `.xkomik` | komik, komiku, MangaDex | 20 |
+| `.xanime` | Animein, Donghive | 11 |
+| `.xtool` | tools | 39 |
+| `.xprem` | premium | 14 |
+| `.xsys` | system | 6 |
+
+Bantu: `.xapi` (kategori), `.xapi <kategori>`, `.xapi <endpoint>`, dan
+`.xrina /path?k=v` untuk panggilan mentah.
+
+```text
+.xai gemini jelaskan fotosintesis singkat
+.ximg flux kucing oren pakai topi
+.xdl tiktok https://www.tiktok.com/@user/video/123
+.xcari ytsearch one piece
+.xapi cekkhodam
+```
+
+- Parameter boleh berurutan atau `k=v`.
+- Endpoint yang butuh gambar: kirim/reply foto, bot mengunggahnya lalu mengisi
+  parameter `image`/`url`/`pp`.
+- Hasil gambar/video/audio dikirim sebagai media. Khusus kategori download,
+  berkas diunduh & diperiksa dulu; kalau CDN dari server sudah mati, bot
+  melapor jujur alih-alih mengirim tautan rusak.
+- Endpoint kategori **premium** & **system** butuh kunci:
+  `global.apiKeys.xrina` di `config.js` atau `UMI_XRINA_KEY` di `.platform.env`.
+  Tanpa kunci, bot membalas instruksi (bukan error).
+
 ## 16. Kunci API pihak ketiga (satu tempat: `settings.js`)
 
 Semua fitur yang butuh API/token **tidak lagi** menyimpan kunci di dalam plugin.
@@ -547,6 +593,7 @@ Ada tiga cara mengisi, dipilih otomatis dengan urutan prioritas:
      gemini: 'KUNCI-GEMINI',
      groq: 'KUNCI-GROQ',
      openai: 'KUNCI-OPENAI',
+     xrina: 'KUNCI-RIN',
    }
    ```
 2. Halaman **Setting** di website jadibot (menu `Penyedia` → pilih Tenor /
@@ -554,7 +601,7 @@ Ada tiga cara mengisi, dipilih otomatis dengan urutan prioritas:
    `bot/.env.apikeys` mode `600`, di luar repo.
 3. Environment / `.platform.env`:
    `UMI_TENOR_KEY`, `UMI_PASTEBIN_KEY`, `UMI_NEURALFRAMES_TOKEN`,
-   `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY`.
+   `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY`, `UMI_XRINA_KEY`.
 
 Yang penting: **kunci kosong bukan error.** Fitur yang membutuhkannya membalas
 pesan singkat, contoh:
@@ -574,6 +621,7 @@ Fitur lain tetap jalan normal, dan log tidak dipenuhi stack trace.
 | Upload teks | `pastebin` | `UMI_PASTEBIN_KEY` |
 | Image to prompt | `neuralFrames` | `UMI_NEURALFRAMES_TOKEN` |
 | Auto-AI / AI Agent | `gemini`, `groq`, `openai` | `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY` |
+| Rin API (premium/system) | `xrina` | `UMI_XRINA_KEY` |
 
 Mau pakai kunci sendiri tanpa bot? Cukup tambahkan di `API_KEY_ENV` pada
 `bot/config/api-keys.js`, lalu panggil `requireApiKey('namaKunci', 'Label Fitur')`

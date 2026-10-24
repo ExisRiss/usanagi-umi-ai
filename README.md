@@ -37,6 +37,10 @@ Repo ini berisi **source code apa adanya** dari versi yang berjalan di produksi.
 - **Ekonomi** — limit, energi, koin, level, EXP, premium, referral.
 - **Backup otomatis** — arsip harian berkala, bisa dikirim ke grup Telegram.
 - **Multi-bahasa** — Indonesia & Inggris.
+- **Rin API** — 284 endpoint (AI, gambar, download, search, stalker, komik, anime,
+  tools, game) bisa dipanggil langsung dari WhatsApp: `.xai`, `.ximg`, `.xdl`,
+  `.xcari`, `.xstalk`, `.xfun`, `.xcv`, `.xmk`, `.xgame`, `.xberita`, `.xkomik`,
+  `.xanime`, `.xtool`, `.xprem`, `.xsys`, `.xapi`, `.xrina`.
 
 ## Persyaratan
 
