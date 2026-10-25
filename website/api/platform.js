@@ -340,6 +340,50 @@ export default async function handler(req, res) {
         user: { id: loginUser.id, email: loginUser.email, username: profile.username || loginUser.username, roles: profile.roles, locked: profile.locked },
       })
     }
+    /* Task109 — perpanjang sesi lewat server.
+     *
+     * Dulu browser memanggil `${SUPABASE_URL}/auth/v1/token` langsung, padahal
+     * nilai SUPABASE_URL di sisi klien masih placeholder
+     * (https://YOUR_PROJECT.supabase.co → host tidak ada) dan CSP hanya
+     * mengizinkan origin sendiri. Akibatnya refresh SELALU gagal dan kode
+     * lama menghapus sesi → pengguna tiba-tiba diminta login lagi.
+     *
+     * Endpoint ini memakai URL + anon key asli yang tersimpan di server
+     * (env Vercel), jadi tidak ada kredensial baru yang bocor ke browser.
+     */
+    if (path === 'auth/refresh' && req.method === 'POST') {
+      rateLimit(req, 'platform:refresh', 60, 60 * 1000)
+      const refreshToken = text(req.body?.refresh_token, 4096)
+      if (!refreshToken) return send(res, 400, { error: 'Sesi tidak ditemukan. Silakan masuk lagi.', invalid: true })
+      let response
+      try {
+        response = await fetch(`${AUTH_URL()}/auth/v1/token?grant_type=refresh_token`, {
+          method: 'POST',
+          headers: { apikey: AUTH_ANON(), 'Content-Type': 'application/json' },
+          body: JSON.stringify({ refresh_token: refreshToken }),
+          signal: AbortSignal.timeout(15000),
+        })
+      } catch (error) {
+        // Gangguan jaringan ke Supabase: JANGAN bilang sesi tidak sah.
+        return send(res, 503, { error: 'Layanan login sedang sibuk. Coba lagi sebentar.' })
+      }
+      const data = await response.json().catch(() => ({}))
+      if (!response.ok || !data.access_token) {
+        return send(res, 401, { error: 'Sesi berakhir. Silakan masuk lagi.', invalid: true })
+      }
+      return send(res, 200, {
+        access_token: data.access_token,
+        refresh_token: data.refresh_token || refreshToken,
+        expires_in: Number(data.expires_in) || 3600,
+        user: data.user
+          ? {
+              id: data.user.id,
+              email: email(data.user.email),
+              username: text(data.user.user_metadata?.username || data.user.user_metadata?.name || '', 40),
+            }
+          : null,
+      })
+    }
     if (path === 'auth/register' && req.method === 'POST') {
       rateLimit(req, 'platform:register', 5, 60 * 60 * 1000)
       const username = text(req.body?.username, 40)
