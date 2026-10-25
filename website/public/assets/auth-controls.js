@@ -10,21 +10,14 @@
         if(!btn) return;
         btn.addEventListener('click', async function(){
           try {
-            /* Wait for app.js to initialize state.storage (max 8s) */
-            var client = null;
-            for(var i=0;i<40;i++){
-              client = (window.state && window.state.storage) || null;
-              if(client && client.auth && client.auth.signInWithOAuth) break;
-              await new Promise(function(r){setTimeout(r,200)});
-            }
-            /* Fallback: create client directly if state.storage never appeared */
-            if(!client && window.supabase && window.supabase.createClient){
-              client = window.supabase.createClient(
-                'https://YOUR_PROJECT.supabase.co',
-                'sb_publishable_ebpebtzCNxvsKWb0xtgX_A_ClzPlhob',
-                { auth:{ persistSession:false, autoRefreshToken:false, detectSessionInUrl:true } }
-              );
-            }
+            /* Task109: klien Supabase di browser sengaja tidak dipakai.
+               URL proyek di berkas ini masih placeholder (host tidak pernah
+               ada) dan CSP hanya mengizinkan koneksi ke origin sendiri, jadi
+               percobaan pertama SELALU gagal dan tombol menggantung 8 detik.
+               Login Google langsung memakai endpoint server yang menyimpan
+               URL + anon key asli di sisi server. */
+            var client = (window.state && window.state.storage) || null;
+            if(!client || !client.auth || !client.auth.signInWithOAuth) client = null;
             if(client && client.auth && client.auth.signInWithOAuth){
               /* Simpan halaman tujuan supaya balik dari Google tidak selalu ke dashboard */
               try {
