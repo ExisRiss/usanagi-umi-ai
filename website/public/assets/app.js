@@ -1,4 +1,4 @@
-window.__UMI_JS_VER='20261020-navfix1';
+window.__UMI_JS_VER='20261025-task109';
 (() => {
 'use strict'
 /* Tangkap fragment OAuth SEBELUM Supabase (detectSessionInUrl) menghapusnya dari URL. */
@@ -59,8 +59,36 @@ function addPairLog(message){const stamp=new Date().toLocaleTimeString('id-ID',{
 async function copyPairCode(){const code=$('pairCode')?.dataset.code||'';if(!code)return toast('Belum ada kode pairing untuk disalin.',true);try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(code);else{const area=document.createElement('textarea');area.value=code;area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();if(!document.execCommand('copy'))throw new Error('copy failed');area.remove()}addPairLog('Kode pairing disalin ke clipboard.');toast('Kode pairing disalin.')}catch(error){addPairLog('Gagal menyalin kode pairing. Salin manual dari layar.');toast('Tidak dapat menyalin otomatis. Salin kode dari layar.',true)}}
 function stopTimers(){clearInterval(state.pairTimer);clearInterval(state.chatTimer);clearInterval(state.logTimer);clearInterval(state.mainConsoleTimer);clearInterval(state.mainStatusTimer);clearInterval(state.walletTimer);clearInterval(state.ownerTimer);state.pairTimer=state.chatTimer=state.logTimer=state.mainConsoleTimer=state.mainStatusTimer=state.walletTimer=state.ownerTimer=null;clearInterval(state.pairCooldownTimer);state.pairCooldownTimer=null}
 function saveSession(session){state.session=session;if(session)localStorage.setItem(STORAGE_KEY,JSON.stringify(session));else localStorage.removeItem(STORAGE_KEY)}
-async function refreshSession(){const token=state.session?.refresh_token;if(!token)return false;try{const response=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:{apikey:SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:token})});if(!response.ok)throw new Error('refresh failed');const data=await response.json();saveSession({...data,user:data.user||state.session.user});return true}catch{saveSession(null);state.profile=null;return false}}
-async function api(path,options={},retry=true){const headers={Accept:'application/json',...(options.body?{'Content-Type':'application/json'}:{}),...(state.session?.access_token?{Authorization:`Bearer ${state.session.access_token}`}:{})};const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),65000);let response;try{response=await fetch('/api/'+String(path).replace(/^\/+/,''),{...options,headers:{...headers,...options.headers},signal:controller.signal})}catch(error){if(error.name==='AbortError')throw new Error('Server terlalu lama merespons.');throw new Error('Koneksi ke server gagal.')}finally{clearTimeout(timer)}if(response.status===401&&retry&&await refreshSession())return api(path,options,false);const text=await response.text();let data;try{data=JSON.parse(text)}catch{data={error:text||`HTTP ${response.status}`}}if(!response.ok)throw Object.assign(new Error(data.error||data.message||`HTTP ${response.status}`),{status:response.status,code:data.code});return data}
+/* Task109 — sesi tidak boleh hilang gara-gara gangguan jaringan.
+   Penyebab logout mendadak: URL auth di browser masih placeholder
+   (https://YOUR_PROJECT.supabase.co, host tidak ada) dan CSP memblokir
+   koneksi keluar, jadi setiap refresh SELALU gagal; kode lama lalu
+   menghapus sesi (saveSession(null)) sehingga pengguna terlempar ke halaman
+   login. Sekarang refresh lewat server sendiri dan sesi hanya dihapus kalau
+   server auth menyatakan refresh token memang tidak berlaku. */
+function sessionExpiredSoon(session){const at=Number(session&&session.expires_at||0);return at>0&&Date.now()>at-120000}
+function storeSession(data,fallbackUser){const expiresIn=Number(data&&data.expires_in)||3600;saveSession({access_token:data.access_token,refresh_token:data.refresh_token||state.session?.refresh_token,expires_in:expiresIn,expires_at:Date.now()+expiresIn*1000,user:(data&&data.user)||fallbackUser||state.session?.user||null})}
+async function refreshSession(){
+  if(state.refreshTask)return state.refreshTask
+  const run=async()=>{
+    let token=state.session?.refresh_token
+    if(!token)return false
+    /* Tab lain mungkin sudah memperbarui token; pakai itu supaya token
+       rotation Supabase tidak menganggap token kita sudah dipakai. */
+    try{const shared=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(shared&&shared.access_token&&shared.access_token!==state.session?.access_token&&!sessionExpiredSoon(shared)&&shared.refresh_token){state.session=shared;return true}}catch{}
+    let response
+    try{response=await fetch('/api/platform/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refresh_token:token})})}
+    catch{return false}
+    if(!response.ok){const data=await response.json().catch(()=>({}));const invalid=response.status===400||response.status===401||(data&&data.invalid===true);if(invalid){saveSession(null);state.profile=null}return false}
+    const data=await response.json().catch(()=>({}))
+    if(!data||!data.access_token)return false
+    storeSession(data)
+    return true
+  }
+  state.refreshTask=run().then(value=>{state.refreshTask=null;return value},error=>{state.refreshTask=null;throw error})
+  return state.refreshTask
+}
+async function api(path,options={},retry=true){if(state.session&&state.session.refresh_token&&sessionExpiredSoon(state.session))await refreshSession();const headers={Accept:'application/json',...(options.body?{'Content-Type':'application/json'}:{}),...(state.session?.access_token?{Authorization:`Bearer ${state.session.access_token}`}:{})};const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),65000);let response;try{response=await fetch('/api/'+String(path).replace(/^\/+/,''),{...options,headers:{...headers,...options.headers},signal:controller.signal})}catch(error){if(error.name==='AbortError')throw new Error('Server terlalu lama merespons.');throw new Error('Koneksi ke server gagal.')}finally{clearTimeout(timer)}if(response.status===401&&retry&&await refreshSession())return api(path,options,false);const text=await response.text();let data;try{data=JSON.parse(text)}catch{data={error:text||`HTTP ${response.status}`}}if(!response.ok)throw Object.assign(new Error(data.error||data.message||`HTTP ${response.status}`),{status:response.status,code:data.code});return data}
 const post=(path,body)=>api(path,{method:'POST',body:JSON.stringify(body)})
 function applyIdentity(user){state.profile=normalizedUser(user||{email:state.session?.user?.email});$('identity').innerHTML=`<b>${escapeHtml(state.profile.username)}</b><small>${escapeHtml(state.profile.email)}</small>${chips(state.profile.roles)}`;document.querySelectorAll('[data-owner]').forEach(node=>node.classList.toggle('hidden',!hasRole('owner')));document.querySelectorAll('[data-mainbot]').forEach(node=>node.classList.toggle('hidden',!hasMainBotAccess()))}
 async function hydrateIdentity(){const data=await api('platform/me');applyIdentity(data.user||{})}
@@ -395,6 +423,6 @@ function bindShell(){
   if(refreshAuditButton)refreshAuditButton.onclick=()=>api('platform/audit').then(data=>renderAudit(data.logs||[])).catch(error=>toast(error.message,true));
   document.addEventListener('keydown',event=>{if(event.key==='Escape')toggleNav(false)});
 }
-async function init(){bind();bindShell();if(window.supabase?.createClient)state.storage=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:true}});try{await captureSupabaseSession();if(state.storage?.auth?.onAuthStateChange)state.storage.auth.onAuthStateChange((_event,session)=>{if(session?.access_token){saveSession({access_token:session.access_token,refresh_token:session.refresh_token,expires_in:session.expires_in||3600,user:session.user||null});if(session.user)applyIdentity(session.user);/* Balik dari Google: halaman masih di landing/auth, jadi pindahkan ke aplikasi. */if(['home','auth','login','register',''].includes(currentRoute())){clearOAuthFragment('#dashboard');route().catch(()=>{})}}})}catch{}try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(saved?.access_token&&saved?.refresh_token){state.session=saved;try{await hydrateIdentity()}catch(error){if(!(await refreshSession()))throw error;await hydrateIdentity()}}}catch{saveSession(null);state.profile=null}await route()}
+async function init(){bind();bindShell();if(window.supabase?.createClient&&!/YOUR_PROJECT/.test(SUPABASE_URL))state.storage=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:true}});try{await captureSupabaseSession();if(state.storage?.auth?.onAuthStateChange)state.storage.auth.onAuthStateChange((_event,session)=>{if(session?.access_token){saveSession({access_token:session.access_token,refresh_token:session.refresh_token,expires_in:session.expires_in||3600,user:session.user||null});if(session.user)applyIdentity(session.user);/* Balik dari Google: halaman masih di landing/auth, jadi pindahkan ke aplikasi. */if(['home','auth','login','register',''].includes(currentRoute())){clearOAuthFragment('#dashboard');route().catch(()=>{})}}})}catch{}try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(saved?.access_token&&saved?.refresh_token){state.session=saved;let identitasGagal=false;try{await hydrateIdentity()}catch(error){identitasGagal=true}/* Task109: kegagalan jaringan/5xx TIDAK menghapus sesi. Hanya refresh yang dinyatakan tidak sah yang membuat pengguna keluar. */if(identitasGagal&&state.session&&await refreshSession()){try{await hydrateIdentity()}catch(error2){}}}}catch(error){console.warn('[UMI] gagal memulihkan sesi tersimpan:',error&&error.message)}await route()}
 init().catch(error=>{console.error(error);toast('Aplikasi gagal dimulai: '+error.message,true)})
 })()
