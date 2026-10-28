@@ -226,10 +226,31 @@ export function uraiKonsol(teks, riwayatLama = null) {
   }
   for (const m of isi.matchAll(RE_DISCONNECT)) hasil.keluar.push({ nama: String(m[1]).trim(), xuid: m[2] || '' })
 
-  hasil.galatTerakhir = baris
-    .filter((x) => /\[.*ERROR\]/.test(x) && !/Perintah ini hanya untuk pemain/.test(x))
+  /* Task136 — galat hanya diambil dari SESI BOOT SEKARANG.
+   * console.log tidak selalu diputar ulang, jadi galat dari boot kemarin bisa
+   * ikut terbaca (mis. SyntaxError addon yang sudah diperbaiki). Patokan sesi
+   * = kemunculan terakhir baris "Opening level". Galat yang memang bukan
+   * masalah (peringatan pack, alias perintah, pesan khusus pemain) disaring. */
+  const penandaSesi = [...isi.matchAll(/Opening level '[^']+'/g)]
+  const awalSesi = penandaSesi.length ? penandaSesi[penandaSesi.length - 1].index : 0
+  const sesiSekarang = isi.slice(awalSesi)
+  /* Panel kadang masih melaporkan "starting" padahal server sudah selesai
+   * boot. Console adalah bukti yang lebih kuat: kalau "Server started." ada
+   * di sesi ini, server benar-benar jalan. */
+  hasil.berjalan = /Server started\./.test(sesiSekarang)
+  const ABAIKAN = [
+    /Perintah ini hanya untuk pemain/i,
+    /issues were found when loading packs/i,
+    /Custom Command alias/i,
+    /tidak ada event chatSend/i,
+    /Content Log file/i,
+    /\[Scripting\] \[Umi Survival Kit\] di/i,
+  ]
+  hasil.galatTerakhir = sesiSekarang
+    .split('\n')
+    .filter((x) => /\[.*ERROR\]/.test(x) && !ABAIKAN.some((pola) => pola.test(x)))
     .slice(-3)
-    .map((x) => x.slice(-160))
+    .map((x) => x.replace(/^\[([^\]]+)\]\s*/, '[$1] ').slice(-170))
 
   const riwayat = riwayatLama && typeof riwayatLama === 'object' ? riwayatLama : {}
   const pemain = { ...(riwayat.pemain || {}) }
@@ -277,6 +298,115 @@ export async function sinkronRiwayat() {
   const hasil = uraiKonsol(teks, bacaRiwayat())
   simpanRiwayat(hasil.riwayatBaru)
   return hasil
+}
+
+/* ── operasi berkas di server MC (addon & world pack) ──────────────────── */
+
+/** Permintaan mentah: body berupa Buffer, balasan selalu Buffer. */
+function permintaanMentah(method, jalur, buffer = null, tipe = 'application/octet-stream', timeoutMs = 60000) {
+  const cfg = bacaKonfig()
+  if (!cfg) return Promise.reject(new Error('Konfigurasi server Minecraft belum dipasang.'))
+  const url = new URL(cfg.panelUrl + jalur)
+  const pustaka = url.protocol === 'http:' ? http : https
+  return new Promise((selesai, gagal) => {
+    const req = pustaka.request({
+      method,
+      hostname: url.hostname,
+      port: url.port || (url.protocol === 'http:' ? 80 : 443),
+      path: url.pathname + url.search,
+      headers: {
+        Authorization: `Bearer ${cfg.apiKey}`,
+        Accept: '*/*',
+        'User-Agent': 'usanagi-umi-mc/1.0',
+        ...(buffer ? { 'Content-Type': tipe, 'Content-Length': buffer.length } : {}),
+      },
+      timeout: timeoutMs,
+    }, (res) => {
+      const potongan = []
+      res.on('data', (c) => potongan.push(c))
+      res.on('end', () => {
+        const isi = Buffer.concat(potongan)
+        if (res.statusCode >= 200 && res.statusCode < 300) return selesai(isi)
+        let pesan = `HTTP ${res.statusCode}`
+        try { pesan = JSON.parse(isi.toString('utf8'))?.errors?.[0]?.detail || pesan } catch { }
+        gagal(Object.assign(new Error(pesan), { status: res.statusCode }))
+      })
+    })
+    req.on('timeout', () => req.destroy(new Error('Panel tidak merespons (timeout).')))
+    req.on('error', gagal)
+    if (buffer) req.write(buffer)
+    req.end()
+  })
+}
+
+/** Daftar isi satu folder di server MC. */
+export async function daftarBerkas(jalur = '/') {
+  const data = await permintaan('GET', `${dasar()}/files/list?directory=${encodeURIComponent(jalur)}`)
+  const rows = data?.data || []
+  return rows.map((row) => ({
+    nama: row.attributes?.name || '',
+    ukuran: Number(row.attributes?.size || 0),
+    folder: row.attributes?.is_file === false,
+  })).filter((x) => x.nama)
+}
+
+export async function buatFolder(induk, nama) {
+  await permintaan('POST', `${dasar()}/files/create-folder`, { root: induk, name: nama })
+  return `${induk.replace(/\/$/, '')}/${nama}`
+}
+
+export async function tulisBerkas(jalur, buffer) {
+  const isi = Buffer.isBuffer(buffer) ? buffer : Buffer.from(String(buffer))
+  await permintaanMentah('POST', `${dasar()}/files/write?file=${encodeURIComponent(jalur)}`, isi)
+  return isi.length
+}
+
+export async function hapusBerkas(daftar) {
+  const isi = Array.isArray(daftar) ? daftar : [daftar]
+  await permintaan('POST', `${dasar()}/files/delete`, { root: '/', files: isi })
+  return isi.length
+}
+
+export async function bacaBerkasTeks(jalur) {
+  const isi = await permintaanMentah('GET', `${dasar()}/files/contents?file=${encodeURIComponent(jalur)}`, null, 'text/plain')
+  return isi.toString('utf8')
+}
+
+/* ── perintah pemain ──────────────────────────────────────────────────── */
+
+const bersihNama = (nama) => String(nama || '').replace(/[^A-Za-z0-9_ .-]/g, '').trim().slice(0, 32)
+
+export async function opPemain(nama) {
+  const target = bersihNama(nama)
+  if (!target) throw new Error('Nama pemain kosong.')
+  return kirimPerintah(`op "${target}"`)
+}
+
+export async function deopPemain(nama) {
+  const target = bersihNama(nama)
+  if (!target) throw new Error('Nama pemain kosong.')
+  return kirimPerintah(`deop "${target}"`)
+}
+
+export async function banPemain(nama, alasan) {
+  const target = bersihNama(nama)
+  const sebab = String(alasan || '').replace(/["\\]/g, '').trim().slice(0, 80)
+  if (!target) throw new Error('Nama pemain kosong.')
+  if (!sebab) throw new Error('Alasan ban wajib diisi.')
+  return kirimPerintah(`ban "${target}" ${sebab}`)
+}
+
+export async function unbanPemain(nama) {
+  const target = bersihNama(nama)
+  if (!target) throw new Error('Nama pemain kosong.')
+  return kirimPerintah(`pardon "${target}"`)
+}
+
+export async function kickPemain(nama, alasan) {
+  const target = bersihNama(nama)
+  const sebab = String(alasan || 'Dikeluarkan oleh admin').replace(/["\\]/g, '').trim().slice(0, 80)
+  if (!target) throw new Error('Nama pemain kosong.')
+  return kirimPerintah(`kick "${target}" ${sebab}`)
 }
 
 /* ── ping jaringan ────────────────────────────────────────────────────── */
@@ -350,7 +480,7 @@ export async function statusLengkap() {
   return {
     nama: bacaKonfig()?.label || detail?.name || 'Minecraft Server',
     panelNama: detail?.name || '',
-    state: sumber.state,
+    state: (String(sumber.state).toLowerCase() === 'starting' && konsol.berjalan) ? 'running' : sumber.state,
     cpu: sumber.cpu,
     memori: bentukBita(sumber.memoriBita),
     disk: bentukBita(sumber.diskBita),
