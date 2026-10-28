@@ -104,3 +104,32 @@ Alasan: di chat pribadi, pesan **tanpa prefix** langsung `return` di gerbang
 `if (!isGroup) { ... if (!hasPrefix && ...) return }`. Berkas .zip / .html yang
 dikirim sebagai dokumen tidak punya prefix → handler berhenti sebelum hook
 plugin, jadi bot seolah tidak membalas. Gerbang ini harus berada di atasnya.
+
+
+## 5. Task137 — galat panel 502 tidak boleh tampil sebagai error plugin
+
+Di `lib/mc-kaira.js`:
+
+- `permintaan()` sekarang mencoba 3x (jeda 600 ms, 1200 ms) untuk galat 5xx /
+  timeout sebelum menyerah.
+- Tambah `pesanGalatPanel(error)` → kalimat siap kirim ke user
+  (502/503/504 → "Panel Minecraft sedang sibuk…", 401/403 → "API key ditolak…", dst).
+- `statusLengkap()` memanggil `detailServer()`/`sumberDaya()` dengan `.catch(() => null)`.
+  Kalau salah satu gagal, status tetap dikirim (ditandai `sebagian: true`).
+  Hanya kalau KEDUANYA gagal baru melempar galat ber-`ramah`.
+
+Di `plugins/owner/mc-kontrol.js` handler dibungkus:
+
+```js
+const jalankanHandler = async (m, extra = {}) => { ... }
+let handler = async (m, extra = {}) => {
+  try { return await jalankanHandler(m, extra) }
+  catch (error) {
+    const pesan = error?.ramah || pesanGalatPanel(error)
+    return m.reply(`❌ ${pesan}`)
+  }
+}
+```
+
+Hasilnya: kalau panel membalas 502, user menerima satu kalimat jelas —
+bukan tumpukan `Error: HTTP 502 at IncomingMessage…` yang dikirim ke owner.
