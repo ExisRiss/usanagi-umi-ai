@@ -61,3 +61,17 @@ import { setPower, powerInfo, scopeDariNomor } from './bot-power.js'
 - Route baru `/api/studio` (menyajikan `public/studio.html`) dan `/api/studio/config`.
   Catatan: proxy Vercel punya daftar path yang diizinkan, jadi `/api/studio` tidak bisa
   diakses lewat domain jadibot. Halaman dipindah ke server tunnel: `https://tunel.gwenna.my.id/studio`.
+
+
+## 3. Tambahan Task136 — penanda rich untuk plugin non-menu
+
+Di dalam blok `if (incomingNormalized.rich) { ... }`, tambahkan satu baris:
+
+```js
+    m.__richRequest = true
+```
+
+Alasannya: `..statusmc` / `..mcmenu` tidak pernah dibalas rich message karena
+plugin memeriksa `m.__richRequest`, sementara handler hanya memasang
+`m.__richMenu` (dan blok yang memasang `__richRequest` berjalan setelah teks
+sudah dinormalkan, jadi tidak pernah cocok).
