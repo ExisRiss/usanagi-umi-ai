@@ -75,3 +75,32 @@ Alasannya: `..statusmc` / `..mcmenu` tidak pernah dibalas rich message karena
 plugin memeriksa `m.__richRequest`, sementara handler hanya memasang
 `m.__richMenu` (dan blok yang memasang `__richRequest` berjalan setelah teks
 sudah dinormalkan, jadi tidak pernah cocok).
+
+
+## 4. Tambahan Task136b — gerbang "aksi yang menunggu balasan berkas"
+
+Import di bagian atas:
+
+```js
+import { cariAksi } from './lib/pending-aksi.js'
+```
+
+Ditaruh TEPAT setelah blok `const isStatus = ...; if (isStatus) return` dan
+SEBELUM blok `// 🚫 PRIVATE CHAT`:
+
+```js
+try {
+    const _aksiPending = cariAksi(m)
+    if (_aksiPending) {
+        const _hasilPending = await _aksiPending.jalankan.call(this, m)
+        if (_hasilPending !== false) return
+    }
+} catch (_pendingError) {
+    console.log(`[pending] gagal memproses: ${_pendingError?.message || _pendingError}`)
+}
+```
+
+Alasan: di chat pribadi, pesan **tanpa prefix** langsung `return` di gerbang
+`if (!isGroup) { ... if (!hasPrefix && ...) return }`. Berkas .zip / .html yang
+dikirim sebagai dokumen tidak punya prefix → handler berhenti sebelum hook
+plugin, jadi bot seolah tidak membalas. Gerbang ini harus berada di atasnya.
