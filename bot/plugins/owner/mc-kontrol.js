@@ -38,6 +38,7 @@ import {
   kickPemain,
   alamatJoin,
   detailServer,
+  pesanGalatPanel,
 } from '../../lib/mc-kaira.js'
 import { pasangAddon, hapusAddon, daftarAddon } from '../../lib/mc-addon.js'
 import { adaLampiran, unduhLampiran, namaBerkasLampiran } from '../../lib/lampiran.js'
@@ -321,7 +322,7 @@ daftarkanAksi('mc-addon', (m) => {
   }
 })
 
-let handler = async (m, extra = {}) => {
+const jalankanHandler = async (m, extra = {}) => {
   const { conn, args = [], command = '', text = '', isROwner, isOwner } = extra
   const rich = richDiminta(m)
   const dev = Boolean(isROwner)
@@ -554,6 +555,20 @@ let handler = async (m, extra = {}) => {
     } catch (error) {
       return m.reply(`❌ Gagal: ${error?.message || error}`)
     }
+  }
+}
+
+/* Pembungkus: apa pun yang gagal (panel 502, jaringan putus, dll) dijawab
+ * dengan kalimat yang bisa dibaca user — bukan tumpukan error plugin. */
+let handler = async (m, extra = {}) => {
+  try {
+    return await jalankanHandler(m, extra)
+  } catch (error) {
+    console.log(`[mc-kontrol] ${error?.message || error}`)
+    const pesan = error?.ramah || pesanGalatPanel(error)
+    try {
+      return await m.reply(`❌ ${pesan}`)
+    } catch (balasError) { }
   }
 }
 
