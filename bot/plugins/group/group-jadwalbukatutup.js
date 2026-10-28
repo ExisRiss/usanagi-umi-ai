@@ -164,6 +164,11 @@ let handler = async (m, extra = {}) => {
   if (!data) return m.reply('❌ Database bot belum siap, coba lagi sebentar.')
   if (!data.chats[m.chat]) data.chats[m.chat] = {}
 
+  const perintahAdmin = ['setzona', 'settime', 'bukajam', 'tutupjam', 'hapusbukajam', 'hapustutupjam', 'hapusjadwal']
+  if (perintahAdmin.includes(command) && !bolehAtur(m, extra)) {
+    return m.reply('🔒 Perintah ini khusus admin grup atau owner bot.\n(Owner bisa memberi akses: .setakses @user admin)')
+  }
+
   if (command === 'setzona') {
     const zona = String(args[0] || '').trim()
     if (!zona) {
