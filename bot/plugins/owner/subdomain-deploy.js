@@ -30,24 +30,72 @@ import {
   hostTitik,
 } from '../../lib/subdomain-kaira.js'
 import { sendInteractive } from '../../lib/awang-tombol.js'
+import { daftarkanAksi } from '../../lib/pending-aksi.js'
+import {
+  adaLampiran,
+  namaBerkasLampiran,
+  captionLampiran,
+  tampakHtml,
+  unduhLampiran,
+} from '../../lib/lampiran.js'
+import fs from 'fs'
+import path from 'path'
 
-/* Menunggu berkas dari user: kunci `${chat}:${pengirim}` */
+/* Menunggu berkas dari user: kunci `${chat}:${pengirim}`.
+ * Disimpan juga ke data/subdomain-pending.json supaya status tunggu tidak
+ * hilang saat plugin dimuat ulang (hot reload) atau bot restart. */
 const TUNGGU = new Map()
 const BATAS_TUNGGU = 10 * 60 * 1000
+const BERKAS_TUNGGU = path.join(process.cwd(), 'data', 'subdomain-pending.json')
 
 function kunci(m) {
   return `${m.chat}:${m.sender}`
 }
 
+function simpanDisk() {
+  try {
+    const isi = {}
+    for (const [k, v] of TUNGGU) isi[k] = v
+    fs.mkdirSync(path.dirname(BERKAS_TUNGGU), { recursive: true })
+    fs.writeFileSync(BERKAS_TUNGGU, JSON.stringify(isi, null, 2), { mode: 0o600 })
+  } catch (error) { }
+}
+
+function muatDisk() {
+  try {
+    const isi = JSON.parse(fs.readFileSync(BERKAS_TUNGGU, 'utf8'))
+    const sekarang = Date.now()
+    for (const [k, v] of Object.entries(isi || {})) {
+      if (!v || sekarang - Number(v.waktu || 0) > BATAS_TUNGGU) continue
+      if (!TUNGGU.has(k)) TUNGGU.set(k, v)
+    }
+  } catch (error) { }
+}
+
+/* Muat dari disk sekali saja; sesudah itu memori jadi acuan. */
+let sudahMuat = false
+function muatSekali() {
+  if (sudahMuat) return
+  sudahMuat = true
+  muatDisk()
+}
+
 function pasang(m, nama, mode = 'baru') {
   TUNGGU.set(kunci(m), { nama, mode, waktu: Date.now() })
+  simpanDisk()
+}
+
+function hapus(m) {
+  TUNGGU.delete(kunci(m))
+  simpanDisk()
 }
 
 function ambil(m) {
+  muatSekali()
   const data = TUNGGU.get(kunci(m))
   if (!data) return null
-  if (Date.now() - data.waktu > BATAS_TUNGGU) {
-    TUNGGU.delete(kunci(m))
+  if (Date.now() - Number(data.waktu || 0) > BATAS_TUNGGU) {
+    hapus(m)
     return null
   }
   return data
@@ -182,6 +230,10 @@ let handler = async (m, extra = {}) => {
       }
     }
 
+    /* Kalau berkasnya ikut di pesan yang sama (dokumen + caption perintah),
+     * langsung diproses tanpa perlu kirim ulang. */
+    if (adaLampiran(m)) return prosesTunggu(conn, m, { nama, mode, waktu: Date.now() })
+
     pasang(m, nama, mode)
     return m.reply([
       `🌐 Siap deploy ke *${hostUtama(nama)}*`,
@@ -273,40 +325,38 @@ let handler = async (m, extra = {}) => {
   }
 }
 
-/* Menangkap balasan berkas / kode HTML selama menunggu deploy. */
-handler.all = async function (m) {
-  const tunggu = ambil(m)
-  if (!tunggu) return
-  const conn = this
-  const teks = String(m.text || '')
-  const adaDokumen = Boolean(m.mimetype || m.msg?.documentMessage || m.quoted?.mimetype)
+/**
+ * Proses kiriman user selagi menunggu deploy.
+ * Dipanggil dari dua jalur:
+ *   1. handler.js lewat registry aksi tertunda (jalur utama — termasuk chat
+ *      pribadi tanpa prefix, yang dulu membuat bot diam total)
+ *   2. hook `handler.all` (cadangan untuk grup)
+ */
+async function prosesTunggu(conn, m, tunggu) {
+  const teks = captionLampiran(m) || String(m.text || '')
+  const berkasAda = adaLampiran(m)
+  if (!berkasAda && !tampakHtml(teks)) return false
 
-  if (!adaDokumen && !/<[a-z!/]/i.test(teks)) return
-
-  TUNGGU.delete(kunci(m))
-  await m.reply(`⏳ Mengunggah ke *${hostUtama(tunggu.nama)}*...`)
-
-  let buffer = null
-  let namaBerkas = ''
-  if (adaDokumen) {
-    const sumber = m.mimetype ? m : m.quoted
-    try { buffer = await sumber.download() } catch (error) { }
-    if (!buffer && typeof conn.downloadMediaMessage === 'function') {
-      try { buffer = await conn.downloadMediaMessage(sumber) } catch (error) { }
-    }
-    namaBerkas = String(sumber?.filename || sumber?.msg?.fileName || '')
-  }
+  hapus(m)
+  await m.reply(`⏳ Menerima berkas... mengunggah ke *${hostUtama(tunggu.nama)}*`).catch(() => { })
 
   try {
-    const berkas = siapkanBerkas(buffer, namaBerkas, adaDokumen ? '' : teks)
+    let buffer = null
+    let nama = ''
+    if (berkasAda) {
+      buffer = await unduhLampiran(conn, m)
+      nama = namaBerkasLampiran(m)
+      if (!buffer) throw new Error('Berkas tidak bisa diunduh. Coba kirim ulang (jangan sebagai dokumen besar).')
+    }
+    const daftarBerkas = siapkanBerkas(buffer, nama, berkasAda ? '' : teks)
     const hasil = await deploySubdomain({
       nama: tunggu.nama,
-      berkas,
+      berkas: daftarBerkas,
       pemilik: String(m.sender || ''),
       judul: String(m.pushName || '').slice(0, 40),
       mode: tunggu.mode,
     })
-    return m.reply([
+    await m.reply([
       '✅ *DEPLOY BERHASIL*',
       '',
       `🌐 ${hasil.url}`,
@@ -316,10 +366,34 @@ handler.all = async function (m) {
       'Catatan: DNS butuh ±10–30 detik. Kalau belum terbuka, tunggu lalu muat ulang.',
       `Kontrol: .kontrol-subdomain ${hasil.nama}`,
     ].join('\n'))
+    return true
   } catch (error) {
     TUNGGU.set(kunci(m), tunggu)
-    return m.reply(`❌ Deploy gagal: ${error?.message || error}\n\nCoba kirim ulang berkasnya (maks 10 menit).`)
+    simpanDisk()
+    await m.reply(`❌ Deploy gagal: ${error?.message || error}\n\nCoba kirim ulang berkasnya (maks 10 menit).`).catch(() => { })
+    return true
   }
+}
+
+/* Jalur utama: dipanggil handler.js SEBELUM gerbang prefix chat pribadi. */
+daftarkanAksi('subdomain-deploy', (m) => {
+  const tunggu = ambil(m)
+  if (!tunggu) return null
+  const teks = captionLampiran(m) || String(m.text || '')
+  if (!adaLampiran(m) && !tampakHtml(teks)) return null
+  return {
+    jalankan: function (msg) {
+      return prosesTunggu(this, msg || m, tunggu)
+    },
+  }
+})
+
+/* Cadangan: hook all (mis. di grup, atau bila registry tidak terpasang). */
+handler.all = async function (m) {
+  const tunggu = ambil(m)
+  if (!tunggu) return
+  if (!adaLampiran(m) && !tampakHtml(captionLampiran(m) || String(m.text || ''))) return
+  return prosesTunggu(this, m, tunggu)
 }
 
 handler.help = ['deploysubdomain nama', 'ceksubdomain', 'kontrol-subdomain nama', 'subdomainmenu']
