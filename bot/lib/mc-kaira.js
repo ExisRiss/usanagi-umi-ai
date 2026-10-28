@@ -46,7 +46,48 @@ export function konfigSiap() {
   return Boolean(cfg && cfg.panelUrl && cfg.apiKey && cfg.serverId)
 }
 
-function permintaan(method, jalur, isi = null, timeoutMs = 20000) {
+const TUNGGU = (ms) => new Promise((selesai) => setTimeout(selesai, ms))
+
+/** Pesan galat panel yang ramah (dipakai plugin untuk membalas ke user). */
+export function pesanGalatPanel(error) {
+  const status = Number(error?.status || 0)
+  if (status === 502 || status === 503 || status === 504) {
+    return `Panel Minecraft sedang sibuk (HTTP ${status}). Coba lagi 10–30 detik lagi.`
+  }
+  if (status === 401 || status === 403) {
+    return 'API key panel Minecraft ditolak. Cek data/mc-kaira.json.'
+  }
+  if (status === 404) return 'Server Minecraft tidak ditemukan di panel (id server salah).'
+  const pesan = String(error?.message || error || '')
+  if (/timeout|ETIMEDOUT|ECONNRESET|socket hang up/i.test(pesan)) {
+    return 'Panel Minecraft tidak merespons (jaringan lambat). Coba lagi sebentar.'
+  }
+  return pesan || 'Gagal menghubungi panel Minecraft.'
+}
+
+/**
+ * Permintaan ke panel dengan percobaan ulang.
+ * Panel kadang membalas 502 sesaat (server baru restart / node sibuk);
+ * percobaan kedua hampir selalu berhasil, jadi galat tidak perlu sampai ke chat.
+ */
+async function permintaan(method, jalur, isi = null, timeoutMs = 20000) {
+  const percobaan = 3
+  let terakhir = null
+  for (let ke = 0; ke < percobaan; ke++) {
+    try {
+      return await permintaanSekali(method, jalur, isi, timeoutMs)
+    } catch (error) {
+      terakhir = error
+      const status = Number(error?.status || 0)
+      const sementara = status >= 500 || !status || /timeout|ECONNRESET|socket hang up|EAI_AGAIN/i.test(String(error?.message || ''))
+      if (!sementara || ke === percobaan - 1) break
+      await TUNGGU(600 * (ke + 1))
+    }
+  }
+  throw Object.assign(terakhir || new Error('Panel tidak merespons.'), { ramah: pesanGalatPanel(terakhir) })
+}
+
+function permintaanSekali(method, jalur, isi = null, timeoutMs = 20000) {
   const cfg = bacaKonfig()
   if (!cfg) return Promise.reject(new Error('Konfigurasi server Minecraft belum dipasang.'))
   const url = new URL(cfg.panelUrl + jalur)
@@ -472,7 +513,18 @@ const bentukBita = (bita) => {
 }
 
 export async function statusLengkap() {
-  const [detail, sumber] = await Promise.all([detailServer(), sumberDaya()])
+  /* Tahan banting: satu endpoint panel yang gagal (mis. 502 sesaat) tidak
+   * boleh membuat seluruh .statusmc/.mcjoin error di chat. Bagian yang gagal
+   * diganti nilai kosong + ditandai `sebagian`. */
+  const [detail, sumber] = await Promise.all([
+    detailServer().catch(() => null),
+    sumberDaya().catch(() => null),
+  ])
+  if (!detail && !sumber) {
+    const galat = new Error('Panel Minecraft tidak bisa dihubungi.')
+    galat.ramah = 'Panel Minecraft sedang tidak bisa dihubungi. Coba lagi beberapa detik lagi.'
+    throw galat
+  }
   const { host, port } = alamatJoin(detail)
   const konsol = await sinkronRiwayat().catch(() => ({ online: [], jumlahOnline: 0, maksimal: 0, versi: '', level: '', galatTerakhir: [], riwayatBaru: bacaRiwayat() }))
   const riwayat = bacaRiwayat()
@@ -480,11 +532,12 @@ export async function statusLengkap() {
   return {
     nama: bacaKonfig()?.label || detail?.name || 'Minecraft Server',
     panelNama: detail?.name || '',
-    state: (String(sumber.state).toLowerCase() === 'starting' && konsol.berjalan) ? 'running' : sumber.state,
-    cpu: sumber.cpu,
-    memori: bentukBita(sumber.memoriBita),
-    disk: bentukBita(sumber.diskBita),
-    uptime: bentukUptime(sumber.uptime),
+    state: (String(sumber?.state || 'unknown').toLowerCase() === 'starting' && konsol.berjalan) ? 'running' : (sumber?.state || 'unknown'),
+    cpu: Number(sumber?.cpu || 0),
+    memori: bentukBita(sumber?.memoriBita || 0),
+    disk: bentukBita(sumber?.diskBita || 0),
+    uptime: bentukUptime(sumber?.uptime || 0),
+    sebagian: !detail || !sumber,
     host,
     port,
     versi: konsol.versi || '-',
