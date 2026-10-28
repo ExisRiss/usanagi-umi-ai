@@ -126,3 +126,12 @@ test('subdomain: zip tanpa index.html ditolak', () => {
   const buf = buatZip('tanpa.zip', [['halo.txt', 'x']])
   assert.throws(() => siapkanBerkas(buf, 'tanpa.zip', ''), /index\.html/)
 })
+
+test('galat panel 502 diubah jadi pesan ramah', async () => {
+  const { pesanGalatPanel } = await import('../lib/mc-kaira.js')
+  assert.match(pesanGalatPanel({ status: 502 }), /sibuk/i)
+  assert.match(pesanGalatPanel({ status: 503 }), /sibuk/i)
+  assert.match(pesanGalatPanel({ status: 401 }), /API key/i)
+  assert.match(pesanGalatPanel({ message: 'timeout' }), /tidak merespons/i)
+  assert.match(pesanGalatPanel({ status: 404 }), /tidak ditemukan/i)
+})
