@@ -258,6 +258,13 @@ export function siapkanBerkas(buffer, namaBerkas = '', teks = '') {
     return [{ jalur: /index\.html?$/i.test(nama) ? 'index.html' : nama, data: buffer }]
   }
 
+  /* Task136 — sebagian client mengirim berkas tanpa nama (filename kosong).
+   * Kalau isinya jelas HTML, perlakukan sebagai index.html, jangan ditolak. */
+  const awal = buffer.slice(0, 512).toString('utf8').replace(/^\uFEFF/, '').trim().toLowerCase()
+  if (/^(<!doctype html|<html|<head|<body|<!--|<style|<script)/.test(awal)) {
+    return [{ jalur: 'index.html', data: buffer }]
+  }
+
   const arsip = bacaArsip(buffer, namaBerkas)
   const berkas = arsip.berkas
     .map((item) => ({ jalur: amanJalur(item.jalur), data: item.data }))
