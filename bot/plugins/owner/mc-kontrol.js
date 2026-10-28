@@ -40,6 +40,8 @@ import {
   detailServer,
 } from '../../lib/mc-kaira.js'
 import { pasangAddon, hapusAddon, daftarAddon } from '../../lib/mc-addon.js'
+import { adaLampiran, unduhLampiran, namaBerkasLampiran } from '../../lib/lampiran.js'
+import { daftarkanAksi } from '../../lib/pending-aksi.js'
 
 const GAMBAR_LOGO = [path.join(process.cwd(), 'assets', 'menu', 'logo.jpg'), path.join(process.cwd(), 'assets', 'image', 'dok.jpg')]
 
@@ -265,20 +267,59 @@ async function pilihOperator(m, conn, status) {
 }
 
 /** Unduh berkas dari pesan yang dibalas. */
-async function unduhLampiran(m, conn) {
-  const sumber = m.quoted || m
-  let buffer = null
-  try {
-    if (typeof sumber.download === 'function') buffer = await sumber.download()
-  } catch (error) { }
-  if (!buffer && typeof conn.downloadMediaMessage === 'function') {
-    try { buffer = await conn.downloadMediaMessage(sumber) } catch (error) { }
-  }
-  if (!buffer && Buffer.isBuffer(sumber.data)) buffer = sumber.data
-  const nama = String(sumber.filename || sumber?.msg?.fileName || sumber?.mimetype?.replace(/^.*\//, '') || '').trim()
-  const mime = String(sumber.mimetype || '')
-  return { buffer: Buffer.isBuffer(buffer) ? buffer : null, nama, mime }
+/* ── menunggu berkas addon ────────────────────────────────────────────── */
+/* Sama seperti deploy subdomain: setelah `.addaddon` bot menunggu berkas.
+ * Pesan berkas tanpa prefix tidak sampai ke plugin, jadi didaftarkan sebagai
+ * aksi tertunda yang diperiksa handler.js lebih dulu. */
+const TUNGGU_ADDON = new Map()
+const BATAS_ADDON = 10 * 60 * 1000
+const kunciAddon = (m) => `${m.chat}:${m.sender}`
+
+function pasangAddonTunggu(m) {
+  TUNGGU_ADDON.set(kunciAddon(m), { waktu: Date.now(), level: '' })
 }
+
+function ambilAddonTunggu(m) {
+  const data = TUNGGU_ADDON.get(kunciAddon(m))
+  if (!data) return null
+  if (Date.now() - Number(data.waktu || 0) > BATAS_ADDON) {
+    TUNGGU_ADDON.delete(kunciAddon(m))
+    return null
+  }
+  return data
+}
+
+async function prosesAddon(conn, m) {
+  const buffer = await unduhLampiran(conn, m)
+  if (!buffer) {
+    await m.reply('❌ Berkas tidak bisa diunduh. Kirim ulang sebagai dokumen (.mcaddon/.mcpack/.zip).').catch(() => { })
+    return true
+  }
+  TUNGGU_ADDON.delete(kunciAddon(m))
+  const nama = namaBerkasLampiran(m)
+  let status
+  try { status = await statusLengkap() } catch (error) { status = { level: '' } }
+  try {
+    await m.reply('⏳ Memasang addon...').catch(() => { })
+    const hasil = await pasangAddon(buffer, nama, status.level)
+    const baris = hasil.packs.map((p) => `• *${p.nama}* (${p.jenis}) — ${p.berkas} berkas${p.terdaftar ? ', terdaftar di dunia' : ''}`)
+    await m.reply(['🧩 *Addon terpasang*', '', ...baris, '', 'Restart server dengan `.mcrestart` supaya addon aktif.'].join('\n'))
+  } catch (error) {
+    await m.reply(`❌ Gagal memasang addon: ${error?.message || error}`).catch(() => { })
+  }
+  return true
+}
+
+daftarkanAksi('mc-addon', (m) => {
+  const tunggu = ambilAddonTunggu(m)
+  if (!tunggu) return null
+  if (!adaLampiran(m)) return null
+  return {
+    jalankan: function (msg) {
+      return prosesAddon(this, msg || m)
+    },
+  }
+})
 
 let handler = async (m, extra = {}) => {
   const { conn, args = [], command = '', text = '', isROwner, isOwner } = extra
@@ -446,8 +487,23 @@ let handler = async (m, extra = {}) => {
 
   if (command === 'addaddon') {
     if (!dev) return m.reply('🔒 Menambah addon hanya untuk developer.')
-    const { buffer, nama } = await unduhLampiran(m, conn)
-    if (!buffer) return m.reply('Balas berkas *.mcaddon*, *.mcpack*, atau *.zip* dengan perintah .addaddon')
+    if (!adaLampiran(m)) {
+      /* Belum ada berkas: minta user mengirim berkasnya sekarang. */
+      pasangAddonTunggu(m)
+      return m.reply([
+        '🧩 *Pasang addon*',
+        '',
+        'Kirim berkasnya sekarang (maks 10 menit):',
+        '• *.mcaddon* — addon lengkap (behaviour + resource)',
+        '• *.mcpack* — satu pack saja',
+        '• *.zip* — isi folder yang ada manifest.json',
+        '',
+        'Bisa juga: balas berkas itu dengan `.addaddon`',
+      ].join('\n'))
+    }
+    const buffer = await unduhLampiran(conn, m)
+    const nama = namaBerkasLampiran(m)
+    if (!buffer) return m.reply('❌ Berkas tidak bisa diunduh. Coba kirim ulang sebagai dokumen.')
     let status
     try { status = await statusLengkap() } catch (error) { status = { level: '' } }
     try {
