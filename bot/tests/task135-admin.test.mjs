@@ -40,22 +40,22 @@ test('waktuDi mengikuti zona dan jatuh ke Asia/Jakarta untuk zona tak dikenal', 
 
 test('settime buka & tutup menyimpan jadwal, format salah ditolak', async () => {
   const f = fixture({ jid: 'sett@g.us' })
-  await panggil(f.m, 'settime', ['buka', '08:00'])
+  await panggil(f.m, 'settime', ['buka', '08:00'], { isAdmin: true })
   assert.equal(global.db.data.chats['sett@g.us'].openTime, '08:00')
-  await panggil(f.m, 'settime', ['tutup', '22:30'])
+  await panggil(f.m, 'settime', ['tutup', '22:30'], { isAdmin: true })
   assert.equal(global.db.data.chats['sett@g.us'].closeTime, '22:30')
 
   const sebelum = f.balasan.length
-  await panggil(f.m, 'settime', ['tutup', '25:99'])
+  await panggil(f.m, 'settime', ['tutup', '25:99'], { isAdmin: true })
   assert.equal(global.db.data.chats['sett@g.us'].closeTime, '22:30', 'jadwal lama tidak boleh berubah')
   assert.match(f.balasan[sebelum], /format jam salah/i)
 })
 
 test('setzona menyimpan zona valid dan menolak zona palsu', async () => {
   const f = fixture({ jid: 'zona@g.us' })
-  await panggil(f.m, 'setzona', ['Asia/Makassar'])
+  await panggil(f.m, 'setzona', ['Asia/Makassar'], { isAdmin: true })
   assert.equal(global.db.data.chats['zona@g.us'].timezone, 'Asia/Makassar')
-  await panggil(f.m, 'setzona', ['Bukan/Zona'])
+  await panggil(f.m, 'setzona', ['Bukan/Zona'], { isAdmin: true })
   assert.equal(global.db.data.chats['zona@g.us'].timezone, 'Asia/Makassar')
   assert.match(f.balasan[f.balasan.length - 1], /zona tidak dikenal/i)
 })
@@ -155,4 +155,9 @@ test('role admin di database boleh memakai perintah jadwal walau bukan admin gru
   await panggil(g.m, 'tutupgc', [], { isAdmin: false, isOwner: false })
   assert.match(g.balasan.at(-1), /khusus admin grup atau owner bot/i)
   assert.equal(g.update.length, 0)
+
+  // anggota biasa juga tidak boleh mengubah jadwal
+  await panggil(g.m, 'settime', ['buka', '05:00'], { isAdmin: false, isOwner: false })
+  assert.match(g.balasan.at(-1), /khusus admin grup atau owner bot/i)
+  assert.equal(global.db.data.chats['gate2@g.us'].openTime, undefined)
 })
