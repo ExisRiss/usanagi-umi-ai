@@ -360,3 +360,69 @@ textarea:focus-visible {
   padding-left: max(clamp(14px, 3vw, 42px), env(safe-area-inset-left));
   padding-right: max(clamp(14px, 3vw, 42px), env(safe-area-inset-right));
 }
+
+/* ═══ GAME PORTAL — Task207(3): selaraskan tampilan dengan game.gwenna.my.id ═══
+ * Nuansa situs game owner (spidergame/game3d): dasar near-black, aksen neon
+ * cyan, tombol emas ala tombol PLAY, judul arcade Archivo huruf besar bercahaya.
+ * Murni lapisan tema — struktur DOM & tata letak tidak diubah. */
+:root {
+  --paper:#0a0c10;
+  --white:#10151d;
+  --cyan:#35d0ff;
+  --yellow:#ffd23a;
+  --pink:#ff8ac2;
+  --lime:#7dff9b;
+  --muted:#8fa3bd;
+  --line:1px solid rgba(53,208,255,.22);
+}
+html, body { background:#0a0c10; }
+h1, h2, h3, h4, .workspace-head h2, .tutorial-head h2, .stat b, .brand strong {
+  font-family:Archivo,sans-serif;
+}
+h1, h2 { text-transform:uppercase; }
+h1 { text-shadow:0 0 18px rgba(53,208,255,.55), 4px 4px 0 rgba(0,0,0,.6); }
+h1 em { color:#35d0ff; text-shadow:0 0 22px rgba(53,208,255,.85); }
+h2 { text-shadow:0 0 14px rgba(53,208,255,.35), 3px 3px 0 rgba(0,0,0,.55); }
+.topbar, .app-mode .topbar {
+  background:rgba(8,10,14,.93);
+  border-bottom:1px solid rgba(53,208,255,.38);
+  box-shadow:0 0 26px rgba(53,208,255,.16);
+}
+.topbar nav a, .topbar nav button {
+  border-radius:10px; letter-spacing:.05em; text-transform:uppercase; font-size:10.5px;
+}
+.topbar nav a:hover, .topbar nav button:hover, .topbar nav a.active {
+  background:rgba(53,208,255,.14); border-color:rgba(53,208,255,.45);
+  color:#fff; box-shadow:0 0 14px rgba(53,208,255,.28);
+}
+.nav-toggle, .icon-btn { background:#121a24; border-color:rgba(53,208,255,.3); }
+.btn-primary, .btn-yellow {
+  background:linear-gradient(135deg,#ffd23a,#ff9d3a); color:#171106; border-color:transparent;
+  box-shadow:0 8px 24px rgba(255,190,58,.3); text-transform:uppercase; letter-spacing:.05em;
+}
+.btn-primary:hover, .btn-yellow:hover { filter:brightness(1.07); box-shadow:0 10px 30px rgba(255,190,58,.42); }
+.btn-glass {
+  background:rgba(53,208,255,.1); border-color:rgba(53,208,255,.32); color:#d9f4ff;
+  text-transform:uppercase; letter-spacing:.04em;
+}
+.hero-card, .glass-card, .auth-card, .panel, .stat, .feature-strip article,
+.feedback-item, .list-item, .cover, .block, .tutorial-card, .workspace-head {
+  background:linear-gradient(160deg,rgba(16,21,29,.96),rgba(10,13,18,.98));
+  border:1px solid rgba(53,208,255,.2);
+}
+.hero-card:hover, .panel:hover, .stat:hover, .tutorial-card:hover {
+  border-color:rgba(53,208,255,.42);
+}
+.eyebrow { background:linear-gradient(135deg,#ffd23a,#ffb13a); color:#171106; border-radius:6px; }
+.feature-strip b { background:linear-gradient(135deg,#35d0ff,#4f8cff); border-radius:6px; color:#04121b; }
+.stat b { color:#35d0ff; text-shadow:0 0 16px rgba(53,208,255,.5); }
+.pair-code { background:#05070b; color:#35d0ff; text-shadow:0 0 16px rgba(53,208,255,.65); }
+.terminal { background:#05070b; border-color:rgba(53,208,255,.3); }
+.scene { background-color:#05070b; }
+.scene-shade { background:linear-gradient(110deg,rgba(4,6,10,.93),rgba(6,14,22,.72) 55%,rgba(4,7,12,.9)); }
+input:focus, select:focus, textarea:focus { outline:2px solid rgba(53,208,255,.7); }
+th { background:linear-gradient(135deg,#16233a,#101722); color:#ffe9a3; letter-spacing:.04em; }
+.notice { background:rgba(255,210,58,.13); border:1px solid rgba(255,210,58,.42); color:#ffe9a3; }
+.toast { background:linear-gradient(135deg,#7dff9b,#35d0ff); color:#06120c; border-radius:12px; }
+.toast.error { background:linear-gradient(135deg,#ff6b6b,#ff8ac2); color:#20060c; }
+.chip { background:rgba(53,208,255,.12); border-color:rgba(53,208,255,.3); }

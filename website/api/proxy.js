@@ -2,6 +2,18 @@ import { assertBodySize, enforceSameOrigin, rateLimit, securityHeaders } from '.
 import { getBotApiConfig } from './_bot-config.js'
 import { requestBot } from './_bot-transport.js'
 
+/* Task207 — peredam502 saat bot restart.
+ * Bukti: /api/proxy?path=health menembak502 begitu backend tidak terjangkau
+ * (lihat requestBot → BOT_UNREACHABLE), sehingga dashboard ikut merah tiap
+ * bot dinyalakan ulang. Dua lapis:
+ *   1. metode idempoten (GET/HEAD) dicoba ulang sekali setelah jeda350ms;
+ *   2. jawaban health terakhir (≤5 menit) disimpan sebagai cadangan dan
+ *      disajikan lagi bila backend hanya sebentar tidak ada — ditandai
+ *      header X-Umi-Health-Stale (detik sejak jawaban asli).
+ * Mutasi (POST/PATCH/DELETE) tidak pernah diulang supaya tidak dobel. */
+let healthTerakhir = null
+const CADANGAN_SEHAT_MS = 5 * 60 * 1000
+
 const ALLOWED_METHODS = new Set(['GET', 'HEAD', 'POST', 'PATCH', 'DELETE', 'OPTIONS'])
 const ALLOWED_PATHS = new Set([
   'health', 'sessions', 'session/pairing', 'session/status', 'session/restart',
@@ -84,8 +96,25 @@ export default async function handler(req, res) {
     headers['Content-Type'] ||= 'application/json'
   }
 
+  const idempoten = req.method === 'GET' || req.method === 'HEAD'
+  const timeoutMs = path === 'health' ? 8000 : 45000
   try {
-    const { response: upstream, raw } = await requestBot(target, options, path === 'health' ? 8000 : 45000)
+    let hasil
+    try {
+      hasil = await requestBot(target, options, timeoutMs)
+    } catch (error) {
+      const bolosJaringan = error && error.code === 'BOT_UNREACHABLE'
+      if (!idempoten || !bolosJaringan) throw error
+      await new Promise(resolve => setTimeout(resolve, 350))
+      hasil = await requestBot(target, options, timeoutMs)
+    }
+    const { response: upstream, raw } = hasil
+    if (path === 'health' && upstream.status >= 500) {
+      throw Object.assign(new Error('Backend Umi belum sehat. Coba lagi sebentar.'), { status: 503, code: 'BOT_UNHEALTHY' })
+    }
+    if (path === 'health' && upstream.status >= 200 && upstream.status < 300) {
+      healthTerakhir = { at: Date.now(), raw, contentType: upstream.headers.get('content-type') }
+    }
     const data = Buffer.from(raw)
     res.status(upstream.status)
     res.setHeader('Content-Type', upstream.headers.get('content-type') || 'application/json; charset=utf-8')
@@ -93,6 +122,14 @@ export default async function handler(req, res) {
     res.setHeader('X-Umi-Config-Version', botConfig.version)
     return req.method === 'HEAD' ? res.end() : res.send(data)
   } catch (error) {
+    if (path === 'health' && healthTerakhir && Date.now() - healthTerakhir.at <= CADANGAN_SEHAT_MS) {
+      res.status(200)
+      res.setHeader('Content-Type', healthTerakhir.contentType || 'application/json; charset=utf-8')
+      res.setHeader('Cache-Control', 'no-store')
+      res.setHeader('X-Umi-Health-Stale', String(Math.round((Date.now() - healthTerakhir.at) / 1000)))
+      res.setHeader('X-Umi-Config-Version', botConfig.version)
+      return req.method === 'HEAD' ? res.end() : res.send(Buffer.from(healthTerakhir.raw))
+    }
     return res.status(error.status || 502).json({ error: error.message, code: error.code || 'BOT_UNREACHABLE' })
   }
 }
